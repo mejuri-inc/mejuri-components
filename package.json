@@ -1,4 +1,8 @@
 {
+  "name": "@mejuri-inc/mejuri-components",
+  "version": "1.0.9",
+  "description": "Mejuri Components",
+  "main": "index.js",
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -19,5 +23,18 @@
   "scripts": {
     "start": "styleguidist server",
     "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mejuri-inc/mejuri-components.git"
+  },
+  "author": "patricio.mase@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mejuri-inc/mejuri-components/issues"
+  },
+  "homepage": "https://github.com/mejuri-inc/mejuri-components#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
