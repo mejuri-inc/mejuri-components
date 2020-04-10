@@ -4,25 +4,24 @@ Shared mejuri components across our applications.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Getting the app up and working is so simple as:
 
 ```
-Give the example
+yarn install
 ```
 
-And repeat
+See Demo component for basic understanding.
 
+## Running the app
 ```
-until finished
+yarn start
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+```
+yarn test
+```
 
 ## Deployment
 

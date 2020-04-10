@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@testing-library/react": "^10.0.2",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "jest": "^25.3.0",
+    "react-styleguidist": "^11.0.5",
+    "webpack": "^4.42.1"
+  },
+  "scripts": {
+    "start": "styleguidist server",
+    "test": "jest"
+  }
+}
