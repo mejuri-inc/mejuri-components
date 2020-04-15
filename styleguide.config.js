@@ -1,5 +1,5 @@
 module.exports = {
-  components: 'src/components/**/index.js',
+  components: 'src/components/*/index.js',
   webpackConfig: {
     module: {
       rules: [
@@ -11,4 +11,5 @@ module.exports = {
       ]
     }
   },
+  pagePerSection: true,
 };
