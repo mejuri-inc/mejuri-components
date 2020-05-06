@@ -1,28 +1,30 @@
-# Mejuri Components
+# mejuri-components-2
 
-Shared mejuri components across our applications.
+> Mejuri components library
 
-### Installing
+[![NPM](https://img.shields.io/npm/v/mejuri-components-2.svg)](https://www.npmjs.com/package/mejuri-components-2) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Getting the app up and working is so simple as:
+## Install
 
-```
-yarn install
-```
-
-See Demo component for basic understanding.
-
-## Running the app
-```
-yarn start
+```bash
+npm install --save mejuri-components-2
 ```
 
-## Running the tests
+## Usage
 
+```jsx
+import React, { Component } from 'react'
+
+import MyComponent from 'mejuri-components-2'
+import 'mejuri-components-2/dist/index.css'
+
+class Example extends Component {
+  render() {
+    return <MyComponent />
+  }
+}
 ```
-yarn test
-```
 
-## Deployment
+## License
 
-Add additional notes about how to deploy this on a live system
+MIT © [](https://github.com/)
