@@ -12,6 +12,7 @@ Wrapper.displayName = 'HeaderMobileWrapper'
 
 export const Logo = styled.a`
   width: 160px;
+  height: 58px;
 `
 Logo.displayName = 'HeaderMobileLogo'
 

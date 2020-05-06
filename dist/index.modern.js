@@ -86,6 +86,7 @@ const Content$1 = styled.header(_t2$1 || (_t2$1 = _$1`
 Content$1.displayName = 'HeaderDesktopContent';
 const Logo = styled.a(_t3 || (_t3 = _$1`
   width: 180px;
+  height: 58px;
 `));
 Logo.displayName = 'HeaderDesktopLogo';
 const Menu = styled.div(_t4 || (_t4 = _$1`
@@ -4329,6 +4330,7 @@ const Wrapper$6 = styled.header(_t$9 || (_t$9 = _$9`
 Wrapper$6.displayName = 'HeaderMobileWrapper';
 const Logo$1 = styled.a(_t2$8 || (_t2$8 = _$9`
   width: 160px;
+  height: 58px;
 `));
 Logo$1.displayName = 'HeaderMobileLogo';
 const Menu$1 = styled.div(_t3$6 || (_t3$6 = _$9`
