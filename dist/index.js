@@ -118,7 +118,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 180px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 180px;\n  height: 58px;\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -4468,7 +4468,7 @@ function _templateObject3$6() {
 }
 
 function _templateObject2$8() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 160px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 160px;\n  height: 58px;\n"]);
 
   _templateObject2$8 = function _templateObject2() {
     return data;
