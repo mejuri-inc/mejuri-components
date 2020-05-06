@@ -1,4 +1,4 @@
-# mejuri-components-2
+# mejuri-components
 
 > Mejuri components library
 
@@ -6,21 +6,28 @@
 
 ## Install
 
-```bash
-npm install --save mejuri-components-2
+### Add dependency to your package
+```js
+"@mejuri-inc/mejuri-components": "git+ssh://git@github.com:mejuri-inc/mejuri-components.git#{branch-name}"
 ```
+
+### Run 
+```bash 
+yarn install
+```
+
+## Develop
+To develop and test in live mode run yarn start in both project: the root library and the example project
 
 ## Usage
 
 ```jsx
 import React, { Component } from 'react'
-
-import MyComponent from 'mejuri-components-2'
-import 'mejuri-components-2/dist/index.css'
+import { Header } from '@mejuri-inc/mejuri-components'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Header />
   }
 }
 ```
