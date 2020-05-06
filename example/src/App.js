@@ -1,9 +1,7 @@
 import React from 'react'
 import { IntlProvider } from 'react-intl'
-import { Header } from 'mejuri-components-2'
+import { Header } from 'mejuri-components'
 import messages from './messages'
-import 'mejuri-components-2/dist/index.css'
-
 
 const App = () => {
   const user = { "isGuest" : false, "nameOrEmail" : "joa"};

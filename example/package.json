@@ -1,6 +1,6 @@
 {
   "name": "mejuri-components-example",
-  "homepage": "https://.github.io/mejuri-components-2",
+  "homepage": "https://.github.io/mejuri-components",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
@@ -9,7 +9,7 @@
     "react-scripts": "link:../node_modules/react-scripts",
     "styled-components": "link:../node_modules/styled-components",
     "react-intl": "link:../node_modules/react-intl",
-    "mejuri-components-2": "link:.."
+    "mejuri-components": "link:.."
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
