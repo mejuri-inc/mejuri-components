@@ -85,7 +85,7 @@ export class MobileMenu extends React.Component {
     if (!menuOptions) return null
 
     return (
-      <>
+      <div>
         <Overlay isOpen={isOpen} onClick={this.toggleMenuState} />
         <NavigationPanel isOpen={isOpen}>
           <MobileMenuHeader
@@ -135,7 +135,7 @@ export class MobileMenu extends React.Component {
             </MobileMenuSubPage>
           </Pages>
         </NavigationPanel>
-      </>
+      </div>
     )
   }
 }
