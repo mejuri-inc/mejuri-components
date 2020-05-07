@@ -11,6 +11,14 @@
 "@mejuri-inc/mejuri-components": "git+ssh://git@github.com:mejuri-inc/mejuri-components.git#{branch-name}"
 ```
 
+### Add private mejuri-inc github package registry
+Create .yarnrc file in the root of your project with the content below:
+```js
+"@mejuri-inc:registry" "https://npm.pkg.github.com"
+```
+
+Login to registry using with your own github token. See https://help.github.com/es/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages# 
+
 ### Run 
 ```bash 
 yarn install
@@ -31,6 +39,13 @@ class Example extends Component {
   }
 }
 ```
+
+## Deploy
+Update version number in package.json and then run:
+```sh
+npm deploy
+```
+
 
 ## License
 
