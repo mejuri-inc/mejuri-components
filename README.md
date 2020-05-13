@@ -43,7 +43,8 @@ class Example extends Component {
 ## Deploy
 Update version number in package.json and then run:
 ```sh
-npm deploy
+npm run publish
+npm run deploy
 ```
 
 

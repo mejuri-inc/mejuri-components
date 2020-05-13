@@ -9,6 +9,7 @@ export const Wrapper = styled.button`
   outline: 0;
   border: none;
   cursor: pointer;
+  margin-top: 5px;
 `
 Wrapper.displayName = 'CartIconWrapper'
 
