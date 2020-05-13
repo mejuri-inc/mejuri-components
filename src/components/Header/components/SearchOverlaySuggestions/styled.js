@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fontWeight } from 'app/styles/settings'
+import { fontWeight } from '../../../../../styles/settings'
 
 export const Suggestions = styled.ul`
   list-style: none;

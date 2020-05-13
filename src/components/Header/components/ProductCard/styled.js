@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { bp } from 'packages/styled'
-import colors from 'app/styles/colors'
-import { fontWeight } from 'app/styles/settings'
+import { bp } from 'app/packages/styled'
+import colors from '../../../../styles/colors'
+import { fontWeight } from '../../../../styles/settings'
 
 export const Card = styled.a`
   display: flex;
