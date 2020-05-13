@@ -1,0 +1,41 @@
+import styled from 'styled-components'
+import colors from '../../../../../styles/colors'
+import { fontWeight } from '../../../../../styles/settings'
+
+export const Wrapper = styled.div`
+  display: inline-block;
+  letter-spacing: 0.025em;
+  width: 70%;
+`
+Wrapper.displayName = 'ItemPropertiesWrapper'
+
+export const Name = styled.h4`
+  font-size: 16px;
+  font-weight: ${fontWeight.regular};
+  letter-spacing: 0.025em;
+  margin: 0.8rem 0 0 0;
+  text-transform: none;
+
+  & > a {
+    color: ${colors.black};
+    text-decoration: none;
+  }
+`
+Name.displayName = 'ItemPropertiesName'
+
+export const Options = styled.p`
+  font-size: 14px;
+  line-height: 20px;
+  margin: 7px 0 0 0;
+`
+Options.displayName = 'ItemPropertiesOptions'
+
+export const PriceBox = styled.div`
+  align-items: center;
+  display: flex;
+  font-size: 13px;
+  font-weight: ${fontWeight.light};
+  justify-content: space-between;
+  margin-top: 0.7rem;
+`
+PriceBox.displayName = 'ItemPropertiesPriceBox'
