@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import colors from '../../../../../styles/colors'
+import colors from 'styles/colors'
 
 export const Wrapper = styled.div`
   background: ${colors.lightGray2};
@@ -14,7 +14,7 @@ export const InnerBar = styled.div`
   background: ${colors.beige};
   height: 5px;
   position: absolute;
-  right: ${p => `${100 - p.percentage}%`};
+  right: ${(p) => `${100 - p.percentage}%`};
   top: 0;
   transition: right 0.25s ease;
   width: 100%;

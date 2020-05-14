@@ -6,12 +6,21 @@ import MobileMenuSubPage from './components/MobileMenuSubPage'
 import MobileMenuStylingHelp from './components/MobileMenuStylingHelp'
 import MobileMenuSignOut from './components/MobileMenuSignOut'
 
-import { Overlay, NavigationPanel, Page, Pages, Options, Footer, FooterItem, Account } from './styled'
+import {
+  Overlay,
+  NavigationPanel,
+  Page,
+  Pages,
+  Options,
+  Footer,
+  FooterItem,
+  Account
+} from './styled'
 
 import menuOptions from './mock.js'
 
 export class MobileMenu extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -47,10 +56,11 @@ export class MobileMenu extends React.Component {
     if (this.refOptions) this.refOptions.scrollTop = 0
   }
 
-  transition = e => {
-    !this.state.subPageOpen && this.setState({
-      subPageIndex: null
-    })
+  transition = (e) => {
+    !this.state.subPageOpen &&
+      this.setState({
+        subPageIndex: null
+      })
   }
 
   handleAccountClick = () => {
@@ -63,7 +73,7 @@ export class MobileMenu extends React.Component {
     this.toggleMenuState()
   }
 
-  handleBagClick = e => {
+  handleBagClick = (e) => {
     const { toggleCart } = this.props
     toggleCart()
     setTimeout(() => this.toggleMenuState(), 300)
@@ -79,8 +89,14 @@ export class MobileMenu extends React.Component {
     this.setState({ subPageIndex: id, subPageOpen: true })
   }
 
-  render () {
-    const { menuOptions, itemQuantity, searchEnabled, isLoggedIn, isOpen } = this.props
+  render() {
+    const {
+      menuOptions,
+      itemQuantity,
+      searchEnabled,
+      isLoggedIn,
+      isOpen
+    } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
 
@@ -96,20 +112,32 @@ export class MobileMenu extends React.Component {
             glassClick={this.handleSearchClick}
             searchEnabled={searchEnabled}
           />
-          <Pages isOpen={subPageOpen} onTransitionEnd={this.state.subPage === null ? this.transition : () => {}}>
+          <Pages
+            isOpen={subPageOpen}
+            onTransitionEnd={
+              this.state.subPage === null ? this.transition : () => {}
+            }
+          >
             <Page>
-              <Options ref={r => { this.refOptions = r }}>
-                {menuOptions.main.map(o => <MobileMenuDrawer
-                  key={o.slug}
-                  toggle={() => this.setOpenDrawer(o.slug)}
-                  label={o.label}
-                  isOpen={this.state.openDrawer === o.slug}
-                  options={o.children}
-                  glassClick={this.handleSearchClick}
-                />
-                )}
+              <Options
+                ref={(r) => {
+                  this.refOptions = r
+                }}
+              >
+                {menuOptions.main.map((o) => (
+                  <MobileMenuDrawer
+                    key={o.slug}
+                    toggle={() => this.setOpenDrawer(o.slug)}
+                    label={o.label}
+                    isOpen={this.state.openDrawer === o.slug}
+                    options={o.children}
+                    glassClick={this.handleSearchClick}
+                  />
+                ))}
                 <Footer>
-                  <FooterItem onClick={() => this.openSubPage(0)}>Support</FooterItem>
+                  <FooterItem onClick={() => this.openSubPage(0)}>
+                    Support
+                  </FooterItem>
                   <Account onClick={this.handleAccountClick}>
                     {isLoggedIn ? 'Account' : 'Sign In / Sign Up'}
                   </Account>

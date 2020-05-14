@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import colors from '../../../../../styles/colors'
-import { fontWeight } from '../../../../../styles/settings'
+import colors from 'styles/colors'
+import { fontWeight } from 'styles/settings'
 
 export const Col = styled.div`
   font-size: 14px;

@@ -5,12 +5,8 @@ import PropTypes from 'prop-types'
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-export function Demo ({ text, upsideDown }) {
-  return (
-    <Button upsideDown={upsideDown} >
-      {text}
-    </Button>
-  )
+export function Demo({ text, upsideDown }) {
+  return <Button upsideDown={upsideDown}>{text}</Button>
 }
 
 Demo.propTypes = {

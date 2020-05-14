@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import colors from '../../../../styles/colors'
-import { fontWeight } from '../../../../styles/settings'
+import colors from 'styles/colors'
+import { fontWeight } from 'styles/settings'
 
 export const Wrapper = styled.section`
   background: transparent;
@@ -16,7 +16,7 @@ export const Content = styled.header`
   background-color: ${colors.white};
   font-size: 12px;
   font-weight: ${fontWeight.light};
-  height: ${p => p.shrinked ? '60px' : '80px'};
+  height: ${(p) => (p.shrinked ? '60px' : '80px')};
   letter-spacing: 1.2px;
   position: relative;
   text-transform: uppercase;
@@ -29,7 +29,7 @@ export const Logo = styled.a`
   height: 58px;
   img {
     height: 100%;
-   }
+  }
 `
 Logo.displayName = 'HeaderDesktopLogo'
 
@@ -53,7 +53,7 @@ Item.displayName = 'HeaderDesktopItem'
 
 export const Overlay = styled.div`
   bottom: 0;
-  display: ${p => p.isVisible ? 'block' : 'none'};
+  display: ${(p) => (p.isVisible ? 'block' : 'none')};
   opacity: 0.5;
   height: 100%;
   left: 0;

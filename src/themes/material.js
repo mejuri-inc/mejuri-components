@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles'
-import { fontWeight } from '../styles/settings'
-import colors from '../styles/colors'
+import { fontWeight } from 'styles/settings'
+import colors from 'styles/colors'
 
 export default createMuiTheme({
   shadows: Array(25).fill('none'),
@@ -13,10 +13,7 @@ export default createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: [
-      'Brandon Grotesque',
-      'sans-serif'
-    ].join(',')
+    fontFamily: ['Brandon Grotesque', 'sans-serif'].join(',')
   },
   overrides: {
     MuiButton: {

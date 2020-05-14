@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const SubPage = styled.div`
   height: 100%;
-  display: ${p => p.active ? 'initial' : 'none'};
+  display: ${(p) => (p.active ? 'initial' : 'none')};
   padding: 0 25px;
   position: absolute;
   right: 0;

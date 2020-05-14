@@ -3,14 +3,17 @@ import PropTypes from 'prop-types'
 import throttle from 'lodash/throttle'
 
 export class ScrollBreakpoint extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
       breakpointReached: false
     }
 
-    this.throttledCheckPosition = throttle(this.checkPosition, props.lapse || 500)
+    this.throttledCheckPosition = throttle(
+      this.checkPosition,
+      props.lapse || 500
+    )
   }
 
   checkPosition = () => {
@@ -25,15 +28,15 @@ export class ScrollBreakpoint extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     document.addEventListener('scroll', this.throttledCheckPosition)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.removeEventListener('scroll', this.throttledCheckPosition)
   }
 
-  render () {
+  render() {
     const { children } = this.props
     const { breakpointReached } = this.state
     return children(breakpointReached)

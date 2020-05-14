@@ -15,10 +15,11 @@ export const SearchOverlaySuggestions = ({ search, loading, suggestions }) => {
   return (
     <Suggestions loading={loading}>
       <Suggestion>Top Search:</Suggestion>
-      {suggestions.map(s => (
+      {suggestions.map((s) => (
         <Suggestion key={s}>
           <button onClick={() => search(s)}>{s}</button>
-        </Suggestion>))}
+        </Suggestion>
+      ))}
     </Suggestions>
   )
 }

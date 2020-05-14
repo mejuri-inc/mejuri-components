@@ -2,22 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper, Logo, Menu } from './styled'
 import Navigation from '../NavigationMobile'
-import CartIcon from '../../../cart/CartIcon'
+import CartIcon from 'components/cart/CartIcon'
 import SearchButton from '../SearchButton'
-import MejuriLogo  from '../../../../../resources/svg/logo.svg'
-import MagniGlass from '../../../../../resources/svg/loupe.svg'
-
+import MejuriLogo from 'resources/svg/logo.svg'
+import MagniGlass from 'resources/svg/loupe.svg'
 
 const HeaderMobile = ({ cartItemsCount, cartToggle }) => {
   return (
     <Wrapper>
       <Navigation />
-      <Logo href='/'><img src={MejuriLogo} alt='Mejuri'/></Logo>
+      <Logo href='/'>
+        <img src={MejuriLogo} alt='Mejuri' />
+      </Logo>
       <Menu>
         <SearchButton>
-          <img src={MagniGlass} alt='search'/>
+          <img src={MagniGlass} alt='search' />
         </SearchButton>
-        <CartIcon onClick={() => cartToggle()} itemsCount={cartItemsCount}>Cart Icon</CartIcon>
+        <CartIcon onClick={() => cartToggle()} itemsCount={cartItemsCount}>
+          Cart Icon
+        </CartIcon>
       </Menu>
     </Wrapper>
   )

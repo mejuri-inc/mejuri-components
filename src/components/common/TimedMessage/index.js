@@ -2,13 +2,13 @@ import { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 export class TimedMessage extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.timeout = null
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     if (prevProps.visible === false && this.props.visible === true) {
       if (this.timeout) {
         clearTimeout(this.timeout)
@@ -20,7 +20,7 @@ export class TimedMessage extends PureComponent {
     }
   }
 
-  render () {
+  render() {
     return this.props.children
   }
 }

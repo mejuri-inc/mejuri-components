@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import colors from '../../../../../styles/colors'
-import { fontWeight } from '../../../../../styles/settings'
+import colors from 'styles/colors'
+import { fontWeight } from 'styles/settings'
 
 export const Legend = styled.h5`
   font-size: 14px;
@@ -60,9 +60,10 @@ export const Texts = styled.div`
 export const AddButton = styled.button`
   align-items: center;
   appearance: none;
-  background-color: ${p => p.isFetching ? colors.lightGray3 : 'transparent'};
+  background-color: ${(p) =>
+    p.isFetching ? colors.lightGray3 : 'transparent'};
   border: 1px solid ${colors.black};
-  border-color: ${p => p.isFetching ? colors.lightGray3 : colors.black};
+  border-color: ${(p) => (p.isFetching ? colors.lightGray3 : colors.black)};
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -74,7 +75,7 @@ export const AddButton = styled.button`
   width: 85px;
 
   &:hover {
-    background-color: ${p => p.isFetching ? 'transparent' : colors.black};
+    background-color: ${(p) => (p.isFetching ? 'transparent' : colors.black)};
     color: ${colors.white};
   }
 `

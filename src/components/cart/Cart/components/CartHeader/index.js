@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper, Back, Body } from './styled'
-import BackArrow from '../../../../../../resources/svg/arrow-long-left.svg'
-import CartIcon from '../../../CartIcon'
+import BackArrow from 'resources/svg/arrow-long-left.svg'
+import CartIcon from 'components/cart/CartIcon'
 
 export class CartHeader extends PureComponent {
   static propTypes = {
@@ -17,18 +17,16 @@ export class CartHeader extends PureComponent {
     cartToggle(false)
   }
 
-  render () {
+  render() {
     const { children, lineItems, cartToggle } = this.props
     const itemsCount = lineItems.reduce((acc, item) => acc + item.quantity, 0)
     return (
       <Wrapper>
         <Back onClick={this.handleBackClick}>
-          <img src={BackArrow}/>
+          <img src={BackArrow} />
         </Back>
-        <Body>
-          {children}
-        </Body>
-        <CartIcon itemsCount={itemsCount} onClick={cartToggle}/>
+        <Body>{children}</Body>
+        <CartIcon itemsCount={itemsCount} onClick={cartToggle} />
       </Wrapper>
     )
   }

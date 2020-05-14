@@ -8,10 +8,10 @@ export class ProgressBar extends React.PureComponent {
     if (progress > total) {
       return 100
     }
-    return progress * 100 / total
+    return (progress * 100) / total
   }
 
-  render () {
+  render() {
     const { total, progress } = this.props
     const completion = this.calculateCompletion(total, progress)
     return (

@@ -4,15 +4,27 @@ import { Content, Wrapper } from './styled'
 import HeaderDesktop from './components/HeaderDesktop'
 import HeaderMobile from './components/HeaderMobile'
 
-const Header = ({ isDesktop, cartItemsCount, user, onLogin, cartToggle, children}) => (
+const Header = ({
+  isDesktop,
+  cartItemsCount,
+  user,
+  onLogin,
+  cartToggle,
+  children
+}) => (
   <Wrapper isDesktop={isDesktop()}>
     <Content>
-      {/*<HeaderDesktop cartItemsCount={cartItemsCount} user={user} onLogin={onLogin} cartToggle={cartToggle}/>*/}
-      {isDesktop() ?
-        <HeaderDesktop cartItemsCount={cartItemsCount} user={user} onLogin={onLogin} cartToggle={cartToggle} />
-        :
+      {/* <HeaderDesktop cartItemsCount={cartItemsCount} user={user} onLogin={onLogin} cartToggle={cartToggle}/> */}
+      {isDesktop() ? (
+        <HeaderDesktop
+          cartItemsCount={cartItemsCount}
+          user={user}
+          onLogin={onLogin}
+          cartToggle={cartToggle}
+        />
+      ) : (
         <HeaderMobile cartItemsCount={cartItemsCount} cartToggle={cartToggle} />
-      }
+      )}
       {children}
     </Content>
   </Wrapper>
@@ -25,7 +37,7 @@ Header.propTypes = {
   user: PropTypes.shape({
     isGuest: PropTypes.bool,
     nameOrEmail: PropTypes.string
-  }),
+  })
 }
 
 Header.defaultProps = {

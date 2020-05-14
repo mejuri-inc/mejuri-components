@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { bp } from 'app/packages/styled'
-import colors from '../../../../styles/colors'
-import { fontWeight } from '../../../../styles/settings'
+import colors from 'styles/colors'
+import { fontWeight } from 'styles/settings'
 
 export const Card = styled.a`
   display: flex;
@@ -17,7 +17,11 @@ export const Card = styled.a`
 
 export const Image = styled.img`
   background: ${colors.lightGray3};
-  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 96%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(250, 250, 250, 1) 96%
+  );
   width: 100%;
 `
 

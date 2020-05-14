@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Message, Wrapper } from './styled'
-import TimedMessage from '../../../../../components/common/TimedMessage'
 import { FormattedMessage } from 'react-intl'
+import TimedMessage from 'components/common/TimedMessage'
 
 export const CouponErrorAdvice = ({ dismiss, visible }) => (
   <TimedMessage delay={5} dismiss={dismiss} visible={visible}>

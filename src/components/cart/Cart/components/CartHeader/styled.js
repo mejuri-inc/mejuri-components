@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import colors from '../../../../../styles/colors'
+import colors from 'styles/colors'
 
 export const Wrapper = styled.div`
   align-items: center;
   background-color: ${colors.white};
   display: flex;
   justify-content: space-between;
-  padding:15px 25px;
+  padding: 15px 25px;
 `
 Wrapper.displayName = 'CartHeaderWrapper'
 

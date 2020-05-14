@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import ButtonLink from '../../../../../components/common/ButtonLink'
+import ButtonLink from 'components/common/ButtonLink'
 
 export const UnderlinedButtonLink = styled(ButtonLink)`
   padding: 15px 0 0 0;

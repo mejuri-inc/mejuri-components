@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fadeIn, spinner } from '../../../styles/effects'
+import { fadeIn, spinner } from 'styles/effects'
 
 export const Content = styled.div`
   height: 100%;

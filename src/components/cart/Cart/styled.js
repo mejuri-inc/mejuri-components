@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import colors from '../../../styles/colors'
-import { fontWeight } from '../../../styles/settings'
-import { fadeIn } from '../../../styles/effects'
+import colors from 'styles/colors'
+import { fontWeight } from 'styles/settings'
+import { fadeIn } from 'styles/effects'
 
 export const Content = styled.div`
   display: flex;
@@ -26,7 +26,9 @@ export const Wrapper = styled.div`
   pointer-events: none;
   visibility: hidden;
   transition: opacity 0.1s ease, transform 0.25s 0s;
-  ${({ isOpened }) => isOpened && `
+  ${({ isOpened }) =>
+    isOpened &&
+    `
     transform: translateX(0);
     visibility: visible;
     opacity: 1;

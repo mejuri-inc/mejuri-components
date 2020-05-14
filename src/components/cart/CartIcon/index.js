@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper, Badge, Icon } from './styled'
-import BagIcon from '../../../../resources/svg/bag.svg'
+import BagIcon from 'resources/svg/bag.svg'
 
 export default class CartIcon extends PureComponent {
   static propTypes = {
@@ -9,12 +9,14 @@ export default class CartIcon extends PureComponent {
     onClick: PropTypes.func
   }
 
-  render () {
+  render() {
     const { itemsCount, onClick } = this.props
 
     return (
       <Wrapper onClick={onClick}>
-        <Icon><img src={BagIcon} /></Icon>
+        <Icon>
+          <img src={BagIcon} />
+        </Icon>
         <Badge>{itemsCount}</Badge>
       </Wrapper>
     )

@@ -2,16 +2,32 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Btn, Quantity, Wrapper } from './styled'
 
-export const QuantitySelector = ({ backOrderable, value, itemId, updateQuantity, stock }) => {
+export const QuantitySelector = ({
+  backOrderable,
+  value,
+  itemId,
+  updateQuantity,
+  stock
+}) => {
   const decreaseValue = value > stock ? value - 1 : stock
   return (
     <Wrapper>
-      <Btn onClick={() => { updateQuantity(itemId, decreaseValue) }}>-</Btn>
+      <Btn
+        onClick={() => {
+          updateQuantity(itemId, decreaseValue)
+        }}
+      >
+        -
+      </Btn>
       <Quantity>{value}</Quantity>
       <Btn
-        onClick={() => { updateQuantity(itemId, value + 1) }}
+        onClick={() => {
+          updateQuantity(itemId, value + 1)
+        }}
         disabled={value + 1 > stock && !backOrderable}
-      >+</Btn>
+      >
+        +
+      </Btn>
     </Wrapper>
   )
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import colors from '../../../../styles/colors'
-import { fadeIn } from '../../../../styles/effects'
-import { fontWeight } from '../../../../styles/settings'
+import colors from 'styles/colors'
+import { fadeIn } from 'styles/effects'
+import { fontWeight } from 'styles/settings'
 
 export const Panel = styled.ul`
   ${fadeIn}
