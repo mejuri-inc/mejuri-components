@@ -20,6 +20,11 @@
   "settings": {
     "react": {
       "version": "16"
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
     }
   },
   "rules": {

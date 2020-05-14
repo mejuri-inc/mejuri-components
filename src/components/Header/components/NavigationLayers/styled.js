@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import colors from '../../../../styles/colors'
-import { fadeIn } from '../../../../styles/effects'
-import { fontWeight } from '../../../../styles/settings'
+import colors from 'styles/colors'
+import { fadeIn } from 'styles/effects'
+import { fontWeight } from 'styles/settings'
 
 export const Layers = styled.div`
   position: relative;
@@ -14,9 +14,9 @@ export const Layer = styled.div`
   ${fadeIn};
   background: white;
   border-bottom: 1px solid ${colors.whiteSmoke};
-  display: ${p => p.active ? 'flex' : 'none'};
+  display: ${(p) => (p.active ? 'flex' : 'none')};
   min-height: 300px;
-  padding: ${p => `30px 0 30px ${30 + (90 * p.order)}px`};
+  padding: ${(p) => `30px 0 30px ${30 + 90 * p.order}px`};
   position: absolute;
   top: 0%;
   width: 100%;

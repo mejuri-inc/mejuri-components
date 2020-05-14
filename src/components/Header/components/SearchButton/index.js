@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import { Button } from './styled'
 
 const SearchButton = ({ toggle, children }) => (
-  <Button onClick={() => toggle()}>
-    {children}
-  </Button>
+  <Button onClick={() => toggle()}>{children}</Button>
 )
 
 SearchButton.propTypes = {

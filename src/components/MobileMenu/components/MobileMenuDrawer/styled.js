@@ -19,11 +19,11 @@ export const Options = styled.ul`
   border-bottom: 1px solid #fafafa;
   list-style: none;
   margin: 0;
-  max-height: ${p => p.isOpen ? `${p.length * 42}px` : 0};
+  max-height: ${(p) => (p.isOpen ? `${p.length * 42}px` : 0)};
   padding: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.2s linear 0.2s;
-  opacity: ${p => p.collapsed ? 0 : 1};
+  opacity: ${(p) => (p.collapsed ? 0 : 1)};
 `
 Options.displayName = 'MobileMenuDriverOptions'
 
@@ -38,7 +38,9 @@ export const Item = styled.li`
     padding-bottom: 22px;
   }
 
-  ${p => p.sub && `
+  ${(p) =>
+    p.sub &&
+    `
     font-weight: 500;
     padding-top: 30px;
   `}
@@ -71,11 +73,11 @@ export const PlusMinusToggle = styled.div`
 
   &::after {
     transform-origin: center;
-    transform: ${p => p.isOpen ? 'rotate(90deg)' : 'none'};
+    transform: ${(p) => (p.isOpen ? 'rotate(90deg)' : 'none')};
   }
 
   &::before {
-    transform: ${p => p.isOpen ? 'rotate(180deg)' : 'none'};
+    transform: ${(p) => (p.isOpen ? 'rotate(180deg)' : 'none')};
   }
 `
 

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Col, Wrapper } from './styled'
 import { FormattedMessage } from 'react-intl'
-import Checkbox from '../../../../../components/common/Checkbox'
+import Checkbox from 'components/common/Checkbox'
 
 export const ItemPOS = ({ itemId, pickUp, quantity, setPickUp, available }) => (
   <Wrapper>
@@ -14,10 +14,12 @@ export const ItemPOS = ({ itemId, pickUp, quantity, setPickUp, available }) => (
       />
     </Col>
     <Col>
-      {available && <div>
-        <FormattedMessage id='cart.items.availability' />
-        <FormattedMessage id='cart.items.inStore' />
-      </div>}
+      {available && (
+        <div>
+          <FormattedMessage id='cart.items.availability' />
+          <FormattedMessage id='cart.items.inStore' />
+        </div>
+      )}
     </Col>
   </Wrapper>
 )

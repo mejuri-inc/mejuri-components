@@ -13,7 +13,7 @@ export default class UserSection extends PureComponent {
 
   static defaultProps = {
     isGuest: true,
-    nameOrEmail: "",
+    nameOrEmail: '',
     onLogin: () => {}
   }
 
@@ -24,15 +24,18 @@ export default class UserSection extends PureComponent {
     onLogin()
   }
 
-  render () {
+  render() {
     const { isGuest, nameOrEmail } = this.props
 
     return (
       <Wrapper>
-        {isGuest
-          ? <SignUpLink href='#login' onClick={this.handleLogIn}><FormattedMessage id='common.signup'/></SignUpLink>
-          : <UserMenu nameOrEmail={nameOrEmail} />
-        }
+        {isGuest ? (
+          <SignUpLink href='#login' onClick={this.handleLogIn}>
+            <FormattedMessage id='common.signup' />
+          </SignUpLink>
+        ) : (
+          <UserMenu nameOrEmail={nameOrEmail} />
+        )}
       </Wrapper>
     )
   }

@@ -1,12 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Spinner from '../../../../../components/common/Spinner'
+import Spinner from 'components/common/Spinner'
 import { FormattedMessage } from 'react-intl'
 
-import { AddButton, Header, Image, Item, Legend, Link, List, Price, Texts, Title, Wrapper } from './styled'
+import {
+  AddButton,
+  Header,
+  Image,
+  Item,
+  Legend,
+  Link,
+  List,
+  Price,
+  Texts,
+  Title,
+  Wrapper
+} from './styled'
 
 export class Suggestions extends React.PureComponent {
-  render () {
+  render() {
     const { items, isFetching, addSuggestion } = this.props
 
     if (!items || !items.length) return null
@@ -24,7 +36,7 @@ export class Suggestions extends React.PureComponent {
           </Legend>
         </Header>
         <List>
-          {items.map(i => (
+          {items.map((i) => (
             <Item key={i.id}>
               {i.image && i.image.small && <Image src={i.image.small} />}
               <Texts>
@@ -47,15 +59,17 @@ export class Suggestions extends React.PureComponent {
 }
 
 Suggestions.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    displayName: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    masterId: PropTypes.number.isRequired,
-    isFetching: PropTypes.bool,
-    image: PropTypes.shape({
-      small: PropTypes.string
-    }).isRequired
-  })),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      displayName: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+      masterId: PropTypes.number.isRequired,
+      isFetching: PropTypes.bool,
+      image: PropTypes.shape({
+        small: PropTypes.string
+      }).isRequired
+    })
+  ),
   isFetching: PropTypes.bool,
   addSuggestion: PropTypes.func
 }

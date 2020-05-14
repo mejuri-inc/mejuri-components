@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import colors from '../../../../../styles/colors'
-import { fontWeight } from '../../../../../styles/settings'
+import colors from 'styles/colors'
+import { fontWeight } from 'styles/settings'
 
 export const Wrapper = styled.ul`
   border-top: 1px solid ${colors.lightGray1};

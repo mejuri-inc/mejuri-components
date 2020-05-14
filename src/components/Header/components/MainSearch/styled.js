@@ -21,13 +21,13 @@ export const Content = styled.div`
 export const Wrapper = styled.section`
   ${fadeIn};
   background: ${colors.white};
-  display: ${p => p.isOpened ? 'flex' : 'none'};
+  display: ${(p) => (p.isOpened ? 'flex' : 'none')};
   justify-content: center;
   min-height: 200px;
-  opacity: ${p => p.isOpened ? 1 : 0};
+  opacity: ${(p) => (p.isOpened ? 1 : 0)};
   position: fixed;
   top: 0;
-  visibility: ${p => p.isOpened ? 'visible' : 'hidden'};
+  visibility: ${(p) => (p.isOpened ? 'visible' : 'hidden')};
   width: 100%;
   z-index: 1;
   max-height: 100vh;
@@ -64,7 +64,11 @@ export const Header = styled.div`
     left: 0;
     right: 0;
     bottom: -16px;
-    background: linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(
+      to bottom,
+      #fff 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
     z-index: 1;
   }
 `

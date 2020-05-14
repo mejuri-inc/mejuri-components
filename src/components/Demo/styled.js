@@ -7,5 +7,5 @@ export const Button = styled.button`
   margin: 10px;
   padding: 10px;
   text-transform: uppercase;
-  ${p => p.upsideDown && 'transform: rotate(180deg)'};
+  ${(p) => p.upsideDown && 'transform: rotate(180deg)'};
 `

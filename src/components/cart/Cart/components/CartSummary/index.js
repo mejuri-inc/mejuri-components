@@ -4,20 +4,29 @@ import { FormattedMessage } from 'react-intl'
 import { Row, Total, Wrapper } from './styled'
 import Estimates from './components/Estimates'
 import Adjustments from './components/Adjustments'
-import { toCurrencyWithCode } from '../../../../../helpers/currency'
+import { toCurrencyWithCode } from 'helpers/currency'
 
-export const CartSummary = ({ subtotal, currency, estimatedTotal, estimates, adjustments}) => {
-  const subTotalMessage = subtotal
-    ? <FormattedMessage id='cart.balance.subtotal' values={{ value:  toCurrencyWithCode(subtotal, currency) }}/>
-    : <FormattedMessage id='displayFreeAmount' />
+export const CartSummary = ({
+  subtotal,
+  currency,
+  estimatedTotal,
+  estimates,
+  adjustments
+}) => {
+  const subTotalMessage = subtotal ? (
+    <FormattedMessage
+      id='cart.balance.subtotal'
+      values={{ value: toCurrencyWithCode(subtotal, currency) }}
+    />
+  ) : (
+    <FormattedMessage id='displayFreeAmount' />
+  )
 
   return (
     <Wrapper>
-      <Row>
-        {subTotalMessage}
-      </Row>
+      <Row>{subTotalMessage}</Row>
       <Adjustments currency={currency} adjustments={adjustments} />
-      <Estimates currency={currency} estimates={estimates}/>
+      <Estimates currency={currency} estimates={estimates} />
       <Total>
         <FormattedMessage id='cart.balance.total' />
         <span>{estimatedTotal}</span>

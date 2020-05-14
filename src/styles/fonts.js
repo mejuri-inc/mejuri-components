@@ -11,8 +11,7 @@ import brandonGrotesqueMedium2 from './fonts/BrandonGrotesque-Medium.woff2'
 export default css`
   @font-face {
     font-family: 'Brandon Grotesque';
-    src:
-      url(${brandonGrotesqueLight2}) format('woff2'),
+    src: url(${brandonGrotesqueLight2}) format('woff2'),
       url(${brandonGrotesqueLight}) format('woff');
     font-weight: 300;
     font-style: normal;
@@ -20,8 +19,7 @@ export default css`
 
   @font-face {
     font-family: 'Brandon Grotesque';
-    src:
-      url(${brandonGrotesqueRegular2}) format('woff2'),
+    src: url(${brandonGrotesqueRegular2}) format('woff2'),
       url(${brandonGrotesqueRegular}) format('woff');
     font-weight: 500;
     font-style: normal;
@@ -29,8 +27,7 @@ export default css`
 
   @font-face {
     font-family: 'Brandon Grotesque';
-    src:
-      url(${brandonGrotesqueMedium2}) format('woff2'),
+    src: url(${brandonGrotesqueMedium2}) format('woff2'),
       url(${brandonGrotesqueMedium}) format('woff');
     font-weight: 700;
     font-style: normal;

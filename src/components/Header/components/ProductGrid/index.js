@@ -7,7 +7,9 @@ export const ProductGrid = ({ products, children }) => {
   return (
     <Wrapper className='productGrid'>
       <Grid>
-        {products.map(p => <ProductCard key={p.id} {...p} />)}
+        {products.map((p) => (
+          <ProductCard key={p.id} {...p} />
+        ))}
       </Grid>
       {children}
     </Wrapper>

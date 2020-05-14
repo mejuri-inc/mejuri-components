@@ -35,7 +35,8 @@ const spinnerKeyframes = keyframes`
 `
 
 export const spin = css`
-  animation: ${spinnerKeyframes} 0.86s cubic-bezier(0.4, 0.15, 0.6, 0.85) infinite;
+  animation: ${spinnerKeyframes} 0.86s cubic-bezier(0.4, 0.15, 0.6, 0.85)
+    infinite;
 `
 
 export const extend = css`
@@ -79,7 +80,8 @@ export const spinner = (p = {}) => css`
     width: ${p.diameter || '30px'};
     height: ${p.diameter || '30px'};
     border-radius: 50%;
-    border: ${p.border || '2px'} solid ${p.foreground || 'hsla(0, 0%, 0%, 0.25)'};
+    border: ${p.border || '2px'} solid
+      ${p.foreground || 'hsla(0, 0%, 0%, 0.25)'};
     border-top-color: transparent;
     z-index: 2;
   }

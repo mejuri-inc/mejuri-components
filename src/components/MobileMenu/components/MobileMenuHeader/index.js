@@ -8,14 +8,17 @@ import PropTypes from 'prop-types'
 
 import { Header, GoBack, Close, Arrow, Glass } from './styled'
 
-export const MobileMenuHeader = ({ toggleNavigation, isGoBackEnabled, itemQuantity, bagClick, glassClick }) => {
+export const MobileMenuHeader = ({
+  toggleNavigation,
+  isGoBackEnabled,
+  itemQuantity,
+  bagClick,
+  glassClick
+}) => {
   return (
     <Header>
       <GoBack onClick={toggleNavigation}>
-        {isGoBackEnabled
-          ? <Arrow>Back</Arrow>
-          : <Close>CloseIcon</Close>
-        }
+        {isGoBackEnabled ? <Arrow>Back</Arrow> : <Close>CloseIcon</Close>}
       </GoBack>
       <Glass onClick={() => glassClick()}>MagniGlass</Glass>
       {/* <CartIcon onClick={() => bagClick()} itemsCount={itemQuantity} /> */}

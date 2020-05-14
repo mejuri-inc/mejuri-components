@@ -16,6 +16,5 @@ export const toCurrency = (amount, currency = 'USD', whenZero) => {
   return `${prefix}${symbol}${formattedAmount}`
 }
 
-export const toCurrencyWithCode = (amount, currency = 'USD', whenZero) => (
+export const toCurrencyWithCode = (amount, currency = 'USD', whenZero) =>
   `${toCurrency(amount, currency, whenZero)} ${currency}`
-)

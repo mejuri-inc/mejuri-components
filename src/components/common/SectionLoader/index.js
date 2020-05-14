@@ -4,14 +4,12 @@ import { Content, Overlay, Wrapper, Spinner } from './styled'
 
 export const SectionLoader = ({ children, isFetching }) => (
   <Wrapper>
-    <Content>
-      {children}
-    </Content>
-    {isFetching &&
+    <Content>{children}</Content>
+    {isFetching && (
       <Overlay>
         <Spinner />
       </Overlay>
-    }
+    )}
   </Wrapper>
 )
 

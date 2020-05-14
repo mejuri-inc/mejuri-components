@@ -4,7 +4,7 @@ import { ApplyButton, Input, Wrapper } from './styled'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 
 export class PromotionalCodeControl extends React.PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -29,12 +29,14 @@ export class PromotionalCodeControl extends React.PureComponent {
     setCouponCode(value)
   }
 
-  render () {
+  render() {
     const { intl } = this.props
     return (
       <Wrapper>
         <Input
-          placeholder={intl.formatMessage({ id: 'cart.couponCode.placeHolder' })}
+          placeholder={intl.formatMessage({
+            id: 'cart.couponCode.placeHolder'
+          })}
           onChange={this.handleChange}
           value={this.state.value}
         />

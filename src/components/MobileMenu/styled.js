@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const Overlay = styled.div`
   background: black;
   bottom: 0;
-  display: ${p => p.isOpen ? 'block' : 'none'};
+  display: ${(p) => (p.isOpen ? 'block' : 'none')};
   height: 100%;
   left: 0;
-  opacity: ${p => p.isOpen ? 0.5 : 0};
+  opacity: ${(p) => (p.isOpen ? 0.5 : 0)};
   position: fixed;
   top: 0;
-  visibility: ${p => p.isOpen ? 'visible' : 'hidden'};
+  visibility: ${(p) => (p.isOpen ? 'visible' : 'hidden')};
   width: 100%;
   z-index: 9999;
 `
@@ -25,7 +25,7 @@ export const NavigationPanel = styled.div`
   overflow: hidden;
   position: fixed;
   top: 0;
-  transform: ${p => p.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
+  transform: ${(p) => (p.isOpen ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 0.25s ease;
   width: 86vw;
   z-index: 9999;
@@ -48,7 +48,7 @@ export const Pages = styled.div`
   position: relative;
   transition: transform 0.25s ease;
   width: 200%;
-  ${p => p.isOpen && 'transform: translateX(-50%);'};
+  ${(p) => p.isOpen && 'transform: translateX(-50%);'};
 `
 Pages.displayName = 'MobileMenuPages'
 

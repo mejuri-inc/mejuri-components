@@ -1,11 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Name, Options, PriceBox, Wrapper } from './styled'
-import QuantitySelector from '../../../../../components/common/QuantitySelector'
-import { toCurrency } from '../../../../../helpers/currency'
+import QuantitySelector from 'components/common/QuantitySelector'
+import { toCurrency } from 'helpers/currency'
 
 export const ItemProperties = ({ item, currency, updateQuantity }) => {
-  const { variant: { backOrderable, name, material }, id, price, quantity, variantStock } = item
+  const {
+    variant: { backOrderable, name, material },
+    id,
+    price,
+    quantity,
+    variantStock
+  } = item
   const formatedPrice = toCurrency(price * quantity, currency)
 
   return (
@@ -13,7 +19,11 @@ export const ItemProperties = ({ item, currency, updateQuantity }) => {
       <Name>{name}</Name>
       <Options>{material}</Options>
       <PriceBox>
-        <QuantitySelector itemId={id} value={quantity} stock={variantStock} backOrderable={backOrderable}
+        <QuantitySelector
+          itemId={id}
+          value={quantity}
+          stock={variantStock}
+          backOrderable={backOrderable}
           updateQuantity={updateQuantity}
         />
         <span>{formatedPrice}</span>
