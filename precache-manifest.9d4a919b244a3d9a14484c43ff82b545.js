@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a0a1b7eabdeba7caaed24d06c73cf495",
+    "revision": "7eccc5fabc0e9eda77b2da2f5ac3d738",
     "url": "/mejuri-components/index.html"
   },
   {
-    "revision": "e68a9abc674f4a1bd824",
+    "revision": "ef8de03e321bef9de09a",
     "url": "/mejuri-components/static/css/main.42cc8b22.chunk.css"
   },
   {
-    "revision": "c6d6473aedd5b247d31b",
-    "url": "/mejuri-components/static/js/2.cb347a6c.chunk.js"
+    "revision": "14ff46717c88bd0f7081",
+    "url": "/mejuri-components/static/js/2.148c2b47.chunk.js"
   },
   {
     "revision": "73556b140791e7f1e95a61af7da7dddb",
-    "url": "/mejuri-components/static/js/2.cb347a6c.chunk.js.LICENSE.txt"
+    "url": "/mejuri-components/static/js/2.148c2b47.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e68a9abc674f4a1bd824",
-    "url": "/mejuri-components/static/js/main.b4e32ab7.chunk.js"
+    "revision": "ef8de03e321bef9de09a",
+    "url": "/mejuri-components/static/js/main.8a497b33.chunk.js"
   },
   {
     "revision": "d38949b85418873f1192",
