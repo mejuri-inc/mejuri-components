@@ -4,19 +4,19 @@ import { Wrapper, Logo, Menu } from './styled'
 import Navigation from '../NavigationMobile'
 import CartIcon from 'components/cart/CartIcon'
 import SearchButton from '../SearchButton'
-import MejuriLogo from 'resources/svg/logo.svg'
-import MagniGlass from 'resources/svg/loupe.svg'
+import MejuriLogo from 'resources/icons/Logo'
+import MagniGlass from 'resources/icons/MagniGlass'
 
 const HeaderMobile = ({ cartItemsCount, cartToggle }) => {
   return (
     <Wrapper>
       <Navigation />
       <Logo href='/'>
-        <img src={MejuriLogo} alt='Mejuri' />
+        <MejuriLogo />
       </Logo>
       <Menu>
         <SearchButton>
-          <img src={MagniGlass} alt='search' />
+          <MagniGlass />
         </SearchButton>
         <CartIcon onClick={() => cartToggle()} itemsCount={cartItemsCount}>
           Cart Icon

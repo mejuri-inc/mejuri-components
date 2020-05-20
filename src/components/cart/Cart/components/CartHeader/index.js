@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper, Back, Body } from './styled'
-import BackArrow from 'resources/svg/arrow-long-left.svg'
+import BackArrow from 'resources/icons/ArrowLongLeft'
 import CartIcon from 'components/cart/CartIcon'
 
 export class CartHeader extends PureComponent {
@@ -23,7 +23,7 @@ export class CartHeader extends PureComponent {
     return (
       <Wrapper>
         <Back onClick={this.handleBackClick}>
-          <img src={BackArrow} />
+          <BackArrow />
         </Back>
         <Body>{children}</Body>
         <CartIcon itemsCount={itemsCount} onClick={cartToggle} />

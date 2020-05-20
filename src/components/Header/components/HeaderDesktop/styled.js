@@ -27,7 +27,7 @@ Content.displayName = 'HeaderDesktopContent'
 export const Logo = styled.a`
   width: 180px;
   height: 58px;
-  img {
+  svg {
     height: 100%;
   }
 `

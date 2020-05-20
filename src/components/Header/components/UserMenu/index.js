@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import map from 'lodash/map'
 import { FormattedMessage } from 'react-intl'
 import { Wrapper, Panel, LabelChevron, Option } from './styled'
-import ChevronIcon from 'resources/svg/chevron.svg'
+import ChevronIcon from 'resources/icons/Chevron'
+
 import menuOptions from './mock'
 
 const UserMenu = ({ nameOrEmail }) => {
@@ -11,7 +12,7 @@ const UserMenu = ({ nameOrEmail }) => {
     <Wrapper>
       <LabelChevron>
         {nameOrEmail}
-        <img src={ChevronIcon} />
+        <ChevronIcon />
       </LabelChevron>
 
       {menuOptions && (

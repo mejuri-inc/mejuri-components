@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Thumbnail from '../Thumbnail'
 import { ElementWrapper, List, ListElement, RemoveButton } from './styled'
-import CloseIcon from 'resources/svg/close-icon.svg'
+import CloseIcon from 'resources/icons/CloseIcon'
 import ItemProperties from '../ItemProperties'
 import ItemPOS from '../ItemPOS'
 import get from 'lodash/get'
@@ -26,7 +26,7 @@ export const ItemsList = ({
           <ListElement key={i.id}>
             <ElementWrapper>
               <RemoveButton onClick={() => remove(i.id)}>
-                <img src={CloseIcon} />
+                <CloseIcon />
               </RemoveButton>
               {imageUrl && <Thumbnail href={href} src={imageUrl} alt={alt} />}
               <ItemProperties

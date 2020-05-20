@@ -17,7 +17,7 @@ export const Button = styled.button`
     margin-top: 1px;
   }
 
-  & > img {
+  & > svg {
     margin-right: 5px;
     width: 18px;
   }

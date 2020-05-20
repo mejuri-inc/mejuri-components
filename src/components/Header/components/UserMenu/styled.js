@@ -33,7 +33,7 @@ export const LabelChevron = styled.div`
   display: flex;
   align-items: center;
 
-  & > img {
+  & > svg {
     width: 15px;
     height: 6px;
     margin-left: 3px;

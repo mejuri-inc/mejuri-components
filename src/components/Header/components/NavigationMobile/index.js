@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper, Hamburguer } from './styled'
-import HamburguerIcon from 'resources/svg/hamburguer.svg'
+import HamburguerIcon from 'resources/icons/hamburguer'
 
 import MobileMenu from 'components/MobileMenu'
 
@@ -24,7 +24,7 @@ export default class NavigationMobile extends PureComponent {
     return (
       <Wrapper>
         <Hamburguer onClick={this.handleClick}>
-          <img src={HamburguerIcon} alt='menu' />
+          <HamburguerIcon />
         </Hamburguer>
         <MobileMenu />
       </Wrapper>

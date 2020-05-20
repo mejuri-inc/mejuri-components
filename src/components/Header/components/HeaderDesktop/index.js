@@ -5,8 +5,8 @@ import { Content, Item, Logo, Menu, Overlay, Wrapper } from './styled'
 import Navigation from '../Navigation'
 import CartIcon from 'components/cart/CartIcon'
 import SearchButton from '../SearchButton'
-import MejuriLogo from 'resources/svg/logo.svg'
-import MagniGlass from 'resources/svg/loupe.svg'
+import MejuriLogo from 'resources/icons/Logo'
+import MagniGlass from 'resources/icons/MagniGlass'
 
 import UserSection from '../UserSection'
 import { FormattedMessage } from 'react-intl'
@@ -51,12 +51,12 @@ export default class HeaderDesktop extends PureComponent {
                 layersMountingPoint={this.layersMountingPoint}
               />
               <Logo href='/'>
-                <img src={MejuriLogo} alt='Mejuri' />
+                <MejuriLogo />
               </Logo>
               <Menu>
                 <Item>
                   <SearchButton>
-                    <img src={MagniGlass} alt='Mejuri' />
+                    <MagniGlass />
                     <FormattedMessage id='header.search' />
                   </SearchButton>
                 </Item>
