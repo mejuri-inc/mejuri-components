@@ -9,7 +9,7 @@ export const QuantitySelector = ({
   updateQuantity,
   stock
 }) => {
-  const decreaseValue = value > stock ? value - 1 : stock
+  const decreaseValue = value <= stock ? value - 1 : stock
   return (
     <Wrapper>
       <Btn

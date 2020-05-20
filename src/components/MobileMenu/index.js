@@ -81,7 +81,6 @@ export class MobileMenu extends React.Component {
 
   handleSearchClick = () => {
     // TODO: reimplement.
-    alert('Do not have search in this branch we need to implement after merge')
     this.toggleMenuState()
   }
 

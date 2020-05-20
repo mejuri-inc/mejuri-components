@@ -29,7 +29,6 @@ const App = () => {
           />
 
           <CartTestWrapper opened={isCartOpened} setOpened={setIsCartOpened}/>
-
         </div>
       </MuiThemeProvider>
     </IntlProvider>)
