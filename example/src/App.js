@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IntlProvider } from 'react-intl'
-import { Header, Cart, MejuriTheme } from 'mejuri-components'
+import { Header, Cart, MejuriTheme, NotificationBar } from 'mejuri-components'
 import messages from './messages'
 import { MuiThemeProvider } from '@material-ui/core'
 import { mockLineItems } from './mocks/mock'
@@ -20,7 +20,7 @@ const App = () => {
             user={user}
             cartToggle={() => setIsCartOpened(true)}
           />
-
+          <NotificationBarWrapper />
           <Header
             isDesktop={() => false}
             cartItemsCount={10}
@@ -65,6 +65,25 @@ const CartTestWrapper = ({opened, setOpened}) => {
       suggestions={[]}
       addSuggestionItem={(itemId) => {}}
       isFetchingSuggestion={true}
+    />
+  )
+}
+
+const legend = ["this is a fucking remixxxxxx"]
+const notificationBar = {
+  backgroundColor: "#000",
+  collapsed: true,
+  legend: legend,
+  textColor: "#fff"
+}
+
+const NotificationBarWrapper = () => {
+  return (
+    <NotificationBar
+      backgroundColor={notificationBar.backgroundColor}
+      color={notificationBar.textColor}
+      collapsed={notificationBar.collapsed}
+      legend={notificationBar.legend}
     />
   )
 }

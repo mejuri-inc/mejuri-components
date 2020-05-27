@@ -6,9 +6,5 @@ export const Wrapper = styled.header`
 `
 Wrapper.displayName = 'HeaderWrapper'
 
-export const Content = styled.div`
-  position: fixed;
-  width: 100%;
-  z-index: 1;
-`
+export const Content = styled.div``
 Content.displayName = 'HeaderContent'
