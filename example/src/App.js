@@ -69,10 +69,10 @@ const CartTestWrapper = ({opened, setOpened}) => {
   )
 }
 
-const legend = ["this is a fucking remixxxxxx"]
+const legend = ["This is a text for a mejuri notification Bar"]
 const notificationBar = {
   backgroundColor: "#000",
-  collapsed: true,
+  collapsed: false,
   legend: legend,
   textColor: "#fff"
 }

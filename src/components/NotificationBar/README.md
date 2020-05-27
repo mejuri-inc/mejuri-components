@@ -1,7 +1,7 @@
 Notification Bar Hide mobile
 ```jsx
 
-const legend = ["this is a fucking remixxxxxx"]
+const legend = ["This is a text for a mejuri notification Bar"]
 const notificationBar = {
   backgroundColor: "#000",
   collapsed: true,
@@ -23,7 +23,7 @@ return (
 Notification Bar Hide mobile
 ```jsx
 
-const legend = ["this is a fucking remixxxxxx"]
+const legend = ["This is a text for a mejuri notification Bar"]
 const notificationBar = {
   backgroundColor: "#000",
   collapsed: false,
