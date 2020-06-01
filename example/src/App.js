@@ -69,21 +69,18 @@ const CartTestWrapper = ({opened, setOpened}) => {
   )
 }
 
-const legend = ["This is a text for a mejuri notification Bar"]
-const notificationBar = {
-  backgroundColor: "#000",
-  collapsed: false,
-  legend: legend,
-  textColor: "#fff"
-}
+const notificationBars = [
+  {
+    backgroundColor: "#737373",
+    collapsed: false,
+    identifier: "NotificationBarTest",
+    textColor: "#000",
+  }
+]
 
 const NotificationBarWrapper = () => {
   return (
-    <NotificationBar
-      backgroundColor={notificationBar.backgroundColor}
-      color={notificationBar.textColor}
-      collapsed={notificationBar.collapsed}
-      legend={notificationBar.legend}
+    <NotificationBar notificationBars={notificationBars}
     />
   )
 }
