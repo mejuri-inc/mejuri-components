@@ -56,8 +56,15 @@
     "react-dom": "^16.7.0",
     "react-intl": "^2.7.2",
     "react-scripts": "^3.4.1",
+<<<<<<< HEAD
     "react-test-renderer": "^16.13.1",
     "styled-components": "^5.1.0"
+=======
+    "styled-components": "^5.1.0",
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "lodash": "^4.17.11",
+    "nookies": "^2.3.0"
+>>>>>>> TEC 2977 Changes to manage cookies only in mejuri components and code review fixes
   },
   "files": [
     "dist"

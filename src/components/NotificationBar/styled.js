@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import colors from 'styles/colors'
 
 const mobileBp = '768px'
 
@@ -6,9 +7,10 @@ export const Wrapper = styled.div`
   position: relative;
   display: ${(props) => (props.hide ? 'none' : 'flex')};
   background-color: ${(props) =>
-    props.backgroundColor ? props.backgroundColor : '#000'};
-  color: ${(props) => (props.color ? props.color : '#fff')};
-  text-decoration-color: ${(props) => (props.color ? props.color : '#fff')};
+    props.backgroundColor ? props.backgroundColor : `${colors.black}`};
+  color: ${(props) => (props.color ? props.color : `${colors.white}`)};
+  text-decoration-color: ${(props) =>
+    props.color ? props.color : `${colors.white}`};
   padding: 0 12px;
   align-items: center;
   justify-content: center;
@@ -32,12 +34,13 @@ export const Message = styled.div`
   }
 
   & > u {
-    text-decoration-color: ${(props) => (props.color ? props.color : '#fff')};
+    text-decoration-color: ${(props) =>
+      props.color ? props.color : `${colors.white}`};
   }
 
   & > a {
     text-decoration: none;
-    color: ${(props) => (props.color ? props.color : '#fff')};
+    color: ${(props) => (props.color ? props.color : `${colors.white}`)};
   }
 `
 Message.displayName = 'NotificationBarMessage'
