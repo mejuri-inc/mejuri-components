@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import colors from 'styles/colors'
 
 export const Header = styled.header`
-  background: white;
-  border-bottom: 1px solid #fafafa;
+  background: ${colors.white};
+  border-bottom: 1px solid ${colors.lightGray1};
   box-shadow: 0 10px 5px 0 rgba(255, 255, 255, 0.75);
   display: flex;
   font-size: 14px;
@@ -16,7 +17,7 @@ export const Header = styled.header`
 Header.displayName = 'MobileMenuDriverHeader'
 
 export const Options = styled.ul`
-  border-bottom: 1px solid #fafafa;
+  border-bottom: 1px solid ${colors.lightGray1};
   list-style: none;
   margin: 0;
   max-height: ${(p) => (p.isOpen ? `${p.length * 42}px` : 0)};
@@ -33,6 +34,7 @@ export const Item = styled.li`
   letter-spacing: 0.5px;
   text-transform: none;
   padding-top: 22px;
+  border-bottom: 1px solid ${colors.lightGray1};
 
   &:last-of-type {
     padding-bottom: 22px;
@@ -41,13 +43,13 @@ export const Item = styled.li`
   ${(p) =>
     p.sub &&
     `
-    font-weight: 500;
+    font-weight: 600;
     padding-top: 30px;
   `}
 
   & > a {
     text-decoration: none;
-    color: black;
+    color: ${colors.black};
   }
 `
 
@@ -67,7 +69,7 @@ export const PlusMinusToggle = styled.div`
     position: absolute;
     height: 2px;
     width: 16px;
-    background: #000;
+    background: ${colors.black};
     transition: transform 150ms ease;
   }
 

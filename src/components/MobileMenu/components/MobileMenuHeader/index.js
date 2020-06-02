@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import CartIcon from 'components/cart/CartIcon'
+import MagniGlass from 'resources/icons/MagniGlass'
+import Arrow from 'resources/icons/ArrowLongLeft'
+import Close from 'resources/icons/CloseIcon'
 
-// import { ReactComponent as CloseIcon } from 'app/resources/svg/close-icon.svg'
-// import { ReactComponent as Back } from 'app/resources/svg/arrow-long-left.svg'
-// import { ReactComponent as MagniGlass } from 'app/resources/svg/loupe.svg'
-// import CartIcon from 'app/components/cart/CartIcon'
-
-import { Header, GoBack, Close, Arrow, Glass } from './styled'
+import { Header, GoBack, ArrowIcon, SearchIcon } from './styled'
 
 export const MobileMenuHeader = ({
   toggleNavigation,
@@ -18,10 +17,18 @@ export const MobileMenuHeader = ({
   return (
     <Header>
       <GoBack onClick={toggleNavigation}>
-        {isGoBackEnabled ? <Arrow>Back</Arrow> : <Close>CloseIcon</Close>}
+        {isGoBackEnabled ? (
+          <ArrowIcon>
+            <Arrow />
+          </ArrowIcon>
+        ) : (
+          <Close />
+        )}
       </GoBack>
-      <Glass onClick={() => glassClick()}>MagniGlass</Glass>
-      {/* <CartIcon onClick={() => bagClick()} itemsCount={itemQuantity} /> */}
+      <SearchIcon>
+        <MagniGlass onClick={() => glassClick()} />
+      </SearchIcon>
+      <CartIcon onClick={() => bagClick()} itemsCount={itemQuantity} />
     </Header>
   )
 }

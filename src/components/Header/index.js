@@ -10,6 +10,7 @@ const Header = ({
   user,
   onLogin,
   cartToggle,
+  toggleMobileMenu,
   children
 }) => (
   <Wrapper isDesktop={isDesktop()}>
@@ -23,7 +24,11 @@ const Header = ({
           cartToggle={cartToggle}
         />
       ) : (
-        <HeaderMobile cartItemsCount={cartItemsCount} cartToggle={cartToggle} />
+        <HeaderMobile
+          cartItemsCount={cartItemsCount}
+          cartToggle={cartToggle}
+          toggleMobileMenu={toggleMobileMenu}
+        />
       )}
       {children}
     </Content>
@@ -34,6 +39,7 @@ Header.propTypes = {
   isDesktop: PropTypes.func,
   cartToggle: PropTypes.func,
   cartItemsCount: PropTypes.number,
+  toggleMobileMenu: PropTypes.func,
   user: PropTypes.shape({
     isGuest: PropTypes.bool,
     nameOrEmail: PropTypes.string
@@ -44,7 +50,8 @@ Header.defaultProps = {
   isDesktop: () => true,
   cartItemsCount: 1,
   onLogin: () => {},
-  cartToggle: () => {}
+  cartToggle: () => {},
+  toggleMobileMenu: () => {}
 }
 
 export default Header

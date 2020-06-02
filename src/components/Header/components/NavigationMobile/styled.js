@@ -14,5 +14,6 @@ export const Hamburguer = styled.button`
   background: transparent;
   border: none;
   outline: 0;
+  cursor: pointer;
 `
 Hamburguer.displayName = 'HamburguerNavigation'

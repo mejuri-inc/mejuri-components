@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import colors from 'styles/colors'
 
 export const SubPage = styled.div`
   height: 100%;
@@ -10,7 +11,7 @@ export const SubPage = styled.div`
 `
 
 export const Title = styled.div`
-  border-bottom: 1px solid tomato;
+  background: ${colors.lightGray3};
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1px;
@@ -30,7 +31,8 @@ export const Item = styled.li`
   padding: 30px 0 0 0;
 
   & > a {
-    color: black;
-    text-decoration: none;
+    color: ${colors.black};
+    text-decoration: underline;
+    cursor: pointer;
   }
 `
