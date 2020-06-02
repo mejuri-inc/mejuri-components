@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import colors from 'styles/colors'
 
 export const Overlay = styled.div`
   background: black;
@@ -16,7 +17,7 @@ export const Overlay = styled.div`
 Overlay.displayName = 'MobileMenuOverlay'
 
 export const NavigationPanel = styled.div`
-  background: white;
+  background: ${colors.white};
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -63,7 +64,7 @@ export const Options = styled.div`
 Options.displayName = 'MobileMenuOptions'
 
 export const Footer = styled.ul`
-  background: #fafafa;
+  background: ${colors.lightGray3};
   list-style: none;
   margin: auto 0 0 0;
   padding: 0 25px;
@@ -72,12 +73,13 @@ export const Footer = styled.ul`
 Footer.displayName = 'MobileMenuFooter'
 
 export const FooterItem = styled.li`
-  border-bottom: 1px solid #fafafa;
+  border-bottom: 1px solid ${colors.lightGray1};
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
   padding: 22px 0;
   text-transform: uppercase;
+  cursor: pointer;
 
   &:last-child {
     border: none;

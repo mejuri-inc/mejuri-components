@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import colors from 'styles/colors'
 
 export const Header = styled.header`
   align-items: center;
-  background: white;
-  border-bottom: 1px solid tomato;
+  background: ${colors.white};
+  border-bottom: 1px solid ${colors.lightGray1};
   display: flex;
   height: 60px;
   justify-content: flex-end;
@@ -14,22 +15,17 @@ export const GoBack = styled.div`
   margin-right: auto;
 `
 
-export const Arrow = styled.button`
+export const ArrowIcon = styled.button`
   background: transparent;
   border: none;
-  height: 40px;
-  width: 40px;
+  cursor: pointer;
+  height: 28px;
+  padding: 0;
+  width: 28px;
 `
 
-export const Close = styled(Arrow)`
-  padding: 12px;
-  margin-left: -12px;
-`
-
-export const Glass = styled.button`
-  background: transparent;
-  border: none;
-  height: 35px;
-  margin-right: 5px;
-  width: 35px;
+export const SearchIcon = styled.div`
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
 `

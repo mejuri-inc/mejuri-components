@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const SignOut = styled.div`
-  border-top: tomato;
+  border-top: #fafafa;
   font-weight: 500;
   font-size: 15px;
   margin-top: 30px;

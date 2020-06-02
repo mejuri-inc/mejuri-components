@@ -7,10 +7,10 @@ import SearchButton from '../SearchButton'
 import MejuriLogo from 'resources/icons/Logo'
 import MagniGlass from 'resources/icons/MagniGlass'
 
-const HeaderMobile = ({ cartItemsCount, cartToggle }) => {
+const HeaderMobile = ({ cartItemsCount, cartToggle, toggleMobileMenu }) => {
   return (
     <Wrapper>
-      <Navigation />
+      <Navigation toggleMobileMenu={toggleMobileMenu} />
       <Logo href='/'>
         <MejuriLogo />
       </Logo>
@@ -28,11 +28,13 @@ const HeaderMobile = ({ cartItemsCount, cartToggle }) => {
 
 HeaderMobile.propTypes = {
   cartItemsCount: PropTypes.number,
-  cartToggle: PropTypes.func
+  cartToggle: PropTypes.func,
+  toggleMobileMenu: PropTypes.func
 }
 
 HeaderMobile.defaultProps = {
   cartToggle: () => {},
+  toggleMobileMenu: () => {},
   cartItemsCount: 1
 }
 

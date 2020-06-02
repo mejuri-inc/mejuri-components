@@ -16,7 +16,6 @@ export default class NavigationMobile extends PureComponent {
 
   handleClick = () => {
     const { toggleMobileMenu } = this.props
-
     toggleMobileMenu()
   }
 
