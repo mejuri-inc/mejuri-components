@@ -28,7 +28,7 @@ export const Message = styled.div`
   padding: 10px 10px 10px 0;
   text-align: center;
   letter-spacing: 1px;
-
+  margin-right: 20px;
   @media (min-width: ${mobileBp}) {
     padding: 10px 0;
   }
@@ -45,7 +45,7 @@ export const Message = styled.div`
 `
 Message.displayName = 'NotificationBarMessage'
 
-export const Icon = styled.div`
+export const Icon = styled.button`
   padding: 0 15px 0 0;
   position: fixed;
   right: 0;
@@ -53,6 +53,10 @@ export const Icon = styled.div`
   cursor: pointer;
   padding: 0 15px 0 0;
   margin-left: auto;
+  color: ${(props) => (props.color ? props.color : `${colors.white}`)};
+  background: none;
+  border: none;
+  outline: inherit;
 
   @media (min-width: ${mobileBp}) {
     display: none;

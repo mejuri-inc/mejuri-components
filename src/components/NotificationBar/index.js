@@ -139,7 +139,7 @@ export class NotificationBar extends React.Component {
             key={bar.id}
           >
             <Message color={bar.color}>{this.formatText(bar.legend)}</Message>
-            <Icon onClick={() => this.dismiss(bar.id)} />
+            <Icon onClick={() => this.dismiss(bar.id)} color={bar.color} />
           </Wrapper>
         ))}
       </div>
