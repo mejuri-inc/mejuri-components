@@ -26,6 +26,11 @@
     "react-intl": "^2.7.2",
     "styled-components": "^5.1.0"
   },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "lodash": "^4.17.11",
+    "nookies": "^2.3.0"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
@@ -57,6 +62,7 @@
     "react-intl": "^2.7.2",
     "react-scripts": "^3.4.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-test-renderer": "^16.13.1",
     "styled-components": "^5.1.0"
 =======
@@ -65,6 +71,9 @@
     "lodash": "^4.17.11",
     "nookies": "^2.3.0"
 >>>>>>> TEC 2977 Changes to manage cookies only in mejuri components and code review fixes
+=======
+    "styled-components": "^5.1.0"
+>>>>>>> TEC-2977 code review fixes
   },
   "files": [
     "dist"
