@@ -75,7 +75,7 @@ export class MobileMenu extends React.Component {
 
   handleBagClick = (e) => {
     const { toggleCart } = this.props
-    toggleCart()
+    toggleCart(true)
     setTimeout(() => this.toggleMenuState(), 300)
   }
 
