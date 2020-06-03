@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mejuri-components/static/css/main.42cc8b22.chunk.css",
-    "main.js": "/mejuri-components/static/js/main.bdb59688.chunk.js",
-    "main.js.map": "/mejuri-components/static/js/main.bdb59688.chunk.js.map",
+    "main.js": "/mejuri-components/static/js/main.d8d4e52f.chunk.js",
+    "main.js.map": "/mejuri-components/static/js/main.d8d4e52f.chunk.js.map",
     "runtime-main.js": "/mejuri-components/static/js/runtime-main.b1295bc8.js",
     "runtime-main.js.map": "/mejuri-components/static/js/runtime-main.b1295bc8.js.map",
     "static/js/2.f121909b.chunk.js": "/mejuri-components/static/js/2.f121909b.chunk.js",
     "static/js/2.f121909b.chunk.js.map": "/mejuri-components/static/js/2.f121909b.chunk.js.map",
     "index.html": "/mejuri-components/index.html",
-    "precache-manifest.aac9018c20e3d60f715f0f713e862058.js": "/mejuri-components/precache-manifest.aac9018c20e3d60f715f0f713e862058.js",
+    "precache-manifest.33ba929e8caac9e1b18d1747fd31c213.js": "/mejuri-components/precache-manifest.33ba929e8caac9e1b18d1747fd31c213.js",
     "service-worker.js": "/mejuri-components/service-worker.js",
     "static/css/main.42cc8b22.chunk.css.map": "/mejuri-components/static/css/main.42cc8b22.chunk.css.map",
     "static/js/2.f121909b.chunk.js.LICENSE.txt": "/mejuri-components/static/js/2.f121909b.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b1295bc8.js",
     "static/js/2.f121909b.chunk.js",
     "static/css/main.42cc8b22.chunk.css",
-    "static/js/main.bdb59688.chunk.js"
+    "static/js/main.d8d4e52f.chunk.js"
   ]
 }
