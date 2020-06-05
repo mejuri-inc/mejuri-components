@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import colors from 'styles/colors'
 
 export const StylingHelp = styled.div`
-  border-top: ${colors.lightGray1};
+  border-top: 1px solid ${colors.lightGray1};
   margin-top: 35px;
+  margin-bottom: 35px;
   padding-top: 20px;
-
   & > h5 {
     letter-spacing: 1px;
   }

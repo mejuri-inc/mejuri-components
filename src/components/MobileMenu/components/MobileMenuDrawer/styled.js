@@ -34,7 +34,6 @@ export const Item = styled.li`
   letter-spacing: 0.5px;
   text-transform: none;
   padding-top: 22px;
-  border-bottom: 1px solid ${colors.lightGray1};
 
   &:last-of-type {
     padding-bottom: 22px;
@@ -75,7 +74,7 @@ export const PlusMinusToggle = styled.div`
 
   &::after {
     transform-origin: center;
-    transform: ${(p) => (p.isOpen ? 'rotate(90deg)' : 'none')};
+    transform: ${(p) => (!p.isOpen ? 'rotate(90deg)' : 'none')};
   }
 
   &::before {

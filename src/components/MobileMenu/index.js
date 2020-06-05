@@ -14,7 +14,8 @@ import {
   Options,
   Footer,
   FooterItem,
-  Account
+  Account,
+  Wrapper
 } from './styled'
 
 import menuOptions from './mock.js'
@@ -68,7 +69,6 @@ export class MobileMenu extends React.Component {
     if (isLoggedIn) {
       return this.openSubPage(1)
     }
-
     openOnboarding()
     this.toggleMenuState()
   }
@@ -98,15 +98,31 @@ export class MobileMenu extends React.Component {
     } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
-
+    const menuOptionsWithoutFooterOptions = menuOptions.children.filter(
+      (x) =>
+        x.slug !== 'account' &&
+        x.slug !== 'support' &&
+        x.slug !== 'styling-help'
+    )
+    const accountMenuOption = menuOptions.children.find(
+      // eslint-disable-next-line eqeqeq
+      (x) => x.slug === 'account'
+    )
+    const supportMenuOption = menuOptions.children.find(
+      // eslint-disable-next-line eqeqeq
+      (x) => x.slug === 'support'
+    )
+    const stylingHelpOption = menuOptions.children.find(
+      (x) => x.slug === 'styling-help'
+    )
     return (
-      <div>
+      <Wrapper>
         <Overlay isOpen={isOpen} onClick={this.toggleMenuState} />
         <NavigationPanel isOpen={isOpen}>
           <MobileMenuHeader
             toggleNavigation={this.toggleMenuState}
             isGoBackEnabled={this.state.subPageOpen}
-            itemQuantity={itemQuantity}
+            itemQuantity={itemQuantity.length}
             bagClick={this.handleBagClick}
             glassClick={this.handleSearchClick}
             searchEnabled={searchEnabled}
@@ -123,11 +139,11 @@ export class MobileMenu extends React.Component {
                   this.refOptions = r
                 }}
               >
-                {menuOptions.main.map((o) => (
+                {menuOptionsWithoutFooterOptions.map((o) => (
                   <MobileMenuDrawer
                     key={o.slug}
                     toggle={() => this.setOpenDrawer(o.slug)}
-                    label={o.label}
+                    label={o.text}
                     isOpen={this.state.openDrawer === o.slug}
                     options={o.children}
                     glassClick={this.handleSearchClick}
@@ -135,10 +151,10 @@ export class MobileMenu extends React.Component {
                 ))}
                 <Footer>
                   <FooterItem onClick={() => this.openSubPage(0)}>
-                    Support
+                    {supportMenuOption.text}
                   </FooterItem>
                   <Account onClick={this.handleAccountClick}>
-                    {isLoggedIn ? 'Account' : 'Sign In / Sign Up'}
+                    {isLoggedIn ? accountMenuOption.text : 'Sign In / Sign Up'}
                   </Account>
                   <FooterItem>
                     {/* <CurrencySelector readonly={isPos} /> */}
@@ -147,22 +163,27 @@ export class MobileMenu extends React.Component {
               </Options>
             </Page>
             <MobileMenuSubPage
-              title={this.props.menuOptions.support.label}
-              options={this.props.menuOptions.support.children}
+              title={supportMenuOption.text}
+              options={supportMenuOption.children}
               active={this.state.subPageIndex === 0}
             >
-              <MobileMenuStylingHelp {...this.props.menuOptions.stylingHelp} />
+              <MobileMenuStylingHelp
+                label={stylingHelpOption.text}
+                caption={stylingHelpOption.extraFields.caption}
+                linkText={stylingHelpOption.extraFields.linkText}
+                url={stylingHelpOption.url}
+              />
             </MobileMenuSubPage>
             <MobileMenuSubPage
-              title={this.props.menuOptions.account.label}
-              options={this.props.menuOptions.account.children}
+              title={accountMenuOption.text}
+              options={accountMenuOption.children}
               active={this.state.subPageIndex === 1}
             >
               <MobileMenuSignOut />
             </MobileMenuSubPage>
           </Pages>
         </NavigationPanel>
-      </div>
+      </Wrapper>
     )
   }
 }
