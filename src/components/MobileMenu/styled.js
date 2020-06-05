@@ -1,6 +1,14 @@
 import styled from 'styled-components'
 import colors from 'styles/colors'
 
+export const Wrapper = styled.div`
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+`
+Wrapper.displayName = 'MobileMenuWrapper'
+
 export const Overlay = styled.div`
   background: black;
   bottom: 0;
@@ -60,6 +68,9 @@ export const Options = styled.div`
   margin: 0;
   overflow-y: auto;
   padding: 0;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `
 Options.displayName = 'MobileMenuOptions'
 

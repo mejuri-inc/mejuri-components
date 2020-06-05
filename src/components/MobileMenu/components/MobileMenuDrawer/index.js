@@ -10,15 +10,17 @@ export const MobileMenuDrawer = ({ toggle, label, isOpen, options }) => {
         {label}
         <PlusMinusToggle isOpen={isOpen} />
       </Header>
-      <Options length={options.length} isOpen={isOpen}>
-        {options.map((o) => (
-          <Item key={o.label} sub={o.type === 'subtitle'}>
-            <a href={o.url} onClick={(e) => e.stopPropagation()}>
-              {o.label}
-            </a>
-          </Item>
-        ))}
-      </Options>
+      {options && (
+        <Options length={options.length} isOpen={isOpen}>
+          {options.map((o) => (
+            <Item key={o.slug} sub={o.type === 'subtitle'}>
+              <a href={o.url} onClick={(e) => e.stopPropagation()}>
+                {o.text}
+              </a>
+            </Item>
+          ))}
+        </Options>
+      )}
     </Menu>
   )
 }
