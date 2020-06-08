@@ -136,10 +136,13 @@ export class NotificationBar extends React.Component {
             backgroundColor={bar.backgroundColor}
             color={bar.color}
             hide={bar.collapsed}
-            key={bar.id}
+            key={bar.identifier}
           >
             <Message color={bar.color}>{this.formatText(bar.legend)}</Message>
-            <Icon onClick={() => this.dismiss(bar.id)} color={bar.color} />
+            <Icon
+              onClick={() => this.dismiss(bar.identifier)}
+              color={bar.color}
+            />
           </Wrapper>
         ))}
       </div>
