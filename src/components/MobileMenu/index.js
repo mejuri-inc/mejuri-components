@@ -18,8 +18,6 @@ import {
   Wrapper
 } from './styled'
 
-import menuOptions from './mock.js'
-
 export class MobileMenu extends React.Component {
   constructor(props) {
     super(props)
@@ -122,7 +120,7 @@ export class MobileMenu extends React.Component {
           <MobileMenuHeader
             toggleNavigation={this.toggleMenuState}
             isGoBackEnabled={this.state.subPageOpen}
-            itemQuantity={itemQuantity.length}
+            itemQuantity={itemQuantity}
             bagClick={this.handleBagClick}
             glassClick={this.handleSearchClick}
             searchEnabled={searchEnabled}
@@ -203,10 +201,6 @@ MobileMenu.propTypes = {
   toggleMenu: PropTypes.func,
   toggleCart: PropTypes.func,
   openOnboarding: PropTypes.func
-}
-
-MobileMenu.defaultProps = {
-  menuOptions: menuOptions
 }
 
 export default MobileMenu
