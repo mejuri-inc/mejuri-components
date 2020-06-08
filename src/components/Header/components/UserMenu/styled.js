@@ -13,25 +13,19 @@ export const Panel = styled.ul`
   top: 97%;
   right: -46px;
   margin: 0;
+  z-index: 5;
 `
 Panel.displayName = 'UserMenuPanel'
 
-export const Wrapper = styled.div`
-  height: inherit;
-  position: relative;
-  display: flex;
+export const Wrapper = styled.button`
   align-items: center;
+  background: transparent;
+  border: none;
   cursor: pointer;
-
-  &:hover ${Panel} {
-    display: block;
-  }
-`
-Wrapper.displayName = 'WrapperUserMenu'
-
-export const LabelChevron = styled.div`
   display: flex;
-  align-items: center;
+  height: 40px;
+  position: relative;
+  text-transform: uppercase;
 
   & > svg {
     width: 15px;
@@ -39,6 +33,19 @@ export const LabelChevron = styled.div`
     margin-left: 3px;
     transform: rotate(180deg);
   }
+
+  &:hover ${Panel} {
+    display: block;
+  }
+`
+Wrapper.displayName = 'WrapperUserMenu'
+
+export const LabelChevron = styled.span`
+  letter-spacing: 1px;
+  max-width: 70px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `
 LabelChevron.displayName = 'UserMenuLabelChevron'
 

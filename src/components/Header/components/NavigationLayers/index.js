@@ -3,25 +3,47 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { Layers, Layer, Column, MenuTitle, MenuItem } from './styled'
 
-export const NavigationLayers = ({
-  activeSection,
-  sections,
-  mountingPoint
-}) => {
+function ColumnContent({ config }) {
+  return config.map((menuItem) => {
+    if (!menuItem.fields) {
+      return null
+    }
+
+    return (
+      <MenuItem key={menuItem.fields.slug} href={`/${menuItem.fields.url}`}>
+        {menuItem.fields && menuItem.fields.text}
+      </MenuItem>
+    )
+  })
+}
+
+function LayerContent({ config }) {
+  return config.map((col) => {
+    return (
+      <Column key={col.fields && col.fields.slug}>
+        {col.fields && col.fields.text && (
+          <MenuTitle>{col.fields.text}</MenuTitle>
+        )}
+        {col.fields && col.fields.children && (
+          <ColumnContent config={col.fields.children} />
+        )}
+      </Column>
+    )
+  })
+}
+
+export const NavigationLayers = ({ config, activeSection, mountingPoint }) => {
   const layout = (
     <Layers>
-      {sections.map((s, i) => (
-        <Layer key={s.slug} active={s.slug === activeSection} order={i}>
-          {s.children.map((col) => (
-            <Column key={col.slug}>
-              <MenuTitle>{col.name}</MenuTitle>
-              {col.children.map((menuItem) => (
-                <MenuItem key={menuItem.slug} href={menuItem.url}>
-                  {menuItem.name}
-                </MenuItem>
-              ))}
-            </Column>
-          ))}
+      {config.map((s, i) => (
+        <Layer
+          key={s.fields.slug}
+          active={s.fields.slug === activeSection}
+          order={i}
+        >
+          {s.fields && s.fields.children && (
+            <LayerContent config={s.fields.children} />
+          )}
         </Layer>
       ))}
     </Layers>
@@ -33,25 +55,6 @@ export const NavigationLayers = ({
 }
 
 NavigationLayers.propTypes = {
-  menuItems: PropTypes.shape({
-    sections: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-        url: PropTypes.string,
-        children: PropTypes.arrayOf(
-          PropTypes.shape({
-            name: PropTypes.string,
-            children: PropTypes.arrayOf(
-              PropTypes.shape({
-                name: PropTypes.string,
-                url: PropTypes.string
-              })
-            )
-          })
-        )
-      })
-    )
-  }),
   activeSection: PropTypes.string,
   mountingPoint: PropTypes.object
 }

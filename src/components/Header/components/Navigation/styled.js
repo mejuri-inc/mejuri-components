@@ -14,12 +14,16 @@ export const MainSections = styled.div`
 `
 MainSections.displayName = 'MainSectionsNavigation'
 
-export const MainSection = styled.a`
+export const MainSection = styled.button`
+  background: transparent;
+  border: none;
   color: ${colors.black};
   cursor: pointer;
   display: block;
-  min-width: 90px;
+  letter-spacing: 1px;
+  min-width: 83px;
   text-decoration: none;
+  text-transform: uppercase;
   transition: all 0.25s;
 
   &:hover {

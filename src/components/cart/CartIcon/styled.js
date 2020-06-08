@@ -2,14 +2,14 @@ import styled from 'styled-components'
 import colors from 'styles/colors'
 
 export const Wrapper = styled.button`
-  position: relative;
-  background: transparent;
-  padding: 0;
   appearance: none;
-  outline: 0;
   border: none;
+  background: transparent;
   cursor: pointer;
-  margin-top: 5px;
+  height: 40px;
+  padding: 8px 9px 10px;
+  position: relative;
+  width: 40px;
 `
 Wrapper.displayName = 'CartIconWrapper'
 
@@ -18,8 +18,8 @@ export const Badge = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: 0;
+  right: 0;
   width: 20px;
   height: 20px;
   border-radius: 100%;
@@ -27,9 +27,3 @@ export const Badge = styled.div`
   font-size: 12px;
 `
 Badge.displayName = 'CartIconBadge'
-
-export const Icon = styled.div`
-  width: 20px;
-  height: 22px;
-`
-Icon.displayName = 'CartIconIcon'

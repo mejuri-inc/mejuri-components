@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   background-color: ${colors.white};
   display: flex;
   justify-content: space-between;
-  padding: 15px 25px;
+  padding: 10px 25px;
 `
 Wrapper.displayName = 'CartHeaderWrapper'
 
@@ -14,9 +14,11 @@ export const Back = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
-  height: 28px;
-  padding: 0;
-  width: 28px;
+  height: 40px;
+  padding: 5px;
+  transform: rotate(${(p) => (p.isOpened ? '180deg' : '0deg')});
+  transition: transform 0.2s ease;
+  width: 40px;
 `
 Back.displayName = 'CartHeaderBack'
 

@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.header`
-  height: ${(props) => (props.isDesktop ? '80px' : '60px')};
+  height: 60px;
   width: 100%;
+  @media only screen and (min-width: 880px) {
+    height: 80px;
+  }
 `
 Wrapper.displayName = 'HeaderWrapper'
 

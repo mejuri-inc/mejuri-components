@@ -5,27 +5,33 @@ import { Wrapper, MainSections, MainSection } from './styled'
 import NavigationLayers from '../NavigationLayers'
 
 export const Navigation = ({
+  config,
   sections,
   setActive,
   activeSection,
   layersMountingPoint
 }) => {
+  if (!config) {
+    return <Wrapper />
+  }
+
   return (
     <Wrapper>
       <MainSections>
-        {sections.map((i) => (
+        {config.map((i) => (
           <MainSection
-            onMouseEnter={() => setActive(i.slug)}
-            onClick={() => setActive(i.slug)}
+            onMouseEnter={() => setActive(i.fields.slug)}
+            onClick={() => setActive(i.fields.slug)}
             href='#'
-            key={i.name}
+            key={i.fields.text}
           >
-            {i.name}
+            {i.fields.text}
           </MainSection>
         ))}
       </MainSections>
       {layersMountingPoint !== null && (
         <NavigationLayers
+          config={config}
           sections={sections}
           activeSection={activeSection}
           mountingPoint={layersMountingPoint.current}

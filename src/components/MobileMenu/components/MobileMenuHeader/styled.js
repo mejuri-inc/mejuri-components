@@ -6,7 +6,7 @@ export const Header = styled.header`
   background: ${colors.white};
   border-bottom: 1px solid ${colors.lightGray1};
   display: flex;
-  height: 60px;
+  height: 80px;
   justify-content: flex-end;
   padding: 0 25px;
 `

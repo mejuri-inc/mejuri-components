@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, Badge, Icon } from './styled'
+import { Wrapper, Badge } from './styled'
 import BagIcon from 'resources/icons/Bag'
 
 export default class CartIcon extends PureComponent {
@@ -14,9 +14,7 @@ export default class CartIcon extends PureComponent {
 
     return (
       <Wrapper onClick={onClick}>
-        <Icon>
-          <BagIcon />
-        </Icon>
+        <BagIcon />
         <Badge>{itemsCount}</Badge>
       </Wrapper>
     )

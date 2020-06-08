@@ -10,10 +10,8 @@ import menuOptions from './mock'
 const UserMenu = ({ nameOrEmail }) => {
   return (
     <Wrapper>
-      <LabelChevron>
-        {nameOrEmail}
-        <ChevronIcon />
-      </LabelChevron>
+      <LabelChevron>{nameOrEmail}</LabelChevron>
+      <ChevronIcon />
 
       {menuOptions && (
         <Panel>

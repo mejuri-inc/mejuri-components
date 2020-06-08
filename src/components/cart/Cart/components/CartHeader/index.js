@@ -5,12 +5,6 @@ import BackArrow from 'resources/icons/ArrowLongLeft'
 import CartIcon from 'components/cart/CartIcon'
 
 export class CartHeader extends PureComponent {
-  static propTypes = {
-    cartToggle: PropTypes.func,
-    children: PropTypes.node,
-    lineItems: PropTypes.array
-  }
-
   handleBackClick = () => {
     const { cartToggle } = this.props
 
@@ -18,11 +12,11 @@ export class CartHeader extends PureComponent {
   }
 
   render() {
-    const { children, lineItems, cartToggle } = this.props
+    const { children, lineItems, cartToggle, isOpened } = this.props
     const itemsCount = lineItems.reduce((acc, item) => acc + item.quantity, 0)
     return (
       <Wrapper>
-        <Back onClick={this.handleBackClick}>
+        <Back onClick={this.handleBackClick} isOpened={isOpened}>
           <BackArrow />
         </Back>
         <Body>{children}</Body>
@@ -30,6 +24,13 @@ export class CartHeader extends PureComponent {
       </Wrapper>
     )
   }
+}
+
+CartHeader.propTypes = {
+  cartToggle: PropTypes.func,
+  children: PropTypes.node,
+  lineItems: PropTypes.array,
+  isOpened: PropTypes.bool
 }
 
 export default CartHeader

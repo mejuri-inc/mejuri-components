@@ -105,7 +105,11 @@ export class Cart extends PureComponent {
         <Wrapper isOpened={isOpened}>
           <SectionLoader isFetching={isSomethingFetching}>
             <Content>
-              <CartHeader cartToggle={cartToggle} lineItems={lineItems}>
+              <CartHeader
+                cartToggle={cartToggle}
+                lineItems={lineItems}
+                isOpened={isOpened}
+              >
                 {!!lineItems.length && (
                   <FormattedMessage
                     id={
