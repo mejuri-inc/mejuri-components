@@ -62,7 +62,7 @@
     "react-intl": "^2.7.2",
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.1",
-    "styled-components": "^5.1.0",
+    "styled-components": "^5.1.0"
   },
   "files": [
     "dist"
