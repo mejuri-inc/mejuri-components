@@ -9482,9 +9482,6 @@ node-releases@^1.1.52, node-releases@^1.1.53:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.54.tgz#0a6b3916a7ddfd9656983fcde82cf38d1dbe1a6f"
   integrity sha512-tLzytKpgwKQr37yw9CEODjNM9lnmsNxzlv575GzOZ16AgMvPcJis/DgrJX4UEV1KIYoXk6XoVfY6YaMOPJESAQ==
 
-<<<<<<< HEAD
-normalize-package-data@^2.3.2, normalize-package-data@^2.5.0:
-=======
 nookies@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/nookies/-/nookies-2.3.0.tgz#56726ff10a6455820e4ff0d11602c3af2b21a0cb"
@@ -9493,8 +9490,7 @@ nookies@^2.3.0:
     cookie "^0.4.0"
     set-cookie-parser "^2.4.3"
 
-normalize-package-data@^2.3.2:
->>>>>>> TEC 2977 Changes to manage cookies only in mejuri components and code review fixes
+normalize-package-data@^2.3.2, normalize-package-data@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
   integrity sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==
