@@ -24,13 +24,11 @@ export const Wrapper = styled.div`
   transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
-  visibility: hidden;
-  transition: opacity 0.1s ease, transform 0.25s 0s;
+  transition: opacity 0.3s ease, transform 0.35s 0s;
   ${({ isOpened }) =>
     isOpened &&
     `
     transform: translateX(0);
-    visibility: visible;
     opacity: 1;
     pointer-events: all;
   `}

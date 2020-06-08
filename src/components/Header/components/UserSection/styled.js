@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
 
 export const Wrapper = styled.div`
   height: inherit;
@@ -8,12 +7,11 @@ export const Wrapper = styled.div`
 `
 Wrapper.displayName = 'UserSelectionWrapper'
 
-export const SignUpLink = styled.a`
-  color: ${colors.black};
-  text-decoration: none;
-
-  &:hover {
-    color: ${colors.darkGray1};
-  }
+export const SignUpLink = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  text-transform: uppercase;
 `
 SignUpLink.displayName = 'UserSelectionSignUp'

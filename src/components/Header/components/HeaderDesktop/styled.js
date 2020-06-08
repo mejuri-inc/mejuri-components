@@ -4,7 +4,13 @@ import { fontWeight } from 'styles/settings'
 
 export const Wrapper = styled.section`
   background: transparent;
+  display: none;
+  height: 80px;
   width: 100%;
+
+  @media only screen and (min-width: 880px) {
+    display: initial;
+  }
 `
 Wrapper.displayName = 'HeaderDesktopWrapper'
 
@@ -20,7 +26,7 @@ export const Content = styled.header`
   letter-spacing: 1.2px;
   position: relative;
   text-transform: uppercase;
-  transition: height 0.25s ease;
+  transition: height 0.4s ease;
 `
 Content.displayName = 'HeaderDesktopContent'
 
@@ -37,9 +43,11 @@ export const Menu = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 30%;
+  width: 35%;
   height: 100%;
-  padding-right: 30px;
+  padding-right: 16px;
+  padding-left: 30px;
+  justify-content: space-around;
 `
 Menu.displayName = 'HeaderDesktopMenu'
 
@@ -63,3 +71,30 @@ export const Overlay = styled.div`
   width: 100%;
 `
 Overlay.displayName = 'HeaderDesktopOverlay'
+
+export const Button = styled.button`
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  letter-spacing: 1px;
+  padding: 5px;
+  width: 95px;
+  text-transform: uppercase;
+
+  svg {
+    height: 24px;
+  }
+`
+
+export const ButtonLink = styled.a`
+  align-items: center;
+  display: flex;
+  height: 40px;
+  padding: 5px;
+  text-decoration: none;
+  min-width: 70px;
+`

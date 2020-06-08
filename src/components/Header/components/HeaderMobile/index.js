@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, Logo, Menu } from './styled'
+import { Wrapper, Logo, Menu, Button } from './styled'
 import Navigation from '../NavigationMobile'
 import CartIcon from 'components/cart/CartIcon'
-import SearchButton from '../SearchButton'
 import MejuriLogo from 'resources/icons/Logo'
 import MagniGlass from 'resources/icons/MagniGlass'
 
@@ -15,9 +14,9 @@ const HeaderMobile = ({ cartItemsCount, cartToggle, toggleMobileMenu }) => {
         <MejuriLogo />
       </Logo>
       <Menu>
-        <SearchButton>
+        <Button>
           <MagniGlass />
-        </SearchButton>
+        </Button>
         <CartIcon onClick={() => cartToggle()} itemsCount={cartItemsCount}>
           Cart Icon
         </CartIcon>
@@ -37,11 +36,5 @@ HeaderMobile.defaultProps = {
   toggleMobileMenu: () => {},
   cartItemsCount: 1
 }
-
-// const mapDispatchToProps = (dispatch) => ({
-//   cartToggle: (opened) => dispatch(toggle(opened))
-// })
-//
-// export default connect(null, mapDispatchToProps)(HeaderMobile)
 
 export default HeaderMobile

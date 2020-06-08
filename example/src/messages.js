@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 
 const messages = {
   en: {
@@ -16,6 +17,7 @@ const messages = {
     "header.search.placeholder": "Find what you're looking for",
     "header.search.hint": "Search any products and/or materials",
     "header.search.results": "Results",
+    "header.visitUs": "Visit Us",
 
     "cart.header.advice": "You're ${label} away from free shipping",
     "cart.header.freeShippingReached": "Enjoy the free expedited shipping!",

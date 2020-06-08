@@ -5,38 +5,34 @@ import HeaderDesktop from './components/HeaderDesktop'
 import HeaderMobile from './components/HeaderMobile'
 
 const Header = ({
-  isDesktop,
   cartItemsCount,
   user,
   onLogin,
   cartToggle,
   toggleMobileMenu,
+  config,
   children
 }) => (
-  <Wrapper isDesktop={isDesktop()}>
+  <Wrapper>
     <Content>
-      {/* <HeaderDesktop cartItemsCount={cartItemsCount} user={user} onLogin={onLogin} cartToggle={cartToggle}/> */}
-      {isDesktop() ? (
-        <HeaderDesktop
-          cartItemsCount={cartItemsCount}
-          user={user}
-          onLogin={onLogin}
-          cartToggle={cartToggle}
-        />
-      ) : (
-        <HeaderMobile
-          cartItemsCount={cartItemsCount}
-          cartToggle={cartToggle}
-          toggleMobileMenu={toggleMobileMenu}
-        />
-      )}
+      <HeaderDesktop
+        cartItemsCount={cartItemsCount}
+        user={user}
+        onLogin={onLogin}
+        cartToggle={cartToggle}
+        config={config}
+      />
+      <HeaderMobile
+        cartItemsCount={cartItemsCount}
+        cartToggle={cartToggle}
+        toggleMobileMenu={toggleMobileMenu}
+      />
       {children}
     </Content>
   </Wrapper>
 )
 
 Header.propTypes = {
-  isDesktop: PropTypes.func,
   cartToggle: PropTypes.func,
   cartItemsCount: PropTypes.number,
   toggleMobileMenu: PropTypes.func,
@@ -47,11 +43,11 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  isDesktop: () => true,
-  cartItemsCount: 1,
+  cartItemsCount: 0,
   onLogin: () => {},
   cartToggle: () => {},
-  toggleMobileMenu: () => {}
+  toggleMobileMenu: () => {},
+  user: {}
 }
 
 export default Header
