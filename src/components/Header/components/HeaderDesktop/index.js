@@ -51,7 +51,7 @@ function HeaderDesktop({ cartToggle, cartItemsCount, user, onLogin, config }) {
                 <FormattedMessage id='header.visitUs' />
               </ButtonLink>
               <UserSection
-                isGuest={!!(user && user.isGuest)}
+                isGuest={user.isGuest}
                 nameOrEmail={user.name || user.email}
                 onLogin={onLogin}
               />
@@ -76,6 +76,12 @@ HeaderDesktop.propTypes = {
     nameOrEmail: PropTypes.string
   }),
   onLogin: PropTypes.func
+}
+
+HeaderDesktop.defaultProps = {
+  user: {
+    isGuest: true
+  }
 }
 
 export default HeaderDesktop
