@@ -41,6 +41,13 @@ class Example extends Component {
 ```
 
 ## Deploy
+In case you are not logged:
+```
+$ npm login --registry=https://npm.pkg.github.com
+> Username: USERNAME
+> Password: TOKEN
+> Email: PUBLIC-EMAIL-ADDRESS
+```
 Update version number in package.json and then run:
 ```sh
 npm publish
