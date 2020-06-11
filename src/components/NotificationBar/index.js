@@ -1,5 +1,5 @@
 import React from 'react'
-import { Wrapper, Message, Icon } from './styled'
+import { Wrapper, Icon, Notifications } from './styled'
 import { parseCookies, setCookie } from 'nookies'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
@@ -130,7 +130,7 @@ export class NotificationBar extends React.Component {
     const { notificationBars } = this.state
     if (notificationBars.length === 0) return null
     return (
-      <div>
+      <Notifications>
         {notificationBars.map((bar) => (
           <Wrapper
             backgroundColor={bar.backgroundColor}
@@ -138,14 +138,14 @@ export class NotificationBar extends React.Component {
             hide={bar.collapsed}
             key={bar.identifier}
           >
-            <Message color={bar.color}>{this.formatText(bar.legend)}</Message>
+            {this.formatText(bar.legend)}
             <Icon
               onClick={() => this.dismiss(bar.identifier)}
               color={bar.color}
             />
           </Wrapper>
         ))}
-      </div>
+      </Notifications>
     )
   }
 }

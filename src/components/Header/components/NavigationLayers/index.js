@@ -33,6 +33,10 @@ function LayerContent({ config }) {
 }
 
 export const NavigationLayers = ({ config, activeSection, mountingPoint }) => {
+  // TODO: Temporary to avoid cms app to break bc of outdated data format.
+  if (!config || !Array.isArray(config)) {
+    return null
+  }
   const layout = (
     <Layers>
       {config.map((s, i) => (

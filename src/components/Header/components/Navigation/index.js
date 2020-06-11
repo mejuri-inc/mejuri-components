@@ -11,7 +11,8 @@ export const Navigation = ({
   activeSection,
   layersMountingPoint
 }) => {
-  if (!config) {
+  // TODO: Temporary to avoid cms app to break bc of outdated data format.
+  if (!config || !Array.isArray(config)) {
     return <Wrapper />
   }
 
