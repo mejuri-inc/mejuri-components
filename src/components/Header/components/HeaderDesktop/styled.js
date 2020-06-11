@@ -39,14 +39,14 @@ export const Logo = styled.a`
 `
 Logo.displayName = 'HeaderDesktopLogo'
 
-export const Menu = styled.div`
+export const Menu = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 35%;
   height: 100%;
   padding-right: 16px;
-  padding-left: 30px;
+  padding-left: 6px;
   justify-content: space-around;
 `
 Menu.displayName = 'HeaderDesktopMenu'
