@@ -54,7 +54,7 @@ export default class FooterNewsletterSubscribe extends PureComponent {
     return (
       <Wrapper>
         {!isSubmitted && (
-          <>
+          <div>
             <Title>
               <FormattedMessage id='footer.newsletterSubscribe.title' />
             </Title>
@@ -80,7 +80,7 @@ export default class FooterNewsletterSubscribe extends PureComponent {
                 </Form>
               )}
             />
-          </>
+          </div>
         )}
         {isSubmitted && (
           <WelcomeMessage>

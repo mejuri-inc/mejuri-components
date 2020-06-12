@@ -91,8 +91,7 @@ const FooterConfig =
     desktopLinks: desktopLinks,
     socialLinks: socialLinks,
     mobileLinks: mobileLinks,
-    isEnable: false,
-    isDesktop: true
+    isEnable: true,
   }
 
 
@@ -100,7 +99,6 @@ const FooterWrapper = () => {
   return (
     <Footer desktopLinks={FooterConfig.desktopLinks} socialLinks={FooterConfig.socialLinks}
             mobileLinks={FooterConfig.mobileLinks} isEnabled={FooterConfig.isEnable}
-            isDesktop={FooterConfig.isDesktop}
     />
   )
 }
