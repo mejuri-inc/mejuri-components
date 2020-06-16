@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { toggle } from 'app/store/searchOverlay/actions'
 import {
   Content,
   Header,
@@ -14,16 +12,16 @@ import {
   Close,
   LoadMore
 } from './styled'
-import { ReactComponent as CloseIcon } from 'app/resources/svg/close-icon.svg'
-import debounce from 'lodash/debounce'
-import TrackVisible from 'app/components/common/TrackVisible'
-import SearchOverlaySuggestions from '../SearchOverlaySuggestions'
-import ProductGrid from '../ProductGrid'
-import { isOpened } from 'app/store/searchOverlay/selectors'
+import debounce from 'lodash.debounce'
+import IsOnScreen from 'components/common/IsOnScreen'
+import SearchOverlaySuggestions from './components/SearchOverlaySuggestions'
+import ProductGrid from './components/ProductGrid'
+import CloseIcon from 'resources/icons/CloseIcon'
+import Overlay from 'components/common/Overlay'
 import { FormattedMessage } from 'react-intl'
-import { searchHitsPerPage } from 'app/constants'
-import { bp } from 'app/store/breakpoints/selectors'
-import algoliaService from 'app/services/externals/algolia'
+import algoliaService from './service'
+
+const typingDelay = 1000
 
 export class MainSearch extends PureComponent {
   constructor(props) {
@@ -38,30 +36,27 @@ export class MainSearch extends PureComponent {
     }
 
     this.client = null
-    this.index = null
-
-    this.debouncedSearch = debounce(this.search.bind(this), this.debounceDelay)
+    this.debouncedSearch = debounce(
+      function (e) {
+        const searchString = e.target.value
+        this.query(searchString)
+      }.bind(this),
+      typingDelay
+    )
+    this.handleSearchChange = this.handleSearchChange.bind(this)
+    this.setSearch = this.setSearch.bind(this)
   }
 
   componentDidMount() {
-    const { bp } = this.props
-    algoliaService.init({
-      hitsPerPage: bp('lg')
-        ? searchHitsPerPage.desktop
-        : searchHitsPerPage.mobile
-    })
+    algoliaService.init()
   }
 
-  get debounceDelay() {
-    const { searchString } = this.state
-    if (searchString.length <= 2) return 1000
-    if (searchString.length <= 4) return 800
-    return 600
+  setSearch(query) {
+    this.setState({ searchString: query })
+    this.query(query)
   }
 
-  setSearch = (query) => this.setState({ searchString: query })
-
-  query = (query, config = {}) => {
+  query(query, config = {}) {
     algoliaService
       .search(query, config)
       .then((response) => {
@@ -75,19 +70,26 @@ export class MainSearch extends PureComponent {
       .catch((e) => console.log('Error in search:', e)) // eslint-disable-line no-console
   }
 
-  search = (e) => {
-    const searchString = e.target.value
-    this.query(searchString)
-  }
-
-  addPage = () => {
+  addPage() {
     this.setState({ isFetchingPage: true })
     const { searchString, results } = this.state
 
     this.query(searchString, { offset: results.length })
   }
 
-  handleSearchChange = (e) => {
+  close() {
+    const { close } = this.props
+    this.setState(
+      {
+        searchString: '',
+        results: [],
+        isFetching: false
+      },
+      () => close()
+    )
+  }
+
+  handleSearchChange(e) {
     e.persist()
     const searchString = e.target.value
 
@@ -96,7 +98,7 @@ export class MainSearch extends PureComponent {
   }
 
   render() {
-    const { isOpened, close } = this.props
+    const { isOpened } = this.props
     const {
       isFetching,
       isFetchingPage,
@@ -104,6 +106,7 @@ export class MainSearch extends PureComponent {
       results,
       count
     } = this.state
+
     return (
       <Position>
         <Wrapper isOpened={isOpened}>
@@ -119,7 +122,8 @@ export class MainSearch extends PureComponent {
                     />
                   )}
                 </FormattedMessage>
-                <Close onClick={() => close()}>
+                <Close onClick={() => this.close()}>
+                  {' '}
                   <CloseIcon />
                 </Close>
               </SearchBox>
@@ -136,9 +140,9 @@ export class MainSearch extends PureComponent {
               {results.length ? (
                 <ProductGrid products={results}>
                   {results.length < count && (
-                    <TrackVisible onVisible={() => this.addPage()}>
+                    <IsOnScreen onVisible={() => this.addPage()}>
                       <LoadMore isFetching={isFetchingPage} />
-                    </TrackVisible>
+                    </IsOnScreen>
                   )}
                 </ProductGrid>
               ) : (
@@ -147,6 +151,7 @@ export class MainSearch extends PureComponent {
             </Scrollable>
           </Content>
         </Wrapper>
+        {isOpened && <Overlay />}
       </Position>
     )
   }
@@ -154,17 +159,13 @@ export class MainSearch extends PureComponent {
 
 MainSearch.propTypes = {
   isOpened: PropTypes.bool,
-  close: PropTypes.func,
-  bp: PropTypes.func
+  close: PropTypes.func
 }
 
-const mapStateToProps = (state) => ({
-  isOpened: isOpened(state),
-  bp: (name) => bp(state, name)
-})
+MainSearch.defaultProps = {
+  close: () => {
+    console.error('close prop missing in <MainSearch />')
+  }
+}
 
-const mapDispatchToProps = (dispatch) => ({
-  close: () => dispatch(toggle())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainSearch)
+export default MainSearch

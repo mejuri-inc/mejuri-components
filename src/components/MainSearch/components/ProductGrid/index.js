@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, Grid } from './styled'
+import { Wrapper, Grid, Children } from './styled'
 import ProductCard from '../ProductCard'
 
 export const ProductGrid = ({ products, children }) => {
@@ -11,7 +11,7 @@ export const ProductGrid = ({ products, children }) => {
           <ProductCard key={p.id} {...p} />
         ))}
       </Grid>
-      {children}
+      <Children>{children}</Children>
     </Wrapper>
   )
 }

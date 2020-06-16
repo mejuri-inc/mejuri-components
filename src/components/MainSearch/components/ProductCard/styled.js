@@ -1,18 +1,12 @@
 import styled from 'styled-components'
-import { bp } from 'app/packages/styled'
 import colors from 'styles/colors'
-import { fontWeight } from 'styles/settings'
 
 export const Card = styled.a`
   display: flex;
   flex-direction: column;
-  margin: 5px;
   padding-bottom: 20px;
   text-decoration: none;
-  width: calc(50% - 10px);
-  ${bp('md')`
-    width: calc(20% - 10px);
-  `}
+  width: 100%;
 `
 
 export const Image = styled.img`
@@ -29,7 +23,7 @@ export const Name = styled.div`
   color: ${colors.black};
   display: block;
   font-size: 14px;
-  font-weight: ${fontWeight.medium};
+  font-weight: 800;
   line-height: 22px;
   margin: 10px 0;
   min-height: 22px;

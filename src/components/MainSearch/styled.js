@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import colors from 'app/styles/colors'
-import { bp } from 'packages/styled'
-import { spinner, fadeIn } from 'app/styles/effects'
-import { fontWeight } from 'app/styles/settings'
+import colors from 'styles/colors'
+import { fadeIn, spinner } from 'styles/effects'
 
 export const Position = styled.div`
   height: 0;
@@ -13,9 +11,9 @@ export const Position = styled.div`
 export const Content = styled.div`
   max-width: 800px;
   width: 100%;
-  ${bp('md')`
+  @media screen and (min-width: 768px) {
     padding-top: 30px;
-  `}
+  }
 `
 
 export const Wrapper = styled.section`
@@ -32,10 +30,10 @@ export const Wrapper = styled.section`
   z-index: 1;
   max-height: 100vh;
   padding: 20px;
-  ${bp('md')`
+  @media screen and (min-width: 768px) {
     padding-top: 30px;
     position: absolute;
-  `}
+  }
 `
 
 export const SearchBox = styled.div`
@@ -82,7 +80,7 @@ export const Hint = styled.div`
 
 export const NumberOfResults = styled.div`
   font-size: 14px;
-  font-weight: ${fontWeight.regular};
+  font-weight: 800;
   letter-spacing: 0.86px;
   line-height: 18px;
   margin: 30px 0 12px 5px;
@@ -91,8 +89,8 @@ export const NumberOfResults = styled.div`
 
 export const Scrollable = styled.div`
   ${({ isFetching }) => isFetching && spinner()}
-  overflow-y: auto;
-  height: calc(100% - 100px);
+  overflow-y: scroll;
+  height: 65vh;
   position: relative;
 `
 

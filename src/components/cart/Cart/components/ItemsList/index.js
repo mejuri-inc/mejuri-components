@@ -5,7 +5,7 @@ import { ElementWrapper, List, ListElement, RemoveButton } from './styled'
 import CloseIcon from 'resources/icons/CloseIcon'
 import ItemProperties from '../ItemProperties'
 import ItemPOS from '../ItemPOS'
-import get from 'lodash/get'
+import get from 'lodash.get'
 
 export const ItemsList = ({
   currency,

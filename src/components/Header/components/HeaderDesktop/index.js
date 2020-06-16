@@ -17,10 +17,16 @@ import MagniGlass from 'resources/icons/MagniGlass'
 
 import UserSection from '../UserSection'
 import { FormattedMessage } from 'react-intl'
-// TODO: To be replaced by a config.
 import ScrollBreakpoint from 'components/ScrollBreakpoint'
 
-function HeaderDesktop({ cartToggle, cartItemsCount, user, onLogin, config }) {
+function HeaderDesktop({
+  cartToggle,
+  cartItemsCount,
+  user,
+  onLogin,
+  config,
+  toggleSearch
+}) {
   const [activeSection, setActiveSection] = useState(null)
   const layersMountingPoint = useRef(null)
 
@@ -43,7 +49,7 @@ function HeaderDesktop({ cartToggle, cartItemsCount, user, onLogin, config }) {
               <MejuriLogo />
             </Logo>
             <Menu>
-              <Button>
+              <Button onClick={() => toggleSearch()}>
                 <MagniGlass />
                 <FormattedMessage id='header.search' />
               </Button>
@@ -75,12 +81,16 @@ HeaderDesktop.propTypes = {
     isGuest: PropTypes.bool,
     nameOrEmail: PropTypes.string
   }),
-  onLogin: PropTypes.func
+  onLogin: PropTypes.func,
+  toggleSearch: PropTypes.func
 }
 
 HeaderDesktop.defaultProps = {
   user: {
     isGuest: true
+  },
+  toggleSearch: function () {
+    console.error('toggleSearch missing in <HeaderDesktop />')
   }
 }
 

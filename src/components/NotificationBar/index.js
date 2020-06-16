@@ -2,7 +2,7 @@ import React from 'react'
 import { Wrapper, Icon, Notifications } from './styled'
 import { parseCookies, setCookie } from 'nookies'
 import PropTypes from 'prop-types'
-import get from 'lodash/get'
+import get from 'lodash.get'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 const storeKey = 'notificationBar'
@@ -16,6 +16,13 @@ export class NotificationBar extends React.Component {
 
   getInitialState() {
     const { notificationBars } = this.props
+    if (!notificationBars) {
+      return {
+        dismissList: [],
+        notificationBars: []
+      }
+    }
+
     const dismissList = this.getDismissList(notificationBars)
     const filterNotificationBars = this.notificationBarsFilterByDismiss(
       dismissList,
@@ -133,12 +140,12 @@ export class NotificationBar extends React.Component {
       <Notifications>
         {notificationBars.map((bar) => (
           <Wrapper
-            backgroundColor={bar.backgroundColor}
-            color={bar.color}
-            hide={bar.collapsed}
-            key={bar.identifier}
+            backgroundColor={bar.fields.backgroundColor}
+            color={bar.fields.color}
+            hide={bar.fields.collapsed}
+            key={bar.fields.identifier}
           >
-            {this.formatText(bar.legend)}
+            {this.formatText(bar.fields.legend)}
             <Icon
               onClick={() => this.dismiss(bar.identifier)}
               color={bar.color}
