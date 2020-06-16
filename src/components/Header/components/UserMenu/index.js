@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import map from 'lodash/map'
 import { FormattedMessage } from 'react-intl'
 import { Wrapper, Panel, LabelChevron, Option } from './styled'
 import ChevronIcon from 'resources/icons/Chevron'
@@ -15,9 +14,9 @@ const UserMenu = ({ nameOrEmail }) => {
 
       {menuOptions && (
         <Panel>
-          {map(menuOptions, (option, key) => (
+          {Object.keys(menuOptions).map((key) => (
             <Option key={key}>
-              <a href={option.url}>
+              <a href={menuOptions[key].url}>
                 <FormattedMessage id={`header.userMenu.${key}`} />
               </a>
             </Option>

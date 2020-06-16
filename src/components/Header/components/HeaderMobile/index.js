@@ -6,7 +6,12 @@ import CartIcon from 'components/cart/CartIcon'
 import MejuriLogo from 'resources/icons/Logo'
 import MagniGlass from 'resources/icons/MagniGlass'
 
-const HeaderMobile = ({ cartItemsCount, cartToggle, toggleMobileMenu }) => {
+const HeaderMobile = ({
+  cartItemsCount,
+  cartToggle,
+  toggleMobileMenu,
+  toggleSearch
+}) => {
   return (
     <Wrapper>
       <Navigation toggleMobileMenu={toggleMobileMenu} />
@@ -14,7 +19,7 @@ const HeaderMobile = ({ cartItemsCount, cartToggle, toggleMobileMenu }) => {
         <MejuriLogo />
       </Logo>
       <Menu>
-        <Button>
+        <Button onClick={() => toggleSearch()}>
           <MagniGlass />
         </Button>
         <CartIcon onClick={() => cartToggle()} itemsCount={cartItemsCount}>
@@ -28,13 +33,17 @@ const HeaderMobile = ({ cartItemsCount, cartToggle, toggleMobileMenu }) => {
 HeaderMobile.propTypes = {
   cartItemsCount: PropTypes.number,
   cartToggle: PropTypes.func,
-  toggleMobileMenu: PropTypes.func
+  toggleMobileMenu: PropTypes.func,
+  toggleSearch: PropTypes.func
 }
 
 HeaderMobile.defaultProps = {
   cartToggle: () => {},
   toggleMobileMenu: () => {},
-  cartItemsCount: 1
+  cartItemsCount: 1,
+  toggleSearch: function () {
+    console.error('toggleSearch prop missing in <HeaderMobile />')
+  }
 }
 
 export default HeaderMobile

@@ -11,6 +11,7 @@ const Header = ({
   cartToggle,
   toggleMobileMenu,
   config,
+  toggleSearch,
   children
 }) => (
   <Wrapper>
@@ -21,11 +22,13 @@ const Header = ({
         onLogin={onLogin}
         cartToggle={cartToggle}
         config={config}
+        toggleSearch={toggleSearch}
       />
       <HeaderMobile
         cartItemsCount={cartItemsCount}
         cartToggle={cartToggle}
         toggleMobileMenu={toggleMobileMenu}
+        toggleSearch={toggleSearch}
       />
       {children}
     </Content>
