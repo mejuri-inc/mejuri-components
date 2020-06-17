@@ -5,8 +5,6 @@ import { fontWeight } from 'styles/settings'
 const lg = '1024px'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
   flex: 1;
   max-width: 700px;
   font-size: 14px;
@@ -15,6 +13,26 @@ export const Wrapper = styled.div`
   }
 `
 Wrapper.displayName = 'FooterLinksWrapper'
+
+export const DesktopWrapper = styled.div`
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  @media (min-width: ${lg}) {
+    display: flex;
+  }
+`
+DesktopWrapper.displayName = 'FooterLinksDesktopWrapper'
+
+export const MobileWrapper = styled.div`
+  display: flex;
+  width: 100%
+  justify-content: space-between;
+  @media (min-width: ${lg}) {
+    display: none;
+  }
+`
+MobileWrapper.displayName = 'FooterLinksMobileWrapper'
 
 export const Col = styled.div`
   width: 50%;

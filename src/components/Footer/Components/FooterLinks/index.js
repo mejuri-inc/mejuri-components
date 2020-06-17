@@ -1,19 +1,21 @@
 import React, { PureComponent } from 'react'
 import map from 'lodash/map'
 import PropTypes from 'prop-types'
-import { Wrapper, Col, Title, Links, Link } from './styled'
+import {
+  DesktopWrapper,
+  MobileWrapper,
+  Title,
+  Links,
+  Link,
+  Col,
+  Wrapper
+} from './styled'
 import { FormattedMessage } from 'react-intl'
 
 export default class FooterLinks extends PureComponent {
   static propTypes = {
     desktopLinks: PropTypes.object,
     mobileLinks: PropTypes.object
-  }
-
-  get links() {
-    return window.screen.width >= 1024
-      ? this.props.desktopLinks
-      : this.props.mobileLinks
   }
 
   renderLinks(links, title) {
@@ -31,14 +33,26 @@ export default class FooterLinks extends PureComponent {
   render() {
     return (
       <Wrapper>
-        {map(this.links, (links, key) => (
-          <Col key={key}>
-            <Title>
-              <FormattedMessage id={`footer.links.${key}`} />
-            </Title>
-            <Links>{this.renderLinks(links, key)}</Links>
-          </Col>
-        ))}
+        <DesktopWrapper>
+          {map(this.props.desktopLinks, (links, key) => (
+            <Col key={key}>
+              <Title>
+                <FormattedMessage id={`footer.links.${key}`} />
+              </Title>
+              <Links>{this.renderLinks(links, key)}</Links>
+            </Col>
+          ))}
+        </DesktopWrapper>
+        <MobileWrapper>
+          {map(this.props.mobileLinks, (links, key) => (
+            <Col key={key}>
+              <Title>
+                <FormattedMessage id={`footer.links.${key}`} />
+              </Title>
+              <Links>{this.renderLinks(links, key)}</Links>
+            </Col>
+          ))}
+        </MobileWrapper>
       </Wrapper>
     )
   }
