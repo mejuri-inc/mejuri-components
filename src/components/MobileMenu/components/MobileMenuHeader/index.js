@@ -25,8 +25,8 @@ export const MobileMenuHeader = ({
           <Close />
         )}
       </GoBack>
-      <SearchIcon>
-        <MagniGlass onClick={() => glassClick()} />
+      <SearchIcon onClick={glassClick}>
+        <MagniGlass />
       </SearchIcon>
       <CartIcon onClick={() => bagClick()} itemsCount={itemQuantity} />
     </Header>

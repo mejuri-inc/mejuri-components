@@ -13,6 +13,7 @@ export const Header = styled.header`
 
 export const GoBack = styled.div`
   margin-right: auto;
+  cursor: pointer;
 `
 
 export const ArrowIcon = styled.button`
@@ -28,4 +29,5 @@ export const SearchIcon = styled.div`
   width: 20px;
   height: 20px;
   margin-right: 20px;
+  cursor: pointer;
 `

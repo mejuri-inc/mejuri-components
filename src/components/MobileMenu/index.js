@@ -78,7 +78,7 @@ export class MobileMenu extends React.Component {
   }
 
   handleSearchClick = () => {
-    // TODO: reimplement.
+    this.props.toggleSearch()
     this.toggleMenuState()
   }
 
@@ -200,6 +200,7 @@ MobileMenu.propTypes = {
   isOpen: PropTypes.bool,
   toggleMenu: PropTypes.func,
   toggleCart: PropTypes.func,
+  toggleSearch: PropTypes.func,
   openOnboarding: PropTypes.func
 }
 
