@@ -54,10 +54,5 @@ export const Arrow = styled.button`
   outline: 0;
   background: transparent;
   cursor: pointer;
-
-  & > svg {
-    transform: rotate(90deg);
-    height: 100%;
-  }
 `
 Arrow.displayName = 'FooterNewsletterSubscribeArrow'

@@ -1,28 +1,15 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import {
-  Wrapper,
-  Title,
-  Subtitle,
-  Arrow,
-  InputWrapper,
-  WelcomeMessage
-} from './styled'
+import { Wrapper, Title, Subtitle, WelcomeMessage } from './styled'
 import { FormattedMessage } from 'react-intl'
-import { Formik, Form } from 'formik'
-import v from 'resources/validations'
-import FormInput from 'components/form/FormInput'
-import ChevronIcon from 'resources/icons/Chevron'
+import Input from 'components/Input'
+import { ValidationHelper } from 'helpers/validation'
 
 export default class FooterNewsletterSubscribe extends PureComponent {
   static propTypes = {
     isEnabled: PropTypes.bool,
     track: PropTypes.func
   }
-
-  static schema = v.object().shape({
-    email: v.string().email().required()
-  })
 
   constructor(props) {
     super(props)
@@ -43,10 +30,6 @@ export default class FooterNewsletterSubscribe extends PureComponent {
     this.setState({ isSubmitted: true })
   }
 
-  get formData() {
-    return { email: '' }
-  }
-
   render() {
     const { isEnabled } = this.props
     const { isSubmitted } = this.state
@@ -61,24 +44,12 @@ export default class FooterNewsletterSubscribe extends PureComponent {
             <Subtitle>
               <FormattedMessage id='footer.newsletterSubscribe.subtitle' />
             </Subtitle>
-            <Formik
-              initialValues={this.formData}
-              onSubmit={this.handleSubmit}
-              validationSchema={FooterNewsletterSubscribe.schema}
-              render={({ isSubmitting }) => (
-                <Form>
-                  <InputWrapper>
-                    <FormInput
-                      name='email'
-                      label='form.field.newsletterSubscribe'
-                      type='email'
-                    />
-                    <Arrow type='submit' disabled={isSubmitting}>
-                      <ChevronIcon />
-                    </Arrow>
-                  </InputWrapper>
-                </Form>
-              )}
+            <Input
+              submit={this.handleSubmit}
+              validationErrorId='form.error.string.email'
+              placeholderId='form.field.newsletterSubscribe'
+              emptyValueErrorId='form.error.mixed.required'
+              validateValue={ValidationHelper.validEmail}
             />
           </div>
         )}
