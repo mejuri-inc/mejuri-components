@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IntlProvider } from 'react-intl'
-import { Header, Cart, MejuriTheme, NotificationBar } from 'mejuri-components'
+import { Header, Cart, MejuriTheme, NotificationBar, Footer } from 'mejuri-components'
 import messages from './messages'
 import { MuiThemeProvider } from '@material-ui/core'
 import { mockLineItems } from './mocks/mock'
@@ -29,6 +29,7 @@ const App = () => {
           />
 
           <CartTestWrapper opened={isCartOpened} setOpened={setIsCartOpened}/>
+          <Footer />
         </div>
       </MuiThemeProvider>
     </IntlProvider>)
