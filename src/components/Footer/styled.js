@@ -3,8 +3,9 @@ import colors from 'styles/colors'
 
 export const Wrapper = styled.div`
   background: ${colors.white};
-  padding: 0;
   border-top: 1px solid ${colors.lightGray1};
+  margin-top: 100px;
+  padding: 0;
   overflow: hidden;
 `
 Wrapper.displayName = 'FooterWrapper'

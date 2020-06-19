@@ -3,7 +3,7 @@ import { IntlProvider } from 'react-intl'
 import { Header, Cart, MejuriTheme, NotificationBar, Footer } from 'mejuri-components'
 import messages from './messages'
 import { MuiThemeProvider } from '@material-ui/core'
-import { mockLineItems, desktopLinks, socialLinks, mobileLinks } from './mocks/mock'
+import { mockLineItems } from './mocks/mock'
 
 const App = () => {
 
@@ -29,7 +29,7 @@ const App = () => {
           />
 
           <CartTestWrapper opened={isCartOpened} setOpened={setIsCartOpened}/>
-          <FooterWrapper />
+          <Footer />
         </div>
       </MuiThemeProvider>
     </IntlProvider>)
@@ -85,21 +85,3 @@ const NotificationBarWrapper = () => {
     />
   )
 }
-
-const FooterConfig =
-  {
-    desktopLinks: desktopLinks,
-    socialLinks: socialLinks,
-    mobileLinks: mobileLinks,
-    isEnable: true,
-  }
-
-
-const FooterWrapper = () => {
-  return (
-    <Footer desktopLinks={FooterConfig.desktopLinks} socialLinks={FooterConfig.socialLinks}
-            mobileLinks={FooterConfig.mobileLinks} isEnabled={FooterConfig.isEnable}
-    />
-  )
-}
-

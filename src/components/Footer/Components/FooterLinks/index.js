@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import map from 'lodash/map'
+import map from 'lodash.map'
 import PropTypes from 'prop-types'
 import {
   DesktopWrapper,

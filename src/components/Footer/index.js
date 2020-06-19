@@ -5,9 +5,9 @@ import FooterLinks from 'components/Footer/Components/FooterLinks'
 import FooterNewsletterSubscribe from 'components/Footer/Components/FooterNewsletterSubscribe'
 import DesktopSubFooter from 'components/Footer/Components/DesktopSubfooter'
 import MobileSubFooter from 'components/Footer/Components/MobileSubFooter'
+import { mobileLinks, socialLinks, desktopLinks } from './defaultProps'
 
 const Footer = ({
-  isEnabled,
   track,
   desktopLinks,
   mobileLinks,
@@ -17,7 +17,7 @@ const Footer = ({
   <Wrapper>
     <Body>
       <FooterLinks desktopLinks={desktopLinks} mobileLinks={mobileLinks} />
-      <FooterNewsletterSubscribe track={track} isEnabled={isEnabled} />
+      {track && <FooterNewsletterSubscribe track={track} />}
     </Body>
     <DesktopSubFooter
       currencySelector={currencySelector}
@@ -31,7 +31,6 @@ const Footer = ({
 )
 
 Footer.propTypes = {
-  isEnabled: PropTypes.bool,
   track: PropTypes.func,
   desktopLinks: PropTypes.object,
   mobileLinks: PropTypes.object,
@@ -41,7 +40,10 @@ Footer.propTypes = {
 
 Footer.defaultProps = {
   track: () => {},
-  currencySelector: null
+  currencySelector: null,
+  mobileLinks,
+  socialLinks,
+  desktopLinks
 }
 
 export default Footer

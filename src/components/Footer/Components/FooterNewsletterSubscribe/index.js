@@ -7,7 +7,6 @@ import { ValidationHelper } from 'helpers/validation'
 
 export default class FooterNewsletterSubscribe extends PureComponent {
   static propTypes = {
-    isEnabled: PropTypes.bool,
     track: PropTypes.func
   }
 
@@ -31,9 +30,7 @@ export default class FooterNewsletterSubscribe extends PureComponent {
   }
 
   render() {
-    const { isEnabled } = this.props
     const { isSubmitted } = this.state
-    if (!isEnabled) return null
     return (
       <Wrapper>
         {!isSubmitted && (
