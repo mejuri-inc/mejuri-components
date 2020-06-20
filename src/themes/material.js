@@ -2,6 +2,9 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import { fontWeight } from 'styles/settings'
 import colors from 'styles/colors'
 
+// WE'RE TRYING TO DETACH FROM MATERIAL-UI AND MOVE THE STYLED COMPONENTS THEME
+// PLEASE DO NOT USE MUI THEME IN NEW COMPONENTS
+
 export default createMuiTheme({
   shadows: Array(25).fill('none'),
   palette: {
