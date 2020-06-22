@@ -31,6 +31,8 @@ object-assign
  * Released under the MIT License.
  */
 
+/*! algoliasearch.umd.js | 4.3.0 | © Algolia, inc. | https://github.com/algolia/algoliasearch-client-javascript */
+
 /**
  * CSS Vendor prefix detection and property feature testing.
  *
