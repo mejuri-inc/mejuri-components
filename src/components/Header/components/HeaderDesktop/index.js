@@ -59,7 +59,7 @@ function HeaderDesktop({
                 <FormattedMessage id='header.visitUs' />
               </ButtonLink>
               <UserSection
-                isGuest={user.isGuest}
+                isGuest={!user.email}
                 nameOrEmail={user.name || user.email}
                 onLogin={onLogin}
               />
