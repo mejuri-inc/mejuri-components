@@ -12,6 +12,7 @@ const Header = ({
   toggleMobileMenu,
   config,
   toggleSearch,
+  onClickTracking,
   children
 }) => (
   <Wrapper>
@@ -23,6 +24,7 @@ const Header = ({
         cartToggle={cartToggle}
         config={config}
         toggleSearch={toggleSearch}
+        onClickTracking={onClickTracking}
       />
       <HeaderMobile
         cartItemsCount={cartItemsCount}
@@ -39,6 +41,7 @@ Header.propTypes = {
   cartToggle: PropTypes.func,
   cartItemsCount: PropTypes.number,
   toggleMobileMenu: PropTypes.func,
+  onClickTracking: PropTypes.func,
   user: PropTypes.shape({
     isGuest: PropTypes.bool,
     nameOrEmail: PropTypes.string
@@ -50,6 +53,7 @@ Header.defaultProps = {
   onLogin: () => {},
   cartToggle: () => {},
   toggleMobileMenu: () => {},
+  onClickTracking: (context) => {},
   user: {}
 }
 

@@ -25,7 +25,8 @@ function HeaderDesktop({
   user,
   onLogin,
   config,
-  toggleSearch
+  toggleSearch,
+  onClickTracking
 }) {
   const [activeSection, setActiveSection] = useState(null)
   const layersMountingPoint = useRef(null)
@@ -44,6 +45,7 @@ function HeaderDesktop({
               setActive={setActiveSection}
               activeSection={activeSection}
               layersMountingPoint={layersMountingPoint}
+              onClickTracking={onClickTracking}
             />
             <Logo href='/'>
               <MejuriLogo />
@@ -82,7 +84,8 @@ HeaderDesktop.propTypes = {
     nameOrEmail: PropTypes.string
   }),
   onLogin: PropTypes.func,
-  toggleSearch: PropTypes.func
+  toggleSearch: PropTypes.func,
+  onClickTracking: PropTypes.func
 }
 
 HeaderDesktop.defaultProps = {

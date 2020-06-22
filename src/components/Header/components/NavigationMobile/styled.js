@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  padding-left: 20px;
+  padding-left: 16px;
   width: 30%;
 `
 Wrapper.displayName = 'WrapperNavigation'

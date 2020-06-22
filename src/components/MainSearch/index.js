@@ -91,9 +91,12 @@ export class MainSearch extends PureComponent {
 
   handleSearchChange(e) {
     e.persist()
+    const { onSearchTracking } = this.props
     const searchString = e.target.value
 
     this.setState({ isFetching: true, searchString })
+    onSearchTracking({ query: searchString })
+
     this.debouncedSearch(e)
   }
 
@@ -159,12 +162,16 @@ export class MainSearch extends PureComponent {
 
 MainSearch.propTypes = {
   isOpened: PropTypes.bool,
-  close: PropTypes.func
+  close: PropTypes.func,
+  onSearchTracking: PropTypes.func
 }
 
 MainSearch.defaultProps = {
   close: () => {
     console.error('close prop missing in <MainSearch />')
+  },
+  onSearchTracking: () => {
+    console.error('onSearchTracking prop missing in <MainSearch />')
   }
 }
 
