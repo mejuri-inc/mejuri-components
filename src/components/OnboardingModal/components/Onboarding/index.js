@@ -25,21 +25,6 @@ const userSubmitForm = (action, data) => {
 }
 
 export class Onboarding extends Component {
-  static propTypes = {
-    csrf: PropTypes.string,
-    isFetching: PropTypes.bool,
-    onClose: PropTypes.func,
-    mejuriApiHost: PropTypes.string,
-    recaptchaKey: PropTypes.string
-  }
-
-  static defaultProps = {
-    isFetching: false,
-    onClose: () => {},
-    mejuriApiHost: '',
-    recaptchaKey: null
-  }
-
   constructor(props) {
     super(props)
 
@@ -390,6 +375,21 @@ export class Onboarding extends Component {
       </div>
     )
   }
+}
+
+Onboarding.defaultProps = {
+  isFetching: false,
+  onClose: () => {},
+  mejuriApiHost: '',
+  recaptchaKey: null
+}
+
+Onboarding.propTypes = {
+  csrf: PropTypes.string,
+  isFetching: PropTypes.bool,
+  onClose: PropTypes.func,
+  mejuriApiHost: PropTypes.string,
+  recaptchaKey: PropTypes.string
 }
 
 export default Onboarding
