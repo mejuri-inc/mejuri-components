@@ -66,3 +66,8 @@ export const Scrollable = styled.div`
   overflow-y: auto;
 `
 Scrollable.displayName = 'CartScrollable'
+
+export const BottomWrapper = styled.div`
+  margin-top: auto;
+`
+BottomWrapper.displayName = 'CartBottomWrapper'

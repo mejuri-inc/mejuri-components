@@ -8,7 +8,8 @@ import {
   Content,
   EmptyCart,
   Scrollable,
-  Wrapper
+  Wrapper,
+  BottomWrapper
 } from './styled'
 import SectionLoader from 'components/common/SectionLoader'
 import CartHeader from 'components/cart/Cart/components/CartHeader'
@@ -141,10 +142,11 @@ export class Cart extends PureComponent {
                   addSuggestion={addSuggestionItem}
                   isFetching={isFetchingSuggestion}
                   items={suggestions}
+                  lineItems={lineItems}
                 />
               </Scrollable>
               {!!lineItems.length && (
-                <div>
+                <BottomWrapper>
                   <CartSummary
                     currency={currency}
                     subtotal={subtotal}
@@ -162,7 +164,7 @@ export class Cart extends PureComponent {
                       <FormattedMessage id='cart.actions.continue' />
                     </Button>
                   </BlockWrapper>
-                </div>
+                </BottomWrapper>
               )}
             </Content>
           </SectionLoader>

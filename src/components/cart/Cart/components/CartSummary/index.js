@@ -14,17 +14,17 @@ export const CartSummary = ({
   adjustments
 }) => {
   const subTotalMessage = subtotal ? (
-    <FormattedMessage
-      id='cart.balance.subtotal'
-      values={{ value: toCurrencyWithCode(subtotal, currency) }}
-    />
+    <span>{toCurrencyWithCode(subtotal, currency)}</span>
   ) : (
     <FormattedMessage id='displayFreeAmount' />
   )
 
   return (
     <Wrapper>
-      <Row>{subTotalMessage}</Row>
+      <Row>
+        <FormattedMessage id='cart.balance.subtotal' />
+        {subTotalMessage}
+      </Row>
       <Adjustments currency={currency} adjustments={adjustments} />
       <Estimates currency={currency} estimates={estimates} />
       <Total>

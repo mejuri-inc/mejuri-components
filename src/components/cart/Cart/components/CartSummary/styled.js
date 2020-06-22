@@ -6,7 +6,6 @@ export const Wrapper = styled.ul`
   border-top: 1px solid ${colors.lightGray1};
   list-style: none;
   margin: 0;
-  margin-top: auto;
   padding: 15px 30px;
   width: 100%;
 `
@@ -19,6 +18,7 @@ export const List = styled.ul`
 `
 
 export const Row = styled.li`
+  width: 100%;
   display: flex;
   font-size: 14px;
   font-weight: ${fontWeight.light};
@@ -28,6 +28,8 @@ export const Row = styled.li`
   margin-bottom: 0.35rem;
 `
 Row.displayName = 'CartSummaryRow'
+
+Wrapper.displayName = 'CartSummaryWrapper'
 
 export const Total = styled.li`
   display: flex;

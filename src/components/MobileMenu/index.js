@@ -92,7 +92,8 @@ export class MobileMenu extends React.Component {
       itemQuantity,
       searchEnabled,
       isLoggedIn,
-      isOpen
+      isOpen,
+      onClickTracking
     } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
@@ -113,6 +114,7 @@ export class MobileMenu extends React.Component {
     const stylingHelpOption = menuOptions.children.find(
       (x) => x.slug === 'styling-help'
     )
+
     return (
       <Wrapper>
         <Overlay isOpen={isOpen} onClick={this.toggleMenuState} />
@@ -145,6 +147,7 @@ export class MobileMenu extends React.Component {
                     isOpen={this.state.openDrawer === o.slug}
                     options={o.children}
                     glassClick={this.handleSearchClick}
+                    onClickTracking={onClickTracking}
                   />
                 ))}
                 <Footer>
@@ -186,6 +189,10 @@ export class MobileMenu extends React.Component {
   }
 }
 
+MobileMenu.defaultProps = {
+  onClickTracking: (context) => { console.error('onClickTracking missing in <MobileMenu />') }
+}
+
 MobileMenu.propTypes = {
   menuOptions: PropTypes.shape({
     main: PropTypes.array,
@@ -201,7 +208,8 @@ MobileMenu.propTypes = {
   toggleMenu: PropTypes.func,
   toggleCart: PropTypes.func,
   toggleSearch: PropTypes.func,
-  openOnboarding: PropTypes.func
+  openOnboarding: PropTypes.func,
+  onClickTracking: PropTypes.func
 }
 
 export default MobileMenu

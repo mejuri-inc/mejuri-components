@@ -7,9 +7,15 @@ export const Wrapper = styled.button`
   background: transparent;
   cursor: pointer;
   height: 40px;
-  padding: 8px 9px 10px;
+  padding: 5px 0px;
   position: relative;
-  width: 40px;
+  width: 32px;
+  min-width: 32px;
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+  }
 `
 Wrapper.displayName = 'CartIconWrapper'
 
