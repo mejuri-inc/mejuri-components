@@ -40,21 +40,27 @@ export const Item = styled.li`
   align-items: center;
   display: flex;
   height: 120px;
-  justify-content: space-between;
   padding-right: 30px;
   width: 100%;
 `
 Item.displayName = 'SuggestedProductsItem'
+export const Columns = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+Columns.displayName = 'SuggestedColumnsProductsItem'
+
 
 export const Image = styled.img`
   height: 120px;
   width: 120px;
+  margin: 0 20px;
 `
 
-export const Texts = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-right: auto;
+export const Texts = styled.span`
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 300;
 `
 
 export const AddButton = styled.button`
@@ -72,7 +78,7 @@ export const AddButton = styled.button`
   font-weight: 600;
   text-transform: uppercase;
   transition: all 0.25s ease;
-  width: 85px;
+  margin-top: 16px;
 
   &:hover {
     background-color: ${(p) => (p.isFetching ? 'transparent' : colors.black)};
@@ -81,22 +87,34 @@ export const AddButton = styled.button`
 `
 
 export const Link = styled.a`
+  position: relative;
   color: black;
   font-size: 16px;
-  font-weight: ${fontWeight.light};
+  font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
-
+  &::after {
+    content: '';
+    position: absolute;
+    height: 0.2px;
+    width: 100%;
+    background: #000;
+    left: 0;
+    bottom: 3px;
+    background: ${colors.black};
+  }
+  
   &:hover {
-    color: ${colors.grayLinkHover};
-    text-decoration: none;
+    color: ${colors.darkGray1};
+  }
+  &::after:after{
+    background: ${colors.darkGray1};
   }
 `
 
-export const Price = styled.span`
+export const Price = styled.p`
   font-size: 12px;
   font-weight: ${fontWeight.light};
-  margin-top: 10px;
 `
 
 export const Header = styled.div`

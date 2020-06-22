@@ -1,7 +1,6 @@
 import React from 'react'
-
 import PropTypes from 'prop-types'
-import { List, Row } from '../../styled'
+import { List, Row, Total } from '../../styled'
 import { toCurrencyWithCode } from 'helpers/currency'
 import Shipping from 'components/cart/Cart/components/CartSummary/components/Shipping'
 
@@ -13,16 +12,15 @@ export const Estimates = ({ estimates }) => {
       {estimates.map((estimate) => {
         const { amount, currency } = estimate
         const formattedPrice = toCurrencyWithCode(amount, currency)
+
+        if (estimate.type === 'shipping') {
+          return <Shipping {...estimate} currency={currency} key={estimate.id} />
+        }
+
         return (
           <Row key={estimate.id}>
-            {estimate.type === 'shipping' ? (
-              <Shipping {...estimate} currency={currency} />
-            ) : (
-              <div>
-                <span>{estimate.label}</span>
-                <span>{formattedPrice}</span>
-              </div>
-            )}
+            <span>{estimate.label}</span>
+            <span>{formattedPrice}</span>
           </Row>
         )
       })}

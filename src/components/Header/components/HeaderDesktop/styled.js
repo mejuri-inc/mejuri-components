@@ -8,14 +8,14 @@ export const Wrapper = styled.section`
   height: 80px;
   width: 100%;
 
-  @media only screen and (min-width: 880px) {
+  @media only screen and (min-width: 990px) {
     display: initial;
   }
 `
 Wrapper.displayName = 'HeaderDesktopWrapper'
 
 export const Content = styled.header`
-  border-bottom: 1px solid ${colors.whiteSmoke};
+  border-bottom: ${p => p.shrinked ? `1px solid ${colors.whiteSmoke}` : 'none'};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,7 +47,9 @@ export const Menu = styled.nav`
   height: 100%;
   padding-right: 16px;
   padding-left: 6px;
-  justify-content: space-around;
+  & > *:not(:last-child) {
+    padding: 0 1.75em;
+  }
 `
 Menu.displayName = 'HeaderDesktopMenu'
 
@@ -79,14 +81,13 @@ export const Button = styled.button`
   cursor: pointer;
   display: flex;
   height: 40px;
-  justify-content: space-between;
+  
   letter-spacing: 1px;
-  padding: 5px;
-  width: 95px;
   text-transform: uppercase;
 
   svg {
-    height: 24px;
+    height: 13px;
+    width: 20px;
   }
 `
 
@@ -96,5 +97,9 @@ export const ButtonLink = styled.a`
   height: 40px;
   padding: 5px;
   text-decoration: none;
-  min-width: 70px;
+  min-width: 98px;
+  color: ${colors.black};
+  &:hover {
+    color: ${colors.darkGray1};
+  }
 `

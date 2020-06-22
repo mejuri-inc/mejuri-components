@@ -16,7 +16,6 @@ export const Back = styled.button`
   cursor: pointer;
   height: 40px;
   padding: 5px;
-  transform: rotate(${(p) => (p.isOpened ? '180deg' : '0deg')});
   transition: transform 0.2s ease;
   width: 40px;
 `

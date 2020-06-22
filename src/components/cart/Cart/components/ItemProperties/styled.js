@@ -15,10 +15,13 @@ export const Name = styled.h4`
   letter-spacing: 0.025em;
   margin: 0.8rem 0 0 0;
   text-transform: none;
-
+  font-weight: 600;
   & > a {
     color: ${colors.black};
     text-decoration: none;
+  }
+  & > a:hover {
+    color: ${colors.darkGray2};
   }
 `
 Name.displayName = 'ItemPropertiesName'

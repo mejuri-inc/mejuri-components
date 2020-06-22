@@ -9,13 +9,13 @@ export const Navigation = ({
   sections,
   setActive,
   activeSection,
-  layersMountingPoint
+  layersMountingPoint,
+  onClickTracking
 }) => {
   // TODO: Temporary to avoid cms app to break bc of outdated data format.
   if (!config || !Array.isArray(config)) {
     return <Wrapper />
   }
-
   return (
     <Wrapper>
       <MainSections>
@@ -36,6 +36,7 @@ export const Navigation = ({
           sections={sections}
           activeSection={activeSection}
           mountingPoint={layersMountingPoint.current}
+          onClickTracking={onClickTracking}
         />
       )}
     </Wrapper>
@@ -49,6 +50,7 @@ Navigation.propTypes = {
     })
   ),
   setActive: PropTypes.func,
+  onClickTracking: PropTypes.func,
   activeSection: PropTypes.string,
   layersMountingPoint: PropTypes.object
 }

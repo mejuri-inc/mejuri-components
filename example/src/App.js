@@ -71,11 +71,12 @@ const CartTestWrapper = ({opened, setOpened}) => {
 }
 
 const notificationBars = [
-  {
-    backgroundColor: "#737373",
-    collapsed: false,
-    identifier: "NotificationBarTest",
-    textColor: "#000",
+  { fields: {
+      backgroundColor: "#737373",
+      collapsed: false,
+      identifier: "NotificationBarTest",
+      textColor: "#000",
+    }
   }
 ]
 
