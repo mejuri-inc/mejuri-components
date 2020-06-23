@@ -30,25 +30,23 @@ Options.displayName = 'MobileMenuDriverOptions'
 
 export const Item = styled.li`
   font-size: 15px;
-  font-weight: 300;
+  font-weight: ${(p) => (p.sub ? '600' : '300')};
   letter-spacing: 0.5px;
   text-transform: none;
-  padding-top: 22px;
+  padding-top: ${(p) => (p.sub ? '30px' : '22px')};
+
+  margin-bottom: 0;
 
   &:last-of-type {
     padding-bottom: 22px;
   }
 
-  ${(p) =>
-    p.sub &&
-    `
-    font-weight: 600;
-    padding-top: 30px;
-  `}
-
   & > a {
     text-decoration: none;
     color: ${colors.black};
+    &:hover {
+      color: ${colors.grey};
+    }
   }
 `
 

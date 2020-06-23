@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Header, Options, Item, PlusMinusToggle, Menu } from './styled'
-import { MenuItem } from 'components/Header/components/NavigationLayers/styled'
 
-export const MobileMenuDrawer = ({ toggle, label, isOpen, options, onClickTracking }) => {
+export const MobileMenuDrawer = ({ toggle, label, isOpen, options }) => {
   return (
     <Menu>
       <Header onClick={toggle}>
@@ -14,14 +13,9 @@ export const MobileMenuDrawer = ({ toggle, label, isOpen, options, onClickTracki
       {options && (
         <Options length={options.length} isOpen={isOpen}>
           {options.map((o) => (
-            <Item key={o.slug} sub={o.type === 'subtitle'}>
-              <a
-                onClick={() => {
-                  onClickTracking({ target: o.text.toLowerCase().split(' ').join('_')})
-                  setTimeout(() => window.location = o.url, 1)
-                }}
-              >
-                {o.text}
+            <Item key={o.sys.id} sub={o.fields.type === 'subtitle'}>
+              <a href={o.fields.url} onClick={(e) => e.stopPropagation()}>
+                {o.fields.text}
               </a>
             </Item>
           ))}

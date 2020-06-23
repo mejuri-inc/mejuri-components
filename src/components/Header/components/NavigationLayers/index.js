@@ -11,11 +11,14 @@ function ColumnContent({ config, onClickTracking }) {
 
     return (
       <MenuItem
-        key={menuItem.fields.slug}
+        key={menuItem.sys.id}
         onClick={() => {
-          onClickTracking({ target: menuItem.fields.text.toLowerCase().split(' ').join('_')})
-          setTimeout(() => window.location = `${menuItem.fields.url}`, 1)
-        }} >
+          onClickTracking({
+            target: menuItem.fields.text.toLowerCase().split(' ').join('_')
+          })
+          setTimeout(() => (window.location = `${menuItem.fields.url}`), 1)
+        }}
+      >
         {menuItem.fields && menuItem.fields.text}
       </MenuItem>
     )
@@ -23,21 +26,31 @@ function ColumnContent({ config, onClickTracking }) {
 }
 
 function LayerContent({ config, onClickTracking }) {
-  return config.filter(c => c.fields !== undefined).map((col) => {
-    return (
-      <Column key={col.fields && col.fields.slug}>
-        {col.fields && col.fields.text && (
-          <MenuTitle>{col.fields.text}</MenuTitle>
-        )}
-        {col.fields && col.fields.children && (
-          <ColumnContent config={col.fields.children} onClickTracking={onClickTracking} />
-        )}
-      </Column>
-    )
-  })
+  return config
+    .filter((c) => c.fields !== undefined)
+    .map((col) => {
+      return (
+        <Column key={col.fields && col.sys.id}>
+          {col.fields && col.fields.text && (
+            <MenuTitle>{col.fields.text}</MenuTitle>
+          )}
+          {col.fields && col.fields.children && (
+            <ColumnContent
+              config={col.fields.children}
+              onClickTracking={onClickTracking}
+            />
+          )}
+        </Column>
+      )
+    })
 }
 
-export const NavigationLayers = ({ config, activeSection, mountingPoint, onClickTracking }) => {
+export const NavigationLayers = ({
+  config,
+  activeSection,
+  mountingPoint,
+  onClickTracking
+}) => {
   // TODO: Temporary to avoid cms app to break bc of outdated data format.
   if (!config || !Array.isArray(config)) {
     return null
@@ -45,13 +58,12 @@ export const NavigationLayers = ({ config, activeSection, mountingPoint, onClick
   const layout = (
     <Layers>
       {config.map((s, i) => (
-        <Layer
-          key={s.fields.slug}
-          active={s.fields.slug === activeSection}
-          order={i}
-        >
+        <Layer key={s.sys.id} active={s.sys.id === activeSection} order={i}>
           {s.fields && s.fields.children && (
-            <LayerContent config={s.fields.children} onClickTracking={onClickTracking}/>
+            <LayerContent
+              config={s.fields.children}
+              onClickTracking={onClickTracking}
+            />
           )}
         </Layer>
       ))}

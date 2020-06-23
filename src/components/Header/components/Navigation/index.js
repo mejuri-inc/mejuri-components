@@ -21,8 +21,8 @@ export const Navigation = ({
       <MainSections>
         {config.map((i) => (
           <MainSection
-            onMouseEnter={() => setActive(i.fields.slug)}
-            onClick={() => setActive(i.fields.slug)}
+            onMouseEnter={() => setActive(i.sys.id)}
+            onClick={() => setActive(i.sys.id)}
             href='#'
             key={i.fields.text}
           >

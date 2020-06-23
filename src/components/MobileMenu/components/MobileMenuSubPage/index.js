@@ -8,8 +8,8 @@ export const MobileMenuSubPage = ({ active, options, title, children }) => {
       <Title>{title}</Title>
       <List>
         {options.map((o) => (
-          <Item key={o.text}>
-            <a href={o.url}>{o.text}</a>
+          <Item key={o.fields.text}>
+            <a href={o.fields.url}>{o.fields.text}</a>
           </Item>
         ))}
       </List>
