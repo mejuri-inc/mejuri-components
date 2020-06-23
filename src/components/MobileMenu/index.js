@@ -14,9 +14,9 @@ import {
   Options,
   Footer,
   FooterItem,
-  Account,
   Wrapper
 } from './styled'
+import get from 'lodash.get'
 
 export class MobileMenu extends React.Component {
   constructor(props) {
@@ -62,10 +62,10 @@ export class MobileMenu extends React.Component {
       })
   }
 
-  handleAccountClick = () => {
+  handleAccountClick = (id) => {
     const { isLoggedIn, openOnboarding } = this.props
     if (isLoggedIn) {
-      return this.openSubPage(1)
+      return this.openSubPage(id)
     }
     openOnboarding()
     this.toggleMenuState()
@@ -86,35 +86,54 @@ export class MobileMenu extends React.Component {
     this.setState({ subPageIndex: id, subPageOpen: true })
   }
 
+  handleFooterClick = (option) => {
+    const isAccount = get(option, 'fields.extraFields.account', null)
+    const id = option.sys.id
+    if (isAccount) {
+      this.handleAccountClick(id)
+    } else {
+      this.openSubPage(id)
+    }
+  }
+
+  getBottomOptionText(option) {
+    const { isLoggedIn } = this.props
+    return !option.fields.extraFields.account
+      ? option.fields.text
+      : isLoggedIn
+      ? option.fields.text
+      : 'Sign In / Sign Up'
+  }
+
+  getBottomOptionChild(option, stylingHelp) {
+    const isAccount = get(option, 'fields.extraFields.account', null)
+    return isAccount ? (
+      <MobileMenuSignOut />
+    ) : (
+      <MobileMenuStylingHelp
+        label={get(stylingHelp, 'fields.text', null)}
+        caption={get(stylingHelp, 'fields.extraFields.caption', null)}
+        linkText={get(stylingHelp, 'fields.extraFields.linkText', null)}
+        url={get(stylingHelp, 'fields.url', null)}
+      />
+    )
+  }
+
   render() {
-    const {
-      menuOptions,
-      itemQuantity,
-      searchEnabled,
-      isLoggedIn,
-      isOpen,
-      onClickTracking
-    } = this.props
+    const { menuOptions, itemQuantity, searchEnabled, isOpen } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
-    const menuOptionsWithoutFooterOptions = menuOptions.children.filter(
-      (x) =>
-        x.slug !== 'account' &&
-        x.slug !== 'support' &&
-        x.slug !== 'styling-help'
+    const bottomMenus = menuOptions.children.filter((x) =>
+      x.fields.extraFields ? x.fields.extraFields.bottom : false
     )
-    const accountMenuOption = menuOptions.children.find(
-      // eslint-disable-next-line eqeqeq
-      (x) => x.slug === 'account'
+    const topMenus = menuOptions.children.filter((x) =>
+      x.fields.extraFields
+        ? !x.fields.extraFields.bottom && !x.fields.extraFields.stylingHelp
+        : true
     )
-    const supportMenuOption = menuOptions.children.find(
-      // eslint-disable-next-line eqeqeq
-      (x) => x.slug === 'support'
+    const stylingHelp = menuOptions.children.find((x) =>
+      x.fields.extraFields ? x.fields.extraFields.stylingHelp : false
     )
-    const stylingHelpOption = menuOptions.children.find(
-      (x) => x.slug === 'styling-help'
-    )
-
     return (
       <Wrapper>
         <Overlay isOpen={isOpen} onClick={this.toggleMenuState} />
@@ -139,58 +158,43 @@ export class MobileMenu extends React.Component {
                   this.refOptions = r
                 }}
               >
-                {menuOptionsWithoutFooterOptions.map((o) => (
+                {topMenus.map((o) => (
                   <MobileMenuDrawer
-                    key={o.slug}
-                    toggle={() => this.setOpenDrawer(o.slug)}
-                    label={o.text}
-                    isOpen={this.state.openDrawer === o.slug}
-                    options={o.children}
+                    key={o.sys.id}
+                    toggle={() => this.setOpenDrawer(o.sys.id)}
+                    label={o.fields.text}
+                    isOpen={this.state.openDrawer === o.sys.id}
+                    options={o.fields.children}
                     glassClick={this.handleSearchClick}
-                    onClickTracking={onClickTracking}
                   />
                 ))}
                 <Footer>
-                  <FooterItem onClick={() => this.openSubPage(0)}>
-                    {supportMenuOption.text}
-                  </FooterItem>
-                  <Account onClick={this.handleAccountClick}>
-                    {isLoggedIn ? accountMenuOption.text : 'Sign In / Sign Up'}
-                  </Account>
-                  <FooterItem>
-                    {/* <CurrencySelector readonly={isPos} /> */}
-                  </FooterItem>
+                  {bottomMenus.map((o) => (
+                    <FooterItem
+                      onClick={() => this.handleFooterClick(o)}
+                      key={o.sys.id}
+                    >
+                      {this.getBottomOptionText(o)}
+                    </FooterItem>
+                  ))}
                 </Footer>
               </Options>
             </Page>
-            <MobileMenuSubPage
-              title={supportMenuOption.text}
-              options={supportMenuOption.children}
-              active={this.state.subPageIndex === 0}
-            >
-              <MobileMenuStylingHelp
-                label={stylingHelpOption.text}
-                caption={stylingHelpOption.extraFields.caption}
-                linkText={stylingHelpOption.extraFields.linkText}
-                url={stylingHelpOption.url}
-              />
-            </MobileMenuSubPage>
-            <MobileMenuSubPage
-              title={accountMenuOption.text}
-              options={accountMenuOption.children}
-              active={this.state.subPageIndex === 1}
-            >
-              <MobileMenuSignOut />
-            </MobileMenuSubPage>
+            {bottomMenus.map((o) => (
+              <MobileMenuSubPage
+                title={o.fields.text}
+                options={o.fields.children}
+                active={this.state.subPageIndex === o.sys.id}
+                key={o.sys.id}
+              >
+                {this.getBottomOptionChild(o, stylingHelp)}
+              </MobileMenuSubPage>
+            ))}
           </Pages>
         </NavigationPanel>
       </Wrapper>
     )
   }
-}
-
-MobileMenu.defaultProps = {
-  onClickTracking: (context) => { console.error('onClickTracking missing in <MobileMenu />') }
 }
 
 MobileMenu.propTypes = {
@@ -208,8 +212,7 @@ MobileMenu.propTypes = {
   toggleMenu: PropTypes.func,
   toggleCart: PropTypes.func,
   toggleSearch: PropTypes.func,
-  openOnboarding: PropTypes.func,
-  onClickTracking: PropTypes.func
+  openOnboarding: PropTypes.func
 }
 
 export default MobileMenu

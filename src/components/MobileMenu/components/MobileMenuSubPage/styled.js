@@ -33,10 +33,14 @@ export const Item = styled.li`
   font-size: 16px;
   font-weight: bold;
   padding: 30px 0 0 0;
+  margin-bottom: 0px;
 
   & > a {
     color: ${colors.black};
     text-decoration: none;
     cursor: pointer;
+    &:hover {
+      color: ${colors.grey};
+    }
   }
 `
