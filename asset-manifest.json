@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/mejuri-components/static/css/main.d07ee210.chunk.css",
-    "main.js": "/mejuri-components/static/js/main.ef39b243.chunk.js",
-    "main.js.map": "/mejuri-components/static/js/main.ef39b243.chunk.js.map",
+    "main.js": "/mejuri-components/static/js/main.d22ca1a8.chunk.js",
+    "main.js.map": "/mejuri-components/static/js/main.d22ca1a8.chunk.js.map",
     "runtime-main.js": "/mejuri-components/static/js/runtime-main.799941ae.js",
     "runtime-main.js.map": "/mejuri-components/static/js/runtime-main.799941ae.js.map",
-    "static/js/2.438852ab.chunk.js": "/mejuri-components/static/js/2.438852ab.chunk.js",
-    "static/js/2.438852ab.chunk.js.map": "/mejuri-components/static/js/2.438852ab.chunk.js.map",
+    "static/js/2.a916d584.chunk.js": "/mejuri-components/static/js/2.a916d584.chunk.js",
+    "static/js/2.a916d584.chunk.js.map": "/mejuri-components/static/js/2.a916d584.chunk.js.map",
     "index.html": "/mejuri-components/index.html",
-    "precache-manifest.7b72d11ca6d0f6071eb74a6d1c954f63.js": "/mejuri-components/precache-manifest.7b72d11ca6d0f6071eb74a6d1c954f63.js",
+    "precache-manifest.49d71d68275b66144ced67f5b7a95826.js": "/mejuri-components/precache-manifest.49d71d68275b66144ced67f5b7a95826.js",
     "service-worker.js": "/mejuri-components/service-worker.js",
     "static/css/main.d07ee210.chunk.css.map": "/mejuri-components/static/css/main.d07ee210.chunk.css.map",
-    "static/js/2.438852ab.chunk.js.LICENSE.txt": "/mejuri-components/static/js/2.438852ab.chunk.js.LICENSE.txt"
+    "static/js/2.a916d584.chunk.js.LICENSE.txt": "/mejuri-components/static/js/2.a916d584.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.799941ae.js",
-    "static/js/2.438852ab.chunk.js",
+    "static/js/2.a916d584.chunk.js",
     "static/css/main.d07ee210.chunk.css",
-    "static/js/main.ef39b243.chunk.js"
+    "static/js/main.d22ca1a8.chunk.js"
   ]
 }
