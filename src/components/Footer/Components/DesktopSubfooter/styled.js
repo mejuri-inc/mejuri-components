@@ -15,3 +15,8 @@ export const Wrapper = styled.div`
   }
 `
 Wrapper.displayName = 'FooterSubFooter'
+
+export const CurrencySelectorContainer = styled.div`
+  margin-right: auto;
+`
+Wrapper.displayName = 'CurrencySelectorContainer'

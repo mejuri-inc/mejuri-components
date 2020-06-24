@@ -120,7 +120,7 @@ export class MobileMenu extends React.Component {
   }
 
   render() {
-    const { menuOptions, itemQuantity, searchEnabled, isOpen } = this.props
+    const { menuOptions, itemQuantity, searchEnabled, isOpen, currencySelector } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
     const bottomMenus = menuOptions.children.filter((x) =>
@@ -177,6 +177,9 @@ export class MobileMenu extends React.Component {
                       {this.getBottomOptionText(o)}
                     </FooterItem>
                   ))}
+                  <FooterItem>
+                    {currencySelector && currencySelector}
+                  </FooterItem>
                 </Footer>
               </Options>
             </Page>
@@ -212,7 +215,8 @@ MobileMenu.propTypes = {
   toggleMenu: PropTypes.func,
   toggleCart: PropTypes.func,
   toggleSearch: PropTypes.func,
-  openOnboarding: PropTypes.func
+  openOnboarding: PropTypes.func,
+  currencySelector: PropTypes.element
 }
 
 export default MobileMenu

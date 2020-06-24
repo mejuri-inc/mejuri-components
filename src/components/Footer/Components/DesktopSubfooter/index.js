@@ -1,13 +1,16 @@
 import React from 'react'
-import { Wrapper } from './styled'
+import { Wrapper, CurrencySelectorContainer } from './styled'
 import LegalLinks from '../LegalLinks'
 import SocialLinks from '../SocialLinks'
 import PropTypes from 'prop-types'
 
 function DesktopSubFooter({ socialLinks, currencySelector }) {
+  console.log(currencySelector)
   return (
     <Wrapper>
-      {currencySelector && currencySelector}
+      <CurrencySelectorContainer>
+        {currencySelector && currencySelector}
+      </CurrencySelectorContainer>
       <LegalLinks />
       <SocialLinks socialLinks={socialLinks} />
     </Wrapper>
