@@ -9,4 +9,5 @@ export const Content = styled.div`
   position: ${(p) => (p.sticked ? 'fixed' : 'relative')};
   top: 0;
   width: 100%;
+  z-index: 1;
 `
