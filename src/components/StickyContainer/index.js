@@ -16,17 +16,6 @@ class StickyContainer extends React.Component {
     this.scroll = this.scroll.bind(this)
   }
 
-  calculate = (cb) => {
-    const rect = this.r.current.getBoundingClientRect()
-    this.setState(
-      {
-        stickPosition: rect.y,
-        height: rect.height
-      },
-      cb()
-    )
-  }
-
   scroll(e) {
     const { sticked, stickPosition } = this.state
     if (window.scrollY >= stickPosition && !sticked) {
@@ -38,9 +27,15 @@ class StickyContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.calculate(() => {
+    const rect = this.r.current.getBoundingClientRect()
+    this.setState(
+      {
+        sticked: window.scrollY >= this.r.current.offsetTop,
+        stickPosition: this.r.current.offsetTop,
+        height: rect.height
+      },
       window && window.addEventListener('scroll', this.scroll)
-    })
+    )
   }
 
   componentWillUnmount() {
