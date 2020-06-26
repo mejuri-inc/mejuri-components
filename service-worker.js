@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mejuri-components/precache-manifest.ae5b30d8d71ac4dcdea13b398888012c.js"
+  "/mejuri-components/precache-manifest.6e0c4eb1c4bc8456ff242ea4dc25ecad.js"
 );
 
 self.addEventListener('message', (event) => {
