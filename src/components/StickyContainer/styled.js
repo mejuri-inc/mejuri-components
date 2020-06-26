@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   position: ${(p) => (p.sticked ? 'fixed' : 'relative')};
-  top: 0;
+  top: ${(p) => (p.sticked ? 0 : 'auto')};
   width: 100%;
   z-index: 1;
 `
