@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.section`
+  margin: auto;
+  max-width: 800px;
   padding-bottom: 40px;
   position: relative;
 `

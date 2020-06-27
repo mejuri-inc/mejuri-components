@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const Suggestions = styled.ul`
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 800px;
   padding: 25px 5px;
 
   li:first-child {
