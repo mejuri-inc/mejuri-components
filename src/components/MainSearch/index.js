@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, createRef } from 'react'
 import PropTypes from 'prop-types'
 import {
   Content,
@@ -19,7 +19,7 @@ import ProductGrid from './components/ProductGrid'
 import CloseIcon from 'resources/icons/CloseIcon'
 import Overlay from 'components/common/Overlay'
 import { FormattedMessage } from 'react-intl'
-import algoliaService from './service'
+import AlgoliaService from './service'
 
 const typingDelay = 1000
 
@@ -45,10 +45,23 @@ export class MainSearch extends PureComponent {
     )
     this.handleSearchChange = this.handleSearchChange.bind(this)
     this.setSearch = this.setSearch.bind(this)
+    this.input = createRef()
+    this.scroll = createRef()
+
+    this.service = null
   }
 
   componentDidMount() {
-    algoliaService.init()
+    const { appId, appKey, index } = this.props
+    this.service = new AlgoliaService(appId, appKey, index)
+  }
+
+  componentDidUpdate(prevProps) {
+    // Focus on the input when opening.
+    const { current } = this.input
+    if (this.props.isOpened && !prevProps.isOpened) {
+      current && current.focus() && current.scrollIntoView()
+    }
   }
 
   setSearch(query) {
@@ -57,17 +70,18 @@ export class MainSearch extends PureComponent {
   }
 
   query(query, config = {}) {
-    algoliaService
-      .search(query, config)
-      .then((response) => {
-        this.setState((state) => ({
-          count: response.count,
-          results: state.results.concat(response.results),
-          isFetching: false,
-          isFetchingPage: false
-        }))
-      })
-      .catch((e) => console.log('Error in search:', e)) // eslint-disable-line no-console
+    this.service &&
+      this.service
+        .search(query, config)
+        .then((response) => {
+          this.setState((state) => ({
+            count: response.count,
+            results: state.results.concat(response.results),
+            isFetching: false,
+            isFetchingPage: false
+          }))
+        })
+        .catch((e) => console.log('Error in search:', e)) // eslint-disable-line no-console
   }
 
   addPage() {
@@ -94,14 +108,14 @@ export class MainSearch extends PureComponent {
     const { onSearchTracking } = this.props
     const searchString = e.target.value
 
-    this.setState({ isFetching: true, searchString })
+    this.setState({ isFetching: true, searchString, results: [] })
     onSearchTracking({ query: searchString })
 
     this.debouncedSearch(e)
   }
 
   render() {
-    const { isOpened } = this.props
+    const { isOpened, appId, appKey, index } = this.props
     const {
       isFetching,
       isFetchingPage,
@@ -109,6 +123,10 @@ export class MainSearch extends PureComponent {
       results,
       count
     } = this.state
+
+    if (!appId || !appKey || !index) {
+      return null
+    }
 
     return (
       <Position>
@@ -122,6 +140,7 @@ export class MainSearch extends PureComponent {
                       placeholder={placeholderMsj}
                       value={searchString}
                       onChange={this.handleSearchChange}
+                      ref={this.input}
                     />
                   )}
                 </FormattedMessage>
@@ -141,9 +160,13 @@ export class MainSearch extends PureComponent {
                 </NumberOfResults>
               )}
               {results.length ? (
-                <ProductGrid products={results}>
+                <ProductGrid products={results} innerRef={this.scroll}>
                   {results.length < count && (
-                    <IsOnScreen onVisible={() => this.addPage()}>
+                    <IsOnScreen
+                      onVisible={() => this.addPage()}
+                      root={this.scroll.current}
+                      offset={400}
+                    >
                       <LoadMore isFetching={isFetchingPage} />
                     </IsOnScreen>
                   )}
@@ -163,7 +186,10 @@ export class MainSearch extends PureComponent {
 MainSearch.propTypes = {
   isOpened: PropTypes.bool,
   close: PropTypes.func,
-  onSearchTracking: PropTypes.func
+  onSearchTracking: PropTypes.func,
+  appId: PropTypes.string,
+  appKey: PropTypes.string,
+  index: PropTypes.string
 }
 
 MainSearch.defaultProps = {

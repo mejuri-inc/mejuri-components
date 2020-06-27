@@ -1,5 +1,11 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
+
+const Div = styled.div`
+  margin-top: -${(p) => `${p.offset}px` || '0'};
+  width: 1px;
+`
 
 class IsOnScreen extends React.Component {
   constructor(props) {
@@ -9,14 +15,12 @@ class IsOnScreen extends React.Component {
 
   componentDidMount() {
     const { rootMargin, threshold, root, onVisible } = this.props
-    let itsLeaving = false
     // eslint-disable-next-line no-undef
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting === true) {
-            itsLeaving && onVisible && onVisible()
-            itsLeaving = true
+          if (e.intersectionRatio > 0.5) {
+            onVisible && onVisible()
           }
         })
       },
@@ -33,7 +37,11 @@ class IsOnScreen extends React.Component {
   }
 
   render() {
-    return <div ref={this.ref}>{this.props.children}</div>
+    return (
+      <Div ref={this.ref} offset={this.props.offset}>
+        {this.props.children}
+      </Div>
+    )
   }
 }
 
@@ -41,7 +49,8 @@ IsOnScreen.defaultProps = {
   rootMargin: '0px',
   threshold: 1,
   root: null,
-  intersectionRatio: 1
+  intersectionRatio: 1,
+  offset: 0
 }
 
 IsOnScreen.propTypes = {
@@ -49,7 +58,8 @@ IsOnScreen.propTypes = {
   root: PropTypes.oneOfType([PropTypes.element, null]),
   rootMargin: PropTypes.string,
   threshold: PropTypes.number,
-  children: PropTypes.node
+  children: PropTypes.node,
+  offset: PropTypes.number
 }
 
 export default IsOnScreen

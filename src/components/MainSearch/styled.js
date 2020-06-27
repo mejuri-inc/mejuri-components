@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import colors from 'styles/colors'
 import { fadeIn, spinner } from 'styles/effects'
 
@@ -9,7 +9,6 @@ export const Position = styled.div`
 `
 
 export const Content = styled.div`
-  max-width: 800px;
   width: 100%;
   @media screen and (min-width: 768px) {
     padding-top: 30px;
@@ -52,8 +51,10 @@ export const SearchBox = styled.div`
 `
 
 export const Header = styled.div`
-  position: relative;
+  margin: auto;
+  max-width: 800px;
   padding-bottom: 25px;
+  position: relative;
 
   &::after {
     content: '';
@@ -83,7 +84,8 @@ export const NumberOfResults = styled.div`
   font-weight: 800;
   letter-spacing: 0.86px;
   line-height: 18px;
-  margin: 30px 0 12px 5px;
+  margin: 30px auto;
+  max-width: 800px;
   text-transform: uppercase;
 `
 
@@ -92,6 +94,10 @@ export const Scrollable = styled.div`
   overflow-y: scroll;
   height: 65vh;
   position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const Close = styled.button`

@@ -5,7 +5,6 @@ import SocialLinks from '../SocialLinks'
 import PropTypes from 'prop-types'
 
 function DesktopSubFooter({ socialLinks, currencySelector }) {
-  console.log(currencySelector)
   return (
     <Wrapper>
       <CurrencySelectorContainer>

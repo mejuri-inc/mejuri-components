@@ -16,6 +16,7 @@ export const Image = styled.img`
     rgba(255, 255, 255, 1) 0%,
     rgba(250, 250, 250, 1) 96%
   );
+  display: block;
   width: 100%;
 `
 
