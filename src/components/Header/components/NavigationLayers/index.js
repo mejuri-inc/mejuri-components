@@ -2,13 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { Layers, Layer, Column, MenuTitle, MenuItem } from './styled'
+import get from 'lodash.get'
 
 function ColumnContent({ config, onClickTracking }) {
   return config.map((menuItem) => {
     if (!menuItem.fields) {
       return null
     }
-
     return (
       <MenuItem
         key={menuItem.sys.id}
@@ -25,24 +25,30 @@ function ColumnContent({ config, onClickTracking }) {
   })
 }
 
-function LayerContent({ config, onClickTracking }) {
-  return config
-    .filter((c) => c.fields !== undefined)
-    .map((col) => {
-      return (
-        <Column key={col.fields && col.sys.id}>
-          {col.fields && col.fields.text && (
-            <MenuTitle>{col.fields.text}</MenuTitle>
-          )}
-          {col.fields && col.fields.children && (
-            <ColumnContent
-              config={col.fields.children}
-              onClickTracking={onClickTracking}
-            />
-          )}
-        </Column>
-      )
-    })
+function LayerContent({ config, onClickTracking, hasTitle }) {
+  return hasTitle ? (
+    <Column key={config.fields && config.sys.id}>
+      <ColumnContent config={config} onClickTracking={onClickTracking} />
+    </Column>
+  ) : (
+    config
+      .filter((c) => c.fields !== undefined)
+      .map((col) => {
+        return (
+          <Column key={col.fields && col.sys.id}>
+            {col.fields && col.fields.text && (
+              <MenuTitle>{col.fields.text}</MenuTitle>
+            )}
+            {col.fields && col.fields.children && (
+              <ColumnContent
+                config={col.fields.children}
+                onClickTracking={onClickTracking}
+              />
+            )}
+          </Column>
+        )
+      })
+  )
 }
 
 export const NavigationLayers = ({
@@ -63,6 +69,7 @@ export const NavigationLayers = ({
             <LayerContent
               config={s.fields.children}
               onClickTracking={onClickTracking}
+              hasTitle={get(s, 'fields.extraFields.noTitle', null)}
             />
           )}
         </Layer>
