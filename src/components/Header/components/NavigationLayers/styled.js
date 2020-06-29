@@ -34,7 +34,7 @@ export const MenuTitle = styled.div`
 `
 MenuTitle.displayName = 'HeaderDesktopMenuTitle'
 
-export const MenuItem = styled.a`
+export const MenuItem = styled.button`
   color: ${colors.black};
   cursor: pointer;
   display: block;
@@ -43,9 +43,13 @@ export const MenuItem = styled.a`
   letter-spacing: 0.375px;
   padding: 8px 0;
   text-decoration: none;
+  border: none;
+  background-color: ${colors.white};
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${colors.grey};
+    outline: none;
   }
 `
 MenuItem.displayName = 'HeaderDesktopMenuItem'

@@ -11,6 +11,11 @@ export const Wrapper = styled.button`
   position: relative;
   width: 32px;
   min-width: 32px;
+  background-color: ${colors.white};
+  border: none;
+  &:focus {
+    outline: none;
+  }
   svg {
     width: 20px;
     height: 20px;
