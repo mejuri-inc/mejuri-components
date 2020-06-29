@@ -23,14 +23,13 @@ export const MainSection = styled.a`
   cursor: pointer;
   display: block;
   letter-spacing: 1px;
-  min-width: 83px;
+  min-width: 90px;
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.25s;
   font-weight: ${fontWeight.light};
   border: none;
   background-color: ${colors.white};
-  margin-left: 5px;
 
   &:hover,
   &:focus {
