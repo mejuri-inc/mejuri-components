@@ -15,7 +15,8 @@ export const Wrapper = styled.section`
 Wrapper.displayName = 'HeaderDesktopWrapper'
 
 export const Content = styled.header`
-  border-bottom: ${p => p.shrinked ? `1px solid ${colors.whiteSmoke}` : 'none'};
+  border-bottom: ${(p) =>
+    p.shrinked ? `1px solid ${colors.whiteSmoke}` : 'none'};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,6 +36,9 @@ export const Logo = styled.a`
   height: 58px;
   svg {
     height: 100%;
+  }
+  &:focus {
+    outline: none;
   }
 `
 Logo.displayName = 'HeaderDesktopLogo'
@@ -81,9 +85,15 @@ export const Button = styled.button`
   cursor: pointer;
   display: flex;
   height: 40px;
-  
   letter-spacing: 1px;
   text-transform: uppercase;
+  background-color: ${colors.white};
+  border: none;
+
+  &:focus {
+    color: ${colors.grey};
+    outline: none;
+  }
 
   svg {
     height: 13px;
@@ -98,8 +108,14 @@ export const ButtonLink = styled.a`
   padding: 5px;
   text-decoration: none;
   min-width: 98px;
+  border: none;
+  background-color: ${colors.white};
   color: ${colors.black};
+  &:focus {
+    color: ${colors.grey};
+    outline: none;
+  }
   &:hover {
-    color: ${colors.darkGray1};
+    color: ${colors.grey};
   }
 `

@@ -37,6 +37,9 @@ export const Wrapper = styled.button`
   &:hover ${Panel} {
     display: block;
   }
+  &:focus {
+    outline: none;
+  }
 `
 Wrapper.displayName = 'WrapperUserMenu'
 

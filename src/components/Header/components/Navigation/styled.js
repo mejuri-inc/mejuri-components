@@ -27,9 +27,13 @@ export const MainSection = styled.button`
   text-transform: uppercase;
   transition: all 0.25s;
   font-weight: ${fontWeight.light};
+  border: none;
+  background-color: ${colors.white};
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${colors.grey};
+    outline: none;
   }
 `
 MainSection.displayName = 'MainSectionNavigation'
