@@ -108,7 +108,8 @@ export class Cart extends PureComponent {
       suggestions,
       applePayKey,
       trackEvent,
-      calculateTaxes
+      calculateTaxes,
+      makeApplePayPayment
     } = this.props
     const { freeShipping, total, progress } = this.props.shippingStatus
 
@@ -181,6 +182,7 @@ export class Cart extends PureComponent {
                       applePayKey={applePayKey}
                       trackEvent={trackEvent}
                       calculateTaxes={calculateTaxes}
+                      makeApplePayPayment={makeApplePayPayment}
                     />
                   </BlockWrapper>
                 </BottomWrapper>
