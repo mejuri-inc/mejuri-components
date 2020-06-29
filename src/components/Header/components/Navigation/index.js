@@ -23,7 +23,7 @@ export const Navigation = ({
           <MainSection
             onMouseEnter={() => setActive(i.sys.id)}
             onClick={() => setActive(i.sys.id)}
-            href='#'
+            href={i.fields.url ? i.fields.url : '#'}
             key={i.fields.text}
           >
             {i.fields.text}

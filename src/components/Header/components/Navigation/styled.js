@@ -12,10 +12,11 @@ export const MainSections = styled.div`
   display: flex;
   list-style-type: none;
   padding: 0;
+  justify-content: space-around;
 `
 MainSections.displayName = 'MainSectionsNavigation'
 
-export const MainSection = styled.button`
+export const MainSection = styled.a`
   background: transparent;
   border: none;
   color: ${colors.black};
@@ -29,6 +30,7 @@ export const MainSection = styled.button`
   font-weight: ${fontWeight.light};
   border: none;
   background-color: ${colors.white};
+  margin-left: 5px;
 
   &:hover,
   &:focus {
