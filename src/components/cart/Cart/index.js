@@ -107,7 +107,6 @@ export class Cart extends PureComponent {
       isFetchingSuggestion,
       suggestions,
       applePayKey,
-      onApplePlayClicked,
       trackEvent,
       calculateTaxes
     } = this.props
@@ -180,7 +179,6 @@ export class Cart extends PureComponent {
                       order={order}
                       lineItems={lineItems}
                       applePayKey={applePayKey}
-                      onApplePlayClicked={onApplePlayClicked}
                       trackEvent={trackEvent}
                       calculateTaxes={calculateTaxes}
                     />
