@@ -19,6 +19,7 @@ import Suggestions from 'components/cart/Cart/components/Suggestions'
 import CartSummary from 'components/cart/Cart/components/CartSummary'
 import CouponErrorAdvice from 'components/cart/Cart/components/CouponErrorAdvice'
 import CartCoupon from 'components/cart/Cart/components/CartCoupon'
+import ApplePayButton from 'components/cart/Cart/components/ApplePayButton'
 
 export class Cart extends PureComponent {
   static propTypes = {
@@ -60,7 +61,14 @@ export class Cart extends PureComponent {
     // suggestions
     addSuggestionItem: PropTypes.func,
     isFetchingSuggestion: PropTypes.bool,
-    suggestions: PropTypes.array
+    suggestions: PropTypes.array,
+
+    // apple pay
+    order: PropTypes.object,
+    applePayKey: PropTypes.string,
+    trackEvent: PropTypes.func,
+    makeApplePayPayment: PropTypes.func,
+    calculateTaxes: PropTypes.func
   }
 
   static defaultProps = {
@@ -77,6 +85,7 @@ export class Cart extends PureComponent {
     if (!this.props.orderExists) return null
 
     const {
+      order,
       couponCodeError,
       isSomethingFetching,
       isOpened,
@@ -96,7 +105,11 @@ export class Cart extends PureComponent {
       dismissCouponCodeError,
       addSuggestionItem,
       isFetchingSuggestion,
-      suggestions
+      suggestions,
+      applePayKey,
+      onApplePlayClicked,
+      trackEvent,
+      calculateTaxes
     } = this.props
     const { freeShipping, total, progress } = this.props.shippingStatus
 
@@ -163,6 +176,14 @@ export class Cart extends PureComponent {
                     <Button onClick={onContinue}>
                       <FormattedMessage id='cart.actions.continue' />
                     </Button>
+                    <ApplePayButton
+                      order={order}
+                      lineItems={lineItems}
+                      applePayKey={applePayKey}
+                      onApplePlayClicked={onApplePlayClicked}
+                      trackEvent={trackEvent}
+                      calculateTaxes={calculateTaxes}
+                    />
                   </BlockWrapper>
                 </BottomWrapper>
               )}
