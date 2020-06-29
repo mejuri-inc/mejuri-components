@@ -12,17 +12,18 @@ export const MainSections = styled.div`
   display: flex;
   list-style-type: none;
   padding: 0;
+  justify-content: space-around;
 `
 MainSections.displayName = 'MainSectionsNavigation'
 
-export const MainSection = styled.button`
+export const MainSection = styled.a`
   background: transparent;
   border: none;
   color: ${colors.black};
   cursor: pointer;
   display: block;
   letter-spacing: 1px;
-  min-width: 83px;
+  min-width: 90px;
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.25s;
