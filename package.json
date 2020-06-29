@@ -16,7 +16,8 @@
     "prepublish": "run-s build",
     "test": "jest",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "lint": "eslint './src/**/*.js'"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.9.2",
