@@ -26,7 +26,8 @@ function HeaderDesktop({
   onLogin,
   config,
   toggleSearch,
-  onClickTracking
+  onClickTracking,
+  pos
 }) {
   const [activeSection, setActiveSection] = useState(null)
   const layersMountingPoint = useRef(null)
@@ -46,6 +47,7 @@ function HeaderDesktop({
               activeSection={activeSection}
               layersMountingPoint={layersMountingPoint}
               onClickTracking={onClickTracking}
+              pos={pos}
             />
             <Logo href='/'>
               <MejuriLogo />
@@ -62,6 +64,7 @@ function HeaderDesktop({
                 isGuest={!user.email}
                 nameOrEmail={user.name || user.email}
                 onLogin={onLogin}
+                pos={pos}
               />
               <CartIcon
                 onClick={() => cartToggle()}
@@ -85,7 +88,8 @@ HeaderDesktop.propTypes = {
   }),
   onLogin: PropTypes.func,
   toggleSearch: PropTypes.func,
-  onClickTracking: PropTypes.func
+  onClickTracking: PropTypes.func,
+  pos: PropTypes.object
 }
 
 HeaderDesktop.defaultProps = {
@@ -94,7 +98,8 @@ HeaderDesktop.defaultProps = {
   },
   toggleSearch: function () {
     console.error('toggleSearch missing in <HeaderDesktop />')
-  }
+  },
+  pos: null
 }
 
 export default HeaderDesktop

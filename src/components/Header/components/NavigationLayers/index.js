@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import { Layers, Layer, Column, MenuTitle, MenuItem } from './styled'
 import get from 'lodash.get'
 
-function ColumnContent({ config, onClickTracking }) {
+function ColumnContent({ config, onClickTracking, pos }) {
   return config.map((menuItem) => {
-    if (!menuItem.fields) {
-      return null
-    }
+    if (!menuItem.fields) return null
+    const isPosOnly = get(menuItem, 'fields.extraFields.posOnly', false)
+    if (isPosOnly && !pos) return null
     return (
       <MenuItem
         key={menuItem.sys.id}
@@ -25,7 +25,7 @@ function ColumnContent({ config, onClickTracking }) {
   })
 }
 
-function LayerContent({ config, onClickTracking, hasTitle }) {
+function LayerContent({ config, onClickTracking, hasTitle, pos }) {
   return hasTitle ? (
     <Column key={config.fields && config.sys.id}>
       <ColumnContent config={config} onClickTracking={onClickTracking} />
@@ -43,6 +43,7 @@ function LayerContent({ config, onClickTracking, hasTitle }) {
               <ColumnContent
                 config={col.fields.children}
                 onClickTracking={onClickTracking}
+                pos={pos}
               />
             )}
           </Column>
@@ -55,7 +56,8 @@ export const NavigationLayers = ({
   config,
   activeSection,
   mountingPoint,
-  onClickTracking
+  onClickTracking,
+  pos
 }) => {
   // TODO: Temporary to avoid cms app to break bc of outdated data format.
   if (!config || !Array.isArray(config)) {
@@ -70,6 +72,7 @@ export const NavigationLayers = ({
               config={s.fields.children}
               onClickTracking={onClickTracking}
               hasTitle={get(s, 'fields.extraFields.noTitle', null)}
+              pos={pos}
             />
           )}
         </Layer>
