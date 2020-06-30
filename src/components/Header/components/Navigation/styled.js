@@ -12,7 +12,6 @@ export const MainSections = styled.div`
   display: flex;
   list-style-type: none;
   padding: 0;
-  justify-content: space-around;
 `
 MainSections.displayName = 'MainSectionsNavigation'
 
