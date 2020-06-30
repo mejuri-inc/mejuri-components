@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import Button from 'components/common/Button'
 import {
-  Backdrop,
   BlockWrapper,
   Content,
   EmptyCart,
@@ -20,6 +19,7 @@ import CartSummary from 'components/cart/Cart/components/CartSummary'
 import CouponErrorAdvice from 'components/cart/Cart/components/CouponErrorAdvice'
 import CartCoupon from 'components/cart/Cart/components/CartCoupon'
 import ApplePayButton from 'components/cart/Cart/components/ApplePayButton'
+import Backdrop from 'components/cart/Cart/components/Backdrop'
 
 export class Cart extends PureComponent {
   static propTypes = {
@@ -77,7 +77,6 @@ export class Cart extends PureComponent {
 
   handleBackdropClick = () => {
     const { cartToggle } = this.props
-
     cartToggle(false)
   }
 
