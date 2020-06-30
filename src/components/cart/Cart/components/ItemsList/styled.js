@@ -29,7 +29,7 @@ export const ListElement = styled.li`
   display: flex;
   flex-direction: column;
   /* padding: 0.7em 30px 5px 30px; */
-  padding: 0.7em 0 5px 0;
+  padding: 0.7em 0 0px 0;
   position: relative;
   border-bottom: 1px solid ${colors.lightGray1};
 
