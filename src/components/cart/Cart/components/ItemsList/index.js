@@ -42,6 +42,7 @@ export const ItemsList = ({
                 pickUp={i.pickUp}
                 quantity={i.quantity}
                 setPickUp={setPickup}
+                forcePickup={i.forcePickup}
               />
             )}
           </ListElement>
