@@ -36,19 +36,6 @@ export const Wrapper = styled.div`
 `
 Wrapper.displayName = 'CartWrapper'
 
-export const Backdrop = styled.div`
-  ${fadeIn}
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.25s ease, visibility 0.1s;
-  z-index: 2;
-`
-Backdrop.displayName = 'CartBackdrop'
-
 export const BlockWrapper = styled.div`
   align-self: flex-end;
   border-top: 1px solid ${colors.lightGray2};
