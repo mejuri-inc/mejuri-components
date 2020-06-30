@@ -25,6 +25,7 @@ export const Wrapper = styled.div`
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.35s 0s;
+
   ${({ isOpened }) =>
     isOpened &&
     `
@@ -44,6 +45,7 @@ export const Backdrop = styled.div`
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 0.25s ease, visibility 0.1s;
+  z-index: 2;
 `
 Backdrop.displayName = 'CartBackdrop'
 
