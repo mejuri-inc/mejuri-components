@@ -119,8 +119,23 @@ export class MobileMenu extends React.Component {
     )
   }
 
+  filterOptions = (options, pos) => {
+    if (!pos) return options
+    return options.filter(function (o) {
+      const isAccount = get(o, 'fields.extraFields.account', false)
+      return isAccount
+    })
+  }
+
   render() {
-    const { menuOptions, itemQuantity, searchEnabled, isOpen, currencySelector } = this.props
+    const {
+      menuOptions,
+      itemQuantity,
+      searchEnabled,
+      isOpen,
+      currencySelector,
+      pos
+    } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
     const bottomMenus = menuOptions.children.filter((x) =>
@@ -166,10 +181,11 @@ export class MobileMenu extends React.Component {
                     isOpen={this.state.openDrawer === o.sys.id}
                     options={o.fields.children}
                     glassClick={this.handleSearchClick}
+                    pos={pos}
                   />
                 ))}
                 <Footer>
-                  {bottomMenus.map((o) => (
+                  {this.filterOptions(bottomMenus, pos).map((o) => (
                     <FooterItem
                       onClick={() => this.handleFooterClick(o)}
                       key={o.sys.id}
@@ -216,7 +232,8 @@ MobileMenu.propTypes = {
   toggleCart: PropTypes.func,
   toggleSearch: PropTypes.func,
   openOnboarding: PropTypes.func,
-  currencySelector: PropTypes.element
+  currencySelector: PropTypes.element,
+  pos: PropTypes.object
 }
 
 export default MobileMenu
