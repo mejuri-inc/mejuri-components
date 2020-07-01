@@ -55,7 +55,7 @@ IsOnScreen.defaultProps = {
 
 IsOnScreen.propTypes = {
   onVisible: PropTypes.func,
-  root: PropTypes.oneOfType([PropTypes.element, null]),
+  root: PropTypes.element,
   rootMargin: PropTypes.string,
   threshold: PropTypes.number,
   children: PropTypes.node,
