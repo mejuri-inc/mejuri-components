@@ -1,0 +1,1888 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentfulAPI It fetches lookbook pages 1`] = `
+Array [
+  Object {
+    "modules": Array [
+      Object {
+        "_contentType": Object {
+          "_id": "heroBanner",
+        },
+        "_id": "75RjOqcw51tCphjrPpypeV",
+        "_locale": "en-US",
+        "images": Object {
+          "_contentType": Object {
+            "_id": "responsiveImage",
+          },
+          "_id": "4btbj7ZE7Rd6cEuAImiuFp",
+          "_locale": "en-US",
+          "desktopPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583257502/editorial-lookbook/chain-reaction/hero-desktop.jpg",
+          "imageAltText": "Chain Reaction",
+          "mobilePicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242311/editorial-lookbook/chain-reaction/edit-left.jpg",
+          "tabletPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242844/editorial-lookbook/chain-reaction/look-2-shop-desktop-v2.jpg",
+        },
+        "lookType": "Art of the Stack",
+        "publishDate": "2020-04-04",
+        "title": "The Forgotten Art of Bracelet Stacking",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "lookImage",
+        },
+        "_id": "6hVfFb9CbQAZm8tpAeQ9we",
+        "_locale": "en-US",
+        "identifier": "First test look image",
+        "imagePosition": "Centre",
+        "images": Object {
+          "_contentType": Object {
+            "_id": "responsiveImage",
+          },
+          "_id": "5GJc6yjWnOktPFRbZyOm4a",
+          "_locale": "en-US",
+          "desktopPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242846/editorial-lookbook/chain-reaction/look-1-shop-desktop-v2.jpg",
+          "imageAltText": "Very nice image",
+          "mobilePicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583159270/editorial-lookbook/chain-reaction/look-1-shop-desktop.jpg",
+          "tabletPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242846/editorial-lookbook/chain-reaction/look-1-shop-desktop-v2.jpg",
+        },
+        "legend": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "This is a ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "nice",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " text ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "italic",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "for testing",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " purposes | And also here is a ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "link",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://mejuri.com",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "youtubeVideoModule",
+        },
+        "_id": "2WabY2RSq8lME72mLQ1nwL",
+        "_locale": "en-US",
+        "identifier": "First Test Video Module",
+        "legend": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "Cafe De Anatolia - Enta Omri (mix by Billy Esteban) - ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Dec 2 - ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "link",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://www.youtube.com/watch?v=1wXKjqM6YRg",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+        "youtubeUrl": "https://www.youtube.com/watch?v=1wXKjqM6YRg",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "productGallery",
+        },
+        "_id": "460VAR8x9QzgEtkUmlZkqy",
+        "_locale": "en-US",
+        "identifier": "First test",
+        "productSlugs": Array [
+          "spiral-earrings",
+          "twin-hoops",
+          "sapphire-twin-hoops",
+          "oversized-thin-hoops",
+          "bold-hoops",
+          "beaded-hoops-2",
+          "large-hoops",
+          "between-hoops",
+          "unexistent-product",
+        ],
+        "seeMoreButtonCopy": "Show More ...",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "lookIntro",
+        },
+        "_id": "sfiAMOcRMpihqK2dsM9tv",
+        "_locale": "en-US",
+        "subtitle": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+        "title": "Look 1 - Lorem ipsum",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "longConfigurableText",
+        },
+        "_id": "2of4q03HkoWiDMk2ZFkBs3",
+        "_locale": "en-US",
+        "identifier": "First test",
+        "text": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Try React",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-2",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "React has been designed from the start for gradual adoption, and ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "you can use as little or as much React as you need.",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#online-playgrounds",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Online Playgrounds",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "If you’re interested in playing around with React, you can use an online code playground. Try a Hello World template on ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "CodePen",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/redirect-to-codepen/hello-world",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "CodeSandbox",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://codesandbox.io/s/new",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "Glitch",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://glitch.com/edit/#!/remix/starter-react-template",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", or ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "Stackblitz",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://stackblitz.com/fork/react",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ".",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "If you prefer to use your own text editor, you can also ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "download this HTML file",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we’d only recommend using this for simple demos.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#add-react-to-a-website",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Add React to a Website",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "You can ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "add React to an HTML page in one minute",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/add-react-to-a-website.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ". You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#create-a-new-react-app",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Create a New React App",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "When starting a React project, a ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "simple HTML page with script tags",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/add-react-to-a-website.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " might still be the best option. It only takes a minute to set up!",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "quote",
+        },
+        "_id": "7tC36jrDQZWTiQdYNdHZjX",
+        "_locale": "en-US",
+        "identifier": "Lorem Ipsum",
+        "text": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "productGallery",
+        },
+        "_id": "6HdeFayxAe4NxC0DMYC9gl",
+        "_locale": "en-US",
+        "identifier": "Tests number 2",
+        "productSlugs": Array [
+          "diamond-necklace-1",
+          "solo-baguette-diamond-necklace",
+          "360-necklace",
+        ],
+      },
+    ],
+    "slug": "chain-reaction",
+    "title": "Chain reaction",
+  },
+]
+`;
+
+exports[`ContentfulAPI Query Options are formatted properly 1`] = `
+Object {
+  "fields.slug": "chain-reaction",
+  "include": 4,
+  "locale": "en-US",
+  "sys.id": "1234",
+}
+`;
+
+exports[`ContentfulAPI Response is formatted properly 1`] = `
+Array [
+  Object {
+    "modules": Array [
+      Object {
+        "_contentType": Object {
+          "_id": "heroBanner",
+        },
+        "_id": "75RjOqcw51tCphjrPpypeV",
+        "_locale": "en-US",
+        "images": Object {
+          "_contentType": Object {
+            "_id": "responsiveImage",
+          },
+          "_id": "4btbj7ZE7Rd6cEuAImiuFp",
+          "_locale": "en-US",
+          "desktopPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583257502/editorial-lookbook/chain-reaction/hero-desktop.jpg",
+          "imageAltText": "Chain Reaction",
+          "mobilePicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242311/editorial-lookbook/chain-reaction/edit-left.jpg",
+          "tabletPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242844/editorial-lookbook/chain-reaction/look-2-shop-desktop-v2.jpg",
+        },
+        "lookType": "Art of the Stack",
+        "publishDate": "2020-04-04",
+        "title": "The Forgotten Art of Bracelet Stacking",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "lookImage",
+        },
+        "_id": "6hVfFb9CbQAZm8tpAeQ9we",
+        "_locale": "en-US",
+        "identifier": "First test look image",
+        "imagePosition": "Centre",
+        "images": Object {
+          "_contentType": Object {
+            "_id": "responsiveImage",
+          },
+          "_id": "5GJc6yjWnOktPFRbZyOm4a",
+          "_locale": "en-US",
+          "desktopPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242846/editorial-lookbook/chain-reaction/look-1-shop-desktop-v2.jpg",
+          "imageAltText": "Very nice image",
+          "mobilePicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583159270/editorial-lookbook/chain-reaction/look-1-shop-desktop.jpg",
+          "tabletPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242846/editorial-lookbook/chain-reaction/look-1-shop-desktop-v2.jpg",
+        },
+        "legend": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "This is a ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "nice",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " text ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "italic",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "for testing",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " purposes | And also here is a ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "link",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://mejuri.com",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "youtubeVideoModule",
+        },
+        "_id": "2WabY2RSq8lME72mLQ1nwL",
+        "_locale": "en-US",
+        "identifier": "First Test Video Module",
+        "legend": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "Cafe De Anatolia - Enta Omri (mix by Billy Esteban) - ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Dec 2 - ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "link",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://www.youtube.com/watch?v=1wXKjqM6YRg",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+        "youtubeUrl": "https://www.youtube.com/watch?v=1wXKjqM6YRg",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "productGallery",
+        },
+        "_id": "460VAR8x9QzgEtkUmlZkqy",
+        "_locale": "en-US",
+        "identifier": "First test",
+        "productSlugs": Array [
+          "spiral-earrings",
+          "twin-hoops",
+          "sapphire-twin-hoops",
+          "oversized-thin-hoops",
+          "bold-hoops",
+          "beaded-hoops-2",
+          "large-hoops",
+          "between-hoops",
+          "unexistent-product",
+        ],
+        "seeMoreButtonCopy": "Show More ...",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "lookIntro",
+        },
+        "_id": "sfiAMOcRMpihqK2dsM9tv",
+        "_locale": "en-US",
+        "subtitle": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+        "title": "Look 1 - Lorem ipsum",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "longConfigurableText",
+        },
+        "_id": "2of4q03HkoWiDMk2ZFkBs3",
+        "_locale": "en-US",
+        "identifier": "First test",
+        "text": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Try React",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-2",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "React has been designed from the start for gradual adoption, and ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "you can use as little or as much React as you need.",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#online-playgrounds",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Online Playgrounds",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "If you’re interested in playing around with React, you can use an online code playground. Try a Hello World template on ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "CodePen",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/redirect-to-codepen/hello-world",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "CodeSandbox",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://codesandbox.io/s/new",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "Glitch",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://glitch.com/edit/#!/remix/starter-react-template",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", or ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "Stackblitz",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://stackblitz.com/fork/react",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ".",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "If you prefer to use your own text editor, you can also ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "download this HTML file",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we’d only recommend using this for simple demos.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#add-react-to-a-website",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Add React to a Website",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "You can ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "add React to an HTML page in one minute",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/add-react-to-a-website.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ". You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#create-a-new-react-app",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Create a New React App",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "When starting a React project, a ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "simple HTML page with script tags",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/add-react-to-a-website.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " might still be the best option. It only takes a minute to set up!",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "quote",
+        },
+        "_id": "7tC36jrDQZWTiQdYNdHZjX",
+        "_locale": "en-US",
+        "identifier": "Lorem Ipsum",
+        "text": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "productGallery",
+        },
+        "_id": "6HdeFayxAe4NxC0DMYC9gl",
+        "_locale": "en-US",
+        "identifier": "Tests number 2",
+        "productSlugs": Array [
+          "diamond-necklace-1",
+          "solo-baguette-diamond-necklace",
+          "360-necklace",
+        ],
+      },
+    ],
+    "slug": "chain-reaction",
+    "title": "Chain reaction",
+  },
+]
+`;
+
+exports[`ContentfulAPI Send preview mode requests when preview mode is selected 1`] = `
+Array [
+  Object {
+    "modules": Array [
+      Object {
+        "_contentType": Object {
+          "_id": "heroBanner",
+        },
+        "_id": "75RjOqcw51tCphjrPpypeV",
+        "_locale": "en-US",
+        "images": Object {
+          "_contentType": Object {
+            "_id": "responsiveImage",
+          },
+          "_id": "4btbj7ZE7Rd6cEuAImiuFp",
+          "_locale": "en-US",
+          "desktopPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583257502/editorial-lookbook/chain-reaction/hero-desktop.jpg",
+          "imageAltText": "Chain Reaction",
+          "mobilePicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242311/editorial-lookbook/chain-reaction/edit-left.jpg",
+          "tabletPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242844/editorial-lookbook/chain-reaction/look-2-shop-desktop-v2.jpg",
+        },
+        "lookType": "Art of the Stack",
+        "publishDate": "2020-04-04",
+        "title": "The Forgotten Art of Bracelet Stacking",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "lookImage",
+        },
+        "_id": "6hVfFb9CbQAZm8tpAeQ9we",
+        "_locale": "en-US",
+        "identifier": "First test look image",
+        "imagePosition": "Centre",
+        "images": Object {
+          "_contentType": Object {
+            "_id": "responsiveImage",
+          },
+          "_id": "5GJc6yjWnOktPFRbZyOm4a",
+          "_locale": "en-US",
+          "desktopPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242846/editorial-lookbook/chain-reaction/look-1-shop-desktop-v2.jpg",
+          "imageAltText": "Very nice image",
+          "mobilePicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583159270/editorial-lookbook/chain-reaction/look-1-shop-desktop.jpg",
+          "tabletPicture": "https://res.cloudinary.com/mejuri-com/image/upload/v1583242846/editorial-lookbook/chain-reaction/look-1-shop-desktop-v2.jpg",
+        },
+        "legend": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "This is a ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "nice",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " text ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "italic",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "for testing",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " purposes | And also here is a ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "link",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://mejuri.com",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "youtubeVideoModule",
+        },
+        "_id": "2WabY2RSq8lME72mLQ1nwL",
+        "_locale": "en-US",
+        "identifier": "First Test Video Module",
+        "legend": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "Cafe De Anatolia - Enta Omri (mix by Billy Esteban) - ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Dec 2 - ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "link",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://www.youtube.com/watch?v=1wXKjqM6YRg",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+        "youtubeUrl": "https://www.youtube.com/watch?v=1wXKjqM6YRg",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "productGallery",
+        },
+        "_id": "460VAR8x9QzgEtkUmlZkqy",
+        "_locale": "en-US",
+        "identifier": "First test",
+        "productSlugs": Array [
+          "spiral-earrings",
+          "twin-hoops",
+          "sapphire-twin-hoops",
+          "oversized-thin-hoops",
+          "bold-hoops",
+          "beaded-hoops-2",
+          "large-hoops",
+          "between-hoops",
+          "unexistent-product",
+        ],
+        "seeMoreButtonCopy": "Show More ...",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "lookIntro",
+        },
+        "_id": "sfiAMOcRMpihqK2dsM9tv",
+        "_locale": "en-US",
+        "subtitle": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+        "title": "Look 1 - Lorem ipsum",
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "longConfigurableText",
+        },
+        "_id": "2of4q03HkoWiDMk2ZFkBs3",
+        "_locale": "en-US",
+        "identifier": "First test",
+        "text": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Try React",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-2",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "React has been designed from the start for gradual adoption, and ",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [
+                    Object {
+                      "type": "bold",
+                    },
+                  ],
+                  "nodeType": "text",
+                  "value": "you can use as little or as much React as you need.",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#online-playgrounds",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Online Playgrounds",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "If you’re interested in playing around with React, you can use an online code playground. Try a Hello World template on ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "CodePen",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/redirect-to-codepen/hello-world",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "CodeSandbox",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://codesandbox.io/s/new",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "Glitch",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://glitch.com/edit/#!/remix/starter-react-template",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", or ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "Stackblitz",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://stackblitz.com/fork/react",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ".",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "If you prefer to use your own text editor, you can also ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "download this HTML file",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ", edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so we’d only recommend using this for simple demos.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#add-react-to-a-website",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Add React to a Website",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "You can ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "add React to an HTML page in one minute",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/add-react-to-a-website.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": ". You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/getting-started.html#create-a-new-react-app",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Create a New React App",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "heading-3",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "When starting a React project, a ",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "simple HTML page with script tags",
+                    },
+                  ],
+                  "data": Object {
+                    "uri": "https://reactjs.org/docs/add-react-to-a-website.html",
+                  },
+                  "nodeType": "hyperlink",
+                },
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": " might still be the best option. It only takes a minute to set up!",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "quote",
+        },
+        "_id": "7tC36jrDQZWTiQdYNdHZjX",
+        "_locale": "en-US",
+        "identifier": "Lorem Ipsum",
+        "text": Object {
+          "content": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "data": Object {},
+                  "marks": Array [],
+                  "nodeType": "text",
+                  "value": "",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "paragraph",
+            },
+          ],
+          "data": Object {},
+          "nodeType": "document",
+        },
+      },
+      Object {
+        "_contentType": Object {
+          "_id": "productGallery",
+        },
+        "_id": "6HdeFayxAe4NxC0DMYC9gl",
+        "_locale": "en-US",
+        "identifier": "Tests number 2",
+        "productSlugs": Array [
+          "diamond-necklace-1",
+          "solo-baguette-diamond-necklace",
+          "360-necklace",
+        ],
+      },
+    ],
+    "slug": "chain-reaction",
+    "title": "Chain reaction",
+  },
+]
+`;

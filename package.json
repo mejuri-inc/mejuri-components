@@ -1,6 +1,6 @@
 {
   "name": "@mejuri-inc/mejuri-components",
-  "version": "1.0.38",
+  "version": "1.1.0",
   "description": "Mejuri components library",
   "license": "ISC",
   "author": "joaenriquez@gmail.com",
@@ -32,6 +32,7 @@
     "algoliasearch": "^4.3.0",
     "axios": "^0.19.2",
     "body-scroll-lock": "^3.0.3",
+    "contentful": "^7.14.5",
     "humps": "^2.0.1",
     "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
@@ -71,6 +72,7 @@
     "react-intl": "^2.7.2",
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.1",
+    "regenerator-runtime": "^0.13.5",
     "styled-components": "^5.1.0"
   },
   "files": [
