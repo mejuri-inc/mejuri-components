@@ -17,7 +17,6 @@ Wrapper.displayName = 'FooterLinksWrapper'
 export const DesktopWrapper = styled.div`
   display: none;
   width: 100%;
-  justify-content: space-between;
   @media (min-width: ${lg}) {
     display: flex;
   }
@@ -38,6 +37,9 @@ export const Col = styled.div`
   width: 50%;
   @media (min-width: ${lg}) {
     width: auto;
+  }
+  &:not(:last-child) {
+    margin-right: 5vw;
   }
 `
 Col.displayName = 'FooterLinksCol'
