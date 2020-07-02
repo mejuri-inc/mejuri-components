@@ -3,8 +3,13 @@ import { Wrapper, Row, SocialLinksContainer } from './styled'
 import LegalLinks from '../LegalLinks'
 import SocialLinks from '../SocialLinks'
 import PropTypes from 'prop-types'
+import get from 'lodash.get'
 
-function MobileSubFooter({ socialLinks, currencySelector }) {
+function MobileSubFooter({ socialLinks, currencySelector, config }) {
+  const legalLinks = config.children.find(function (x) {
+    const isLegal = get(x, 'fields.extraFields.legal', false)
+    return isLegal
+  })
   return (
     <Wrapper>
       <Row>
@@ -14,14 +19,15 @@ function MobileSubFooter({ socialLinks, currencySelector }) {
         </SocialLinksContainer>
       </Row>
       <Row>
-        <LegalLinks />
+        <LegalLinks legalLinks={legalLinks} />
       </Row>
     </Wrapper>
   )
 }
 
 MobileSubFooter.propTypes = {
-  socialLinks: PropTypes.array
+  socialLinks: PropTypes.array,
+  config: PropTypes.object
 }
 
 export default MobileSubFooter

@@ -10,46 +10,43 @@ import {
   Col,
   Wrapper
 } from './styled'
-import { FormattedMessage } from 'react-intl'
+import get from 'lodash.get'
 
 export default class FooterLinks extends PureComponent {
   static propTypes = {
-    desktopLinks: PropTypes.object,
-    mobileLinks: PropTypes.object
+    config: PropTypes.object
   }
 
-  renderLinks(links, title) {
+  renderLinks(links) {
     if (!links) return null
 
-    return map(links, (link, key) => (
-      <Link key={key}>
-        <a href={link.url} target={link.isExternal ? '_blank' : ''}>
-          <FormattedMessage id={`footer.links.${title}.${key}`} />
-        </a>
+    return map(links, (link) => (
+      <Link key={link.sys.id}>
+        <a href={link.fields.url}>{link.fields.text}</a>
       </Link>
     ))
   }
 
   render() {
+    const sections = this.props.config.children.filter(function (x) {
+      const isLegal = get(x, 'fields.extraFields.legal', false)
+      return !isLegal
+    })
     return (
       <Wrapper>
         <DesktopWrapper>
-          {map(this.props.desktopLinks, (links, key) => (
-            <Col key={key}>
-              <Title>
-                <FormattedMessage id={`footer.links.${key}`} />
-              </Title>
-              <Links>{this.renderLinks(links, key)}</Links>
+          {map(sections, (section) => (
+            <Col key={section.sys.id}>
+              <Title>{section.fields.text}</Title>
+              <Links>{this.renderLinks(section.fields.children)}</Links>
             </Col>
           ))}
         </DesktopWrapper>
         <MobileWrapper>
-          {map(this.props.mobileLinks, (links, key) => (
-            <Col key={key}>
-              <Title>
-                <FormattedMessage id={`footer.links.${key}`} />
-              </Title>
-              <Links>{this.renderLinks(links, key)}</Links>
+          {map(sections, (section) => (
+            <Col key={section.sys.id}>
+              <Title>{section.fields.text}</Title>
+              <Links>{this.renderLinks(section.fields.children)}</Links>
             </Col>
           ))}
         </MobileWrapper>

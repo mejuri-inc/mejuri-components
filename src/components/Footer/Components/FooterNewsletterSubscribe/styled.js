@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
   ${fadeIn}
   margin-top: 48px;
   min-width: 250px;
+  @media (max-width: ${md}) {
+    text-align: center;
+    width: 100%;
+  }
   @media (min-width: ${md}) {
     margin: 0;
     min-width: 330px;
