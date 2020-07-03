@@ -7,24 +7,27 @@ import DesktopSubFooter from 'components/Footer/Components/DesktopSubfooter'
 import MobileSubFooter from 'components/Footer/Components/MobileSubFooter'
 import { socialLinks } from './defaultProps'
 
-const Footer = ({ track, config, socialLinks, currencySelector }) => (
-  <Wrapper>
-    <Body>
-      <FooterLinks config={config} />
-      {track && <FooterNewsletterSubscribe track={track} />}
-    </Body>
-    <DesktopSubFooter
-      currencySelector={currencySelector}
-      socialLinks={socialLinks}
-      config={config}
-    />
-    <MobileSubFooter
-      currencySelector={currencySelector}
-      socialLinks={socialLinks}
-      config={config}
-    />
-  </Wrapper>
-)
+function Footer({ track, config, socialLinks, currencySelector }) {
+  if (!config) return null
+  return (
+    <Wrapper>
+      <Body>
+        <FooterLinks config={config} />
+        {track && <FooterNewsletterSubscribe track={track} />}
+      </Body>
+      <DesktopSubFooter
+        currencySelector={currencySelector}
+        socialLinks={socialLinks}
+        config={config}
+      />
+      <MobileSubFooter
+        currencySelector={currencySelector}
+        socialLinks={socialLinks}
+        config={config}
+      />
+    </Wrapper>
+  )
+}
 
 Footer.propTypes = {
   track: PropTypes.func,
