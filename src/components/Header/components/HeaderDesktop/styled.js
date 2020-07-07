@@ -81,6 +81,7 @@ Overlay.displayName = 'HeaderDesktopOverlay'
 
 export const Button = styled.button`
   align-items: center;
+  font-weight: 300;
   background: transparent;
   border: none;
   cursor: pointer;

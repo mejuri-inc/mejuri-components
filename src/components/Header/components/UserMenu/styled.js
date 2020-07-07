@@ -49,6 +49,7 @@ export const LabelChevron = styled.span`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-weight: 300;
 `
 LabelChevron.displayName = 'UserMenuLabelChevron'
 
@@ -65,6 +66,7 @@ export const Option = styled.li`
     white-space: nowrap;
     line-height: 20px;
     padding: 3.5px 0;
+    font-weight: 300;
 
     &:hover {
       color: ${colors.darkGray1};

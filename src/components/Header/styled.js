@@ -3,9 +3,6 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   height: 60px;
   width: 100%;
-  @media only screen and (min-width: 880px) {
-    height: 80px;
-  }
 `
 Wrapper.displayName = 'HeaderWrapper'
 
