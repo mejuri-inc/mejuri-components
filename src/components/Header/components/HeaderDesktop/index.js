@@ -32,6 +32,9 @@ function HeaderDesktop({
   const [activeSection, setActiveSection] = useState(null)
   const layersMountingPoint = useRef(null)
 
+  const leftMenu = config.filter((item) => item.fields.type !== 'right-link')
+  const rightMenu = config.filter((item) => item.fields.type === 'right-link')
+
   return (
     <ScrollBreakpoint top={120}>
       {(shrinkPointReached) => (
@@ -42,7 +45,7 @@ function HeaderDesktop({
           />
           <Content shrinked={shrinkPointReached}>
             <Navigation
-              config={config}
+              config={leftMenu}
               setActive={setActiveSection}
               activeSection={activeSection}
               layersMountingPoint={layersMountingPoint}
@@ -57,9 +60,12 @@ function HeaderDesktop({
                 <MagniGlass />
                 <FormattedMessage id='header.search' />
               </Button>
-              <ButtonLink href='/locations'>
-                <FormattedMessage id='header.visitUs' />
-              </ButtonLink>
+              {rightMenu.length > 0 &&
+                rightMenu.map((item) => (
+                  <ButtonLink key={item.sys.id} href={item.fields.url}>
+                    {item.fields.text}
+                  </ButtonLink>
+                ))}
               <UserSection
                 isGuest={!user.email}
                 nameOrEmail={user.name || user.email}
