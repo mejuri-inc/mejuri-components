@@ -23,6 +23,7 @@ export const SignUpLink = styled.button`
   border: none;
   cursor: pointer;
   height: 40px;
+  font-weight: 300;
   text-transform: uppercase;
   &:focus {
     outline: none;

@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
   padding: 12px;
   padding-right: 40px;
   text-align: center;
+  font-weight: 300;
 
   & > u {
     text-decoration-color: inherit;
@@ -49,4 +50,6 @@ export const Icon = styled.button`
 `
 Icon.displayName = 'NotificationBarIcon'
 
-export const Notifications = styled.section``
+export const Notifications = styled.section`
+  -webkit-text-stroke: 0.45px white;
+`
