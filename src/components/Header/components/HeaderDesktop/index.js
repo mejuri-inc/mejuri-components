@@ -28,7 +28,9 @@ function HeaderDesktop({
   config,
   toggleSearch,
   onClickTracking,
-  pos
+  pos,
+  trackOpenCart,
+  trackSearchOpen
 }) {
   const [activeSection, setActiveSection] = useState(null)
   const layersMountingPoint = useRef(null)
@@ -61,7 +63,12 @@ function HeaderDesktop({
               <MejuriLogo />
             </Logo>
             <Menu>
-              <Button onClick={() => toggleSearch()}>
+              <Button
+                onClick={() => {
+                  toggleSearch()
+                  trackSearchOpen()
+                }}
+              >
                 <MagniGlass />
                 <FormattedMessage id='header.search' />
               </Button>
@@ -78,7 +85,10 @@ function HeaderDesktop({
                 pos={pos}
               />
               <CartIcon
-                onClick={() => cartToggle()}
+                onClick={() => {
+                  cartToggle()
+                  trackOpenCart()
+                }}
                 itemsCount={cartItemsCount}
               />
             </Menu>
@@ -100,16 +110,21 @@ HeaderDesktop.propTypes = {
   onLogin: PropTypes.func,
   toggleSearch: PropTypes.func,
   onClickTracking: PropTypes.func,
-  pos: PropTypes.object
+  pos: PropTypes.object,
+  trackOpenCart: PropTypes.func,
+  trackSearchOpen: PropTypes.func
 }
 
 HeaderDesktop.defaultProps = {
   user: {
     isGuest: true
   },
-  toggleSearch: function () {
-    console.error('toggleSearch missing in <HeaderDesktop />')
-  },
+  toggleSearch: () =>
+    console.error('toggleSearch missing in <HeaderDesktop />'),
+  trackOpenCart: () =>
+    console.log('trackOpenCart callback function missing in <HeaderDesktop />'),
+  trackSearchOpen: () =>
+    console.log('trackSearchOpen prop missing in <MainSearch />'),
   pos: null,
   config: []
 }

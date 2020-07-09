@@ -7,7 +7,9 @@ export const QuantitySelector = ({
   value,
   itemId,
   updateQuantity,
-  stock
+  stock,
+  trackIncrease,
+  trackDecrease
 }) => {
   const decreaseValue = value <= stock ? value - 1 : stock
   return (
@@ -15,6 +17,7 @@ export const QuantitySelector = ({
       <Btn
         onClick={() => {
           updateQuantity(itemId, decreaseValue)
+          trackDecrease(decreaseValue)
         }}
       >
         -
@@ -23,6 +26,7 @@ export const QuantitySelector = ({
       <Btn
         onClick={() => {
           updateQuantity(itemId, value + 1)
+          trackIncrease(value + 1)
         }}
         disabled={value + 1 > stock && !backOrderable}
       >
@@ -37,19 +41,15 @@ QuantitySelector.propTypes = {
   value: PropTypes.number,
   itemId: PropTypes.number,
   stock: PropTypes.number,
-  updateQuantity: PropTypes.func
+  updateQuantity: PropTypes.func,
+  trackIncrease: PropTypes.func,
+  trackDecrease: PropTypes.func
 }
 
 QuantitySelector.defaultProps = {
-  value: 1
+  value: 1,
+  trackIncrease: () => {},
+  trackDecrease: () => {}
 }
 
 export default QuantitySelector
-//
-// const mapDispatchToProps = (dispatch) => ({
-//   updateQuantity: (itemId, quantity) => dispatch(
-//     setCurrentOrderItemQuantity(itemId, quantity)
-//   )
-// })
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(QuantitySelector)

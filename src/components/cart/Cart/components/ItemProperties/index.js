@@ -8,7 +8,7 @@ export const getItemDetails = (ringSize, engravings, material) => {
   if (!ringSize && !engravings && !material) return null
 
   // Join ring size, engravings and material into a single string
-  let detailsArray = []
+  const detailsArray = []
   if (ringSize) detailsArray.push(ringSize)
   if (engravings) detailsArray.push(engravings)
   if (material) detailsArray.push(material)
@@ -16,8 +16,13 @@ export const getItemDetails = (ringSize, engravings, material) => {
   return details
 }
 
-
-export const ItemProperties = ({ item, currency, updateQuantity }) => {
+export const ItemProperties = ({
+  item,
+  currency,
+  updateQuantity,
+  trackDecrease,
+  trackIncrease
+}) => {
   const {
     variant: { backorderable, slug, material, optionsText },
     id,
@@ -30,7 +35,9 @@ export const ItemProperties = ({ item, currency, updateQuantity }) => {
   const ringSize = optionsText && optionsText.replace('Ring ', '')
   return (
     <Wrapper>
-      <Name><a href={`/shop/products/${slug}`}>{item.accurateName}</a></Name>
+      <Name>
+        <a href={`/shop/products/${slug}`}>{item.accurateName}</a>
+      </Name>
       <Options>{getItemDetails(ringSize, displayEngravings, material)}</Options>
       <PriceBox>
         <QuantitySelector
@@ -39,6 +46,8 @@ export const ItemProperties = ({ item, currency, updateQuantity }) => {
           stock={variantStock}
           backOrderable={backorderable}
           updateQuantity={updateQuantity}
+          trackIncrease={trackIncrease}
+          trackDecrease={trackDecrease}
         />
         <span>{formatedPrice}</span>
       </PriceBox>
@@ -59,7 +68,9 @@ ItemProperties.propTypes = {
     variantStock: PropTypes.number
   }),
   currency: PropTypes.string,
-  updateQuantity: PropTypes.func
+  updateQuantity: PropTypes.func,
+  trackIncrease: PropTypes.func,
+  trackDecrease: PropTypes.func
 }
 
 export default ItemProperties

@@ -13,7 +13,9 @@ export const ItemsList = ({
   remove,
   isPos,
   updateQuantity,
-  setPickup
+  setPickup,
+  trackIncreaseProduct,
+  trackDecreaseProduct
 }) => {
   if (!items || !items.length) return null
   return (
@@ -33,6 +35,12 @@ export const ItemsList = ({
                 item={i}
                 currency={currency}
                 updateQuantity={updateQuantity}
+                trackIncrease={(q) =>
+                  trackIncreaseProduct({ lineItem: i, quantity: q })
+                }
+                trackDecrease={(q) =>
+                  trackDecreaseProduct({ lineItem: i, quantity: q })
+                }
               />
             </ElementWrapper>
             {isPos && (
@@ -69,7 +77,9 @@ ItemsList.propTypes = {
   remove: PropTypes.func,
   currency: PropTypes.string,
   isPos: PropTypes.bool,
-  updateQuantity: PropTypes.func
+  updateQuantity: PropTypes.func,
+  trackIncreaseProduct: PropTypes.func,
+  trackDecreaseProduct: PropTypes.func
 }
 
 ItemsList.defaultProps = {
