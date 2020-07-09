@@ -10,7 +10,9 @@ const HeaderMobile = ({
   cartItemsCount,
   cartToggle,
   toggleMobileMenu,
-  toggleSearch
+  toggleSearch,
+  trackSearchOpen,
+  trackOpenCart
 }) => {
   return (
     <Wrapper>
@@ -19,12 +21,21 @@ const HeaderMobile = ({
         <MejuriLogo />
       </Logo>
       <Menu>
-        <Button onClick={() => toggleSearch()}>
+        <Button
+          onClick={() => {
+            toggleSearch()
+            trackSearchOpen()
+          }}
+        >
           <MagniGlass />
         </Button>
-        <CartIcon onClick={() => cartToggle()} itemsCount={cartItemsCount}>
-          Cart Icon
-        </CartIcon>
+        <CartIcon
+          onClick={() => {
+            cartToggle()
+            trackOpenCart()
+          }}
+          itemsCount={cartItemsCount}
+        />
       </Menu>
     </Wrapper>
   )
@@ -34,16 +45,17 @@ HeaderMobile.propTypes = {
   cartItemsCount: PropTypes.number,
   cartToggle: PropTypes.func,
   toggleMobileMenu: PropTypes.func,
-  toggleSearch: PropTypes.func
+  toggleSearch: PropTypes.func,
+  trackOpenCart: PropTypes.func
 }
 
 HeaderMobile.defaultProps = {
   cartToggle: () => {},
   toggleMobileMenu: () => {},
   cartItemsCount: 1,
-  toggleSearch: function () {
-    console.error('toggleSearch prop missing in <HeaderMobile />')
-  }
+  toggleSearch: () => {},
+  trackSearchOpen: () => {},
+  trackOpenCart: () => {}
 }
 
 export default HeaderMobile

@@ -68,7 +68,11 @@ export class Cart extends PureComponent {
     applePayKey: PropTypes.string,
     trackEvent: PropTypes.func,
     makeApplePayPayment: PropTypes.func,
-    calculateTaxes: PropTypes.func
+    calculateTaxes: PropTypes.func,
+
+    // tracking.
+    trackDecreaseProduct: PropTypes.func,
+    trackIncreaseProduct: PropTypes.func
   }
 
   static defaultProps = {
@@ -108,7 +112,9 @@ export class Cart extends PureComponent {
       applePayKey,
       trackEvent,
       calculateTaxes,
-      makeApplePayPayment
+      makeApplePayPayment,
+      trackIncreaseProduct,
+      trackDecreaseProduct
     } = this.props
     const { freeShipping, total, progress } = this.props.shippingStatus
 
@@ -144,6 +150,12 @@ export class Cart extends PureComponent {
                     updateQuantity={updateItemQuantity}
                     setPickup={setPickup}
                     currency={currency}
+                    trackIncreaseProduct={(context) =>
+                      trackIncreaseProduct(order, context)
+                    }
+                    trackDecreaseProduct={(context) =>
+                      trackDecreaseProduct(order, context)
+                    }
                   />
                 ) : (
                   <EmptyCart>

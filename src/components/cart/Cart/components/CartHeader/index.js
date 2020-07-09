@@ -7,7 +7,6 @@ import CartIcon from 'components/cart/CartIcon'
 export class CartHeader extends PureComponent {
   handleBackClick = () => {
     const { cartToggle } = this.props
-
     cartToggle(false)
   }
 
@@ -30,7 +29,8 @@ CartHeader.propTypes = {
   cartToggle: PropTypes.func,
   children: PropTypes.node,
   lineItems: PropTypes.array,
-  isOpened: PropTypes.bool
+  isOpened: PropTypes.bool,
+  trackCloseCart: PropTypes.func
 }
 
 export default CartHeader

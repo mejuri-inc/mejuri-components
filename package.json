@@ -1,6 +1,6 @@
 {
   "name": "@mejuri-inc/mejuri-components",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "Mejuri components library",
   "license": "ISC",
   "author": "joaenriquez@gmail.com",
@@ -15,6 +15,7 @@
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepublish": "run-s build",
     "test": "jest",
+    "test:watch": "jest --watch",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
     "lint": "eslint './src/**/*.js'"

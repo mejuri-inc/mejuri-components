@@ -70,16 +70,20 @@ export class MainSearch extends PureComponent {
   }
 
   query(query, config = {}) {
+    const { trackSearch } = this.props
     this.service &&
       this.service
         .search(query, config)
         .then((response) => {
-          this.setState((state) => ({
-            count: response.count,
-            results: state.results.concat(response.results),
-            isFetching: false,
-            isFetchingPage: false
-          }))
+          this.setState(
+            (state) => ({
+              count: response.count,
+              results: state.results.concat(response.results),
+              isFetching: false,
+              isFetchingPage: false
+            }),
+            () => trackSearch({ query: query })
+          )
         })
         .catch((e) => console.log('Error in search:', e)) // eslint-disable-line no-console
   }
@@ -92,24 +96,25 @@ export class MainSearch extends PureComponent {
   }
 
   close() {
-    const { close } = this.props
+    const { close, trackSearchClose } = this.props
     this.setState(
       {
         searchString: '',
         results: [],
         isFetching: false
       },
-      () => close()
+      () => {
+        close()
+        trackSearchClose()
+      }
     )
   }
 
   handleSearchChange(e) {
     e.persist()
-    const { onSearchTracking } = this.props
     const searchString = e.target.value
 
     this.setState({ isFetching: true, searchString, results: [] })
-    onSearchTracking({ query: searchString })
 
     this.debouncedSearch(e)
   }
@@ -186,7 +191,8 @@ export class MainSearch extends PureComponent {
 MainSearch.propTypes = {
   isOpened: PropTypes.bool,
   close: PropTypes.func,
-  onSearchTracking: PropTypes.func,
+  trackSearch: PropTypes.func,
+  trackSearchClose: PropTypes.func,
   appId: PropTypes.string,
   appKey: PropTypes.string,
   index: PropTypes.string
@@ -196,9 +202,8 @@ MainSearch.defaultProps = {
   close: () => {
     console.error('close prop missing in <MainSearch />')
   },
-  onSearchTracking: () => {
-    console.error('onSearchTracking prop missing in <MainSearch />')
-  }
+  trackSearch: () => {},
+  trackSearchClose: () => {}
 }
 
 export default MainSearch
