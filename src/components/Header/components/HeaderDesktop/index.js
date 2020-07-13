@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
+import get from 'lodash.get'
 
 import {
   Content,
@@ -32,8 +33,12 @@ function HeaderDesktop({
   const [activeSection, setActiveSection] = useState(null)
   const layersMountingPoint = useRef(null)
 
-  const leftMenu = config.filter((item) => item.fields.type !== 'right-link')
-  const rightMenu = config.filter((item) => item.fields.type === 'right-link')
+  const leftMenu = config.filter(
+    (item) => get(item, 'fields.type') !== 'right-link'
+  )
+  const rightMenu = config.filter(
+    (item) => get(item, 'fields.type') === 'right-link'
+  )
 
   return (
     <ScrollBreakpoint top={120}>
@@ -105,7 +110,8 @@ HeaderDesktop.defaultProps = {
   toggleSearch: function () {
     console.error('toggleSearch missing in <HeaderDesktop />')
   },
-  pos: null
+  pos: null,
+  config: []
 }
 
 export default HeaderDesktop
