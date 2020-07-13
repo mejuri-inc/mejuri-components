@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper, MainSections, MainSection } from './styled'
+import get from 'lodash.get'
 
 import NavigationLayers from '../NavigationLayers'
 
@@ -20,16 +21,19 @@ export const Navigation = ({
   return (
     <Wrapper>
       <MainSections>
-        {config.map((i) => (
-          <MainSection
-            onMouseEnter={() => setActive(i.sys.id)}
-            onClick={() => setActive(i.sys.id)}
-            href={i.fields.url ? i.fields.url : '#'}
-            key={i.fields.text}
-          >
-            {i.fields.text}
-          </MainSection>
-        ))}
+        {config.map(
+          (i) =>
+            i.fields && (
+              <MainSection
+                onMouseEnter={() => setActive(i.sys.id)}
+                onClick={() => setActive(i.sys.id)}
+                href={get(i, 'fields.url') ? i.fields.url : '#'}
+                key={i.sys.id}
+              >
+                {i.fields.text}
+              </MainSection>
+            )
+        )}
       </MainSections>
       {layersMountingPoint !== null && (
         <NavigationLayers
