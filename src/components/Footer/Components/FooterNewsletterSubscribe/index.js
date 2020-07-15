@@ -19,9 +19,8 @@ export default class FooterNewsletterSubscribe extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit = (form) => {
+  handleSubmit = (email) => {
     const { track } = this.props
-    const { email } = form || {}
     track('subscribeNewsletter', {
       email,
       source: 'Bottom form'
