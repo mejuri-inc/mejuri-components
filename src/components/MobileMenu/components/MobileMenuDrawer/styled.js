@@ -22,9 +22,12 @@ export const Options = styled.ul`
   margin: 0;
   max-height: ${(p) => (p.isOpen ? `${p.length * 42}px` : 0)};
   padding: 0;
-  overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.2s linear 0.2s;
   opacity: ${(p) => (p.collapsed ? 0 : 1)};
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `
 Options.displayName = 'MobileMenuDriverOptions'
 
