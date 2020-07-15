@@ -57,7 +57,8 @@ export class ContentfulAPI {
   async getLookBookPages(queryOptions) {
     if (!queryOptions.slug) throw new Error('You did not provide a slug value.')
     try {
-      return await this.getContentType('lookPage', queryOptions)
+      const looks = await this.getContentType('lookPage', queryOptions)
+      return looks
     } catch (e) {
       throw e
     }
@@ -138,7 +139,7 @@ export class ContentfulAPI {
   // PARSE CONTENTFUL RESPONSE ITEM
   formatResponseLevel(item = {}) {
     if (typeof item !== 'object') return item
-
+    if (!item.sys && !item.fields) return item
     const { sys = {}, fields = {} } = item
 
     const formatted = {}
