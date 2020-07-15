@@ -147,7 +147,7 @@ export class MobileMenu extends React.Component {
         : true
     )
     const stylingHelp = menuOptions.children.find((x) =>
-      x.fields.extraFields ? x.fields.extraFields.stylingHelp : false
+      x.fields.type ? x.fields.type === 'menu footer section' : false
     )
     return (
       <Wrapper>
