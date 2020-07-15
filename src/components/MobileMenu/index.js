@@ -5,6 +5,7 @@ import MobileMenuDrawer from './components/MobileMenuDrawer'
 import MobileMenuSubPage from './components/MobileMenuSubPage'
 import MobileMenuStylingHelp from './components/MobileMenuStylingHelp'
 import MobileMenuSignOut from './components/MobileMenuSignOut'
+import BackgroundOverlay from 'components/common/Overlay'
 
 import {
   Overlay,
@@ -211,6 +212,7 @@ export class MobileMenu extends React.Component {
             ))}
           </Pages>
         </NavigationPanel>
+        {isOpen && <BackgroundOverlay />}
       </Wrapper>
     )
   }
