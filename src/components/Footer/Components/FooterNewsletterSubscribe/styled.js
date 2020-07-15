@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   margin-top: 48px;
   min-width: 250px;
   @media (max-width: ${md}) {
-    text-align: center;
     width: 100%;
   }
   @media (min-width: ${md}) {
@@ -35,7 +34,7 @@ export const WelcomeMessage = styled.div`
 WelcomeMessage.displayName = 'FooterNewsletterSubscribeWelcomeMessage'
 
 export const Subtitle = styled.p`
-  margin: 6px 0 24px;
+  margin: 6px 0 0 0;
   font-size: 14px;
 `
 Subtitle.displayName = 'FooterNewsletterSubscribeSubtitle'

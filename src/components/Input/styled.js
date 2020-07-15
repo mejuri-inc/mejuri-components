@@ -4,8 +4,7 @@ import { fadeIn } from 'styles/effects'
 import colors from 'styles/colors'
 
 export const Wrapper = styled.div`
-  border-top: 1px solid ${colors.lightGray1};
-  margin: 22px 0 0 0;
+  margin: 0;
   padding: 0;
   font-size: 14px;
   font-weight: ${fontWeight.light};
@@ -22,12 +21,13 @@ export const Selector = styled.input`
   outline: none;
   display: block;
   width: 100%;
-  margin: 20px 0 0;
-  padding: 10px 0;
-  text-align: center;
+  margin: 24px 0 0;
+  padding: 10px 30px 10px 10px;
+  text-align: left;
   border-radius: initial;
   height: 48px;
   line-height: 48px;
+  border-width: 1px;
 `
 Selector.displayName = 'EngravingSelector'
 
@@ -59,7 +59,6 @@ export const Error = styled.div`
   height: 15px;
   margin-top: 10px;
   width: 100%;
-  text-align: center;
 `
 Error.displayName = 'EngravingError'
 

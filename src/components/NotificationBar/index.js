@@ -136,6 +136,7 @@ export class NotificationBar extends React.Component {
   render() {
     const { notificationBars } = this.state
     if (notificationBars.length === 0) return null
+
     return (
       <Notifications>
         {notificationBars.map((bar) => (

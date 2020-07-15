@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import colors from 'styles/colors'
 
-export const Wrapper = styled.a`
+export const Wrapper = styled.div`
   height: inherit;
   display: flex;
   align-items: center;

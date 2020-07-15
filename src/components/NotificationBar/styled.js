@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from 'styles/colors'
+import { fadeIn } from 'styles/effects'
 
 const mobileBp = '768px'
 
@@ -52,4 +53,5 @@ Icon.displayName = 'NotificationBarIcon'
 
 export const Notifications = styled.section`
   -webkit-text-stroke: 0.45px white;
+  ${fadeIn}
 `
