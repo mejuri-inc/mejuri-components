@@ -19,10 +19,13 @@ export default class FooterLinks extends PureComponent {
 
   renderLinks(links) {
     if (!links) return null
-
     return map(links, (link) => (
       <Link key={link.sys.id}>
-        <a href={link.fields.url}>{link.fields.text}</a>
+        {link.fields && link.fields.extraFields && link.fields.extraFields.attributes? (
+          <a href={link.fields.url} {...link.fields.extraFields.attributes}>{link.fields.text}</a>
+        ) : (
+          <a href={link.fields.url}>{link.fields.text}</a>
+        )}
       </Link>
     ))
   }

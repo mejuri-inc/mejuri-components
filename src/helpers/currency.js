@@ -3,7 +3,8 @@ import { toNumber } from './numbers'
 export const currencies = {
   USD: '$',
   CAD: 'C$',
-  AUD: 'AU$'
+  AUD: 'AU$',
+  GBP: '£'
 }
 
 export const toCurrency = (amount, currency = 'USD', whenZero) => {
