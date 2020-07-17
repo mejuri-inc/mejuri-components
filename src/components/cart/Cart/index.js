@@ -20,6 +20,7 @@ import CouponErrorAdvice from 'components/cart/Cart/components/CouponErrorAdvice
 import CartCoupon from 'components/cart/Cart/components/CartCoupon'
 import ApplePayButton from 'components/cart/Cart/components/ApplePayButton'
 import Backdrop from 'components/cart/Cart/components/Backdrop'
+import { toCurrency } from 'helpers/currency'
 
 export class Cart extends PureComponent {
   static propTypes = {
@@ -76,7 +77,9 @@ export class Cart extends PureComponent {
   }
 
   static defaultProps = {
-    isOpened: false
+    isOpened: false,
+    trackIncreaseProduct: () => {},
+    trackDecreaseProduct: () => {}
   }
 
   handleBackdropClick = () => {
@@ -136,7 +139,7 @@ export class Cart extends PureComponent {
                         ? 'cart.header.freeShippingReached'
                         : 'cart.header.advice'
                     }
-                    values={{ label: total - progress }}
+                    values={{ label: toCurrency(total - progress, currency) }}
                   />
                 )}
               </CartHeader>
