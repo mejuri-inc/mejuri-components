@@ -1,6 +1,4 @@
-// Colors
-// This colors match with the styleguide provided by the Design Team.
-// We could use another naming convention but I prefer to maintain the coherence.
+// PLEASE DO NOT USE THE COLORS DIRECTLY IMPORTING THIS FILE. USE THE STYLED-COMPONENTS THEME FROM NOW ON.
 
 export default {
   black: '#000',

@@ -1,34 +1,39 @@
 import styled from 'styled-components'
 import colors from 'styles/colors'
-import { fontWeight } from 'styles/settings'
+import { fadeIn } from 'styles/effects'
 
 export const Wrapper = styled.div`
   padding-left: 30px;
-  width: 30%;
+  width: 50%;
+
+  @media (min-width: 1280px) {
+    width: 35%;
+  }
 `
 Wrapper.displayName = 'WrapperNavigation'
 
 export const MainSections = styled.div`
   display: flex;
+  justify-content: space-around;
   list-style-type: none;
   padding: 0;
+  padding-right: 50px;
 `
 MainSections.displayName = 'MainSectionsNavigation'
 
-export const MainSection = styled.a`
-  background: transparent;
-  border: none;
+export const Item = styled.div`
+  max-height: 18px;
+  position: relative;
+`
+
+export const ItemLink = styled.a`
   color: ${colors.black};
-  cursor: pointer;
   display: block;
+  font-weight: ${(p) => p.theme.fontWeight.light};
   letter-spacing: 1px;
-  min-width: 90px;
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.25s;
-  font-weight: ${fontWeight.light};
-  border: none;
-  background-color: ${colors.white};
 
   &:hover,
   &:focus {
@@ -36,4 +41,32 @@ export const MainSection = styled.a`
     outline: none;
   }
 `
-MainSection.displayName = 'MainSectionNavigation'
+
+export const Layer = styled.div`
+  ${fadeIn};
+  display: ${(p) => (p.active ? 'flex' : 'none')};
+  max-height: 300px;
+  position: absolute;
+  top: 50px;
+  width: 100vw;
+`
+
+export const Layers = styled.div`
+  background: white;
+  border-bottom: 1px solid ${colors.whiteSmoke};
+  display: ${(p) => (p.active ? 'flex' : 'none')};
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: -1px;
+  width: 100vw;
+
+  &::before {
+    background: white;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100vw;
+    left: -100%;
+  }
+`

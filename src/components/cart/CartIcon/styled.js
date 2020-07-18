@@ -21,6 +21,12 @@ export const Wrapper = styled.button`
     height: 20px;
     margin-bottom: 4px;
   }
+
+  &:hover {
+    svg {
+      fill: ${(p) => p.theme.colors.grey};
+    }
+  }
 `
 Wrapper.displayName = 'CartIconWrapper'
 

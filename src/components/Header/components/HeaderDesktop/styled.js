@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
-import { fontWeight } from 'styles/settings'
 
 export const Wrapper = styled.section`
   background: transparent;
@@ -15,26 +13,23 @@ export const Wrapper = styled.section`
 Wrapper.displayName = 'HeaderDesktopWrapper'
 
 export const Content = styled.header`
-  border-bottom: ${(p) =>
-    p.shrinked ? `1px solid ${colors.whiteSmoke}` : 'none'};
+  border-bottom: 1px solid ${(p) => p.theme.colors.whiteSmoke};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${colors.white};
+  background-color: ${(p) => p.theme.colors.white};
   font-size: 12px;
-  font-weight: ${fontWeight.light};
+  font-weight: ${(p) => p.theme.fontWeight.light};
   height: ${(p) => (p.shrinked ? '60px' : '80px')};
   letter-spacing: 1.2px;
   position: relative;
-  text-transform: uppercase;
   transition: height 0.4s ease;
 `
 Content.displayName = 'HeaderDesktopContent'
 
 export const Logo = styled.a`
-  width: 180px;
   height: 58px;
-  margin-left: 60px;
+  text-transform: uppercase;
   svg {
     height: 100%;
   }
@@ -45,15 +40,16 @@ export const Logo = styled.a`
 Logo.displayName = 'HeaderDesktopLogo'
 
 export const Menu = styled.nav`
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
-  width: 35%;
+  display: flex;
   height: 100%;
+  justify-content: space-between;
+  padding-left: 30px;
   padding-right: 16px;
-  padding-left: 6px;
-  & > *:not(:last-child) {
-    padding: 0 1.75em;
+  width: 50%;
+
+  @media (min-width: 1280px) {
+    width: 35%;
   }
 `
 Menu.displayName = 'HeaderDesktopMenu'
@@ -77,7 +73,6 @@ export const Overlay = styled.div`
   top: 0%;
   width: 100%;
 `
-Overlay.displayName = 'HeaderDesktopOverlay'
 
 export const Button = styled.button`
   align-items: center;
@@ -89,12 +84,17 @@ export const Button = styled.button`
   height: 40px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: ${colors.white};
+  background-color: ${(p) => p.theme.colors.white};
   border: none;
 
-  &:focus {
-    color: ${colors.grey};
+  &:focus,
+  &:hover {
+    color: ${(p) => p.theme.colors.grey};
     outline: none;
+
+    svg {
+      fill: ${(p) => p.theme.colors.grey};
+    }
   }
 
   svg {
@@ -104,20 +104,20 @@ export const Button = styled.button`
 `
 
 export const ButtonLink = styled.a`
-  align-items: center;
-  display: flex;
-  height: 40px;
+  display: block;
+  line-height: 40px;
   padding: 5px;
   text-decoration: none;
-  min-width: 98px;
+  text-transform: uppercase;
   border: none;
-  background-color: ${colors.white};
-  color: ${colors.black};
-  &:focus {
-    color: ${colors.grey};
-    outline: none;
-  }
+  background-color: ${(p) => p.theme.colors.white};
+  color: ${(p) => p.theme.colors.black};
+  &:focus,
   &:hover {
-    color: ${colors.grey};
+    color: ${(p) => p.theme.colors.grey};
+  }
+
+  svg {
+    fill: ${(p) => p.theme.colors.grey};
   }
 `
