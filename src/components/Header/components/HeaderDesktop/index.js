@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash.get'
 
@@ -33,7 +33,6 @@ function HeaderDesktop({
   trackSearchOpen
 }) {
   const [activeSection, setActiveSection] = useState(null)
-  const layersMountingPoint = useRef(null)
 
   const leftMenu = config.filter(
     (item) => get(item, 'fields.type') !== 'right-link'
@@ -55,7 +54,6 @@ function HeaderDesktop({
               config={leftMenu}
               setActive={setActiveSection}
               activeSection={activeSection}
-              layersMountingPoint={layersMountingPoint}
               onClickTracking={onClickTracking}
               pos={pos}
             />
@@ -93,7 +91,6 @@ function HeaderDesktop({
               />
             </Menu>
           </Content>
-          <div ref={layersMountingPoint} />
         </Wrapper>
       )}
     </ScrollBreakpoint>

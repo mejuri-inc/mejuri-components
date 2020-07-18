@@ -1,50 +1,48 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, MainSections, MainSection } from './styled'
+import { Wrapper, MainSections, Item, ItemLink, Layer, Layers } from './styled'
 import get from 'lodash.get'
-
-import NavigationLayers from '../NavigationLayers'
+import LayerContent from './components/LayerContent'
 
 export const Navigation = ({
   config,
-  sections,
   setActive,
   activeSection,
-  layersMountingPoint,
   onClickTracking,
   pos
 }) => {
-  // TODO: Temporary to avoid cms app to break bc of outdated data format.
-  if (!config || !Array.isArray(config)) {
+  if (!config) {
     return <Wrapper />
   }
+
   return (
     <Wrapper>
       <MainSections>
         {config.map(
           (i) =>
             i.fields && (
-              <MainSection
+              <Item
                 onMouseEnter={() => setActive(i.sys.id)}
                 onClick={() => setActive(i.sys.id)}
-                href={get(i, 'fields.url') ? i.fields.url : '#'}
                 key={i.sys.id}
               >
-                {i.fields.text}
-              </MainSection>
+                <ItemLink href={get(i, 'fields.url') ? i.fields.url : '#'}>
+                  {i.fields.text}
+                </ItemLink>
+                <Layer active={i.sys.id === activeSection}>
+                  <Layers active={i.sys.id === activeSection} />
+                  {i.fields && i.fields.children && (
+                    <LayerContent
+                      config={i.fields.children}
+                      onClickTracking={onClickTracking}
+                      pos={pos}
+                    />
+                  )}
+                </Layer>
+              </Item>
             )
         )}
       </MainSections>
-      {layersMountingPoint !== null && (
-        <NavigationLayers
-          config={config}
-          sections={sections}
-          activeSection={activeSection}
-          mountingPoint={layersMountingPoint.current}
-          onClickTracking={onClickTracking}
-          pos={pos}
-        />
-      )}
     </Wrapper>
   )
 }
@@ -58,7 +56,6 @@ Navigation.propTypes = {
   setActive: PropTypes.func,
   onClickTracking: PropTypes.func,
   activeSection: PropTypes.string,
-  layersMountingPoint: PropTypes.object,
   pos: PropTypes.object
 }
 
