@@ -11,7 +11,7 @@ export const Column = styled.div`
 
 export const MenuTitle = styled.div`
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 700;
   padding: 4px 0;
 `
 
