@@ -15,9 +15,11 @@ import {
   Options,
   Footer,
   FooterItem,
-  Wrapper
+  Wrapper,
+  FooterLink
 } from './styled'
 import get from 'lodash.get'
+import FooterLinks from 'components/Footer/Components/FooterLinks'
 
 export class MobileMenu extends React.Component {
   constructor(props) {
@@ -106,17 +108,22 @@ export class MobileMenu extends React.Component {
       : 'Sign In / Sign Up'
   }
 
-  getBottomOptionChild(option, stylingHelp) {
+  getBottomOptionChild(option) {
     const isAccount = get(option, 'fields.extraFields.account', null)
+    const menuFooterSection = option.fields.children.find((o) =>
+      o.fields.type ? o.fields.type === 'menu footer section' : false
+    )
     return isAccount ? (
       <MobileMenuSignOut />
-    ) : (
+    ) : menuFooterSection ? (
       <MobileMenuStylingHelp
-        label={get(stylingHelp, 'fields.text', null)}
-        caption={get(stylingHelp, 'fields.extraFields.caption', null)}
-        linkText={get(stylingHelp, 'fields.extraFields.linkText', null)}
-        url={get(stylingHelp, 'fields.url', null)}
+        label={get(menuFooterSection, 'fields.text', null)}
+        caption={get(menuFooterSection, 'fields.extraFields.caption', null)}
+        linkText={get(menuFooterSection, 'fields.extraFields.linkText', null)}
+        url={get(menuFooterSection, 'fields.url', null)}
       />
+    ) : (
+      <div />
     )
   }
 
@@ -126,6 +133,26 @@ export class MobileMenu extends React.Component {
       const isAccount = get(o, 'fields.extraFields.account', false)
       return isAccount
     })
+  }
+
+  getFooterItem = (item) => {
+    const link = get(item, 'fields.url', null)
+    if (link) {
+      return (
+        <FooterItem>
+          <FooterLink href={link}>{this.getBottomOptionText(item)}</FooterLink>
+        </FooterItem>
+      )
+    } else {
+      return (
+        <FooterItem
+          onClick={() => this.handleFooterClick(item)}
+          key={item.sys.id}
+        >
+          {this.getBottomOptionText(item)}
+        </FooterItem>
+      )
+    }
   }
 
   render() {
@@ -147,9 +174,7 @@ export class MobileMenu extends React.Component {
         ? !x.fields.extraFields.bottom && !x.fields.extraFields.stylingHelp
         : true
     )
-    const stylingHelp = menuOptions.children.find((x) =>
-      x.fields.type ? x.fields.type === 'menu footer section' : false
-    )
+    const notLinkBottomMenus = bottomMenus.filter((x) => !!x.fields.children)
     return (
       <Wrapper>
         <Overlay isOpen={isOpen} onClick={this.toggleMenuState} />
@@ -186,28 +211,23 @@ export class MobileMenu extends React.Component {
                   />
                 ))}
                 <Footer>
-                  {this.filterOptions(bottomMenus, pos).map((o) => (
-                    <FooterItem
-                      onClick={() => this.handleFooterClick(o)}
-                      key={o.sys.id}
-                    >
-                      {this.getBottomOptionText(o)}
-                    </FooterItem>
-                  ))}
+                  {this.filterOptions(bottomMenus, pos).map((o) =>
+                    this.getFooterItem(o)
+                  )}
                   <FooterItem>
                     {currencySelector && currencySelector}
                   </FooterItem>
                 </Footer>
               </Options>
             </Page>
-            {bottomMenus.map((o) => (
+            {notLinkBottomMenus.map((o) => (
               <MobileMenuSubPage
                 title={o.fields.text}
                 options={o.fields.children}
                 active={this.state.subPageIndex === o.sys.id}
                 key={o.sys.id}
               >
-                {this.getBottomOptionChild(o, stylingHelp)}
+                {this.getBottomOptionChild(o)}
               </MobileMenuSubPage>
             ))}
           </Pages>

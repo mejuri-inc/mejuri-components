@@ -1,9 +1,9 @@
 import React from 'react'
-import { SignOut } from './styled'
+import { SignOut, Link } from './styled'
 
 export const MobileMenuSignOut = () => (
   <SignOut>
-    <a href='/signout'>Sign Out</a>
+    <Link href='/signout'>Sign Out</Link>
   </SignOut>
 )
 
