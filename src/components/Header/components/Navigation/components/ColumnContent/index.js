@@ -8,6 +8,7 @@ const MenuItem = styled.a`
   display: block;
   font-size: 15px;
   font-weight: ${(p) => p.theme.fontWeight.light};
+  height: 32px;
   letter-spacing: 0.375px;
   padding: 5px 0;
   text-decoration: none;

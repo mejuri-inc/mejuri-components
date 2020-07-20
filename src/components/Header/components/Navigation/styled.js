@@ -47,7 +47,7 @@ export const Layer = styled.div`
   display: ${(p) => (p.active ? 'flex' : 'none')};
   max-height: 300px;
   position: absolute;
-  top: 50px;
+  top: 47px;
   width: 100vw;
 `
 

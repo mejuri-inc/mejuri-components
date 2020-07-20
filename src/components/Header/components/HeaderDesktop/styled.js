@@ -1,10 +1,20 @@
 import styled from 'styled-components'
+import LogoSvg from 'resources/icons/Logo'
+
+export const MejuriLogo = styled(LogoSvg)`
+  width: fit-content;
+`
 
 export const Wrapper = styled.section`
   background: transparent;
   display: none;
   height: 80px;
   width: 100%;
+
+  /* Fix button inherited line-height in pdp */
+  button {
+    line-height: inherit;
+  }
 
   @media only screen and (min-width: 990px) {
     display: initial;
@@ -21,7 +31,8 @@ export const Content = styled.header`
   font-size: 12px;
   font-weight: ${(p) => p.theme.fontWeight.light};
   height: ${(p) => (p.shrinked ? '60px' : '80px')};
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
+  line-height: 1.5;
   position: relative;
   transition: height 0.4s ease;
 `
@@ -32,9 +43,6 @@ export const Logo = styled.a`
   text-transform: uppercase;
   svg {
     height: 100%;
-  }
-  &:focus {
-    outline: none;
   }
 `
 Logo.displayName = 'HeaderDesktopLogo'

@@ -17,9 +17,10 @@ export const Wrapper = styled.button`
     outline: none;
   }
   svg {
-    width: 20px;
+    display: block;
     height: 20px;
     margin-bottom: 4px;
+    width: 20px;
   }
 
   &:hover {

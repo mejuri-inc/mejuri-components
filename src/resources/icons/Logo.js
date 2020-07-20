@@ -1,7 +1,8 @@
 import React from 'react'
 
-const Icon = () => (
+const Icon = ({ className }) => (
   <svg
+    className={className}
     xmlns='http://www.w3.org/2000/svg'
     width='281.538'
     height='92.308'

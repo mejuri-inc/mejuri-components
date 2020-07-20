@@ -9,11 +9,11 @@ import {
   Overlay,
   Wrapper,
   Button,
-  ButtonLink
+  ButtonLink,
+  MejuriLogo
 } from './styled'
 import Navigation from '../Navigation'
 import CartIcon from 'components/cart/CartIcon'
-import MejuriLogo from 'resources/icons/Logo'
 import MagniGlass from 'resources/icons/MagniGlass'
 
 import UserSection from '../UserSection'
