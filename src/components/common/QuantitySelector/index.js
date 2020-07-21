@@ -17,7 +17,7 @@ export const QuantitySelector = ({
       <Btn
         onClick={() => {
           updateQuantity(itemId, decreaseValue)
-          trackDecrease(decreaseValue)
+          trackDecrease(1)
         }}
       >
         -
@@ -26,7 +26,7 @@ export const QuantitySelector = ({
       <Btn
         onClick={() => {
           updateQuantity(itemId, value + 1)
-          trackIncrease(value + 1)
+          trackIncrease(1)
         }}
         disabled={value + 1 > stock && !backOrderable}
       >
