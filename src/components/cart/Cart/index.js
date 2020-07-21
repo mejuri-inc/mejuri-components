@@ -73,13 +73,8 @@ export class Cart extends PureComponent {
 
     // tracking.
     trackDecreaseProduct: PropTypes.func,
-    trackIncreaseProduct: PropTypes.func
-  }
-
-  static defaultProps = {
-    isOpened: false,
-    trackIncreaseProduct: () => {},
-    trackDecreaseProduct: () => {}
+    trackIncreaseProduct: PropTypes.func,
+    trackRemoveItem: PropTypes.func
   }
 
   handleBackdropClick = () => {
@@ -117,7 +112,9 @@ export class Cart extends PureComponent {
       calculateTaxes,
       makeApplePayPayment,
       trackIncreaseProduct,
-      trackDecreaseProduct
+      trackDecreaseProduct,
+      trackRemoveItem,
+      trackCartGoToCheckout
     } = this.props
     const { freeShipping, total, progress } = this.props.shippingStatus
 
@@ -159,6 +156,9 @@ export class Cart extends PureComponent {
                     trackDecreaseProduct={(context) =>
                       trackDecreaseProduct(order, context)
                     }
+                    trackRemoveItem={(context) =>
+                      trackRemoveItem(order, context)
+                    }
                   />
                 ) : (
                   <EmptyCart>
@@ -187,7 +187,12 @@ export class Cart extends PureComponent {
                       dismiss={dismissCouponCodeError}
                     />
                     <CartCoupon setCouponCode={setCouponCode} />
-                    <Button onClick={onContinue}>
+                    <Button
+                      onClick={(...args) => {
+                        trackCartGoToCheckout(order.number)
+                        onContinue(...args)
+                      }}
+                    >
                       <FormattedMessage id='cart.actions.continue' />
                     </Button>
                     <ApplePayButton
@@ -208,4 +213,17 @@ export class Cart extends PureComponent {
     )
   }
 }
+
+Cart.defaultProps = {
+  isOpened: false,
+  trackIncreaseProduct: () =>
+    console.log('trackIncreaseProduct prop missing in <Cart />'),
+  trackDecreaseProduct: () =>
+    console.log('trackDecreaseProduct prop missing in <Cart />'),
+  trackRemoveItem: () =>
+    console.log('trackRemoveItem prop missing in <Cart />'),
+  trackCartGoToCheckout: () =>
+    console.log('trackCartGoToCheckout prop missing in <Cart />')
+}
+
 export default Cart

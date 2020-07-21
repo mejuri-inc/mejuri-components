@@ -15,7 +15,8 @@ export const ItemsList = ({
   updateQuantity,
   setPickup,
   trackIncreaseProduct,
-  trackDecreaseProduct
+  trackDecreaseProduct,
+  trackRemoveItem
 }) => {
   if (!items || !items.length) return null
   return (
@@ -27,7 +28,12 @@ export const ItemsList = ({
         return (
           <ListElement key={i.id}>
             <ElementWrapper>
-              <RemoveButton onClick={() => remove(i.id)}>
+              <RemoveButton
+                onClick={() => {
+                  remove(i.id)
+                  trackRemoveItem({ lineItem: i, quantity: i.quantity })
+                }}
+              >
                 <CloseIcon />
               </RemoveButton>
               {imageUrl && <Thumbnail href={href} src={imageUrl} alt={alt} />}
@@ -79,7 +85,8 @@ ItemsList.propTypes = {
   isPos: PropTypes.bool,
   updateQuantity: PropTypes.func,
   trackIncreaseProduct: PropTypes.func,
-  trackDecreaseProduct: PropTypes.func
+  trackDecreaseProduct: PropTypes.func,
+  trackRemoveItem: PropTypes.func
 }
 
 ItemsList.defaultProps = {
