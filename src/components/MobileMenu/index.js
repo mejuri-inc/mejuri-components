@@ -140,7 +140,7 @@ export class MobileMenu extends React.Component {
     if (link) {
       return (
         <FooterItem>
-          <FooterLink href={link}>{this.getBottomOptionText(item)}</FooterLink>
+          <FooterLink href={link} key={item.sys.id}>{this.getBottomOptionText(item)}</FooterLink>
         </FooterItem>
       )
     } else {
