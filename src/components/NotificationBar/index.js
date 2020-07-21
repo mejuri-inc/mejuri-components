@@ -75,12 +75,14 @@ export class NotificationBar extends React.Component {
   addNewBarsToDismissList(dismissList, notificationBars) {
     const newNotificationsBars = notificationBars.filter(function (bar) {
       return (
-        dismissList.findIndex((element) => element.id === bar.identifier) < 0
+        dismissList.findIndex(
+          (element) => element.id === bar.fields.identifier
+        ) < 0
       )
     })
     const newDismissListElements = newNotificationsBars.map(function (bar) {
       return {
-        id: bar.identifier,
+        id: bar.fields.identifier,
         dismiss: false,
         dismissTime: null
       }
@@ -103,7 +105,10 @@ export class NotificationBar extends React.Component {
       return item.id
     })
     return notificationBars.filter(function (item) {
-      return dismissIds.findIndex((element) => element === item.identifier) < 0
+      return (
+        dismissIds.findIndex((element) => element === item.fields.identifier) <
+        0
+      )
     })
   }
 
@@ -136,7 +141,6 @@ export class NotificationBar extends React.Component {
   render() {
     const { notificationBars } = this.state
     if (notificationBars.length === 0) return null
-
     return (
       <Notifications>
         {notificationBars.map((bar) => (
@@ -148,8 +152,8 @@ export class NotificationBar extends React.Component {
           >
             {this.formatText(bar.fields.legend)}
             <Icon
-              onClick={() => this.dismiss(bar.identifier)}
-              color={bar.color}
+              onClick={() => this.dismiss(bar.fields.identifier)}
+              color={bar.fields.color}
             />
           </Wrapper>
         ))}
