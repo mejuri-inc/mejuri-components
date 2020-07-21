@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import colors from 'styles/colors'
 
 export const Wrapper = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
   &::-webkit-scrollbar {
     width: 0;
   }
@@ -48,6 +48,7 @@ export const Page = styled.div`
   justify-content: space-between;
   position: relative;
   width: 50%;
+  overflow: hidden;
 `
 Page.displayName = 'MobileMenuPage'
 
@@ -80,6 +81,7 @@ export const Footer = styled.ul`
   margin: auto 0 0 0;
   padding: 0 25px;
   width: 100%;
+  overflow-y: hidden;
 `
 Footer.displayName = 'MobileMenuFooter'
 
@@ -97,6 +99,13 @@ export const FooterItem = styled.li`
   }
 `
 FooterItem.displayName = 'MobileMenuFooterItem'
+
+export const FooterLink = styled.a`
+  color: inherit;
+  text-decoration: inherit;
+`
+FooterLink.displayName = 'MobileMenuFooterLink'
+
 
 export const Account = styled(FooterItem)`
   display: flex;
