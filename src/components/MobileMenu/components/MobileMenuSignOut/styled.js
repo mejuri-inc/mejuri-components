@@ -9,7 +9,7 @@ export const SignOut = styled.div`
   padding-top: 30px;
 `
 
-export const qLink = styled.a`
+export const Link = styled.a`
   color: inherit;
   text-decoration: inherit;
 `
