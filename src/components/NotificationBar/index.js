@@ -134,15 +134,12 @@ export class NotificationBar extends React.Component {
   }
 
   render() {
-    const { currentLocale } = this.props
     const { notificationBars } = this.state
     if (notificationBars.length === 0) return null
 
-    const filtered = notificationBars.filter(n => !n.fields.exclusiveLocales || (n.fields.exclusiveLocales && n.fields.exclusiveLocales.find(l => l === currentLocale.code)))
-
     return (
       <Notifications>
-        {filtered.map((bar) => (
+        {notificationBars.map((bar) => (
           <Wrapper
             backgroundColor={bar.fields.backgroundColor}
             color={bar.fields.textColor}
@@ -162,13 +159,11 @@ export class NotificationBar extends React.Component {
 }
 
 NotificationBar.propTypes = {
-  notificationBars: PropTypes.array,
-  currentLocale: PropTypes.object
+  notificationBars: PropTypes.array
 }
 
 NotificationBar.defaultProps = {
-  notificationBars: [],
-  currentLocale: { code: '' }
+  notificationBars: []
 }
 
 export default NotificationBar
