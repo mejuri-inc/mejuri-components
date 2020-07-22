@@ -4,10 +4,11 @@ import { parseCookies, setCookie } from 'nookies'
 import PropTypes from 'prop-types'
 import get from 'lodash.get'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import NotificationBar from './NotificationBar'
 
 const storeKey = 'notificationBar'
 
-export class NotificationBar extends React.Component {
+export class NotificationsBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = this.getInitialState()
@@ -144,30 +145,27 @@ export class NotificationBar extends React.Component {
     return (
       <Notifications>
         {notificationBars.map((bar) => (
-          <Wrapper
+          <NotificationBar
             backgroundColor={bar.fields.backgroundColor}
-            color={bar.fields.textColor}
-            hide={bar.fields.collapsed}
+            textColor={bar.fields.textColor}
+            mustHideInMobile={bar.fields.collapsed}
             key={bar.fields.identifier}
-          >
-            {this.formatText(bar.fields.legend)}
-            <Icon
-              onClick={() => this.dismiss(bar.fields.identifier)}
-              color={bar.fields.color}
-            />
-          </Wrapper>
+            text={this.formatText(bar.fields.legend)}
+            onDismiss={this.dismiss}
+            identifier={bar.fields.identifier}
+          />
         ))}
       </Notifications>
     )
   }
 }
 
-NotificationBar.propTypes = {
+NotificationsBar.propTypes = {
   notificationBars: PropTypes.array
 }
 
-NotificationBar.defaultProps = {
+NotificationsBar.defaultProps = {
   notificationBars: []
 }
 
-export default NotificationBar
+export default NotificationsBar
