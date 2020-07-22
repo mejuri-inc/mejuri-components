@@ -10,7 +10,8 @@ import {
   Scrollable,
   Wrapper,
   Close,
-  LoadMore
+  LoadMore,
+  NoResults
 } from './styled'
 import debounce from 'lodash.debounce'
 import IsOnScreen from 'components/common/IsOnScreen'
@@ -159,12 +160,14 @@ export class MainSearch extends PureComponent {
               </Hint>
             </Header>
             <Scrollable isFetching={isFetching}>
-              {!!results.length && (
+              {!!results.length && this.state.searchString !== '' && (
                 <NumberOfResults>
                   {count} <FormattedMessage id='header.search.results' />
                 </NumberOfResults>
               )}
-              {results.length ? (
+              {this.state.searchString === '' ? (
+                <SearchOverlaySuggestions search={this.setSearch} />
+              ) : results.length ? (
                 <ProductGrid products={results} innerRef={this.scroll}>
                   {results.length < count && (
                     <IsOnScreen
@@ -177,7 +180,12 @@ export class MainSearch extends PureComponent {
                   )}
                 </ProductGrid>
               ) : (
-                <SearchOverlaySuggestions search={this.setSearch} />
+                !isFetching && (
+                  <React.Fragment>
+                    <NoResults>Sorry no results found</NoResults>
+                    <span>the other list</span>
+                  </React.Fragment>
+                )
               )}
             </Scrollable>
           </Content>

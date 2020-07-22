@@ -10,6 +10,12 @@ export const Position = styled.div`
 
 export const Content = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  max-height: calc(100vh - 200px);
+  padding: 0 8px;
+  margin: auto;
   @media screen and (min-width: 768px) {
     padding-top: 30px;
   }
@@ -51,11 +57,9 @@ export const SearchBox = styled.div`
 `
 
 export const Header = styled.div`
-  margin: auto;
-  max-width: 800px;
   padding-bottom: 25px;
   position: relative;
-
+  width: 100%;
   &::after {
     content: '';
     height: 16px;
@@ -76,7 +80,6 @@ export const Hint = styled.div`
   font-size: 14px;
   font-weight: 300;
   line-height: 24px;
-  margin: 5px 0 0 5px;
 `
 
 export const NumberOfResults = styled.div`
@@ -117,4 +120,12 @@ export const LoadMore = styled.div`
   ${({ isFetching }) => isFetching && spinner()}
   height: 40px;
   width: 100%;
+`
+
+export const NoResults = styled.span`
+  font-size: 20px;
+  line-height: 30px;
+  margin: 10px 0 50px;
+  text-transform: none;
+  font-weight: 500;
 `

@@ -4,7 +4,7 @@ export const Suggestions = styled.ul`
   list-style: none;
   margin: 0 auto;
   max-width: 800px;
-  padding: 25px 5px;
+  padding: 25px 0;
 
   li:first-child {
     font-size: 14px;
