@@ -5,6 +5,7 @@ import { fadeIn } from 'styles/effects'
 const mobileBp = '768px'
 
 export const Wrapper = styled.div`
+  -webkit-text-stroke: 0.45px ${(props) => (props.color ? props.color : `${colors.white}`)};
   background-color: ${(props) =>
     props.backgroundColor ? props.backgroundColor : `${colors.black}`};
   display: ${(props) => (props.hide ? 'none' : 'block')};
@@ -52,6 +53,5 @@ export const Icon = styled.button`
 Icon.displayName = 'NotificationBarIcon'
 
 export const Notifications = styled.section`
-  -webkit-text-stroke: 0.45px white;
   ${fadeIn}
 `
