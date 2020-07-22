@@ -14,7 +14,6 @@ Wrapper.displayName = 'WrapperNavigation'
 
 export const MainSections = styled.div`
   display: flex;
-  justify-content: space-around;
   list-style-type: none;
   padding: 0;
   padding-right: 50px;
@@ -24,6 +23,10 @@ MainSections.displayName = 'MainSectionsNavigation'
 export const Item = styled.div`
   max-height: 18px;
   position: relative;
+  padding: 0 1.75em;
+  &:first-child {
+    padding: 0 1.75em 0 0;
+  }
 `
 
 export const ItemLink = styled.a`
@@ -47,7 +50,7 @@ export const Layer = styled.div`
   display: ${(p) => (p.active ? 'flex' : 'none')};
   max-height: 300px;
   position: absolute;
-  top: 47px;
+  top: 35px;
   width: 100vw;
 `
 
