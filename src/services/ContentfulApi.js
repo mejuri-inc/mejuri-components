@@ -178,6 +178,21 @@ export class ContentfulAPI {
     }
     return formatted
   }
+
+  getNotificationBars (localeCode) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const client = this.getClient()
+        const result = await client.getEntries({ content_type: 'notificationBar', locale: localeCode || this.locale })
+        const filtered = result.items.filter(n => !n.fields.exclusiveLocales || (n.fields.exclusiveLocales && n.fields.exclusiveLocales.find(l => l === localeCode)))
+        console.log("getNotificationBars", filtered)
+        resolve(filtered)
+      } catch (e) {
+        console.log(e)
+        reject(e)
+      }
+    })
+  }
 }
 
 // const singleton = new ContentfulAPI()
