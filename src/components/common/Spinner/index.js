@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { fadeIn, spinner } from 'styles/effects'
 
 export const Spinner = styled.div`

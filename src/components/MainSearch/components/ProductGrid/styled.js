@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const Wrapper = styled.section`
   margin: auto;
@@ -9,7 +9,7 @@ export const Wrapper = styled.section`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
   grid-gap: 16px;
 `
 

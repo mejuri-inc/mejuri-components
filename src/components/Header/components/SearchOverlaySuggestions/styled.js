@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { fontWeight } from 'styles/settings'
 
 export const Suggestions = styled.ul`

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import colors from 'styles/colors'
 import { fadeIn, spinner } from 'styles/effects'
 
@@ -38,6 +38,8 @@ export const Wrapper = styled.section`
   @media screen and (min-width: 768px) {
     padding-top: 30px;
     position: absolute;
+    max-height: ${(props) => (props.isOpened ? '100vh' : '550px')};
+    height: ${(props) => props.isOpened && '100vh'};
   }
 `
 
@@ -97,7 +99,7 @@ export const Scrollable = styled.div`
   overflow-y: scroll;
   height: 65vh;
   position: relative;
-
+  padding-top: 10px;
   &::-webkit-scrollbar {
     display: none;
   }
