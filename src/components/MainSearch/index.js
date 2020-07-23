@@ -11,7 +11,8 @@ import {
   Wrapper,
   Close,
   LoadMore,
-  NoResults
+  NoResults,
+  Also
 } from './styled'
 import debounce from 'lodash.debounce'
 import IsOnScreen from 'components/common/IsOnScreen'
@@ -55,6 +56,9 @@ export class MainSearch extends PureComponent {
   componentDidMount() {
     const { appId, appKey, index } = this.props
     this.service = new AlgoliaService(appId, appKey, index)
+
+    console.log('holaaaaaaaaaaaaaa', this.props.mightAlsoLikeProducts)
+    console.log('topsearchsuggestions', this.props.topSearchSuggestions)
   }
 
   componentDidUpdate(prevProps) {
@@ -183,7 +187,7 @@ export class MainSearch extends PureComponent {
                 !isFetching && (
                   <React.Fragment>
                     <NoResults>Sorry no results found</NoResults>
-                    <span>the other list</span>
+                    <Also>OH, YOU MIGHT ALSO LIKE</Also>
                   </React.Fragment>
                 )
               )}

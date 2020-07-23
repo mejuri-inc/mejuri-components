@@ -131,3 +131,12 @@ export const NoResults = styled.span`
   text-transform: none;
   font-weight: 500;
 `
+
+export const Also = styled.h2`
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.86px;
+  line-height: 18px;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+`

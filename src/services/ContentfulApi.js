@@ -292,6 +292,24 @@ export class ContentfulAPI {
     return undefined
   }
 
+  async getYouMightAlsoLikeProducts() {
+    try {
+      const Also = await this.getContentType('you-might-also-like')
+      return Also
+    } catch (e) {
+      throw e
+    }
+  }
+
+  async getTopSearchSuggestions() {
+    try {
+      const Suggestions = await this.getContentType('top-search-suggestions')
+      return Suggestions
+    } catch (e) {
+      throw e
+    }
+  }
+
   parseEntries(data) {
     const parsedData = this.getClient().parseEntries(data)
     const formattedData = this.formatResponse(parsedData)
