@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserConsent Active categories match user preferences (Functional) 1`] = `
+Array [
+  "Functional",
+  "Strictly Necessary",
+]
+`;
+
+exports[`UserConsent Active categories match user preferences (Performance) 1`] = `
+Array [
+  "Performance",
+  "Strictly Necessary",
+]
+`;
+
+exports[`UserConsent Active categories match user preferences (Social Media) 1`] = `
+Array [
+  "Social Media",
+  "Strictly Necessary",
+]
+`;
+
+exports[`UserConsent Active categories match user preferences (Strictly necessary) 1`] = `
+Array [
+  "Strictly Necessary",
+]
+`;
+
+exports[`UserConsent Active categories match user preferences (Targeting) 1`] = `
+Array [
+  "Targeting",
+  "Strictly Necessary",
+]
+`;
+
+exports[`UserConsent Available services match user preferences (Functional) 1`] = `Array []`;
+
+exports[`UserConsent Available services match user preferences (Performance) 1`] = `
+Array [
+  "Google Analytics",
+  "Mouseflow",
+  "Vimeo",
+  "Heap",
+]
+`;
+
+exports[`UserConsent Available services match user preferences (Social Media) 1`] = `Array []`;
+
+exports[`UserConsent Available services match user preferences (Strictly necessary) 1`] = `Array []`;
+
+exports[`UserConsent Available services match user preferences (Targeting) 1`] = `
+Array [
+  "Pinterest Tag",
+  "Facebook Pixel",
+  "Twitter Ads",
+]
+`;
