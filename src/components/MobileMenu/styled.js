@@ -1,12 +1,7 @@
 import styled from 'styled-components'
 import colors from 'styles/colors'
 
-export const Wrapper = styled.div`
-  overflow-y: auto;
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-`
+export const Wrapper = styled.div``
 Wrapper.displayName = 'MobileMenuWrapper'
 
 export const Overlay = styled.div`
@@ -31,13 +26,18 @@ export const NavigationPanel = styled.div`
   height: 100vh;
   left: 0;
   max-width: 400px;
-  overflow: hidden;
   position: fixed;
   top: 0;
   transform: ${(p) => (p.isOpen ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 0.25s ease;
   width: 86vw;
   z-index: 9999;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 NavigationPanel.displayName = 'MobileMenuNavigationPanel'
 
@@ -67,11 +67,6 @@ export const Options = styled.div`
   flex-direction: column;
   height: 100%;
   margin: 0;
-  overflow-y: auto;
-  padding: 0;
-  &::-webkit-scrollbar {
-    width: 0;
-  }
 `
 Options.displayName = 'MobileMenuOptions'
 
@@ -105,7 +100,6 @@ export const FooterLink = styled.a`
   text-decoration: inherit;
 `
 FooterLink.displayName = 'MobileMenuFooterLink'
-
 
 export const Account = styled(FooterItem)`
   display: flex;
