@@ -62,8 +62,8 @@ export class MainSearch extends PureComponent {
       try {
         // there is a CORS problem so you can't use prod request url to test
         const response = await fetch(
-          `https://staging.mejuri.com/shop/api/products/${slug}`
-          // `https://mejuri.com/shop/api/products/${slug}`
+          // `https://staging.mejuri.com/shop/api/products/${slug}`
+          `https://mejuri.com/shop/api/products/${slug}`
         )
         const result = await response.json()
         result &&
@@ -85,9 +85,6 @@ export class MainSearch extends PureComponent {
   componentDidMount() {
     const { appId, appKey, index } = this.props
     this.service = new AlgoliaService(appId, appKey, index)
-
-    this.getProducts(this.props.mightAlsoLikeProducts.productSlugs)
-    // console.log('topsearchsuggestions', this.props.topSearchSuggestions)
   }
 
   componentDidUpdate(prevProps) {
@@ -95,6 +92,9 @@ export class MainSearch extends PureComponent {
     const { current } = this.input
     if (this.props.isOpened && !prevProps.isOpened) {
       current && current.focus() && current.scrollIntoView()
+
+      !this.state.alsoProducts.length > 0 &&
+        this.getProducts(this.props.mightAlsoLikeProducts.productSlugs)
     }
   }
 
@@ -199,7 +199,10 @@ export class MainSearch extends PureComponent {
                 </NumberOfResults>
               )}
               {this.state.searchString === '' ? (
-                <SearchOverlaySuggestions search={this.setSearch} />
+                <SearchOverlaySuggestions
+                  suggestions={this.props.topSearchSuggestions.productSlugs}
+                  search={this.setSearch}
+                />
               ) : results.length ? (
                 <ProductGrid products={results} innerRef={this.scroll}>
                   {results.length < count && (
@@ -216,33 +219,36 @@ export class MainSearch extends PureComponent {
                 !isFetching && (
                   <React.Fragment>
                     <NoResults>Sorry no results found</NoResults>
-                    <Also>OH, YOU MIGHT ALSO LIKE</Also>
                     {this.state.alsoProducts.length > 0 && (
-                      <AlsoList>
-                        {this.state.alsoProducts.map((item) => {
-                          return (
-                            <Item key={item.id}>
-                              <ItemLink
-                                href={`https://mejuri.com/shop/products/${item.slug}`}
-                              >
-                                <img
-                                  src={
-                                    item.images_versions[0].attachment_url_small
-                                  }
-                                  alt={item.name}
-                                />
-                              </ItemLink>
-                              <LinkName
-                                href={`https://mejuri.com/shop/products/${item.slug}`}
-                              >
-                                {item.name}
-                              </LinkName>
+                      <React.Fragment>
+                        <Also>OH, YOU MIGHT ALSO LIKE</Also>
+                        <AlsoList>
+                          {this.state.alsoProducts.map((item) => {
+                            return (
+                              <Item key={item.id}>
+                                <ItemLink
+                                  href={`https://mejuri.com/shop/products/${item.slug}`}
+                                >
+                                  <img
+                                    src={
+                                      item.images_versions[0]
+                                        .attachment_url_small
+                                    }
+                                    alt={item.name}
+                                  />
+                                </ItemLink>
+                                <LinkName
+                                  href={`https://mejuri.com/shop/products/${item.slug}`}
+                                >
+                                  {item.name}
+                                </LinkName>
 
-                              <Details>{item.material_name}</Details>
-                            </Item>
-                          )
-                        })}
-                      </AlsoList>
+                                <Details>{item.material_name}</Details>
+                              </Item>
+                            )
+                          })}
+                        </AlsoList>
+                      </React.Fragment>
                     )}
                   </React.Fragment>
                 )
