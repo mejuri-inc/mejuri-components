@@ -40,8 +40,10 @@ class UserConsent{
 
   constructor(){
     this.onUpdate()
-    window.addEventListener('consent.onetrust',this._onConsentChange.bind(this))
-    window.addEventListener('load',this.onUpdate.bind(this))
+    if(window){
+      window.addEventListener('consent.onetrust',this._onConsentChange.bind(this))
+      window.addEventListener('load',this.onUpdate.bind(this))
+    }
   }
 
   onConsentChange(callback){
@@ -68,7 +70,8 @@ class UserConsent{
 
   getActiveCategories(){
     let categories = []
-    const { OnetrustActiveGroups } = window
+    let OnetrustActiveGroups
+    if(window) OnetrustActiveGroups = window.OnetrustActiveGroups
     if(OnetrustActiveGroups){
       categories = OnetrustActiveGroups.split(',')
                      .filter( id => id ) // REMOVE EMPTIES
