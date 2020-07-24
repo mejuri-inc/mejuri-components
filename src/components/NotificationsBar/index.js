@@ -1,18 +1,28 @@
 import React from 'react'
-import { Wrapper, Icon, Notifications } from './styled'
-import { parseCookies, setCookie } from 'nookies'
+import { Notifications } from './styled'
 import PropTypes from 'prop-types'
 import get from 'lodash.get'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import NotificationBar from './NotificationBar'
 
-const storeKey = 'notificationBar'
+const storeKey = 'mj-notification-bar'
 
 export class NotificationsBar extends React.Component {
   constructor(props) {
     super(props)
-    this.state = this.getInitialState()
+    this.state = {
+      dismissList: [],
+      notificationBars: []
+    }
     this.dismiss = this.dismiss.bind(this)
+  }
+
+  componentDidMount() {
+    const newState = this.getInitialState()
+    this.setState({
+      dismissList: newState.dismissList,
+      notificationBars: newState.notificationBars
+    })
   }
 
   getInitialState() {
@@ -24,7 +34,7 @@ export class NotificationsBar extends React.Component {
       }
     }
 
-    const dismissList = this.getDismissList(notificationBars)
+    const dismissList = this.loadDismissList()
     const filterNotificationBars = this.notificationBarsFilterByDismiss(
       dismissList,
       notificationBars
@@ -35,93 +45,47 @@ export class NotificationsBar extends React.Component {
     }
   }
 
-  getDismissList(notificationBars) {
-    const newDismissList = this.getDismissListFromCookie()
-    return this.addNewBarsToDismissList(newDismissList, notificationBars)
-  }
-
-  getDismissListFromCookie() {
-    const jsonDismissList = parseCookies()[storeKey]
-    const dismissList = jsonDismissList
-      ? JSON.parse(jsonDismissList)
-      : jsonDismissList
-    let newDismissList
-    if (dismissList) {
-      newDismissList = dismissList.map(function (item) {
-        if (!item.dismissTime) {
-          return {
-            id: item.id,
-            dismiss: false,
-            dismissTime: item.dismissTime
-          }
-        }
-        const actualTime = new Date()
-        const oneHour = 1000 * 60 * 60
-        const actualTimeMs = actualTime.getTime()
-        const dateMs = item.dismissTime
-        const differenceMs = actualTimeMs - dateMs
-        const differenceHours = differenceMs / oneHour
-        return {
-          id: item.id,
-          dismiss: differenceHours < 1,
-          dismissTime: item.dismissTime
-        }
-      })
-    } else {
-      newDismissList = []
-    }
+  loadDismissList() {
+    const dismissList = JSON.parse(localStorage.getItem(storeKey))
+    if (!dismissList) return []
+    const newDismissList = dismissList.filter(function (item) {
+      const actualTime = new Date()
+      const oneHour = 1000 * 60 * 60
+      const actualTimeMs = actualTime.getTime()
+      const dateMs = item.time
+      const differenceMs = actualTimeMs - dateMs
+      const differenceHours = differenceMs / oneHour
+      return differenceHours < 1
+    })
+    this.saveDismissList(newDismissList)
     return newDismissList
   }
 
-  addNewBarsToDismissList(dismissList, notificationBars) {
-    const newNotificationsBars = notificationBars.filter(function (bar) {
-      return (
-        dismissList.findIndex(
-          (element) => element.id === bar.fields.identifier
-        ) < 0
-      )
-    })
-    const newDismissListElements = newNotificationsBars.map(function (bar) {
-      return {
-        id: bar.fields.identifier,
-        dismiss: false,
-        dismissTime: null
-      }
-    })
-    const newDismissList = dismissList.concat(newDismissListElements)
-    this.saveCookie(newDismissList)
-    return newDismissList
-  }
-
-  saveCookie(dismissList) {
-    const jsonDismissList = JSON.stringify(dismissList)
-    setCookie(null, storeKey, jsonDismissList, {})
+  saveDismissList(dismissList) {
+    localStorage.removeItem(storeKey)
+    localStorage.setItem(storeKey, JSON.stringify(dismissList))
   }
 
   notificationBarsFilterByDismiss(dismissList, notificationBars) {
-    const areDismissList = dismissList.filter(function (item) {
-      return item.dismiss
-    })
-    const dismissIds = areDismissList.map(function (item) {
-      return item.id
-    })
-    return notificationBars.filter(function (item) {
+    const newNotificationBars = notificationBars.filter(function(notification) {
       return (
-        dismissIds.findIndex((element) => element === item.fields.identifier) <
-        0
+        dismissList.findIndex(
+          (element) => element.id === notification.fields.identifier
+        ) < 0
       )
     })
+    return newNotificationBars
   }
 
   dismiss(id) {
     const { dismissList, notificationBars } = this.state
-    const newDismissList = dismissList.map(function (item) {
-      return {
-        id: item.id,
-        dismiss: item.id === id ? true : item.dismiss,
-        dismissTime: item.id === id ? new Date().getTime() : item.dismissTime
-      }
-    })
+    const actualTime = new Date().getTime()
+    const newDismissItem = {
+      id: id,
+      time: actualTime
+    }
+    const newDismissList = dismissList.concat(newDismissItem)
+    this.saveDismissList(newDismissList)
     const newNotificationBars = this.notificationBarsFilterByDismiss(
       newDismissList,
       notificationBars
@@ -130,7 +94,6 @@ export class NotificationsBar extends React.Component {
       dismissList: newDismissList,
       notificationBars: newNotificationBars
     })
-    this.saveCookie(newDismissList)
   }
 
   formatText(legend) {
@@ -141,7 +104,7 @@ export class NotificationsBar extends React.Component {
 
   render() {
     const { notificationBars } = this.state
-    if (notificationBars.length === 0) return null
+    if (!notificationBars || notificationBars.length === 0) return null
     return (
       <Notifications>
         {notificationBars.map((bar) => (
