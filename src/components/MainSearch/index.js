@@ -12,7 +12,12 @@ import {
   Close,
   LoadMore,
   NoResults,
-  Also
+  Also,
+  AlsoList,
+  Item,
+  ItemLink,
+  LinkName,
+  Details
 } from './styled'
 import debounce from 'lodash.debounce'
 import IsOnScreen from 'components/common/IsOnScreen'
@@ -34,7 +39,8 @@ export class MainSearch extends PureComponent {
       isFetchingPage: false,
       searchString: '',
       results: [],
-      count: 0
+      count: 0,
+      alsoProducts: []
     }
 
     this.client = null
@@ -51,14 +57,37 @@ export class MainSearch extends PureComponent {
     this.scroll = createRef()
 
     this.service = null
+
+    this.getProduct = async (slug) => {
+      try {
+        // there is a CORS problem so you can't use prod request url to test
+        const response = await fetch(
+          `https://staging.mejuri.com/shop/api/products/${slug}`
+          // `https://mejuri.com/shop/api/products/${slug}`
+        )
+        const result = await response.json()
+        result &&
+          this.setState({
+            alsoProducts: [...this.state.alsoProducts, result]
+          })
+      } catch (e) {
+        console.log(e)
+      }
+    }
+
+    this.getProducts = (productSlugs) => {
+      productSlugs.map((s) => {
+        this.getProduct(s)
+      })
+    }
   }
 
   componentDidMount() {
     const { appId, appKey, index } = this.props
     this.service = new AlgoliaService(appId, appKey, index)
 
-    console.log('holaaaaaaaaaaaaaa', this.props.mightAlsoLikeProducts)
-    console.log('topsearchsuggestions', this.props.topSearchSuggestions)
+    this.getProducts(this.props.mightAlsoLikeProducts.productSlugs)
+    // console.log('topsearchsuggestions', this.props.topSearchSuggestions)
   }
 
   componentDidUpdate(prevProps) {
@@ -188,6 +217,33 @@ export class MainSearch extends PureComponent {
                   <React.Fragment>
                     <NoResults>Sorry no results found</NoResults>
                     <Also>OH, YOU MIGHT ALSO LIKE</Also>
+                    {this.state.alsoProducts.length > 0 && (
+                      <AlsoList>
+                        {this.state.alsoProducts.map((item) => {
+                          return (
+                            <Item key={item.id}>
+                              <ItemLink
+                                href={`https://mejuri.com/shop/products/${item.slug}`}
+                              >
+                                <img
+                                  src={
+                                    item.images_versions[0].attachment_url_small
+                                  }
+                                  alt={item.name}
+                                />
+                              </ItemLink>
+                              <LinkName
+                                href={`https://mejuri.com/shop/products/${item.slug}`}
+                              >
+                                {item.name}
+                              </LinkName>
+
+                              <Details>{item.material_name}</Details>
+                            </Item>
+                          )
+                        })}
+                      </AlsoList>
+                    )}
                   </React.Fragment>
                 )
               )}
@@ -198,16 +254,6 @@ export class MainSearch extends PureComponent {
       </Position>
     )
   }
-}
-
-MainSearch.propTypes = {
-  isOpened: PropTypes.bool,
-  close: PropTypes.func,
-  trackSearch: PropTypes.func,
-  trackSearchClose: PropTypes.func,
-  appId: PropTypes.string,
-  appKey: PropTypes.string,
-  index: PropTypes.string
 }
 
 MainSearch.defaultProps = {

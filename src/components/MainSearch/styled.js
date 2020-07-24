@@ -130,13 +130,70 @@ export const NoResults = styled.span`
   margin: 10px 0 50px;
   text-transform: none;
   font-weight: 500;
+  display: block;
 `
 
 export const Also = styled.h2`
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.86px;
   line-height: 18px;
   margin: 0 0 12px;
   text-transform: uppercase;
+`
+
+export const AlsoList = styled.ul`
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+  grid-gap: 16px;
+  margin: 0%;
+`
+
+export const Item = styled.li`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`
+
+export const ItemLink = styled.a`
+  display: block;
+  position: relative;
+  padding-top: 100%;
+  background: #fafafa;
+  cursor: pointer;
+  img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+  }
+`
+
+export const LinkName = styled.a`
+  display: block;
+  min-height: 22px;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 22px;
+  margin-top: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 14px;
+`
+
+export const Details = styled.span`
+  font-weight: 300;
+  display: block;
+  text-decoration: none;
+  line-height: 22px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 14px;
 `
