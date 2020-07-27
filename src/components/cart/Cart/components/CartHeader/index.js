@@ -15,11 +15,11 @@ export class CartHeader extends PureComponent {
     const itemsCount = lineItems.reduce((acc, item) => acc + item.quantity, 0)
     return (
       <Wrapper>
-        <Back onClick={this.handleBackClick} isOpened={isOpened}>
+        <Back onClick={this.handleBackClick} isOpened={isOpened} data-h='cart-back-btn' >
           <BackArrow />
         </Back>
         <Body>{children}</Body>
-        <CartIcon itemsCount={itemsCount} onClick={cartToggle} />
+        <CartIcon itemsCount={itemsCount} onClick={cartToggle} data-h='cart-toggle-btn' />
       </Wrapper>
     )
   }

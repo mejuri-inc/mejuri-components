@@ -48,6 +48,7 @@ export class Suggestions extends React.PureComponent {
                   onClick={() => addSuggestion(i.masterId)}
                   isFetching={i.isFetching}
                   disabled={i.isFetching}
+                  data-h='cart-add-suggestion-icon'
                 >
                   <FormattedMessage id='cart.suggestions.add' />
                 </AddButton>

@@ -26,6 +26,7 @@ const HeaderMobile = ({
             toggleSearch()
             trackSearchOpen()
           }}
+          data-h='header-mobile-search-btn'
         >
           <MagniGlass />
         </Button>
@@ -35,6 +36,7 @@ const HeaderMobile = ({
             trackOpenCart()
           }}
           itemsCount={cartItemsCount}
+          data-h='header-mobile-cart-btn'
         />
       </Menu>
     </Wrapper>

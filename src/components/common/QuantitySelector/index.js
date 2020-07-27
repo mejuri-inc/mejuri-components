@@ -19,6 +19,7 @@ export const QuantitySelector = ({
           updateQuantity(itemId, decreaseValue)
           trackDecrease(1)
         }}
+        data-h='cart-decrease-line-item-btn'
       >
         -
       </Btn>
@@ -29,6 +30,7 @@ export const QuantitySelector = ({
           trackIncrease(1)
         }}
         disabled={value + 1 > stock && !backOrderable}
+        data-h='cart-increase-line-item-btn'
       >
         +
       </Btn>

@@ -16,7 +16,7 @@ export const MobileMenuHeader = ({
 }) => {
   return (
     <Header>
-      <GoBack onClick={toggleNavigation}>
+      <GoBack onClick={toggleNavigation} data-h='mobile-menu-toggle-btn' >
         {isGoBackEnabled ? (
           <ArrowIcon>
             <Arrow />
@@ -25,10 +25,10 @@ export const MobileMenuHeader = ({
           <Close />
         )}
       </GoBack>
-      <SearchIcon onClick={glassClick}>
+      <SearchIcon onClick={glassClick} data-h='mobile-menu-search-btn'>
         <MagniGlass />
       </SearchIcon>
-      <CartIcon onClick={() => bagClick()} itemsCount={itemQuantity} />
+      <CartIcon onClick={() => bagClick()} itemsCount={itemQuantity} data-h='mobile-menu-cart-btn' />
     </Header>
   )
 }

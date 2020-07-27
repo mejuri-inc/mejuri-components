@@ -19,6 +19,7 @@ import MagniGlass from 'resources/icons/MagniGlass'
 import UserSection from '../UserSection'
 import { FormattedMessage } from 'react-intl'
 import ScrollBreakpoint from 'components/ScrollBreakpoint'
+import { Back } from 'components/cart/Cart/components/CartHeader/styled'
 
 function HeaderDesktop({
   cartToggle,
@@ -66,13 +67,14 @@ function HeaderDesktop({
                   toggleSearch()
                   trackSearchOpen()
                 }}
+                data-h='header-search-btn'
               >
                 <MagniGlass />
                 <FormattedMessage id='header.search' />
               </Button>
               {rightMenu.length > 0 &&
                 rightMenu.map((item) => (
-                  <ButtonLink key={item.sys.id} href={item.fields.url}>
+                  <ButtonLink key={item.sys.id} href={item.fields.url} data-h='header-right-btn' >
                     {item.fields.text}
                   </ButtonLink>
                 ))}
@@ -88,6 +90,7 @@ function HeaderDesktop({
                   trackOpenCart()
                 }}
                 itemsCount={cartItemsCount}
+                data-h='header-cart-toggle-btn'
               />
             </Menu>
           </Content>

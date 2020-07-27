@@ -27,6 +27,7 @@ function SocialLinks({ socialLinks }) {
           href={link.link}
           target='_blank'
           rel='no-follow'
+          data-h='footer-social-btn'
         >
           {getIcon(link.tag)}
         </IconLink>

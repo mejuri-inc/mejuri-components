@@ -33,6 +33,7 @@ function ColumnContent({ config, onClickTracking, pos }) {
             target: menuItem.fields.text.toLowerCase().split(' ').join('_')
           })
         }}
+        data-h='header-left-navigation-menu-btn'
       >
         {menuItem.fields && menuItem.fields.text}
       </MenuItem>

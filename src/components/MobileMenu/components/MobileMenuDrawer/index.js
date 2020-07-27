@@ -26,6 +26,7 @@ export const MobileMenuDrawer = ({ toggle, label, isOpen, options, pos }) => {
               <a
                 href={get(o, 'fields.url')}
                 onClick={(e) => e.stopPropagation()}
+                data-h='mobile-menu-item-btn'
               >
                 {get(o, 'fields.text')}
               </a>

@@ -16,7 +16,7 @@ const NotificationBar = ({
     hide={mustHideInMobile}
   >
     {text}
-    <Icon onClick={() => onDismiss(identifier)} color={textColor} />
+    <Icon onClick={() => onDismiss(identifier)} color={textColor} data-h='notification-close-btn' />
   </Wrapper>
 )
 

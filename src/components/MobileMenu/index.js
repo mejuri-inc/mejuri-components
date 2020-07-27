@@ -140,7 +140,7 @@ export class MobileMenu extends React.Component {
     if (link) {
       return (
         <FooterItem>
-          <FooterLink href={link} key={item.sys.id}>{this.getBottomOptionText(item)}</FooterLink>
+          <FooterLink href={link} key={item.sys.id} data-h='mobile-menu-footer-btn' >{this.getBottomOptionText(item)}</FooterLink>
         </FooterItem>
       )
     } else {
@@ -148,6 +148,7 @@ export class MobileMenu extends React.Component {
         <FooterItem
           onClick={() => this.handleFooterClick(item)}
           key={item.sys.id}
+          data-h='mobile-menu-footer-btn'
         >
           {this.getBottomOptionText(item)}
         </FooterItem>
@@ -177,7 +178,7 @@ export class MobileMenu extends React.Component {
     const notLinkBottomMenus = bottomMenus.filter((x) => !!x.fields.children)
     return (
       <Wrapper>
-        <Overlay isOpen={isOpen} onClick={this.toggleMenuState} />
+        <Overlay isOpen={isOpen} onClick={this.toggleMenuState} data-h='mobile-menu-btn' />
         <NavigationPanel isOpen={isOpen}>
           <MobileMenuHeader
             toggleNavigation={this.toggleMenuState}
