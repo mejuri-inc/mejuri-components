@@ -11,7 +11,7 @@ function UserSection({ isGuest, onLogin, nameOrEmail, pos }) {
         pos ? (
           <SignUpLink>{pos.name}</SignUpLink>
         ) : (
-          <SignUpLink onClick={() => onLogin()}>
+          <SignUpLink onClick={() => onLogin()} data-h='header-signup-btn'>
             <FormattedMessage id='common.signup' />
           </SignUpLink>
         )

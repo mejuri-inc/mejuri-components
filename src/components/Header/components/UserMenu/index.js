@@ -16,7 +16,7 @@ const UserMenu = ({ nameOrEmail }) => {
         <Panel>
           {Object.keys(menuOptions).map((key) => (
             <Option key={key}>
-              <a href={menuOptions[key].url}>
+              <a href={menuOptions[key].url} data-h='header-user-menu-btn' >
                 <FormattedMessage id={`header.userMenu.${key}`} />
               </a>
             </Option>

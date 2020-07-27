@@ -46,6 +46,7 @@ export default class FooterNewsletterSubscribe extends PureComponent {
               placeholderId='form.field.newsletterSubscribe'
               emptyValueErrorId='form.error.mixed.required'
               validateValue={ValidationHelper.validEmail}
+              data-h='footer-newsletter-input'
             />
           </div>
         )}

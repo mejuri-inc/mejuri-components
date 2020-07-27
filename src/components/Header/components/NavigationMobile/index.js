@@ -22,7 +22,7 @@ export default class NavigationMobile extends PureComponent {
   render() {
     return (
       <Wrapper>
-        <Hamburguer onClick={this.handleClick}>
+        <Hamburguer onClick={this.handleClick} data-h='header-mobile-hamburguer-btn'>
           <HamburguerIcon />
         </Hamburguer>
         <MobileMenu />

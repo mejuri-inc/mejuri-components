@@ -33,10 +33,11 @@ export const ItemsList = ({
                   remove(i.id)
                   trackRemoveItem({ lineItem: i, quantity: i.quantity })
                 }}
+                data-h='cart-remove-line-item-btn'
               >
                 <CloseIcon />
               </RemoveButton>
-              {imageUrl && <Thumbnail href={href} src={imageUrl} alt={alt} />}
+              {imageUrl && <Thumbnail href={href} src={imageUrl} alt={alt} data-h='cart-product-link' />}
               <ItemProperties
                 item={i}
                 currency={currency}

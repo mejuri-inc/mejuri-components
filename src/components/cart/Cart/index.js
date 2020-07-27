@@ -192,6 +192,7 @@ export class Cart extends PureComponent {
                         trackCartGoToCheckout(order.number)
                         onContinue(...args)
                       }}
+                      data-h='cart-go-to-checkout-btn'
                     >
                       <FormattedMessage id='cart.actions.continue' />
                     </Button>
@@ -202,6 +203,7 @@ export class Cart extends PureComponent {
                       trackEvent={trackEvent}
                       calculateTaxes={calculateTaxes}
                       makeApplePayPayment={makeApplePayPayment}
+                      data-h='cart-apple-pay-btn'
                     />
                   </BlockWrapper>
                 </BottomWrapper>
