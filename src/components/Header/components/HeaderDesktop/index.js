@@ -19,7 +19,6 @@ import MagniGlass from 'resources/icons/MagniGlass'
 import UserSection from '../UserSection'
 import { FormattedMessage } from 'react-intl'
 import ScrollBreakpoint from 'components/ScrollBreakpoint'
-import { Back } from 'components/cart/Cart/components/CartHeader/styled'
 
 function HeaderDesktop({
   cartToggle,
