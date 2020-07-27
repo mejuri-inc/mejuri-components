@@ -19,7 +19,7 @@ export class ContentfulAPI {
     this.host = contentfulApiHost
     this.accessToken = CONTENTFUL_ACCESS_TOKEN
     this.environment = CONTENTFUL_ENVIRONMENT || 'master'
-    this.locale = locale || 'en'
+    this.locale = locale || 'en-US'
 
     this.previewAccessToken = CONTENTFUL_PREVIEW_ACCESS_TOKEN
     this.contentfulPreviewApiHost = contentfulPreviewApiHost
@@ -179,19 +179,23 @@ export class ContentfulAPI {
     return formatted
   }
 
-  getNotificationBars (localeCode) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const client = this.getClient()
-        const result = await client.getEntries({ content_type: 'notificationBar', locale: localeCode || this.locale })
-        const filtered = result.items.filter(n => !n.fields.exclusiveLocales || (n.fields.exclusiveLocales && n.fields.exclusiveLocales.find(l => l === localeCode)))
-        console.log("getNotificationBars", filtered)
-        resolve(filtered)
-      } catch (e) {
-        console.log(e)
-        reject(e)
-      }
-    })
+  async getNotificationBars(localeCode) {
+    try {
+      const client = this.getClient()
+      const result = await client.getEntries({
+        content_type: 'notificationBar',
+        locale: localeCode || this.locale
+      })
+      const filtered = result.items.filter(
+        (n) =>
+          !n.fields.exclusiveLocales ||
+          (n.fields.exclusiveLocales &&
+            n.fields.exclusiveLocales.find((l) => l === localeCode))
+      )
+      return filtered
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
 
