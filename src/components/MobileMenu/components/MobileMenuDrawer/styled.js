@@ -20,10 +20,14 @@ export const Options = styled.ul`
   border-bottom: 1px solid ${colors.lightGray1};
   list-style: none;
   margin: 0;
-  max-height: ${(p) => (p.isOpen ? `${p.length * 45}px` : 0)};
+  max-height: ${(p) => (p.isOpen ? `300px` : 0)};
   padding: 0;
   transition: max-height 0.3s ease-in-out, opacity 0.2s linear 0.2s;
   opacity: ${(p) => (p.collapsed ? 0 : 1)};
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 Options.displayName = 'MobileMenuDriverOptions'
 
@@ -85,8 +89,4 @@ export const Menu = styled.div`
   margin: 0 25px;
   text-transform: uppercase;
   padding: 0;
-  overflow-x: hidden;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `
