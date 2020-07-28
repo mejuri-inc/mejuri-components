@@ -137,12 +137,17 @@ export class ContentfulAPI {
   // }
 
   // PARSE CONTENTFUL RESPONSE ITEM
-  formatResponseLevel(item = {}) {
+  formatResponseLevel(item = {},parents = []) {
     if (typeof item !== 'object') return item
     if (!item.sys && !item.fields) return item
     const { sys = {}, fields = {} } = item
 
     const formatted = {}
+
+    if(sys && sys.id){
+      if(parents.includes(sys.id)) return item
+      parents.push(sys.id)
+    }
 
     // COPY SYS ATTRIBUTES
     for (const key in sys) {
