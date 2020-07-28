@@ -154,7 +154,7 @@ export class ContentfulAPI {
       const prefixedKey = `_${key}`
       if (this.isValidAttribute(prefixedKey)) {
         const value = sys[key]
-        formatted[prefixedKey] = this.formatResponseValue(value)
+        formatted[prefixedKey] = this.formatResponseValue(value,parents)
       }
     }
 
@@ -162,7 +162,7 @@ export class ContentfulAPI {
     for (const key in fields) {
       if (this.isValidAttribute(key)) {
         const value = fields[key]
-        formatted[`${key}`] = this.formatResponseValue(value)
+        formatted[`${key}`] = this.formatResponseValue(value,parents)
       }
     }
 
@@ -171,14 +171,14 @@ export class ContentfulAPI {
 
   // IF VALUE IS AN ARRAY OR OBJECT
   // PARSE THE NEXT LEVEL
-  formatResponseValue(value) {
+  formatResponseValue(value,parents=[]) {
     let formatted = value
     if (Array.isArray(value)) {
-      formatted = value.map((item) => this.formatResponseLevel(item))
+      formatted = value.map((item) => this.formatResponseLevel(item,parents))
     } else if (typeof value === 'object') {
       // AVOID FORMATTING RICH TEXT
       if (!(value.nodeType && value.nodeType === 'document')) {
-        formatted = this.formatResponseLevel(value)
+        formatted = this.formatResponseLevel(value,parents)
       }
     }
     return formatted
