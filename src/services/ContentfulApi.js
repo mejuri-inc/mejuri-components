@@ -144,6 +144,19 @@ export class ContentfulAPI {
 
     const formatted = {}
 
+    // Ugly solution for circular relation in related relatedEdits
+    // Needs a refactor
+    if(sys && sys.contentType && sys.contentType.sys && sys.contentType.sys.id == "relatedEdits"){
+      if(fields && fields.styles && Array.isArray(fields.styles)){
+        fields.styles = fields.styles.map( el =>{
+          if(el && el.fields && el.fields.modules){
+            delete el.fields.modules
+          }
+          return el
+        })
+      }
+    }
+
     // COPY SYS ATTRIBUTES
     for (const key in sys) {
       const prefixedKey = `_${key}`
