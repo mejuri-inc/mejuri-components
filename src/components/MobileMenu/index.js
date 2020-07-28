@@ -19,7 +19,6 @@ import {
   FooterLink
 } from './styled'
 import get from 'lodash.get'
-import FooterLinks from 'components/Footer/Components/FooterLinks'
 
 export class MobileMenu extends React.Component {
   constructor(props) {
@@ -135,12 +134,27 @@ export class MobileMenu extends React.Component {
     })
   }
 
+  filterChildren = (children) => {
+    return children.filter(function (o) {
+      const isSection = o.fields.type
+        ? o.fields.type === 'menu footer section'
+        : false
+      return !isSection
+    })
+  }
+
   getFooterItem = (item) => {
     const link = get(item, 'fields.url', null)
     if (link) {
       return (
         <FooterItem>
-          <FooterLink href={link} key={item.sys.id} data-h='mobile-menu-footer-btn' >{this.getBottomOptionText(item)}</FooterLink>
+          <FooterLink
+            href={link}
+            key={item.sys.id}
+            data-h='mobile-menu-footer-btn'
+          >
+            {this.getBottomOptionText(item)}
+          </FooterLink>
         </FooterItem>
       )
     } else {
@@ -178,7 +192,11 @@ export class MobileMenu extends React.Component {
     const notLinkBottomMenus = bottomMenus.filter((x) => !!x.fields.children)
     return (
       <Wrapper>
-        <Overlay isOpen={isOpen} onClick={this.toggleMenuState} data-h='mobile-menu-btn' />
+        <Overlay
+          isOpen={isOpen}
+          onClick={this.toggleMenuState}
+          data-h='mobile-menu-btn'
+        />
         <NavigationPanel isOpen={isOpen}>
           <MobileMenuHeader
             toggleNavigation={this.toggleMenuState}
@@ -224,7 +242,7 @@ export class MobileMenu extends React.Component {
             {notLinkBottomMenus.map((o) => (
               <MobileMenuSubPage
                 title={o.fields.text}
-                options={o.fields.children}
+                options={this.filterChildren(o.fields.children)}
                 active={this.state.subPageIndex === o.sys.id}
                 key={o.sys.id}
               >
