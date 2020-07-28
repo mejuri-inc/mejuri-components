@@ -44,7 +44,7 @@ function ColumnContent({ config, onClickTracking, pos }) {
 ColumnContent.propTypes = {
   config: PropTypes.array,
   onClickTracking: PropTypes.func,
-  pos: PropTypes.bool
+  pos: PropTypes.object
 }
 
 export default ColumnContent

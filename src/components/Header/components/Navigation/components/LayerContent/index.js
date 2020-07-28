@@ -44,7 +44,7 @@ function LayerContent({ config, onClickTracking, pos }) {
 LayerContent.propTypes = {
   config: PropTypes.array,
   onClickTracking: PropTypes.func,
-  pos: PropTypes.bool
+  pos: PropTypes.object
 }
 
 export default LayerContent
