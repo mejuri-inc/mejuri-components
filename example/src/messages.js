@@ -19,7 +19,7 @@ const messages = {
     "header.search.results": "Results",
     "header.visitUs": "Visit Us",
 
-    "cart.header.advice": "You're ${label} away from free shipping",
+    "cart.header.advice": "You're {label} away from free shipping",
     "cart.header.freeShippingReached": "Enjoy the free expedited shipping!",
     "cart.balance.subtotal": "Subtotal",
     "cart.balance.shipping": "Estimated Shipping",
@@ -39,7 +39,6 @@ const messages = {
     "cart.suggestions.legend": "All proceeds go to The Lower East Side Girls Club.",
     "cart.suggestions.add": "Add",
     "displayFreeAmount": "Free"
-
   }
 };
 
