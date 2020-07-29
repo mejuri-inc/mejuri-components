@@ -67,6 +67,10 @@ export const Options = styled.div`
   flex-direction: column;
   height: 100%;
   margin: 0;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 Options.displayName = 'MobileMenuOptions'
 
@@ -76,7 +80,7 @@ export const Footer = styled.ul`
   margin: auto 0 0 0;
   padding: 0 25px;
   width: 100%;
-  overflow-y: hidden;
+  overflow-y:hidden;q
 `
 Footer.displayName = 'MobileMenuFooter'
 
