@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   }
   @media (min-width: ${md}) {
     margin: 0;
-    min-width: 330px;
+    min-width: 350px;
   }
 `
 Wrapper.displayName = 'FooterNewsletterSubscribeWrapper'
@@ -30,6 +30,7 @@ export const WelcomeMessage = styled.div`
   ${fadeIn}
   font-size: 25px;
   font-weight: ${fontWeight.medium};
+  font-weight: 300;
 `
 WelcomeMessage.displayName = 'FooterNewsletterSubscribeWelcomeMessage'
 
