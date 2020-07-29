@@ -50,7 +50,7 @@ export const Title = styled.div`
   margin-bottom: 24px;
   letter-spacing: 1.5px;
   @media (min-width: ${lg}) {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
 `
 Title.displayName = 'FooterLinksTitle'
@@ -66,7 +66,7 @@ export const Link = styled.li`
   margin-bottom: 12px;
   font-weight: ${fontWeight.light};
   @media (min-width: ${lg}) {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
   & > a {
