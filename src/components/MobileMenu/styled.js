@@ -80,7 +80,7 @@ export const Footer = styled.ul`
   margin: auto 0 0 0;
   padding: 0 25px;
   width: 100%;
-  overflow-y:hidden;q
+  overflow-y: hidden;
 `
 Footer.displayName = 'MobileMenuFooter'
 
