@@ -82,6 +82,17 @@ export class Cart extends PureComponent {
     cartToggle(false)
   }
 
+  static componentDidUpdate() {
+    if (typeof window !== 'undefined') {
+      if (this.props.isOpened) {
+        window.zE && window.zE.hide()
+      } else {
+        window.zE && window.zE.show()
+      }
+    }
+    return null
+  }
+
   render() {
     if (!this.props.orderExists) return null
 

@@ -15,11 +15,19 @@ export class CartHeader extends PureComponent {
     const itemsCount = lineItems.reduce((acc, item) => acc + item.quantity, 0)
     return (
       <Wrapper>
-        <Back onClick={this.handleBackClick} isOpened={isOpened} data-h='cart-back-btn' >
+        <Back
+          onClick={this.handleBackClick}
+          isOpened={isOpened}
+          data-h='cart-back-btn'
+        >
           <BackArrow />
         </Back>
         <Body>{children}</Body>
-        <CartIcon itemsCount={itemsCount} onClick={cartToggle} data-h='cart-toggle-btn' />
+        <CartIcon
+          itemsCount={itemsCount}
+          onClick={cartToggle}
+          data-h='cart-toggle-btn'
+        />
       </Wrapper>
     )
   }
@@ -29,8 +37,7 @@ CartHeader.propTypes = {
   cartToggle: PropTypes.func,
   children: PropTypes.node,
   lineItems: PropTypes.array,
-  isOpened: PropTypes.bool,
-  trackCloseCart: PropTypes.func
+  isOpened: PropTypes.bool
 }
 
 export default CartHeader
