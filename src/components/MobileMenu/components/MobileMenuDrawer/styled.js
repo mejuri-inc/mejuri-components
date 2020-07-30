@@ -9,6 +9,7 @@ export const Header = styled.header`
   font-size: 14px;
   font-weight: 600;
   justify-content: space-between;
+  line-height: 14px;
   padding: 25px 0;
   position: sticky;
   top: 0;
@@ -17,13 +18,16 @@ export const Header = styled.header`
 Header.displayName = 'MobileMenuDriverHeader'
 
 export const Options = styled.ul`
+  max-height: ${(p) => (p.isOpen ? 42 * p.length + 'px' : 0)};
   border-bottom: 1px solid ${colors.lightGray1};
+  line-height: 14px;
   list-style: none;
   margin: 0;
-  display: ${(p) => (p.isOpen ? `block` : 'none')};
   padding: 0;
-  transition: max-height 0.3s ease-in-out, opacity 0.2s linear 0.2s;
-  opacity: ${(p) => (p.collapsed ? 0 : 1)};
+  position: relative;
+  transition: max-height 0.3s ease-in-out, opacity 0.15s ease 0.2s;
+  opacity: ${(p) => (!p.isOpen ? 0 : 1)};
+  overflow: hidden;
 `
 Options.displayName = 'MobileMenuDriverOptions'
 
@@ -43,6 +47,10 @@ export const Item = styled.li`
   & > a {
     text-decoration: none;
     color: ${colors.black};
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
     &:hover {
       color: ${colors.grey};
     }
@@ -64,7 +72,7 @@ export const PlusMinusToggle = styled.div`
     content: '';
     position: absolute;
     height: 2px;
-    width: 16px;
+    width: 12px;
     background: ${colors.black};
     transition: transform 150ms ease;
   }

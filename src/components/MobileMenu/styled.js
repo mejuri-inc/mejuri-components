@@ -33,7 +33,6 @@ export const NavigationPanel = styled.div`
   width: 86vw;
   z-index: 9999;
   overflow-x: hidden;
-  overflow-y: auto;
 
   &::-webkit-scrollbar {
     display: none;
@@ -65,9 +64,9 @@ Pages.displayName = 'MobileMenuPages'
 export const Options = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -81,6 +80,7 @@ export const Footer = styled.ul`
   padding: 0 25px;
   width: 100%;
   overflow-y: hidden;
+  position: relative;
 `
 Footer.displayName = 'MobileMenuFooter'
 

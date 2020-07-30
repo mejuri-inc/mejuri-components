@@ -6,9 +6,9 @@ export const Header = styled.header`
   background: ${colors.white};
   border-bottom: 1px solid ${colors.lightGray1};
   display: flex;
-  height: 80px;
+  height: 60px;
   justify-content: flex-end;
-  padding: 0 25px;
+  padding: 0 16px;
 `
 
 export const GoBack = styled.div`
@@ -25,9 +25,12 @@ export const ArrowIcon = styled.button`
   width: 28px;
 `
 
-export const SearchIcon = styled.div`
-  width: 20px;
+export const SearchIcon = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
   height: 20px;
   margin-right: 20px;
-  cursor: pointer;
+  padding: 2px;
+  width: 20px;
 `

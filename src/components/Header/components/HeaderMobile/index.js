@@ -54,7 +54,7 @@ HeaderMobile.propTypes = {
 HeaderMobile.defaultProps = {
   cartToggle: () => {},
   toggleMobileMenu: () => {},
-  cartItemsCount: 1,
+  cartItemsCount: 0,
   toggleSearch: () => {},
   trackSearchOpen: () => {},
   trackOpenCart: () => {}

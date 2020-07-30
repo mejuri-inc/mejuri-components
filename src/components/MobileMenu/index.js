@@ -233,9 +233,9 @@ export class MobileMenu extends React.Component {
                   {this.filterOptions(bottomMenus, pos).map((o) =>
                     this.getFooterItem(o)
                   )}
-                  <FooterItem>
-                    {currencySelector && currencySelector}
-                  </FooterItem>
+                  {currencySelector && (
+                    <FooterItem>{currencySelector}</FooterItem>
+                  )}
                 </Footer>
               </Options>
             </Page>

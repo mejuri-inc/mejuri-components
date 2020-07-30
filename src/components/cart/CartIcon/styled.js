@@ -18,9 +18,9 @@ export const Wrapper = styled.button`
   }
   svg {
     display: block;
-    height: 20px;
+    height: 18px;
     margin-bottom: 4px;
-    width: 20px;
+    width: 18px;
   }
 
   &:hover {

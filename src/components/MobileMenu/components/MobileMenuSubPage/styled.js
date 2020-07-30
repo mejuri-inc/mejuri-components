@@ -8,7 +8,6 @@ export const SubPage = styled.div`
   position: absolute;
   right: 0;
   width: 50%;
-  overflow-y: scroll;
   &::-webkit-scrollbar {
     width: 0;
   }
