@@ -13,7 +13,7 @@ export const ItemsList = ({
   remove,
   isPos,
   updateQuantity,
-  setPickup,
+  setWalkout,
   trackIncreaseProduct,
   trackDecreaseProduct,
   trackRemoveItem
@@ -59,12 +59,12 @@ export const ItemsList = ({
             </ElementWrapper>
             {isPos && (
               <ItemPOS
-                available={i.availableForPickUp}
+                available={i.availableForWalkout}
                 itemId={i.id}
-                pickUp={i.pickUp}
+                walkout={i.walkout}
                 quantity={i.quantity}
-                setPickUp={setPickup}
-                forcePickup={i.forcePickup}
+                setWalkout={setWalkout}
+                forceWalkout={i.forceWalkout}
               />
             )}
           </ListElement>

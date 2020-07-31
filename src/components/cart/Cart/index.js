@@ -28,7 +28,7 @@ export class Cart extends PureComponent {
     currency: PropTypes.string,
     removeItem: PropTypes.func,
     updateItemQuantity: PropTypes.func,
-    setPickup: PropTypes.func,
+    setWalkout: PropTypes.func,
 
     isSomethingFetching: PropTypes.bool,
     isOpened: PropTypes.bool,
@@ -107,7 +107,7 @@ export class Cart extends PureComponent {
       isPos,
       removeItem,
       updateItemQuantity,
-      setPickup,
+      setWalkout,
       estimatedTotal,
       subtotal,
       estimates,
@@ -159,7 +159,7 @@ export class Cart extends PureComponent {
                     isPos={isPos}
                     remove={removeItem}
                     updateQuantity={updateItemQuantity}
-                    setPickup={setPickup}
+                    setWalkout={setWalkout}
                     currency={currency}
                     trackIncreaseProduct={(context) =>
                       trackIncreaseProduct(order, context)
