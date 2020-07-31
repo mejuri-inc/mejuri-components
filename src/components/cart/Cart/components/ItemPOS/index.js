@@ -6,21 +6,21 @@ import Checkbox from 'components/common/Checkbox'
 
 export const ItemPOS = ({
   itemId,
-  pickUp,
+  walkout,
   quantity,
-  setPickUp,
+  setWalkout,
   available,
-  forcePickup
+  forceWalkout
 }) => (
   <Wrapper>
     <Col>
       {available && (
-        <Checkbox
-          label='cart.items.walkOut'
-          onChange={() => setPickUp(itemId, quantity, !pickUp)}
-          checked={pickUp || forcePickup}
-          disabled={forcePickup}
-        />
+      <Checkbox
+        label='cart.items.walkOut'
+        onChange={() => setWalkout(itemId, quantity, !walkout)}
+        checked={walkout || forceWalkout}
+        disabled={forceWalkout}
+      />
       )}
     </Col>
     <Col>
@@ -39,10 +39,10 @@ export const ItemPOS = ({
 ItemPOS.propTypes = {
   available: PropTypes.bool,
   itemId: PropTypes.number,
-  pickUp: PropTypes.bool,
-  forcePickup: PropTypes.bool,
+  walkout: PropTypes.bool,
+  forceWalkout: PropTypes.bool,
   quantity: PropTypes.number,
-  setPickUp: PropTypes.func
+  setWalkout: PropTypes.func
 }
 
 export default ItemPOS
