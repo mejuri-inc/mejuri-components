@@ -4,15 +4,15 @@ import { Col, Wrapper } from './styled'
 import { FormattedMessage } from 'react-intl'
 import Checkbox from 'components/common/Checkbox'
 
-export const ItemPOS = ({ itemId, pickUp, quantity, setPickUp, available, forcePickup }) => (
+export const ItemPOS = ({ itemId, walkout, quantity, setWalkout, available, forceWalkout }) => (
   <Wrapper>
     <Col>
       {available && (
       <Checkbox
-        label='cart.items.walkOut'
-        onChange={() => setPickUp(itemId, quantity, !pickUp)}
-        checked={pickUp || forcePickup}
-        disabled={forcePickup}
+        label='cart.items.walkout'
+        onChange={() => setWalkout(itemId, quantity, !walkout)}
+        checked={walkout || forceWalkout}
+        disabled={forceWalkout}
       />
       )}
     </Col>
@@ -32,10 +32,10 @@ export const ItemPOS = ({ itemId, pickUp, quantity, setPickUp, available, forceP
 ItemPOS.propTypes = {
   available: PropTypes.bool,
   itemId: PropTypes.number,
-  pickUp: PropTypes.bool,
-  forcePickup: PropTypes.bool,
+  walkout: PropTypes.bool,
+  forceWalkout: PropTypes.bool,
   quantity: PropTypes.number,
-  setPickUp: PropTypes.func
+  setWalkout: PropTypes.func
 }
 
 export default ItemPOS

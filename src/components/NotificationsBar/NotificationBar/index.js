@@ -25,7 +25,7 @@ NotificationBar.propTypes = {
   textColor: PropTypes.string,
   mustHideInMobile: PropTypes.bool,
   identifier: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.array,
   onDismiss: PropTypes.func
 }
 
