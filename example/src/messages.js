@@ -33,7 +33,7 @@ const messages = {
     "cart.items.outOfStock": "Reverted to {label} because no more stock is available",
     "cart.items.availability": "Availability: ",
     "cart.items.inStore": "In store",
-    "cart.items.walkOut": "Walk Out",
+    "cart.items.walkout": "Walk Out",
 
     "cart.suggestions.title": "Shop limited-edition merch ✨",
     "cart.suggestions.legend": "All proceeds go to The Lower East Side Girls Club.",

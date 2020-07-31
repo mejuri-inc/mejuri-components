@@ -60,7 +60,7 @@ const CartTestWrapper = ({opened, setOpened}) => {
       currency={"USD"}
       removeItem={(itemId) => {}}
       updateItemQuantity={(itemId, quantity) => {}}
-      setPickup={(itemId, quantity, pickUp) => {}}
+      setWalkout={(itemId, quantity, walkout) => {}}
       couponCodeError={couponError}
       dismissCouponCodeError={() => setCouponError(false)}
       suggestions={[]}
