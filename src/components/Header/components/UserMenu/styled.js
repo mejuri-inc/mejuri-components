@@ -1,18 +1,19 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
 import { fadeIn } from 'styles/effects'
-import { fontWeight } from 'styles/settings'
 
 export const Panel = styled.ul`
   ${fadeIn}
-  display: none;
-  position: absolute;
-  background-color: ${colors.white};
-  border: 1px solid ${colors.lightGray1};
-  padding: 30px 50px;
-  top: 97%;
-  right: -46px;
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  background-color: ${(p) => {
+    return p.theme.colors.white
+  }};
+  border: 1px solid ${(p) => p.theme.colors.lightGray1};
   margin: 0;
+  padding: 30px 50px;
+  position: absolute;
+  right: -65px;
+  text-align: left;
+  top: 97%;
   z-index: 5;
 `
 Panel.displayName = 'UserMenuPanel'
@@ -31,12 +32,9 @@ export const Wrapper = styled.button`
     width: 15px;
     height: 6px;
     margin-left: 3px;
-    transform: rotate(180deg);
+    transform: ${({ isOpen }) => (isOpen ? 'none' : 'rotate(180deg)')};
   }
 
-  &:hover ${Panel} {
-    display: block;
-  }
   &:focus {
     outline: none;
   }
@@ -54,22 +52,23 @@ export const LabelChevron = styled.span`
 LabelChevron.displayName = 'UserMenuLabelChevron'
 
 export const Option = styled.li`
+  line-height: 20px;
   list-style-type: none;
+  margin: 0;
 
   & > a {
     display: block;
-    color: ${colors.black};
-    font-weight: ${fontWeight.light};
+    color: ${(p) => p.theme.colors.black};
+    font-weight: ${(p) => p.theme.fontWeight.light};
     font-size: 14px;
     text-decoration: none;
     text-transform: none;
     white-space: nowrap;
-    line-height: 20px;
     padding: 3.5px 0;
     font-weight: 300;
 
     &:hover {
-      color: ${colors.darkGray1};
+      color: ${(p) => p.theme.colors.darkGray1};
     }
   }
 `
