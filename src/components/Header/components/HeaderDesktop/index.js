@@ -42,7 +42,7 @@ function HeaderDesktop({
   )
 
   return (
-    <ScrollBreakpoint top={120}>
+    <ScrollBreakpoint top={150}>
       {(shrinkPointReached) => (
         <Wrapper>
           <Overlay
@@ -57,7 +57,7 @@ function HeaderDesktop({
               onClickTracking={onClickTracking}
               pos={pos}
             />
-            <Logo href='/'>
+            <Logo href='/' shrinked={shrinkPointReached}>
               <MejuriLogo />
             </Logo>
             <Menu>
@@ -73,7 +73,11 @@ function HeaderDesktop({
               </Button>
               {rightMenu.length > 0 &&
                 rightMenu.map((item) => (
-                  <ButtonLink key={item.sys.id} href={item.fields.url} data-h='header-right-btn' >
+                  <ButtonLink
+                    key={item.sys.id}
+                    href={item.fields.url}
+                    data-h='header-right-btn'
+                  >
                     {item.fields.text}
                   </ButtonLink>
                 ))}

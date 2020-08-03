@@ -3,6 +3,15 @@ import LogoSvg from 'resources/icons/Logo'
 
 export const MejuriLogo = styled(LogoSvg)`
   width: fit-content;
+  height: 100%;
+  &:hover {
+    fill: inherit;
+  }
+`
+
+export const Logo = styled.a`
+  height: ${({ shrinked }) => (shrinked ? '45px' : '58px')};
+  text-transform: uppercase;
 `
 
 export const Wrapper = styled.section`
@@ -11,7 +20,7 @@ export const Wrapper = styled.section`
   height: 80px;
   width: 100%;
 
-  /* Fix button inherited line-height in pdp */
+  /* Fixes button inherited line-height in pdp */
   button {
     line-height: inherit;
   }
@@ -30,22 +39,13 @@ export const Content = styled.header`
   background-color: ${(p) => p.theme.colors.white};
   font-size: 12px;
   font-weight: ${(p) => p.theme.fontWeight.light};
-  height: ${(p) => (p.shrinked ? '60px' : '80px')};
+  height: ${(p) => (p.shrinked ? '51px' : '80px')};
   letter-spacing: 1px;
   line-height: 1.5;
   position: relative;
   transition: height 0.4s ease;
 `
 Content.displayName = 'HeaderDesktopContent'
-
-export const Logo = styled.a`
-  height: 58px;
-  text-transform: uppercase;
-  svg {
-    height: 100%;
-  }
-`
-Logo.displayName = 'HeaderDesktopLogo'
 
 export const Menu = styled.nav`
   align-items: center;
@@ -59,7 +59,7 @@ export const Menu = styled.nav`
   & > *:not(:last-child) {
     padding: 0 1.75em;
   }
-  
+
   @media (min-width: 1280px) {
     width: 35%;
   }
