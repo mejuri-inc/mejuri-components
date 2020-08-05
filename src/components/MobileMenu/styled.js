@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
 
 export const Wrapper = styled.div``
 Wrapper.displayName = 'MobileMenuWrapper'
@@ -20,7 +19,7 @@ export const Overlay = styled.div`
 Overlay.displayName = 'MobileMenuOverlay'
 
 export const NavigationPanel = styled.div`
-  background: ${colors.white};
+  background: ${(p) => p.theme.colors.white};
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -72,41 +71,3 @@ export const Options = styled.div`
   }
 `
 Options.displayName = 'MobileMenuOptions'
-
-export const Footer = styled.ul`
-  background: ${colors.lightGray3};
-  list-style: none;
-  margin: auto 0 0 0;
-  padding: 0 25px;
-  width: 100%;
-  overflow-y: hidden;
-  position: relative;
-`
-Footer.displayName = 'MobileMenuFooter'
-
-export const FooterItem = styled.li`
-  border-bottom: 1px solid ${colors.lightGray1};
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 22px 0;
-  text-transform: uppercase;
-  cursor: pointer;
-
-  &:last-child {
-    border: none;
-  }
-`
-FooterItem.displayName = 'MobileMenuFooterItem'
-
-export const FooterLink = styled.a`
-  color: inherit;
-  text-decoration: inherit;
-`
-FooterLink.displayName = 'MobileMenuFooterLink'
-
-export const Account = styled(FooterItem)`
-  display: flex;
-  justify-content: space-between;
-`
-Account.displayName = 'MobileMenuAccount'

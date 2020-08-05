@@ -1,18 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash.get'
-
+import { loggedInFilter, posFilter } from '../../filters'
 import { Header, Options, Item, PlusMinusToggle, Menu } from './styled'
 
-export const filterOptions = (options, pos) => {
-  if (pos) return options
-  return options.filter(function (o) {
-    const isPosOnly = get(o, 'fields.extraFields.posOnly', false)
-    return !isPosOnly
-  })
-}
-
-export const MobileMenuDrawer = ({ toggle, label, isOpen, options, pos }) => {
+export const MobileMenuDrawer = ({
+  toggle,
+  label,
+  isOpen,
+  options,
+  pos,
+  isLoggedIn
+}) => {
+  const filteredOptions = options
+    .filter(loggedInFilter(isLoggedIn))
+    .filter(posFilter(pos))
   return (
     <Menu>
       <Header onClick={toggle}>
@@ -20,15 +22,15 @@ export const MobileMenuDrawer = ({ toggle, label, isOpen, options, pos }) => {
         <PlusMinusToggle isOpen={isOpen} />
       </Header>
       {options && (
-        <Options length={filterOptions(options, pos).length} isOpen={isOpen}>
-          {filterOptions(options, pos).map((o) => (
-            <Item key={o.sys.id} sub={get(o, 'fields.type') === 'subtitle'}>
+        <Options length={filteredOptions.length} isOpen={isOpen}>
+          {filteredOptions.map((o) => (
+            <Item key={o._id} sub={get(o, 'type') === 'subtitle'}>
               <a
-                href={get(o, 'fields.url')}
+                href={get(o, 'url')}
                 onClick={(e) => e.stopPropagation()}
                 data-h='mobile-menu-item-btn'
               >
-                {get(o, 'fields.text')}
+                {get(o, 'text')}
               </a>
             </Item>
           ))}
@@ -42,6 +44,7 @@ MobileMenuDrawer.propTypes = {
   toggle: PropTypes.func,
   label: PropTypes.string,
   isOpen: PropTypes.bool,
+  isLoggedIn: PropTypes.bool,
   pos: PropTypes.object,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -49,6 +52,11 @@ MobileMenuDrawer.propTypes = {
       url: PropTypes.string
     })
   )
+}
+
+MobileMenuDrawer.defaultProps = {
+  isLoggedIn: false,
+  pos: false
 }
 
 export default MobileMenuDrawer

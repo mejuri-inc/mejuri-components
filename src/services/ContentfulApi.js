@@ -215,6 +215,21 @@ export class ContentfulAPI {
       console.log(e)
     }
   }
+
+  async getMobileMenu(localeCode) {
+    try {
+      const client = this.getClient()
+      const response = await client.getEntries({
+        content_type: 'menuConfiguration',
+        'fields.text': 'global-mobile-menu',
+        include: 3,
+        locale: localeCode || this.locale
+      })
+      return this.formatResponse(response)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 }
 
 // const singleton = new ContentfulAPI()

@@ -3,22 +3,20 @@ import PropTypes from 'prop-types'
 import MobileMenuHeader from './components/MobileMenuHeader'
 import MobileMenuDrawer from './components/MobileMenuDrawer'
 import MobileMenuSubPage from './components/MobileMenuSubPage'
-import MobileMenuStylingHelp from './components/MobileMenuStylingHelp'
-import MobileMenuSignOut from './components/MobileMenuSignOut'
+import FooterSection from './components/FooterSection'
 import BackgroundOverlay from 'components/common/Overlay'
-
+import get from 'lodash.get'
 import {
   Overlay,
   NavigationPanel,
   Page,
   Pages,
   Options,
-  Footer,
-  FooterItem,
-  Wrapper,
-  FooterLink
+  Wrapper
 } from './styled'
-import get from 'lodash.get'
+
+const MOBILE_MENU_TOP_SECTION = 'mobile-menu-top-section'
+const MOBILE_MENU_BOTTOM_SECTION = 'mobile-menu-bottom-section'
 
 export class MobileMenu extends React.Component {
   constructor(props) {
@@ -88,88 +86,6 @@ export class MobileMenu extends React.Component {
     this.setState({ subPageIndex: id, subPageOpen: true })
   }
 
-  handleFooterClick = (option) => {
-    const isAccount = get(option, 'fields.extraFields.account', null)
-    const id = option.sys.id
-    if (isAccount) {
-      this.handleAccountClick(id)
-    } else {
-      this.openSubPage(id)
-    }
-  }
-
-  getBottomOptionText(option) {
-    const { isLoggedIn } = this.props
-    return !option.fields.extraFields.account
-      ? option.fields.text
-      : isLoggedIn
-      ? option.fields.text
-      : 'Sign In / Sign Up'
-  }
-
-  getBottomOptionChild(option) {
-    const isAccount = get(option, 'fields.extraFields.account', null)
-    const menuFooterSection = option.fields.children.find((o) =>
-      o.fields.type ? o.fields.type === 'menu footer section' : false
-    )
-    return isAccount ? (
-      <MobileMenuSignOut />
-    ) : menuFooterSection ? (
-      <MobileMenuStylingHelp
-        label={get(menuFooterSection, 'fields.text', null)}
-        caption={get(menuFooterSection, 'fields.extraFields.caption', null)}
-        linkText={get(menuFooterSection, 'fields.extraFields.linkText', null)}
-        url={get(menuFooterSection, 'fields.url', null)}
-      />
-    ) : (
-      <div />
-    )
-  }
-
-  filterOptions = (options, pos) => {
-    if (!pos) return options
-    return options.filter(function (o) {
-      const isAccount = get(o, 'fields.extraFields.account', false)
-      return isAccount
-    })
-  }
-
-  filterChildren = (children) => {
-    return children.filter(function (o) {
-      const isSection = o.fields.type
-        ? o.fields.type === 'menu footer section'
-        : false
-      return !isSection
-    })
-  }
-
-  getFooterItem = (item) => {
-    const link = get(item, 'fields.url', null)
-    if (link) {
-      return (
-        <FooterItem>
-          <FooterLink
-            href={link}
-            key={item.sys.id}
-            data-h='mobile-menu-footer-btn'
-          >
-            {this.getBottomOptionText(item)}
-          </FooterLink>
-        </FooterItem>
-      )
-    } else {
-      return (
-        <FooterItem
-          onClick={() => this.handleFooterClick(item)}
-          key={item.sys.id}
-          data-h='mobile-menu-footer-btn'
-        >
-          {this.getBottomOptionText(item)}
-        </FooterItem>
-      )
-    }
-  }
-
   render() {
     const {
       menuOptions,
@@ -177,19 +93,21 @@ export class MobileMenu extends React.Component {
       searchEnabled,
       isOpen,
       currencySelector,
-      pos
+      pos,
+      isLoggedIn,
+      openOnboarding
     } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
-    const bottomMenus = menuOptions.children.filter((x) =>
-      x.fields.extraFields ? x.fields.extraFields.bottom : false
+
+    const bottom = menuOptions.children.find(
+      (o) => o.text === MOBILE_MENU_BOTTOM_SECTION
     )
-    const topMenus = menuOptions.children.filter((x) =>
-      x.fields.extraFields
-        ? !x.fields.extraFields.bottom && !x.fields.extraFields.stylingHelp
-        : true
+
+    const topMenus = menuOptions.children.find(
+      (o) => o.text === MOBILE_MENU_TOP_SECTION
     )
-    const notLinkBottomMenus = bottomMenus.filter((x) => !!x.fields.children)
+
     return (
       <Wrapper>
         <Overlay
@@ -218,37 +136,39 @@ export class MobileMenu extends React.Component {
                   this.refOptions = r
                 }}
               >
-                {topMenus.map((o) => (
+                {topMenus.children.map((o) => (
                   <MobileMenuDrawer
-                    key={o.sys.id}
-                    toggle={() => this.setOpenDrawer(o.sys.id)}
-                    label={o.fields.text}
-                    isOpen={this.state.openDrawer === o.sys.id}
-                    options={o.fields.children}
+                    key={o._id}
+                    toggle={() => this.setOpenDrawer(o._id)}
+                    label={o.text}
+                    isOpen={this.state.openDrawer === o._id}
+                    options={o.children}
                     glassClick={this.handleSearchClick}
                     pos={pos}
+                    isLoggedIn={isLoggedIn}
                   />
                 ))}
-                <Footer>
-                  {this.filterOptions(bottomMenus, pos).map((o) =>
-                    this.getFooterItem(o)
-                  )}
-                  {currencySelector && (
-                    <FooterItem>{currencySelector}</FooterItem>
-                  )}
-                </Footer>
+                <FooterSection
+                  openSubPage={this.openSubPage}
+                  options={get(bottom, 'children')}
+                  currencySelector={currencySelector}
+                  pos={pos}
+                  isLoggedIn={isLoggedIn}
+                  openOnboarding={openOnboarding}
+                />
               </Options>
             </Page>
-            {notLinkBottomMenus.map((o) => (
-              <MobileMenuSubPage
-                title={o.fields.text}
-                options={this.filterChildren(o.fields.children)}
-                active={this.state.subPageIndex === o.sys.id}
-                key={o.sys.id}
-              >
-                {this.getBottomOptionChild(o)}
-              </MobileMenuSubPage>
-            ))}
+            {bottom.children
+              .filter((o) => !!o.children)
+              .map((o) => (
+                <MobileMenuSubPage
+                  title={o.text}
+                  options={get(o, 'children')}
+                  active={this.state.subPageIndex === o._id}
+                  key={o._id}
+                  isLoggedIn={isLoggedIn}
+                />
+              ))}
           </Pages>
         </NavigationPanel>
         {isOpen && <BackgroundOverlay />}

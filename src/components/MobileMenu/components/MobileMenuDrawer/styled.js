@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
 
 export const Header = styled.header`
-  background: ${colors.white};
-  border-bottom: 1px solid ${colors.lightGray1};
+  background: ${(p) => p.theme.colors.white};
+  border-bottom: 1px solid ${(p) => p.theme.colors.lightGray1};
   box-shadow: 0 10px 5px 0 rgba(255, 255, 255, 0.75);
   display: flex;
   font-size: 14px;
@@ -19,8 +18,8 @@ Header.displayName = 'MobileMenuDriverHeader'
 
 export const Options = styled.ul`
   max-height: ${(p) => (p.isOpen ? 42 * p.length + 'px' : 0)};
-  border-bottom: 1px solid ${colors.lightGray1};
-  line-height: 14px;
+  border-bottom: 1px solid ${(p) => p.theme.colors.lightGray1};
+  line-height: 19px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -36,7 +35,7 @@ export const Item = styled.li`
   font-weight: ${(p) => (p.sub ? '600' : '300')};
   letter-spacing: 0.5px;
   text-transform: none;
-  padding-top: ${(p) => (p.sub ? '30px' : '22px')};
+  padding-top: ${(p) => (p.sub ? '30px' : '18px')};
 
   margin-bottom: 0;
 
@@ -46,13 +45,13 @@ export const Item = styled.li`
 
   & > a {
     text-decoration: none;
-    color: ${colors.black};
+    color: ${(p) => p.theme.colors.black};
     white-space: nowrap;
     overflow: hidden;
     display: block;
     text-overflow: ellipsis;
     &:hover {
-      color: ${colors.grey};
+      color: ${(p) => p.theme.colors.grey};
     }
   }
 `
@@ -73,7 +72,7 @@ export const PlusMinusToggle = styled.div`
     position: absolute;
     height: 2px;
     width: 12px;
-    background: ${colors.black};
+    background: ${(p) => p.theme.colors.black};
     transition: transform 150ms ease;
   }
 
