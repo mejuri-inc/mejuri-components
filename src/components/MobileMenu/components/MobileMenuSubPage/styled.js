@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
 
 export const SubPage = styled.div`
   height: 100%;
@@ -25,21 +24,30 @@ export const List = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid ${colors.lightGray1};
+  border-top: 1px solid ${(p) => p.theme.colors.lightGray1};
 `
 
 export const Item = styled.li`
   font-size: 16px;
   font-weight: bold;
-  padding: 30px 0 0 0;
+  padding: 15px 0;
   margin-bottom: 0px;
 
+  &:first-child {
+    padding-top: 30px;
+  }
+
   & > a {
-    color: ${colors.black};
+    color: ${(p) => p.theme.colors.black};
     text-decoration: none;
     cursor: pointer;
     &:hover {
-      color: ${colors.grey};
+      color: ${(p) => p.theme.colors.grey};
     }
+  }
+
+  & > p {
+    font-weight: ${(p) => p.theme.fontWeight.light};
+    margin: 1em 0 0 0;
   }
 `
