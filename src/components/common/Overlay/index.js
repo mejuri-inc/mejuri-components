@@ -15,15 +15,15 @@ const Layer = styled.div`
   z-index: ${(p) => p.zIndex || 0};
 `
 
-export default function Overlay() {
-  const ref = useRef(null)
+export default function Overlay({ innerRef }) {
+  const ownRef = useRef(null)
 
   useEffect(() => {
-    disableBodyScroll(ref.current)
+    disableBodyScroll(innerRef.current || ownRef.current)
     return function cleanBodyScroll() {
-      enableBodyScroll(ref.current)
+      enableBodyScroll(innerRef.current || ownRef.current)
     }
   })
 
-  return <Layer innerRef={ref} />
+  return <Layer innerRef={ownRef} />
 }
