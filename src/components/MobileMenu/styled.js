@@ -70,4 +70,3 @@ export const Options = styled.div`
     display: none;
   }
 `
-Options.displayName = 'MobileMenuOptions'

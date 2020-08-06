@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import PropTypes from 'prop-types'
 import MobileMenuHeader from './components/MobileMenuHeader'
 import MobileMenuDrawer from './components/MobileMenuDrawer'
@@ -28,7 +28,7 @@ export class MobileMenu extends React.Component {
       subPageIndex: null
     }
 
-    this.refOptions = null
+    this.refOptions = createRef(null)
   }
 
   toggleMenuState = () => {
@@ -52,7 +52,7 @@ export class MobileMenu extends React.Component {
       openDrawer: drawerSlug
     })
 
-    if (this.refOptions) this.refOptions.scrollTop = 0
+    if (this.refOptions) this.refOptions.current.scrollTop = 0
   }
 
   transition = (e) => {
@@ -131,11 +131,7 @@ export class MobileMenu extends React.Component {
             }
           >
             <Page>
-              <Options
-                ref={(r) => {
-                  this.refOptions = r
-                }}
-              >
+              <Options ref={this.refOptions}>
                 {topMenus.children.map((o) => (
                   <MobileMenuDrawer
                     key={o._id}
@@ -171,7 +167,7 @@ export class MobileMenu extends React.Component {
               ))}
           </Pages>
         </NavigationPanel>
-        {isOpen && <BackgroundOverlay />}
+        {isOpen && <BackgroundOverlay innerRef={this.refOptions} />}
       </Wrapper>
     )
   }
