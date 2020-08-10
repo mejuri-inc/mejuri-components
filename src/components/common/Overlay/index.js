@@ -19,9 +19,9 @@ export default function Overlay({ innerRef }) {
   const ownRef = useRef(null)
 
   useEffect(() => {
-    disableBodyScroll(innerRef.current || ownRef.current)
+    disableBodyScroll((innerRef && innerRef.current) || ownRef.current)
     return function cleanBodyScroll() {
-      enableBodyScroll(innerRef.current || ownRef.current)
+      enableBodyScroll((innerRef && innerRef.current) || ownRef.current)
     }
   })
 
