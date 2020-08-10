@@ -52,7 +52,9 @@ export class MobileMenu extends React.Component {
       openDrawer: drawerSlug
     })
 
-    if (this.refOptions) this.refOptions.current.scrollTop = 0
+    if (this.refOptions && this.refOptions.current) {
+      this.refOptions.current.scrollTop = 0
+    }
   }
 
   transition = (e) => {
