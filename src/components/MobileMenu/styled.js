@@ -23,6 +23,7 @@ export const NavigationPanel = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  height: -webkit-fill-available;
   left: 0;
   max-width: 400px;
   position: fixed;
