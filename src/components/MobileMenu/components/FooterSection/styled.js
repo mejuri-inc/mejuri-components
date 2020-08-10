@@ -4,7 +4,7 @@ export const Footer = styled.ul`
   background: ${(p) => p.theme.colors.lightGray3};
   list-style: none;
   margin: auto 0 0 0;
-  padding: 0 25px 50px 25px;
+  padding: 0 25px;
   width: 100%;
 `
 
