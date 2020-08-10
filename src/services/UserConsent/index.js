@@ -1,3 +1,4 @@
+
 const CONSENT_CATEGORIES_DICTIONARY = {
   'C0001' : 'Strictly Necessary',
   'C0002' : 'Performance',
@@ -7,7 +8,7 @@ const CONSENT_CATEGORIES_DICTIONARY = {
 }
 
 /*
-  Map services with the cookie categories that correspond
+  Map services with the cookie categories that corresponds
 */
 const SERVICES_CATEGORIES = {
   'Sailthru'                :['Targeting','Functional','Performance'],
@@ -30,6 +31,10 @@ const SERVICES_CATEGORIES = {
 
 class UserConsent{
 
+
+  // IF THIS FLAG IS PRESENT ALWAYS ENABLE ALL CATEGORIES
+  BYPASS_PRIVACY_PREFERENCES = false
+
   consentCategories   = []
   activeCategories    = []
   servicesList        = []
@@ -42,7 +47,7 @@ class UserConsent{
     this.onUpdate()
     if(typeof window !== 'undefined'){
       window.addEventListener('consent.onetrust',this._onConsentChange.bind(this))
-      window.addEventListener('load',this.onUpdate.bind(this))
+      window.addEventListener('load',this._init.bind(this))
     }
   }
 
@@ -69,15 +74,18 @@ class UserConsent{
   }
 
   getActiveCategories(){
-    let categories = []
-    let OnetrustActiveGroups
+    return this.OtActiveGroups.map( id => CONSENT_CATEGORIES_DICTIONARY[id] || id )
+  }
+
+  get OtActiveGroups(){
+    let activeGroups = [], OnetrustActiveGroups
     if(typeof window !== 'undefined') OnetrustActiveGroups = window.OnetrustActiveGroups
-    if(OnetrustActiveGroups){
-      categories = OnetrustActiveGroups.split(',')
-                     .filter( id => id ) // REMOVE EMPTIES
-                     .map( id => CONSENT_CATEGORIES_DICTIONARY[id] || id )
+    if(this.BYPASS_PRIVACY_PREFERENCES){
+      activeGroups = Object.keys(CONSENT_CATEGORIES_DICTIONARY)
+    }else if(OnetrustActiveGroups){
+      activeGroups = OnetrustActiveGroups.split(",").filter( id => id )
     }
-    return categories
+    return activeGroups
   }
 
   getConsentCategories(){
@@ -159,6 +167,14 @@ class UserConsent{
       }
       return keep
     })
+  }
+
+  _init(){
+    if(this.OtActiveGroups.length < 1 && !this.BYPASS_PRIVACY_PREFERENCES){
+      setTimeout(this._init.bind(self),500)
+    }else{
+      this._onConsentChange()
+    }
   }
 
 }

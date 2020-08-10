@@ -34,6 +34,36 @@ Array [
 ]
 `;
 
+exports[`UserConsent All categories are active when the bypass option is enabled 1`] = `
+Array [
+  "Strictly Necessary",
+  "Performance",
+  "Functional",
+  "Targeting",
+  "Social Media",
+]
+`;
+
+exports[`UserConsent All services are avialable when the bypass option is enabled 1`] = `
+Array [
+  "Sailthru",
+  "Google Analytics",
+  "Pinterest Tag",
+  "Facebook Pixel",
+  "Twitter Ads",
+  "Google Tag Manager",
+  "Mouseflow",
+  "Vimeo",
+  "AdRoll",
+  "Google Ads (Gtag)",
+  "Podsights",
+  "Heap",
+  "ShareASale",
+  "The Trade Desk (Mejuri)",
+  "Privy",
+]
+`;
+
 exports[`UserConsent Available services match user preferences (Functional) 1`] = `Array []`;
 
 exports[`UserConsent Available services match user preferences (Performance) 1`] = `
