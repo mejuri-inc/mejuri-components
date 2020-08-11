@@ -170,7 +170,7 @@ class UserConsent{
   }
 
   _init(){
-    if(this.OtActiveGroups.length < 1 && !this.BYPASS_PRIVACY_PREFERENCES){
+    if(this.OtActiveGroups && this.OtActiveGroups.length < 1 && !this.BYPASS_PRIVACY_PREFERENCES){
       setTimeout(this._init.bind(self),500)
     }else{
       this._onConsentChange()
