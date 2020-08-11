@@ -64,11 +64,8 @@ export class MobileMenu extends React.Component {
       })
   }
 
-  handleAccountClick = (id) => {
-    const { isLoggedIn, openOnboarding } = this.props
-    if (isLoggedIn) {
-      return this.openSubPage(id)
-    }
+  handleSignInClick = () => {
+    const { openOnboarding } = this.props
     openOnboarding()
     this.toggleMenuState()
   }
@@ -96,8 +93,7 @@ export class MobileMenu extends React.Component {
       isOpen,
       currencySelector,
       pos,
-      isLoggedIn,
-      openOnboarding
+      isLoggedIn
     } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
@@ -152,7 +148,7 @@ export class MobileMenu extends React.Component {
                   currencySelector={currencySelector}
                   pos={pos}
                   isLoggedIn={isLoggedIn}
-                  openOnboarding={openOnboarding}
+                  openOnboarding={this.handleSignInClick}
                 />
               </Options>
             </Page>
