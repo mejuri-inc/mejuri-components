@@ -29,9 +29,7 @@ const SERVICES_CATEGORIES = {
 }
 
 
-class UserConsent{
-
-
+class UserConsent {
   // IF THIS FLAG IS PRESENT ALWAYS ENABLE ALL CATEGORIES
   BYPASS_PRIVACY_PREFERENCES = false
 
@@ -55,8 +53,8 @@ class UserConsent{
     this.callbacks.push(callback)
   }
 
-  removeOnConsentChange(callback){
-      this.callbacks = this.callbacks.filter( c => callback != c )
+  removeOnConsentChange(callback) {
+    this.callbacks = this.callbacks.filter( c => callback != c )
   }
 
   _onConsentChange(e){
@@ -74,7 +72,7 @@ class UserConsent{
   }
 
   getActiveCategories(){
-    return this.OtActiveGroups.map( id => CONSENT_CATEGORIES_DICTIONARY[id] || id )
+    return this.OtActiveGroups.map(id => CONSENT_CATEGORIES_DICTIONARY[id] || id )
   }
 
   get OtActiveGroups(){
@@ -139,7 +137,7 @@ class UserConsent{
     this._injectCode()
   }
 
-  _registerScript(service, code, parentNode = 'head'){
+  _registerScript(service, code, parentNode = 'head') {
     this.scripts.push({ service, code, parentNode })
   }
 
@@ -151,7 +149,7 @@ class UserConsent{
   }
 
   _injectCode(){
-    this.scripts.filter( script =>{
+    this.scripts.filter((script) => {
       let keep = true
       if(this.availableServices.includes(script.service)){
         switch(typeof script.code){
@@ -169,14 +167,13 @@ class UserConsent{
     })
   }
 
-  _init(){
+  _init() {
     if(this.OtActiveGroups && this.OtActiveGroups.length < 1 && !this.BYPASS_PRIVACY_PREFERENCES){
-      setTimeout(this._init.bind(self),500)
-    }else{
-      this._onConsentChange()
+      setTimeout(this._init.bind(self), 500)
+    } else {
+      this._onConsentChange && this._onConsentChange()
     }
   }
-
 }
 
 const singleton = new UserConsent()
