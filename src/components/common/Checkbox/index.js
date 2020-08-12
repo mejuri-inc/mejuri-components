@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { injectIntl, intlShape } from 'react-intl'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import MuiCheckbox from '@material-ui/core/Checkbox'
+import { FormControlLabel } from '@material-ui/core'
+import { Checkbox as MuiCheckbox} from '@material-ui/core'
 
 const Checkbox = ({ intl, label, name, ...rest }) => (
   <FormControlLabel

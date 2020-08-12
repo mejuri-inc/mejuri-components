@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import MuiButton from '@material-ui/core/Button'
+import { Button as MuiButton } from '@material-ui/core'
 import { spinner } from 'styles/effects'
 
 export const Button = styled(({ isFetching, ...p }) => (

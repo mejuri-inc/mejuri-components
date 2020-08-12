@@ -1,4 +1,4 @@
-import "regenerator-runtime/runtime.js";
+import "regenerator-runtime/runtime.js"
 
 // REACT COMPONENTS
 import Header from './components/Header'

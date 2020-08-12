@@ -6,7 +6,24 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 
-const dependencies = packageJson.dependencies || {};
+const { peerDependencies ={} , dependencies ={} } = packageJson
+
+// If a dependency is "external" rollup will NOT change e.g.
+// import { Button } from '@material-ui/core'
+// to:
+// import { Button } from '../../../node_modules/@material-ui/core'
+// This WILL NOT happen if '@material-ui/core' is declared as external
+
+const external = [
+  ...Object.keys({
+    ...peerDependencies ,
+    ...dependencies
+  }),
+  '@material-ui/core/styles',
+  'regenerator-runtime/runtime.js'
+]
+
+console.log("External:",external)
 
 export default {
   input: "src/index.js",
@@ -43,5 +60,5 @@ export default {
     commonjs(),
     json()
   ],
-  external: Object.keys(dependencies)
+  external: external
 };
