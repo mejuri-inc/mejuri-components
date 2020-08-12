@@ -1,25 +1,46 @@
+import "regenerator-runtime/runtime.js";
+
 // REACT COMPONENTS
-export { default as Header } from './components/Header'
-export { default as NotificationBar } from './components/NotificationsBar'
-export { default as TimedMessage } from './components/common/TimedMessage'
-export { default as Cart } from './components/cart/Cart'
-export { default as MejuriTheme } from './themes/material'
-export { default as CarouselArrow } from './resources/icons/CarouselArrow'
-export { default as MobileMenu } from './components/MobileMenu'
-export { default as StickyContainer } from './components/StickyContainer'
-export { default as MainSearch } from './components/MainSearch'
-export { default as Overlay } from './components/common/Overlay'
-export { default as IsOnScreen } from './components/common/IsOnScreen'
-export { default as Footer } from './components/Footer'
-export { default as OnboardingModal } from './components/OnboardingModal'
+import Header from './components/Header'
+import NotificationBar from './components/NotificationsBar'
+import TimedMessage from './components/common/TimedMessage'
+import Cart from './components/cart/Cart'
+import MejuriTheme from './themes/material'
+import CarouselArrow from './resources/icons/CarouselArrow'
+import MobileMenu from './components/MobileMenu'
+import StickyContainer from './components/StickyContainer'
+import MainSearch from './components/MainSearch'
+import Overlay from './components/common/Overlay'
+import IsOnScreen from './components/common/IsOnScreen'
+import Footer from './components/Footer'
+import OnboardingModal from './components/OnboardingModal'
 
 // SERVICES
-export { ContentfulAPI } from './services/ContentfulApi'
-export { default as UserConsent } from './services/UserConsent'
+import { ContentfulAPI } from './services/ContentfulApi'
+import UserConsent from './services/UserConsent'
 
 // HELPERS
 export * from './helpers/itemDescription'
 export * from './helpers/currency'
 
 // OTHER
-export { default as Theme } from './themes/styled'
+import Theme from './themes/styled'
+
+export {
+  ContentfulAPI,
+  UserConsent,
+  Theme,
+  Header,
+  NotificationBar,
+  TimedMessage,
+  Cart,
+  MejuriTheme,
+  CarouselArrow,
+  MobileMenu,
+  StickyContainer,
+  MainSearch,
+  Overlay,
+  IsOnScreen,
+  Footer,
+  OnboardingModal,
+}
