@@ -25,20 +25,16 @@ yarn install
 ```
 
 ## Develop
-To develop and test in live mode run yarn start in both project: the root library and the example project
+to link this library in local we found the best alternative is to use (yalc)[https://github.com/whitecolor/yalc]
 
-## Usage
+```npm install -g yalc```
 
-```jsx
-import React, { Component } from 'react'
-import { Header } from '@mejuri-inc/mejuri-components'
+In this repository folder run: 
+```yalc publish```
 
-class Example extends Component {
-  render() {
-    return <Header />
-  }
-}
-```
+In the repository requiring this library as dependency run:
+```yalc link @mejuri-inc/mejuri-components```
+
 
 ## Deploy
 In case you are not logged:
