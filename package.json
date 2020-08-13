@@ -13,6 +13,7 @@
   "scripts": {
     "test": "jest",
     "prepublish": "npm run build",
+    "publish:local": "npm run prepublish && yalc push",
     "cleanup": "rm -r dist.esm.modules dist.cjs.modules || true",
     "build": "npm run cleanup && npx rollup --config rollup.config.js",
     "build:babel": "npx babel src --out-dir dist",

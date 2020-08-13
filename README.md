@@ -41,6 +41,12 @@ In the repository requiring this library as dependency run:
 yalc link @mejuri-inc/mejuri-components
 ```
 
+When developing, if you made changes to the `mejuri-components` repo, run:
+```bash
+npm run publish:local
+```
+it will automatically update the dependency
+
 
 ## Deploy
 In case you are not logged:
