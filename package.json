@@ -1,6 +1,6 @@
 {
   "name": "@mejuri-inc/mejuri-components",
-  "version": "1.3.30",
+  "version": "1.3.32",
   "description": "Mejuri components library",
   "license": "ISC",
   "author": "joaenriquez@gmail.com",
@@ -13,7 +13,7 @@
   "scripts": {
     "test": "jest",
     "prepublish": "npm run build",
-    "cleanup" : "rm -r dist.esm.modules dist.cjs.modules || true",
+    "cleanup": "rm -r dist.esm.modules dist.cjs.modules || true",
     "build": "npm run cleanup && npx rollup --config rollup.config.js",
     "build:babel": "npx babel src --out-dir dist",
     "test:watch": "jest --watch",
@@ -26,18 +26,20 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-intl": "^2.7.2",
-    "@contentful/rich-text-react-renderer": "^13.4.0",
-    "axios": "^0.19.2",
     "styled-components": "^5.1.0",
-    "algoliasearch": "^4.3.0",
-    "body-scroll-lock": "^3.0.3",
     "contentful": "^7.14.5",
     "lodash.debounce": "^4.0.8",
     "lodash.map": "^4.6.0",
     "lodash.throttle": "^4.1.1",
+    "lodash.get": "^4.4.2"
+  },
+  "dependencies": {
+    "algoliasearch": "^4.3.0",
+    "body-scroll-lock": "^3.0.3",
+    "@contentful/rich-text-react-renderer": "^13.4.0",
     "yup": "^0.29.1",
-    "lodash.get": "^4.4.2",
     "humps": "^2.0.1",
+    "axios": "^0.19.2",
     "regenerator-runtime": "^0.13.5"
   },
   "devDependencies": {
@@ -74,8 +76,6 @@
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
     "jest": "^24.9.0",
-    "microbundle-crl": "^0.13.10",
-    "nookies": "^2.3.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "react-scripts": "^3.4.1",
