@@ -25,15 +25,21 @@ yarn install
 ```
 
 ## Develop
-to link this library in local we found the best alternative is to use (yalc)[https://github.com/whitecolor/yalc]
+to link this library in local we found the best alternative is to use https://github.com/whitecolor/yalc
 
-```npm install -g yalc```
+```bash
+npm install -g yalc
+```
 
 In this repository folder run: 
-```yalc publish```
+```bash
+yalc publish
+```
 
 In the repository requiring this library as dependency run:
-```yalc link @mejuri-inc/mejuri-components```
+```bash
+yalc link @mejuri-inc/mejuri-components
+```
 
 
 ## Deploy
