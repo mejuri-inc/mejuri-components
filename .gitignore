@@ -6,3 +6,4 @@ example/node_modules
 example/build
 .DS_Store
 dist.*
+package-lock.json
