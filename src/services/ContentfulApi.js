@@ -12,7 +12,7 @@ export class ContentfulAPI {
     locale
   }) {
     this.querySysAttributes = ['id']
-    this.queryRootAttributes = ['locale', 'include']
+    this.queryRootAttributes = ['locale', 'include', 'limit', 'order', 'skip']
     this.excludedAttributes = [/^_/]
     this.includedAttributes = ['_id', '_locale', '_contentType']
     this.spaceId = CONTENTFUL_SPACE_ID
@@ -55,9 +55,21 @@ export class ContentfulAPI {
   }
 
   async getLookBookPages(queryOptions) {
-    if (!queryOptions.slug) throw new Error('You did not provide a slug value.')
     try {
       const looks = await this.getContentType('lookPage', queryOptions)
+      return looks
+    } catch (e) {
+      throw e
+    }
+  }
+
+  async getPage(slug, queryOptions = {}) {
+    try {
+      const looks = await this.getContentType('modularPage', {
+        slug,
+        include: 4,
+        ...queryOptions
+      })
       return looks
     } catch (e) {
       throw e
