@@ -67,7 +67,6 @@ export class ContentfulAPI {
     try {
       const looks = await this.getContentType('modularPage', {
         slug,
-        include: 4,
         ...queryOptions
       })
       return looks
