@@ -4,7 +4,6 @@ import colors from 'styles/colors'
 export const Wrapper = styled.div`
   background: ${colors.white};
   border-top: 1px solid ${colors.lightGray1};
-  margin-top: 100px;
   padding: 0;
   overflow: hidden;
 `
