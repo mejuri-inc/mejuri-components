@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 function getLink(link) {
   return link.fields.url ? (
-    <Link href={link.fields.url} key={link.sys.id} data-h='footer-legal-btn' >
+    <Link href={link.fields.url} key={link.sys.id} data-h='footer-legal-btn'>
       {link.fields.text}
     </Link>
   ) : (

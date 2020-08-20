@@ -1,12 +1,10 @@
-import babel from '@rollup/plugin-babel';
-import packageJson from "./package.json";
-import alias from 'rollup-plugin-alias';
-import {resolve} from 'path'
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
+import babel from '@rollup/plugin-babel'
+import packageJson from './package.json'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
 
-const { peerDependencies ={} , dependencies ={} } = packageJson
+const { peerDependencies = {}, dependencies = {} } = packageJson
 
 // If a dependency is "external" rollup will NOT change e.g.
 // import { Button } from '@material-ui/core'
@@ -16,27 +14,27 @@ const { peerDependencies ={} , dependencies ={} } = packageJson
 
 const external = [
   ...Object.keys({
-    ...peerDependencies ,
+    ...peerDependencies,
     ...dependencies
   }),
   '@material-ui/core/styles',
   'regenerator-runtime/runtime.js'
 ]
 
-console.log("External:",external)
+console.log('External:', external)
 
 export default {
-  input: "src/index.js",
+  input: 'src/index.js',
   output: [
     {
-      dir: "dist.esm.modules",
-      format: "es",
-      preserveModules : true
+      dir: 'dist.esm.modules',
+      format: 'es',
+      preserveModules: true
     },
     {
-      dir: "dist.cjs.modules",
-      format: "cjs",
-      preserveModules : true
+      dir: 'dist.cjs.modules',
+      format: 'cjs',
+      preserveModules: true
     }
   ],
   plugins: [
@@ -45,15 +43,18 @@ export default {
     // }),
     babel({
       plugins: [
-        ["@babel/plugin-proposal-export-default-from"],
-        ["module-resolver", {
-          "root": ["./src"]
-        }]
+        ['@babel/plugin-proposal-export-default-from'],
+        [
+          'module-resolver',
+          {
+            root: ['./src']
+          }
+        ]
       ],
-      exclude: ["node_modules/**"],
+      exclude: ['node_modules/**'],
       presets: [
-        ["@babel/preset-env", { modules: false }],
-        "@babel/preset-react"
+        ['@babel/preset-env', { modules: false }],
+        '@babel/preset-react'
       ]
     }),
     nodeResolve(),
@@ -61,4 +62,4 @@ export default {
     json()
   ],
   external: external
-};
+}

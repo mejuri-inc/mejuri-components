@@ -2,23 +2,22 @@ import { Wrapper, GlobalStyle } from './styled'
 import React, { PureComponent } from 'react'
 
 export default class Backdrop extends PureComponent {
-
   static noScrollClass = '--noscroll'
 
-  componentDidMount () {
+  componentDidMount() {
     document.documentElement.classList.add(Backdrop.noScrollClass)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.documentElement.classList.remove(Backdrop.noScrollClass)
   }
 
-  render () {
+  render() {
     return (
       <div onClick={this.props.onClick}>
         <GlobalStyle />
         <Wrapper />
       </div>
-    );
+    )
   }
 }

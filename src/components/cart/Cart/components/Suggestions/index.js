@@ -19,7 +19,9 @@ export class Suggestions extends React.PureComponent {
     const { items, isFetching, addSuggestion, lineItems } = this.props
 
     if (!items || !items.length) return null
-    const products = items.filter(p => p.inStock && !lineItems.find(li => li.master.id === p.masterId))
+    const products = items.filter(
+      (p) => p.inStock && !lineItems.find((li) => li.master.id === p.masterId)
+    )
 
     if (!products.length) return null
 
@@ -27,14 +29,6 @@ export class Suggestions extends React.PureComponent {
 
     return (
       <Wrapper>
-        {/*<Header>*/}
-        {/*  <Title>*/}
-        {/*    <FormattedMessage id='cart.suggestions.title' />*/}
-        {/*  </Title>*/}
-        {/*  <Legend>*/}
-        {/*    <FormattedMessage id='cart.suggestions.legend' />*/}
-        {/*  </Legend>*/}
-        {/*</Header>*/}
         <List>
           {products.map((i) => (
             <Item key={i.id}>
@@ -42,7 +36,10 @@ export class Suggestions extends React.PureComponent {
               <Columns>
                 <Texts>
                   <Link href={i.path}>{i.displayName}</Link>
-                  <FormattedMessage id='cart.suggestions.price' values={ { price: i.price } }/>
+                  <FormattedMessage
+                    id='cart.suggestions.price'
+                    values={{ price: i.price }}
+                  />
                 </Texts>
                 <AddButton
                   onClick={() => addSuggestion(i.masterId)}
@@ -79,14 +76,3 @@ Suggestions.propTypes = {
 }
 
 export default Suggestions
-
-// const mapStateToProps = state => ({
-//   isFetching: isFetching(state),
-//   items: getDedupeSuggestions(state)
-// })
-//
-// const mapDispatchToProps = dispatch => ({
-//   addSuggestion: itemId => dispatch(addSuggestedItemToOrder(itemId))
-// })
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(Suggestions)

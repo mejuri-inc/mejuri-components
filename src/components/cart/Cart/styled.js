@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import colors from 'styles/colors'
 import { fontWeight } from 'styles/settings'
-import { fadeIn } from 'styles/effects'
 
 export const Content = styled.div`
   display: flex;

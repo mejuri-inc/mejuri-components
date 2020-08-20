@@ -8,7 +8,8 @@
     "prettier/react"
   ],
   "env": {
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -34,5 +35,6 @@
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
     "import/export": 0
-  }
+  },
+  "plugins": ["jest"]
 }

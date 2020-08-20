@@ -21,15 +21,14 @@ export const Wrapper = styled.div`
     padding: 10px;
     display: block;
   }
-    
+
   &:active {
     background-color: #286090;
-  }  
+  }
 
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     background-color: $white;
   }
 `
 Wrapper.displayName = 'ApplePayButtonWrapper'
-
-

@@ -37,7 +37,14 @@ export const ItemsList = ({
               >
                 <CloseIcon />
               </RemoveButton>
-              {imageUrl && <Thumbnail href={href} src={imageUrl} alt={alt} data-h='cart-product-link' />}
+              {imageUrl && (
+                <Thumbnail
+                  href={href}
+                  src={imageUrl}
+                  alt={alt}
+                  data-h='cart-product-link'
+                />
+              )}
               <ItemProperties
                 item={i}
                 currency={currency}

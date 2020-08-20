@@ -1,3 +1,8 @@
+/* eslint-disable standard/no-callback-literal */
+/* eslint-disable no-return-assign */
+/* eslint-disable prefer-const */
+/* eslint-disable one-var */
+/* eslint-disable prettier/prettier */
 
 const CONSENT_CATEGORIES_DICTIONARY = {
   'C0001' : 'Strictly Necessary',
@@ -54,7 +59,7 @@ class UserConsent {
   }
 
   removeOnConsentChange(callback) {
-    this.callbacks = this.callbacks.filter( c => callback != c )
+    this.callbacks = this.callbacks.filter( c => callback !== c )
   }
 
   _onConsentChange(e){
@@ -107,17 +112,16 @@ class UserConsent {
   getServiceCategoriesId(service){
     const dictionary = CONSENT_CATEGORIES_DICTIONARY
     const serviceCategories = SERVICES_CATEGORIES[service]
-    return serviceCategories.map(
-      categoryName => {
-        let categoryId
-        for(let id in dictionary){
-          if(dictionary[id] == categoryName){
-            return categoryId = id
-          }
+    return serviceCategories.map((categoryName) => {
+      let categoryId
+      for (const id in dictionary) {
+        if (dictionary[id] === categoryName) {
+          return categoryId = id
         }
-        return categoryId
       }
-    )
+      return categoryId
+    }
+  )
   }
 
   getAvailableServices(){
@@ -141,18 +145,18 @@ class UserConsent {
     this.scripts.push({ service, code, parentNode })
   }
 
-  insertScriptTag({ code , parentNode }){
+  insertScriptTag({ code, parentNode }) {
     const tag = document.createElement('script')
     tag.type  = 'text/javascript'
     document.querySelector(parentNode).appendChild(tag)
     tag.src   = code
   }
 
-  _injectCode(){
+  _injectCode() {
     this.scripts.filter((script) => {
       let keep = true
-      if(this.availableServices.includes(script.service)){
-        switch(typeof script.code){
+      if (this.availableServices.includes(script.service)) {
+        switch (typeof script.code) {
           case 'function':
             script.code()
             keep = false
@@ -168,8 +172,12 @@ class UserConsent {
   }
 
   _init() {
-    if(this.OtActiveGroups && this.OtActiveGroups.length < 1 && !this.BYPASS_PRIVACY_PREFERENCES){
-      setTimeout(this._init.bind(self), 500)
+    if (
+      this.OtActiveGroups &&
+      this.OtActiveGroups.length < 1 &&
+      !this.BYPASS_PRIVACY_PREFERENCES
+    ) {
+      setTimeout(this._init.bind(this), 500)
     } else {
       this._onConsentChange && this._onConsentChange()
     }

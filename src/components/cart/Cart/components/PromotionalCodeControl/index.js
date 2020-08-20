@@ -41,7 +41,7 @@ export class PromotionalCodeControl extends React.PureComponent {
           value={this.state.value}
           data-h='cart-coupon-input'
         />
-        <ApplyButton onClick={this.handleApply} data-h='cart-coupon-btn' >
+        <ApplyButton onClick={this.handleApply} data-h='cart-coupon-btn'>
           <FormattedMessage id='cart.couponCode.apply' />
         </ApplyButton>
       </Wrapper>

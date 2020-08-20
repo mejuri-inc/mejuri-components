@@ -50,7 +50,6 @@ export const Columns = styled.div`
 `
 Columns.displayName = 'SuggestedColumnsProductsItem'
 
-
 export const Image = styled.img`
   height: 120px;
   width: 120px;
@@ -103,11 +102,10 @@ export const Link = styled.a`
     bottom: 3px;
     background: ${colors.black};
   }
-  
   &:hover {
     color: ${colors.darkGray1};
   }
-  &::after:after{
+  &::after:after {
     background: ${colors.darkGray1};
   }
 `

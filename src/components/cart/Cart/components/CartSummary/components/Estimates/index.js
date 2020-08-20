@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { List, Row, Total } from '../../styled'
+import { List, Row } from '../../styled'
 import { toCurrencyWithCode } from 'helpers/currency'
 import Shipping from 'components/cart/Cart/components/CartSummary/components/Shipping'
 
@@ -14,7 +14,9 @@ export const Estimates = ({ estimates }) => {
         const formattedPrice = toCurrencyWithCode(amount, currency)
 
         if (estimate.type === 'shipping') {
-          return <Shipping {...estimate} currency={currency} key={estimate.id} />
+          return (
+            <Shipping {...estimate} currency={currency} key={estimate.id} />
+          )
         }
 
         return (

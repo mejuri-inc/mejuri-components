@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Wrapper, Selector, Error, Message, Arrow, Container } from './styled'
 import PropTypes from 'prop-types'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage, injectIntl } from 'react-intl'
 import ChevronIcon from 'resources/icons/Chevron'
 
 const ERROR_TIMER = 2000
@@ -9,7 +9,6 @@ const ERROR_TIMER = 2000
 class Input extends PureComponent {
   static propTypes = {
     Submit: PropTypes.func,
-    intl: intlShape.isRequired,
     validateValue: PropTypes.func,
     validationErrorId: PropTypes.string,
     emptyValueErrorId: PropTypes.string,

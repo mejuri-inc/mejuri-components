@@ -26,7 +26,10 @@ export const Navigation = ({
                 onClick={() => setActive(i.sys.id)}
                 key={i.sys.id}
               >
-                <ItemLink href={get(i, 'fields.url') ? i.fields.url : '#'} data-h='header-left-navigation-btn' >
+                <ItemLink
+                  href={get(i, 'fields.url') ? i.fields.url : '#'}
+                  data-h='header-left-navigation-btn'
+                >
                   {i.fields.text}
                 </ItemLink>
                 <Layer active={i.sys.id === activeSection}>

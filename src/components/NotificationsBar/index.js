@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import get from 'lodash.get'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import NotificationBar from './NotificationBar'
+/* global localStorage */
 
 const storeKey = 'mj-notification-bar'
 
@@ -67,7 +68,9 @@ export class NotificationsBar extends React.Component {
   }
 
   notificationBarsFilterByDismiss(dismissList, notificationBars) {
-    const newNotificationBars = notificationBars.filter(function(notification) {
+    const newNotificationBars = notificationBars.filter(function (
+      notification
+    ) {
       return (
         dismissList.findIndex(
           (element) => element.id === notification.fields.identifier
