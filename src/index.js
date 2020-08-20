@@ -15,6 +15,10 @@ import IsOnScreen from './components/common/IsOnScreen'
 import Footer from './components/Footer'
 import OnboardingModal from './components/OnboardingModal'
 
+// REACT COMMON COMPONENTS
+import Spinner from './components/common/Spinner'
+import ButtonLink from './components/common/ButtonLink'
+
 // SERVICES
 import { ContentfulAPI } from './services/ContentfulApi'
 import UserConsent from './services/UserConsent'
@@ -42,5 +46,7 @@ export {
   Overlay,
   IsOnScreen,
   Footer,
-  OnboardingModal
+  OnboardingModal,
+  Spinner,
+  ButtonLink
 }
