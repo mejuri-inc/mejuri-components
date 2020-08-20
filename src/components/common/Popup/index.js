@@ -19,11 +19,11 @@ class Popup extends Component {
 
   static noScrollClass = '--noscroll'
 
-  componentDidMount () {
+  componentDidMount() {
     document.documentElement.classList.add(Popup.noScrollClass)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.documentElement.classList.remove(Popup.noScrollClass)
   }
 
@@ -33,7 +33,7 @@ class Popup extends Component {
     if (result !== false) onClose(e)
   }
 
-  render () {
+  render() {
     const { children, showClose, onClose } = this.props
 
     return (

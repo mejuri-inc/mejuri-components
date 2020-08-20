@@ -1,4 +1,4 @@
-import "regenerator-runtime/runtime.js"
+import 'regenerator-runtime/runtime.js'
 
 // REACT COMPONENTS
 import Header from './components/Header'
@@ -19,12 +19,12 @@ import OnboardingModal from './components/OnboardingModal'
 import { ContentfulAPI } from './services/ContentfulApi'
 import UserConsent from './services/UserConsent'
 
+// OTHER
+import Theme from './themes/styled'
+
 // HELPERS
 export * from './helpers/itemDescription'
 export * from './helpers/currency'
-
-// OTHER
-import Theme from './themes/styled'
 
 export {
   ContentfulAPI,
@@ -42,5 +42,5 @@ export {
   Overlay,
   IsOnScreen,
   Footer,
-  OnboardingModal,
+  OnboardingModal
 }

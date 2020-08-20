@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { intlShape, injectIntl } from 'react-intl'
-import {TextField} from '@material-ui/core'
+import { TextField } from '@material-ui/core'
 
 const StyledTextField = styled(TextField)`
   border: 2px solid tomato;

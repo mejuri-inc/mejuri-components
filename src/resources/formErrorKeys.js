@@ -26,12 +26,12 @@ const o = {
   array: ['min', 'max']
 }
 
-let mapping = {}
+const mapping = {}
 
-for (let key in o) {
+for (const key in o) {
   const val = o[key]
 
-  val.forEach(v => {
+  val.forEach((v) => {
     if (!mapping[key]) mapping[key] = {}
     mapping[key][v] = `form.error.${key}.${v}`
   })

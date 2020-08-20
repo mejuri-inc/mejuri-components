@@ -1,7 +1,13 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable standard/no-callback-literal */
+/* eslint-disable no-return-assign */
+/* eslint-disable prefer-const */
+/* eslint-disable one-var */
+/* eslint-disable prettier/prettier */
+
 import UserConsent from './index'
 
 describe('UserConsent', () => {
-
   beforeEach(()=>{
     UserConsent.BYPASS_PRIVACY_PREFERENCES = false
   })
