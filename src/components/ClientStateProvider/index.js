@@ -1,7 +1,7 @@
 import React from 'react'
-import { MEJURI_API_HOST } from 'config/client-env'
-import session from 'services/session'
-import api from 'services/api'
+import PropTypes from 'prop-types'
+import getCurrentSession from './session'
+import api from './api'
 import get from 'lodash.get'
 
 export const ClientStateContext = React.createContext({})
@@ -80,7 +80,7 @@ export class ClientStateProvider extends React.Component {
         setCouponCode: this.setCouponCode,
         addSuggestionItem: this.addSuggestionItem,
         onContinue: () => {
-          window.location = `${MEJURI_API_HOST}/checkout`
+          window.location = `${props.apiHost}/checkout`
         }
       },
       cartItemsCount: 0,
@@ -108,7 +108,11 @@ export class ClientStateProvider extends React.Component {
 
   async getSession() {
     try {
-      const sessionResponse = await session.getApiAuth(this.state)
+      const sessionResponse = await getCurrentSession(
+        this.state,
+        this.props.apiHost
+      )
+
       this.setState(
         {
           session: sessionResponse.current
@@ -122,7 +126,11 @@ export class ClientStateProvider extends React.Component {
 
   async getOrder() {
     try {
-      const orderResponse = await api.fetchOrder(this.state)
+      const orderResponse = await api.cart.fetchOrder(
+        this.state,
+        this.props.apiHost
+      )
+
       this.setState({
         order: orderResponse,
         cartItemsCount: calculateCartItemsCount(
@@ -138,7 +146,11 @@ export class ClientStateProvider extends React.Component {
 
   async loadSuggestions() {
     try {
-      const response = await api.cart.fetchSuggestions(this.state)
+      const response = await api.cart.fetchSuggestions(
+        this.state,
+        this.props.apiHost
+      )
+
       this.setState({ suggestions: response.products })
     } catch (e) {
       console.error('Error getting product suggestions', e)
@@ -157,7 +169,14 @@ export class ClientStateProvider extends React.Component {
   async removeItem(itemId) {
     try {
       this.setState({ isLoading: true })
-      await api.cart.removeItem(this.state, this.state.order.number, itemId)
+
+      await api.cart.removeItem(
+        this.state,
+        this.state.order.number,
+        itemId,
+        this.props.apiHost
+      )
+
       await this.getOrder()
     } catch (e) {
       console.error('Error removing item', e)
@@ -169,12 +188,15 @@ export class ClientStateProvider extends React.Component {
   async updateItemQuantity(itemId, quantity) {
     try {
       this.setState({ isLoading: true })
+
       await api.cart.updateItem(
         this.state,
         this.state.order.number,
         itemId,
+        this.props.apiHost,
         quantity
       )
+
       await this.getOrder()
     } catch (e) {
       console.error('Error removing item', e)
@@ -186,13 +208,16 @@ export class ClientStateProvider extends React.Component {
   async setPickup(itemId, quantity, pickUp) {
     try {
       this.setState({ isLoading: true })
+
       await api.cart.updateItem(
         this.state,
         this.state.order.number,
         itemId,
+        this.props.apiHost,
         quantity,
         pickUp
       )
+
       await this.getOrder()
     } catch (e) {
       console.error('Error removing item', e)
@@ -208,11 +233,14 @@ export class ClientStateProvider extends React.Component {
   async setCouponCode(code) {
     try {
       this.setState({ isLoading: true })
+
       await api.couponCodes.applyCoupon(
         this.state,
         this.state.order.number,
-        code
+        code,
+        this.props.apiHost
       )
+
       await this.getOrder()
     } catch (e) {
       this.setState({ couponError: true })
@@ -225,7 +253,14 @@ export class ClientStateProvider extends React.Component {
   async addSuggestionItem(itemId) {
     try {
       this.setState({ isLoading: true })
-      await api.cart.addItem(this.state, this.state.order.number, itemId)
+
+      await api.cart.addItem(
+        this.state,
+        this.state.order.number,
+        itemId,
+        this.props.apiHost
+      )
+
       await this.getOrder()
     } catch (e) {
       console.error('Error adding item', e)
@@ -243,4 +278,8 @@ export class ClientStateProvider extends React.Component {
       </ClientStateContext.Provider>
     )
   }
+}
+
+ClientStateProvider.propTypes = {
+  apiHost: PropTypes.string.required
 }
