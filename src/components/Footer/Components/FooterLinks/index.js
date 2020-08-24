@@ -20,20 +20,18 @@ export default class FooterLinks extends PureComponent {
   renderLinks(links) {
     if (!links) return null
     return map(links, (link) => (
-      <Link key={link.sys.id}>
-        {link.fields &&
-        link.fields.extraFields &&
-        link.fields.extraFields.attributes ? (
+      <Link key={link._id}>
+        {link && link.extraFields && link.extraFields.attributes ? (
           <a
-            href={link.fields.url}
-            {...link.fields.extraFields.attributes}
+            href={link.url}
+            {...link.extraFields.attributes}
             data-h='footer-btn'
           >
-            {link.fields.text}
+            {link.text}
           </a>
         ) : (
-          <a href={link.fields.url} data-h='footer-btn'>
-            {link.fields.text}
+          <a href={link.url} data-h='footer-btn'>
+            {link.text}
           </a>
         )}
       </Link>
@@ -42,24 +40,24 @@ export default class FooterLinks extends PureComponent {
 
   render() {
     const sections = this.props.config.children.filter(function (x) {
-      const isLegal = get(x, 'fields.extraFields.legal', false)
+      const isLegal = get(x, 'extraFields.legal', false)
       return !isLegal
     })
     return (
       <Wrapper>
         <DesktopWrapper>
           {map(sections, (section) => (
-            <Col key={section.sys.id}>
-              <Title>{section.fields.text}</Title>
-              <Links>{this.renderLinks(section.fields.children)}</Links>
+            <Col key={section._id}>
+              <Title>{section.text}</Title>
+              <Links>{this.renderLinks(section.children)}</Links>
             </Col>
           ))}
         </DesktopWrapper>
         <MobileWrapper>
           {map(sections, (section) => (
-            <Col key={section.sys.id}>
-              <Title>{section.fields.text}</Title>
-              <Links>{this.renderLinks(section.fields.children)}</Links>
+            <Col key={section._id}>
+              <Title>{section.text}</Title>
+              <Links>{this.renderLinks(section.children)}</Links>
             </Col>
           ))}
         </MobileWrapper>
