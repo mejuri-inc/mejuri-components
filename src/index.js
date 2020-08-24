@@ -14,6 +14,10 @@ import Overlay from './components/common/Overlay'
 import IsOnScreen from './components/common/IsOnScreen'
 import Footer from './components/Footer'
 import OnboardingModal from './components/OnboardingModal'
+import {
+  ClientStateProvider,
+  ClientStateContext
+} from './components/ClientStateProvider'
 
 // REACT COMMON COMPONENTS
 import Spinner from './components/common/Spinner'
@@ -48,5 +52,7 @@ export {
   Footer,
   OnboardingModal,
   Spinner,
-  ButtonLink
+  ButtonLink,
+  ClientStateProvider,
+  ClientStateContext
 }

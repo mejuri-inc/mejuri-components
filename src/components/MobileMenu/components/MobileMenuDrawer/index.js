@@ -45,7 +45,7 @@ MobileMenuDrawer.propTypes = {
   label: PropTypes.string,
   isOpen: PropTypes.bool,
   isLoggedIn: PropTypes.bool,
-  pos: PropTypes.object,
+  pos: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
