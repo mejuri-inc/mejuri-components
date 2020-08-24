@@ -112,13 +112,13 @@ export class NotificationsBar extends React.Component {
       <Notifications>
         {notificationBars.map((bar) => (
           <NotificationBar
-            backgroundColor={bar.fields.backgroundColor}
-            textColor={bar.fields.textColor}
-            mustHideInMobile={bar.fields.collapsed}
-            key={bar.fields.identifier}
-            text={this.formatText(bar.fields.legend)}
+            backgroundColor={bar.backgroundColor}
+            textColor={bar.textColor}
+            mustHideInMobile={bar.collapsed}
+            key={bar.identifier}
+            text={this.formatText(bar.legend)}
             onDismiss={this.dismiss}
-            identifier={bar.fields.identifier}
+            identifier={bar.identifier}
           />
         ))}
       </Notifications>

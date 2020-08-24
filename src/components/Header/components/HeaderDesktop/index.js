@@ -34,12 +34,8 @@ function HeaderDesktop({
 }) {
   const [activeSection, setActiveSection] = useState(null)
 
-  const leftMenu = config.filter(
-    (item) => get(item, 'fields.type') !== 'right-link'
-  )
-  const rightMenu = config.filter(
-    (item) => get(item, 'fields.type') === 'right-link'
-  )
+  const leftMenu = config.filter((item) => get(item, 'type') !== 'right-link')
+  const rightMenu = config.filter((item) => get(item, 'type') === 'right-link')
 
   return (
     <ScrollBreakpoint top={150}>
@@ -74,11 +70,11 @@ function HeaderDesktop({
               {rightMenu.length > 0 &&
                 rightMenu.map((item) => (
                   <ButtonLink
-                    key={item.sys.id}
-                    href={item.fields.url}
+                    key={item._id}
+                    href={item.url}
                     data-h='header-right-btn'
                   >
-                    {item.fields.text}
+                    {item.text}
                   </ButtonLink>
                 ))}
               <UserSection

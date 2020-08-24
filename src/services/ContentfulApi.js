@@ -209,6 +209,20 @@ export class ContentfulAPI {
     return formatted
   }
 
+  parseEntries(data) {
+    const parsedData = this.getClient().parseEntries(data)
+    const formattedData = this.formatResponse(parsedData)
+    return formattedData
+  }
+
+  filterNotificationsByLocale(bars, localeCode) {
+    return bars.filter(
+      (n) =>
+        !n.exclusiveLocales ||
+        (n.exclusiveLocales && n.exclusiveLocales.find((l) => l === localeCode))
+    )
+  }
+
   async getNotificationBars(localeCode) {
     try {
       const client = this.getClient()
@@ -216,11 +230,10 @@ export class ContentfulAPI {
         content_type: 'notificationBar',
         locale: localeCode || this.locale
       })
-      const filtered = result.items.filter(
-        (n) =>
-          !n.fields.exclusiveLocales ||
-          (n.fields.exclusiveLocales &&
-            n.fields.exclusiveLocales.find((l) => l === localeCode))
+      const formattedData = this.formatResponse(result)
+      const filtered = this.filterNotificationsByLocale(
+        formattedData,
+        localeCode
       )
       return filtered
     } catch (e) {
