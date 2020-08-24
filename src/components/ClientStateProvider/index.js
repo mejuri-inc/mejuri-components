@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropType from 'prop-types'
 import getCurrentSession from './session'
 import api from './api'
 import get from 'lodash.get'
@@ -281,5 +281,5 @@ export class ClientStateProvider extends React.Component {
 }
 
 ClientStateProvider.propTypes = {
-  apiHost: PropTypes.string.required
+  apiHost: PropType.string.isRequired
 }
