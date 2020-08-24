@@ -46,7 +46,7 @@ export class Onboarding extends Component {
 
   componentDidMount() {
     const { recaptchaKey } = this.props
-    if (recaptchaKey && this.r.current) {
+    if (window.grecaptcha && recaptchaKey && this.r.current) {
       window.grecaptcha.ready(() => {
         window.grecaptcha.render(this.r.current, {
           sitekey: recaptchaKey,
