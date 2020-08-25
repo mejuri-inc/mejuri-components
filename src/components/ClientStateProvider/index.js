@@ -62,21 +62,20 @@ export class ClientStateProvider extends React.Component {
     this.setCouponCode = () => this.setCouponCode.bind(this)
     this.addSuggestionItem = () => this.addSuggestionItem.bind(this)
     this.updateItemQuantity = () => this.updateItemQuantity.bind(this)
-    this.dismissCouponError = () => this.dismissCouponError.bind(this)
-    this.mobileMenuToggle = () => this.mobileMenuToggle.bind(this)
 
     this.state = {
       session: {},
       cartOpened: false,
       couponError: false,
       mobileMenuOpened: false,
-      mobileMenuToggle: this.mobileMenuToggle,
+      mobileMenuToggle: () =>
+        this.setState({ mobileMenuOpened: !this.state.mobileMenuOpened }),
       cartActions: {
-        toggle: this.cartToggle,
+        toggle: () => this.setState({ cartOpened: !this.state.cartOpened }),
         removeItem: this.removeItem,
         updateItemQuantity: this.updateItemQuantity,
         setPickup: this.setPickup,
-        dismissCouponError: this.dismissCouponError,
+        dismissCouponError: () => this.setState({ couponError: false }),
         setCouponCode: this.setCouponCode,
         addSuggestionItem: this.addSuggestionItem,
         onContinue: () => {
@@ -161,11 +160,6 @@ export class ClientStateProvider extends React.Component {
     this.setState({ cartOpened: !this.state.cartOpened })
   }
 
-  mobileMenuToggle() {
-    const { mobileMenuOpened } = this.state
-    this.setState({ mobileMenuOpened: !mobileMenuOpened })
-  }
-
   async removeItem(itemId) {
     try {
       this.setState({ isLoading: true })
@@ -224,10 +218,6 @@ export class ClientStateProvider extends React.Component {
     } finally {
       this.setState({ isLoading: false })
     }
-  }
-
-  dismissCouponError() {
-    this.setState({ couponError: false })
   }
 
   async setCouponCode(code) {
