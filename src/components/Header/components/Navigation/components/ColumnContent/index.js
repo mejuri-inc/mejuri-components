@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import get from 'lodash.get'
+import { posFilter } from 'components/MobileMenu/filters.js'
 
 const MenuItem = styled.a`
   color: ${(p) => p.theme.colors.black};
@@ -20,14 +20,12 @@ const MenuItem = styled.a`
 `
 
 function ColumnContent({ config, onClickTracking, pos }) {
-  return config.map((menuItem) => {
-    if (!menuItem.fields) return null
-    const isPosOnly = get(menuItem, 'fields.extraFields.posOnly', false)
-    if (isPosOnly && !pos) return null
+  return config.filter(posFilter(pos)).map((menuItem) => {
+    if (!menuItem || !menuItem.text) return null
     return (
       <MenuItem
-        key={menuItem.sys.id}
-        href={menuItem.fields.url}
+        key={menuItem._id}
+        href={menuItem.url}
         onClick={() => {
           onClickTracking({
             target: menuItem.fields.text.toLowerCase().split(' ').join('_')
@@ -35,7 +33,7 @@ function ColumnContent({ config, onClickTracking, pos }) {
         }}
         data-h='header-left-navigation-menu-btn'
       >
-        {menuItem.fields && menuItem.fields.text}
+        {menuItem.text}
       </MenuItem>
     )
   })
@@ -45,6 +43,10 @@ ColumnContent.propTypes = {
   config: PropTypes.array,
   onClickTracking: PropTypes.func,
   pos: PropTypes.bool
+}
+
+ColumnContent.defaultProps = {
+  pos: false
 }
 
 export default ColumnContent
