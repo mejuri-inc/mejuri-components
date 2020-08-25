@@ -54,7 +54,7 @@ function HeaderDesktop({
               setActive={setActiveSection}
               activeSection={activeSection}
               onClickTracking={onClickTracking}
-              pos={pos}
+              pos={!!pos}
             />
             <Logo href='/' shrinked={shrinkPointReached}>
               <MejuriLogo />

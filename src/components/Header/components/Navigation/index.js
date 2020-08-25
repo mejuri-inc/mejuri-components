@@ -56,7 +56,7 @@ Navigation.propTypes = {
   setActive: PropTypes.func,
   onClickTracking: PropTypes.func,
   activeSection: PropTypes.string,
-  pos: PropTypes.object
+  pos: PropTypes.bool
 }
 
 export default Navigation
