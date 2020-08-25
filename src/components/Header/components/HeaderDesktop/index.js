@@ -33,9 +33,12 @@ function HeaderDesktop({
   trackSearchOpen
 }) {
   const [activeSection, setActiveSection] = useState(null)
-
-  const leftMenu = config.filter((item) => get(item, 'type') !== 'right-link')
-  const rightMenu = config.filter((item) => get(item, 'type') === 'right-link')
+  const leftMenu = config
+    ? config.filter((item) => get(item, 'type') !== 'right-link')
+    : []
+  const rightMenu = config
+    ? config.filter((item) => get(item, 'type') === 'right-link')
+    : []
 
   return (
     <ScrollBreakpoint top={150}>

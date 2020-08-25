@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ColumnContent from '../ColumnContent'
+import { posFilter } from 'components/MobileMenu/filters.js'
 
 export const Column = styled.div`
   min-width: 200px;
@@ -20,18 +21,17 @@ const MENU_HIDDEN_TITLE = 'hidden'
 
 function LayerContent({ config, onClickTracking, pos }) {
   return config
-    .filter((c) => c.fields !== undefined)
+    .filter((c) => c !== undefined)
+    .filter(posFilter(pos))
     .map((col) => {
       return (
-        <Column key={col.fields && col.sys.id}>
-          {col.fields &&
-            col.fields.text &&
-            col.fields.type !== MENU_HIDDEN_TITLE && (
-              <MenuTitle>{col.fields.text}</MenuTitle>
-            )}
-          {col.fields && col.fields.children && (
+        <Column key={col && col._id}>
+          {col && col.text && col.type !== MENU_HIDDEN_TITLE && (
+            <MenuTitle>{col.text}</MenuTitle>
+          )}
+          {col && col.children && (
             <ColumnContent
-              config={col.fields.children}
+              config={col.children}
               onClickTracking={onClickTracking}
               pos={pos}
             />

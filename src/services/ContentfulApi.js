@@ -32,8 +32,8 @@ export class ContentfulAPI {
     return this
   }
 
-  setLocale(locale) {
-    this.locale = locale
+  setLocale(localeCode) {
+    this.localeCode = localeCode
     return this
   }
 
@@ -86,7 +86,7 @@ export class ContentfulAPI {
 
   async getContentType(type, queryOptions = {}) {
     const { client = this.getClient(), ...rest } = queryOptions
-    const currentLocale = this.locale
+    const currentLocale = this.localeCode
     const query = this.formatQuery(rest)
     try {
       const args = { content_type: type, locale: currentLocale, ...query }
@@ -255,7 +255,36 @@ export class ContentfulAPI {
       console.log(e)
     }
   }
-}
 
-// const singleton = new ContentfulAPI()
-// export function getSingleton()
+  async getHeaderMenu(localeCode) {
+    try {
+      const client = this.getClient()
+      const response = await client.getEntries({
+        content_type: 'menuConfiguration',
+        'fields.text': 'global-header-menu',
+        include: 3,
+        locale: localeCode || this.locale
+      })
+      const formatted = this.formatResponse(response)
+      return formatted && formatted.length && formatted[0].children
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  async getPageFooter(localeCode) {
+    try {
+      const client = this.getClient()
+      const response = await client.getEntries({
+        content_type: 'menuConfiguration',
+        'fields.text': 'global-footer',
+        include: 3,
+        locale: localeCode || this.locale
+      })
+      const formatted = this.formatResponse(response)
+      return formatted && formatted.length && formatted[0]
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
