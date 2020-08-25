@@ -21,8 +21,6 @@ const MENU_HIDDEN_TITLE = 'hidden'
 
 function LayerContent({ config, onClickTracking, pos }) {
   return config.filter(posFilter(pos)).map((col) => {
-    console.log(pos)
-    console.log(col.pos)
     return (
       <Column key={col && col._id}>
         {col && col.text && col.type !== MENU_HIDDEN_TITLE && (
