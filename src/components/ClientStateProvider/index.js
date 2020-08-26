@@ -270,6 +270,10 @@ export class ClientStateProvider extends React.Component {
   }
 }
 
+ClientStateProvider.defaultProps = {
+  apiHost: window.location.origin
+}
+
 ClientStateProvider.propTypes = {
-  apiHost: PropType.string.isRequired
+  apiHost: PropType.string
 }
