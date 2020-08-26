@@ -37,6 +37,7 @@ export const ItemLink = styled.a`
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.25s;
+  white-space: nowrap;
 
   &:hover,
   &:focus {
