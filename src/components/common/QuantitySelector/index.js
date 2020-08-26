@@ -11,7 +11,7 @@ export const QuantitySelector = ({
   trackIncrease,
   trackDecrease
 }) => {
-  const decreaseValue = value <= stock || backOrderable? value - 1 : stock
+  const decreaseValue = value <= stock || backOrderable ? value - 1 : stock
   return (
     <Wrapper>
       <Btn
