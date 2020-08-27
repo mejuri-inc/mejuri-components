@@ -14,6 +14,7 @@ import Overlay from './components/common/Overlay'
 import IsOnScreen from './components/common/IsOnScreen'
 import Footer from './components/Footer'
 import OnboardingModal from './components/OnboardingModal'
+import PosNotificationBar from './components/PosNotificationBar'
 import {
   ClientStateProvider,
   ClientStateContext
@@ -53,6 +54,7 @@ export {
   OnboardingModal,
   Spinner,
   ButtonLink,
+  PosNotificationBar,
   ClientStateProvider,
   ClientStateContext
 }
