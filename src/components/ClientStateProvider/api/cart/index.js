@@ -42,21 +42,24 @@ export const updateItem = (
   )
 }
 
-export const addItem = (state, orderNumber, itemId, apiHost) => {
-  return fetchApi(
-    state,
-    `${apiHost}/shop/api/orders/${orderNumber}/line_items`,
-    {
-      method: 'POST',
-      data: {
-        lineItem: {
-          variantId: itemId,
-          quantity: 1
-        }
+export const addItem = (state, orderNumber, itemId, apiHost) =>
+  fetchApi(state, `${apiHost}/shop/api/orders/${orderNumber}/line_items`, {
+    method: 'POST',
+    data: {
+      lineItem: {
+        variantId: itemId,
+        quantity: 1
       }
     }
-  )
-}
+  })
+
+export const setCurrency = (state, currency, apiHost) =>
+  fetchApi(state, `${apiHost}/shop/currency/set`, {
+    method: 'POST',
+    data: {
+      currency: currency
+    }
+  })
 
 export const fetchSuggestions = (state, apiHost) =>
   fetchApi(state, `${apiHost}/api/v1/cart/sample-cart-products`)

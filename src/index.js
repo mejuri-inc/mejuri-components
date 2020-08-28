@@ -13,6 +13,7 @@ import MainSearch from './components/MainSearch'
 import Overlay from './components/common/Overlay'
 import IsOnScreen from './components/common/IsOnScreen'
 import Footer from './components/Footer'
+import CurrencySelector from './components/CurrencySelector'
 import OnboardingModal from './components/OnboardingModal'
 import PosNotificationBar from './components/PosNotificationBar'
 import {
@@ -51,6 +52,7 @@ export {
   Overlay,
   IsOnScreen,
   Footer,
+  CurrencySelector,
   OnboardingModal,
   Spinner,
   ButtonLink,
