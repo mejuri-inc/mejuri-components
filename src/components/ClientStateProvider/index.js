@@ -56,15 +56,15 @@ export class ClientStateProvider extends React.Component {
   constructor(props) {
     super(props)
 
-    this.setPickup = () => this.setPickup.bind(this)
-    this.cartToggle = () => this.cartToggle.bind(this)
-    this.removeItem = () => this.removeItem.bind(this)
-    this.setCouponCode = () => this.setCouponCode.bind(this)
-    this.addSuggestionItem = () => this.addSuggestionItem.bind(this)
-    this.updateItemQuantity = () => this.updateItemQuantity.bind(this)
+    this.setPickup = this.setPickup.bind(this)
+    this.removeItem = this.removeItem.bind(this)
+    this.setCurrency = this.setCurrency.bind(this)
+    this.setCouponCode = this.setCouponCode.bind(this)
+    this.addSuggestionItem = this.addSuggestionItem.bind(this)
+    this.updateItemQuantity = this.updateItemQuantity.bind(this)
 
     this.state = {
-      session: {},
+      session: { region: { availableCurrencies: [] } },
       cartOpened: false,
       couponError: false,
       mobileMenuOpened: false,
@@ -78,6 +78,7 @@ export class ClientStateProvider extends React.Component {
         dismissCouponError: () => this.setState({ couponError: false }),
         setCouponCode: this.setCouponCode,
         addSuggestionItem: this.addSuggestionItem,
+        setCurrency: this.setCurrency,
         onContinue: () => {
           window.location = `${props.apiHost}/checkout`
         }
@@ -143,6 +144,20 @@ export class ClientStateProvider extends React.Component {
     }
   }
 
+  async setCurrency(currency) {
+    try {
+      this.setState({ isLoading: true })
+
+      await api.cart.setCurrency(this.state, currency, this.props.apiHost)
+
+      await this.getOrder()
+    } catch (e) {
+      console.error('Error setting currency', e)
+    } finally {
+      this.setState({ isLoading: false })
+    }
+  }
+
   async loadSuggestions() {
     try {
       const response = await api.cart.fetchSuggestions(
@@ -154,10 +169,6 @@ export class ClientStateProvider extends React.Component {
     } catch (e) {
       console.error('Error getting product suggestions', e)
     }
-  }
-
-  cartToggle() {
-    this.setState({ cartOpened: !this.state.cartOpened })
   }
 
   async removeItem(itemId) {
