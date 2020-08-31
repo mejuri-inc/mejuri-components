@@ -1,14 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Footer, FooterItem, FooterLink } from './styled'
 import { loggedInFilter, posFilter } from '../../filters'
 
 function FooterSection({
-  options = [],
+  options,
   openSubPage,
-  pos = false,
+  pos,
   currencySelector,
-  isLoggedIn = false,
-  openOnboarding = () => {}
+  isLoggedIn,
+  openOnboarding
 }) {
   function onClickFunction(o) {
     if (o.children) return () => openSubPage(o._id)
@@ -35,6 +36,22 @@ function FooterSection({
       {currencySelector && <FooterItem>{currencySelector}</FooterItem>}
     </Footer>
   )
+}
+
+FooterSection.defaultProps = {
+  options: [],
+  pos: false,
+  isLoggedIn: false,
+  openOnboarding: () => {}
+}
+
+FooterSection.propTypes = {
+  options: PropTypes.array,
+  openSubPage: PropTypes.func,
+  pos: PropTypes.bool,
+  currencySelector: PropTypes.element,
+  isLoggedIn: PropTypes.bool,
+  openOnboarding: PropTypes.func
 }
 
 export default FooterSection

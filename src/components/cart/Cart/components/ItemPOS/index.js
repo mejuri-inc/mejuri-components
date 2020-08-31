@@ -15,12 +15,12 @@ export const ItemPOS = ({
   <Wrapper>
     <Col>
       {available && (
-      <Checkbox
-        label='cart.items.walkOut'
-        onChange={() => setWalkout(itemId, quantity, !walkout)}
-        checked={walkout || forceWalkout}
-        disabled={forceWalkout}
-      />
+        <Checkbox
+          label='cart.items.walkOut'
+          onChange={() => setWalkout(itemId, quantity, !walkout)}
+          checked={walkout || forceWalkout}
+          disabled={forceWalkout}
+        />
       )}
     </Col>
     <Col>

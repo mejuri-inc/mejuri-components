@@ -138,7 +138,7 @@ export class MobileMenu extends React.Component {
                     isOpen={this.state.openDrawer === o._id}
                     options={o.children}
                     glassClick={this.handleSearchClick}
-                    pos={pos}
+                    pos={!!pos}
                     isLoggedIn={isLoggedIn}
                   />
                 ))}
@@ -146,7 +146,7 @@ export class MobileMenu extends React.Component {
                   openSubPage={this.openSubPage}
                   options={get(bottom, 'children')}
                   currencySelector={currencySelector}
-                  pos={pos}
+                  pos={!!pos}
                   isLoggedIn={isLoggedIn}
                   openOnboarding={this.handleSignInClick}
                 />
