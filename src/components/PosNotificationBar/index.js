@@ -39,7 +39,7 @@ const PosNotificationBar = ({ pos, user, apiHost }) => {
 }
 
 PosNotificationBar.defaultProps = {
-  apiHost: window.location.origin
+  apiHost: typeof window !== 'undefined' ? window.location.origin : ''
 }
 
 PosNotificationBar.propTypes = {
