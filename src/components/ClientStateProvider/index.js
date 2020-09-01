@@ -80,7 +80,9 @@ export class ClientStateProvider extends React.Component {
         addSuggestionItem: this.addSuggestionItem,
         setCurrency: this.setCurrency,
         onContinue: () => {
-          window.location = `${props.apiHost}/checkout`
+          if (typeof window !== 'undefined') {
+            window.location = `${props.apiHost}/checkout`
+          }
         }
       },
       cartItemsCount: 0,
@@ -282,7 +284,7 @@ export class ClientStateProvider extends React.Component {
 }
 
 ClientStateProvider.defaultProps = {
-  apiHost: window.location.origin
+  apiHost: typeof window !== 'undefined' ? window.location.origin : ''
 }
 
 ClientStateProvider.propTypes = {
