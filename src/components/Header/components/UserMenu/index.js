@@ -44,6 +44,7 @@ UserMenu.defaultProps = {
     { url: '/profile/history', title: 'header.userMenu.myOrders' },
     { url: '/profile/wish-list', title: 'header.userMenu.myWishList' },
     { url: '/profile/return', title: 'header.userMenu.returns' },
+    { url: '/shop/admin', title: 'header.userMenu.spreeAdmin' },
     { url: '/signout', title: 'header.userMenu.signOut' }
   ]
 }
