@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import ButtonLink from 'components/common/ButtonLink'
 import colors from 'styles/colors'
 

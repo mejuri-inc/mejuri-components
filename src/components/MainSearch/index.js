@@ -270,4 +270,10 @@ MainSearch.defaultProps = {
   trackSearchClose: () => {}
 }
 
+MainSearch.propTypes = {
+  close: PropTypes.func,
+  trackSearch: PropTypes.func,
+  trackSearchClose: PropTypes.func
+}
+
 export default MainSearch

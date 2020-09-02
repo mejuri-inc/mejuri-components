@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import { fontWeight } from 'styles/settings'
 import { fadeIn } from 'styles/effects'
 import colors from 'styles/colors'

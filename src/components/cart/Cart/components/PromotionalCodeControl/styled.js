@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import Button from 'components/common/Button'
 import { fontWeight } from 'styles/settings'
 import colors from 'styles/colors'

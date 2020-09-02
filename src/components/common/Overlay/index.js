@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 
 const Layer = styled.div`
   background: white;
