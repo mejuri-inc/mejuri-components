@@ -25,7 +25,7 @@ DesktopWrapper.displayName = 'FooterLinksDesktopWrapper'
 
 export const MobileWrapper = styled.div`
   display: flex;
-  width: 100%
+  width: 100%;
   justify-content: space-between;
   @media (min-width: ${lg}) {
     display: none;
