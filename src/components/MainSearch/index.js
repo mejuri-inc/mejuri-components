@@ -11,13 +11,7 @@ import {
   Wrapper,
   Close,
   LoadMore,
-  NoResults,
-  Also,
-  AlsoList,
-  Item,
-  ItemLink,
-  LinkName,
-  Details
+  NoResults
 } from './styled'
 import debounce from 'lodash.debounce'
 import IsOnScreen from 'components/common/IsOnScreen'
@@ -25,6 +19,7 @@ import SearchOverlaySuggestions from './components/SearchOverlaySuggestions'
 import ProductGrid from './components/ProductGrid'
 import CloseIcon from 'resources/icons/CloseIcon'
 import Overlay from 'components/common/Overlay'
+import RecommendedProducts from './components/RecommendedProducts'
 import { FormattedMessage } from 'react-intl'
 import AlgoliaService from './service'
 
@@ -40,7 +35,7 @@ export class MainSearch extends PureComponent {
       searchString: '',
       results: [],
       count: 0,
-      alsoProducts: []
+      recommendedProducts: []
     }
 
     this.client = null
@@ -57,29 +52,6 @@ export class MainSearch extends PureComponent {
     this.scroll = createRef()
 
     this.service = null
-
-    this.getProduct = async (slug) => {
-      try {
-        // there is a CORS problem so you can't use prod request url to test
-        const response = await fetch(
-          // `https://staging.mejuri.com/shop/api/products/${slug}`
-          `https://mejuri.com/shop/api/products/${slug}`
-        )
-        const result = await response.json()
-        result &&
-          this.setState({
-            alsoProducts: [...this.state.alsoProducts, result]
-          })
-      } catch (e) {
-        console.log(e)
-      }
-    }
-
-    this.getProducts = (productSlugs) => {
-      productSlugs.map((s) => {
-        this.getProduct(s)
-      })
-    }
   }
 
   componentDidMount() {
@@ -90,11 +62,32 @@ export class MainSearch extends PureComponent {
   componentDidUpdate(prevProps) {
     // Focus on the input when opening.
     const { current } = this.input
-    if (this.props.isOpened && !prevProps.isOpened) {
+    const { isOpened, mightAlsoLikeProducts } = this.props
+    if (isOpened && !prevProps.isOpened) {
       current && current.focus() && current.scrollIntoView()
 
-      !this.state.alsoProducts.length > 0 &&
-        this.getProducts(this.props.mightAlsoLikeProducts.productSlugs)
+      !this.state.recommendedProducts.length > 0 &&
+        this.getProducts(mightAlsoLikeProducts.productSlugs)
+    }
+  }
+
+  getProducts(productSlugs) {
+    productSlugs.map((s) => this.getProduct(s))
+  }
+
+  async getProduct(slug) {
+    try {
+      const { apiHost } = this.props
+      const { recommendedProducts: alsoProducts } = this.state
+      const response = await fetch(`${apiHost}/shop/api/products/${slug}`)
+      const result = await response.json()
+
+      result &&
+        this.setState({
+          alsoProducts: [...alsoProducts, result]
+        })
+    } catch (e) {
+      console.log(e)
     }
   }
 
@@ -153,15 +146,66 @@ export class MainSearch extends PureComponent {
     this.debouncedSearch(e)
   }
 
-  render() {
-    const { isOpened, appId, appKey, index } = this.props
+  renderContent() {
     const {
       isFetching,
       isFetchingPage,
-      searchString,
       results,
-      count
+      searchString,
+      count,
+      recommendedProducts
     } = this.state
+
+    // If user has not entered a product to search
+    // show Suggestion products name list
+    if (searchString === '') {
+      return (
+        <SearchOverlaySuggestions
+          suggestions={this.props.topSearchSuggestions.productSlugs}
+          search={this.setSearch}
+        />
+      )
+    }
+
+    // If user did entered a product name
+    // show a grid of products that match that name
+    if (results.length) {
+      return (
+        <ProductGrid products={results} innerRef={this.scroll}>
+          {results.length < count && (
+            <IsOnScreen
+              onVisible={() => this.addPage()}
+              root={this.scroll.current}
+              offset={400}
+            >
+              <LoadMore isFetching={isFetchingPage} />
+            </IsOnScreen>
+          )}
+        </ProductGrid>
+      )
+    }
+
+    // If none of the above then user entered a unknown product
+    // Show a list of recomended products
+    if (!isFetching) {
+      return (
+        <>
+          <NoResults>
+            <FormattedMessage id='header.search.noResults' />
+          </NoResults>
+          {!!recommendedProducts && (
+            <RecommendedProducts products={recommendedProducts} />
+          )}
+        </>
+      )
+    }
+
+    return null
+  }
+
+  render() {
+    const { isOpened, appId, appKey, index } = this.props
+    const { isFetching, searchString, results, count } = this.state
 
     if (!appId || !appKey || !index) {
       return null
@@ -193,66 +237,13 @@ export class MainSearch extends PureComponent {
               </Hint>
             </Header>
             <Scrollable isFetching={isFetching}>
-              {!!results.length && this.state.searchString !== '' && (
+              {!!results.length && searchString !== '' && (
                 <NumberOfResults>
                   {count} <FormattedMessage id='header.search.results' />
                 </NumberOfResults>
               )}
-              {this.state.searchString === '' ? (
-                <SearchOverlaySuggestions
-                  suggestions={this.props.topSearchSuggestions.productSlugs}
-                  search={this.setSearch}
-                />
-              ) : results.length ? (
-                <ProductGrid products={results} innerRef={this.scroll}>
-                  {results.length < count && (
-                    <IsOnScreen
-                      onVisible={() => this.addPage()}
-                      root={this.scroll.current}
-                      offset={400}
-                    >
-                      <LoadMore isFetching={isFetchingPage} />
-                    </IsOnScreen>
-                  )}
-                </ProductGrid>
-              ) : (
-                !isFetching && (
-                  <React.Fragment>
-                    <NoResults>Sorry no results found</NoResults>
-                    {this.state.alsoProducts.length > 0 && (
-                      <React.Fragment>
-                        <Also>OH, YOU MIGHT ALSO LIKE</Also>
-                        <AlsoList>
-                          {this.state.alsoProducts.map((item) => {
-                            return (
-                              <Item key={item.id}>
-                                <ItemLink
-                                  href={`https://mejuri.com/shop/products/${item.slug}`}
-                                >
-                                  <img
-                                    src={
-                                      item.images_versions[0]
-                                        .attachment_url_small
-                                    }
-                                    alt={item.name}
-                                  />
-                                </ItemLink>
-                                <LinkName
-                                  href={`https://mejuri.com/shop/products/${item.slug}`}
-                                >
-                                  {item.name}
-                                </LinkName>
 
-                                <Details>{item.material_name}</Details>
-                              </Item>
-                            )
-                          })}
-                        </AlsoList>
-                      </React.Fragment>
-                    )}
-                  </React.Fragment>
-                )
-              )}
+              {this.renderContent()}
             </Scrollable>
           </Content>
         </Wrapper>
@@ -269,10 +260,12 @@ MainSearch.propTypes = {
   trackSearchClose: PropTypes.func,
   appId: PropTypes.string,
   appKey: PropTypes.string,
-  index: PropTypes.string
+  index: PropTypes.string,
+  apiHost: PropTypes.string
 }
 
 MainSearch.defaultProps = {
+  apiHost: typeof window !== 'undefined' ? window.location.origin : '',
   close: () => {
     console.error('close prop missing in <MainSearch />')
   },
