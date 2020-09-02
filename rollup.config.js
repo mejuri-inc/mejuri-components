@@ -18,7 +18,8 @@ const external = [
     ...dependencies
   }),
   '@material-ui/core/styles',
-  'regenerator-runtime/runtime.js'
+  'regenerator-runtime/runtime.js',
+  /@babel\/runtime/
 ]
 
 console.log('External:', external)
@@ -42,7 +43,15 @@ export default {
     //   applicationRoot: resolve(__dirname , '/src')
     // }),
     babel({
+      babelHelpers: 'runtime',
       plugins: [
+        '@babel/plugin-transform-runtime',
+        [
+          'babel-plugin-styled-components',
+          {
+            displayName: false
+          }
+        ],
         ['@babel/plugin-proposal-export-default-from'],
         [
           'module-resolver',
