@@ -262,18 +262,22 @@ export class MainSearch extends PureComponent {
   }
 }
 
+MainSearch.propTypes = {
+  isOpened: PropTypes.bool,
+  close: PropTypes.func,
+  trackSearch: PropTypes.func,
+  trackSearchClose: PropTypes.func,
+  appId: PropTypes.string,
+  appKey: PropTypes.string,
+  index: PropTypes.string
+}
+
 MainSearch.defaultProps = {
   close: () => {
     console.error('close prop missing in <MainSearch />')
   },
   trackSearch: () => {},
   trackSearchClose: () => {}
-}
-
-MainSearch.propTypes = {
-  close: PropTypes.func,
-  trackSearch: PropTypes.func,
-  trackSearchClose: PropTypes.func
 }
 
 export default MainSearch
