@@ -62,11 +62,13 @@ export class MainSearch extends PureComponent {
   componentDidUpdate(prevProps) {
     // Focus on the input when opening.
     const { current } = this.input
+    const { recommendedProducts } = this.state
     const { isOpened, mightAlsoLikeProducts } = this.props
+
     if (isOpened && !prevProps.isOpened) {
       current && current.focus() && current.scrollIntoView()
 
-      !this.state.recommendedProducts.length > 0 &&
+      !recommendedProducts.length > 0 &&
         this.getProducts(mightAlsoLikeProducts.productSlugs)
     }
   }
@@ -78,13 +80,13 @@ export class MainSearch extends PureComponent {
   async getProduct(slug) {
     try {
       const { apiHost } = this.props
-      const { recommendedProducts: alsoProducts } = this.state
+      const { recommendedProducts } = this.state
       const response = await fetch(`${apiHost}/shop/api/products/${slug}`)
       const result = await response.json()
 
       result &&
         this.setState({
-          alsoProducts: [...alsoProducts, result]
+          recommendedProducts: [...recommendedProducts, result]
         })
     } catch (e) {
       console.log(e)
@@ -155,13 +157,14 @@ export class MainSearch extends PureComponent {
       count,
       recommendedProducts
     } = this.state
+    const { topSearchSuggestions } = this.props
 
     // If user has not entered a product to search
     // show Suggestion products name list
     if (searchString === '') {
       return (
         <SearchOverlaySuggestions
-          suggestions={this.props.topSearchSuggestions.productSlugs}
+          suggestions={topSearchSuggestions.productSlugs}
           search={this.setSearch}
         />
       )
@@ -261,7 +264,13 @@ MainSearch.propTypes = {
   appId: PropTypes.string,
   appKey: PropTypes.string,
   index: PropTypes.string,
-  apiHost: PropTypes.string
+  apiHost: PropTypes.string,
+  mightAlsoLikeProducts: PropTypes.shape({
+    productSlugs: PropTypes.array
+  }),
+  topSearchSuggestions: PropTypes.shape({
+    productSlugs: PropTypes.array
+  })
 }
 
 MainSearch.defaultProps = {
@@ -270,7 +279,17 @@ MainSearch.defaultProps = {
     console.error('close prop missing in <MainSearch />')
   },
   trackSearch: () => {},
-  trackSearchClose: () => {}
+  trackSearchClose: () => {},
+  mightAlsoLikeProducts: { productSlugs: [] },
+  topSearchSuggestions: {
+    productSlugs: [
+      'Hoop Earrings',
+      'Diamond Necklace',
+      'Zodiac Necklace',
+      'Gold Bracelet',
+      'Gold Necklace'
+    ]
+  }
 }
 
 export default MainSearch
