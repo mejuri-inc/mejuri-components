@@ -27,6 +27,16 @@ describe('ContentfulAPI', () => {
     expect(response).toMatchSnapshot()
   })
 
+  it('It fetches generic components by referenceId', async () => {
+    const instance = new ContentfulAPI(credentials)
+    const response = await instance.getComponents({
+      id: '1egd1bENEWRUWOXBRVZEUq',
+      client: mockedContentfulClient,
+      referenceId : '1-1'
+    })
+    expect(response).toMatchSnapshot()
+  })
+
   it('It fetches lookbook pages', async () => {
     const instance = new ContentfulAPI(credentials)
     const response = await instance.getLookBookPages({

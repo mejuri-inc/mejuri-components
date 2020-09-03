@@ -1056,6 +1056,7 @@ const componentGeneric = {
 													"cssByBreakpoint": [],
 													"behaviours": [],
 													"type": "richText",
+                          "referenceId" : "1-1",
 													"data": {
 														"entryId": "3RYPImN3uwZ6itpqsvQ7bi"
 													}

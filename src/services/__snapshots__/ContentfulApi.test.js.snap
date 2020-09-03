@@ -82,6 +82,7 @@ Array [
                       "name": "Riquito",
                     },
                     "name": "",
+                    "referenceId": "1-1",
                     "type": "richText",
                   },
                 ],
@@ -192,6 +193,48 @@ Array [
     },
     "name": "",
     "type": "container",
+  },
+]
+`;
+
+exports[`ContentfulAPI It fetches generic components by referenceId 1`] = `
+Array [
+  Object {
+    "behaviours": Array [],
+    "cssByBreakpoint": Array [],
+    "data": Object {
+      "_contentType": Object {
+        "_id": "richTextGeneric",
+      },
+      "_id": "3RYPImN3uwZ6itpqsvQ7bi",
+      "_locale": "en-US",
+      "content": Object {
+        "content": Array [
+          Object {
+            "content": Array [
+              Object {
+                "data": Object {},
+                "marks": Array [
+                  Object {
+                    "type": "bold",
+                  },
+                ],
+                "nodeType": "text",
+                "value": "El Rick",
+              },
+            ],
+            "data": Object {},
+            "nodeType": "paragraph",
+          },
+        ],
+        "data": Object {},
+        "nodeType": "document",
+      },
+      "name": "Riquito",
+    },
+    "name": "",
+    "referenceId": "1-1",
+    "type": "richText",
   },
 ]
 `;
