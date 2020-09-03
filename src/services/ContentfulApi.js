@@ -65,10 +65,11 @@ export class ContentfulAPI {
 
   async getComponents(queryOptions) {
     try {
-      const components = await this.getContentType(
-        'componentGeneric',
-        queryOptions
-      )
+      const { referenceId, ...query } = queryOptions
+      let components = await this.getContentType( 'componentGeneric', query )
+      if(referenceId && components && components.length > 0){
+        components = [this.findComponentNode(components[0],referenceId)]
+      }
       return components
     } catch (e) {
       throw e
@@ -257,6 +258,38 @@ export class ContentfulAPI {
     }
 
     return component
+  }
+
+  findComponentNode(component,referenceId){
+    if(component.referenceId === referenceId){
+      return component
+    }
+
+    const { data } = component
+    let childNodes = []
+
+    if(data.components){
+      childNodes = [...data.components]
+    }
+
+    if(data.componentGroups){
+      data.componentGroups.forEach( group =>{
+        group.components.forEach( component =>{
+          childNodes.push(component)
+        })
+      })
+    }
+
+    if(childNodes.length > 0){
+      for(let i = 0; i < childNodes.length ; i++){
+        let match = this.findComponentNode(childNodes[i],referenceId)
+        if(match){
+          return match
+        }
+      }
+    }
+
+    return undefined
   }
 
   parseEntries(data) {
