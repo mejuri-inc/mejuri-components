@@ -66,9 +66,9 @@ export class ContentfulAPI {
   async getComponents(queryOptions) {
     try {
       const { referenceId, ...query } = queryOptions
-      let components = await this.getContentType( 'componentGeneric', query )
-      if(referenceId && components && components.length > 0){
-        components = [this.findComponentNode(components[0],referenceId)]
+      let components = await this.getContentType('componentGeneric', query)
+      if (referenceId && components && components.length > 0) {
+        components = [this.findComponentNode(components[0], referenceId)]
       }
       return components
     } catch (e) {
@@ -260,30 +260,30 @@ export class ContentfulAPI {
     return component
   }
 
-  findComponentNode(component,referenceId){
-    if(component.referenceId === referenceId){
+  findComponentNode(component, referenceId) {
+    if (component.referenceId === referenceId) {
       return component
     }
 
     const { data } = component
     let childNodes = []
 
-    if(data.components){
+    if (data.components) {
       childNodes = [...data.components]
     }
 
-    if(data.componentGroups){
-      data.componentGroups.forEach( group =>{
-        group.components.forEach( component =>{
+    if (data.componentGroups) {
+      data.componentGroups.forEach((group) => {
+        group.components.forEach((component) => {
           childNodes.push(component)
         })
       })
     }
 
-    if(childNodes.length > 0){
-      for(let i = 0; i < childNodes.length ; i++){
-        let match = this.findComponentNode(childNodes[i],referenceId)
-        if(match){
+    if (childNodes.length > 0) {
+      for (let i = 0; i < childNodes.length; i++) {
+        const match = this.findComponentNode(childNodes[i], referenceId)
+        if (match) {
           return match
         }
       }
