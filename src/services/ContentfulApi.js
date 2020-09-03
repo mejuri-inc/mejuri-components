@@ -63,6 +63,18 @@ export class ContentfulAPI {
     }
   }
 
+  async getComponents(queryOptions) {
+    try {
+      const components = await this.getContentType(
+        'componentGeneric',
+        queryOptions
+      )
+      return components
+    } catch (e) {
+      throw e
+    }
+  }
+
   async getPage(slug, queryOptions = {}) {
     try {
       const looks = await this.getContentType('modularPage', {
@@ -117,9 +129,16 @@ export class ContentfulAPI {
 
   formatResponse(response = {}) {
     const { items = [] } = response
-    const formattedResponse = items.map((item) =>
-      this.formatResponseLevel(item)
-    )
+    const formattedResponse = items.map((item) => {
+      let formatted = this.formatResponseLevel(item)
+      if (
+        formatted._contentType &&
+        formatted._contentType._id === 'componentGeneric'
+      ) {
+        formatted = this.formatComponentData(formatted)
+      }
+      return formatted
+    })
     return formattedResponse
   }
 
@@ -207,6 +226,37 @@ export class ContentfulAPI {
       }
     }
     return formatted
+  }
+
+  formatComponentData({ data: component, linkedEntries = [] }) {
+    const components = component.data.components
+    const componentGroups = component.data.componentGroups
+
+    // Go down one level
+    if (components && Array.isArray(components)) {
+      component.data.components = components.map((component) =>
+        this.formatComponentData({ data: component, linkedEntries })
+      )
+    }
+
+    // Go down one level from grid
+    if (componentGroups && Array.isArray(componentGroups)) {
+      component.data.componentGroups = componentGroups.map((group) => {
+        group.components = group.components.map((component) =>
+          this.formatComponentData({ data: component, linkedEntries })
+        )
+        return group
+      })
+    }
+
+    // Parse linked data
+    if (component.data.entryId) {
+      component.data = linkedEntries.find((entry) => {
+        return entry._id === component.data.entryId
+      })
+    }
+
+    return component
   }
 
   parseEntries(data) {

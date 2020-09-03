@@ -1,5 +1,201 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ContentfulAPI It fetches generic components 1`] = `
+Array [
+  Object {
+    "behaviours": Array [],
+    "cssByBreakpoint": Array [],
+    "data": Object {
+      "components": Array [
+        Object {
+          "behaviours": Array [],
+          "cssByBreakpoint": Array [],
+          "data": Object {
+            "content": "Holi",
+          },
+          "name": "",
+          "type": "text",
+        },
+        Object {
+          "behaviours": Array [],
+          "cssByBreakpoint": Array [],
+          "data": Object {
+            "componentGroups": Array [
+              Object {
+                "cellsByBreakpoint": Array [
+                  Object {
+                    "breakpoint": Object {
+                      "minWidth": 0,
+                      "orientation": "all",
+                    },
+                    "cols": Object {
+                      "end": 1,
+                      "start": 1,
+                    },
+                    "rows": Object {
+                      "end": 1,
+                      "start": 1,
+                    },
+                  },
+                ],
+                "components": Array [
+                  Object {
+                    "behaviours": Array [],
+                    "cssByBreakpoint": Array [],
+                    "data": Object {
+                      "content": "From Grid",
+                    },
+                    "name": "",
+                    "type": "text",
+                  },
+                  Object {
+                    "behaviours": Array [],
+                    "cssByBreakpoint": Array [],
+                    "data": Object {
+                      "_contentType": Object {
+                        "_id": "richTextGeneric",
+                      },
+                      "_id": "3RYPImN3uwZ6itpqsvQ7bi",
+                      "_locale": "en-US",
+                      "content": Object {
+                        "content": Array [
+                          Object {
+                            "content": Array [
+                              Object {
+                                "data": Object {},
+                                "marks": Array [
+                                  Object {
+                                    "type": "bold",
+                                  },
+                                ],
+                                "nodeType": "text",
+                                "value": "El Rick",
+                              },
+                            ],
+                            "data": Object {},
+                            "nodeType": "paragraph",
+                          },
+                        ],
+                        "data": Object {},
+                        "nodeType": "document",
+                      },
+                      "name": "Riquito",
+                    },
+                    "name": "",
+                    "type": "richText",
+                  },
+                ],
+                "name": "Group 0",
+              },
+            ],
+            "gridConfigurations": Array [
+              Object {
+                "breakpoint": Object {
+                  "minWidth": 0,
+                  "orientation": "all",
+                },
+                "cols": Array [
+                  Object {
+                    "cssValue": "1fr",
+                    "size": 1,
+                    "unit": "fr",
+                  },
+                  Object {
+                    "cssValue": "1fr",
+                    "size": 1,
+                    "unit": "fr",
+                  },
+                ],
+                "rows": Array [
+                  Object {
+                    "cssValue": "1fr",
+                    "size": 1,
+                    "unit": "fr",
+                  },
+                  Object {
+                    "cssValue": "1fr",
+                    "size": 1,
+                    "unit": "fr",
+                  },
+                ],
+              },
+            ],
+          },
+          "name": "",
+          "type": "grid",
+        },
+        Object {
+          "behaviours": Array [],
+          "cssByBreakpoint": Array [],
+          "data": Object {
+            "_contentType": Object {
+              "_id": "richTextGeneric",
+            },
+            "_id": "2wvej6Me2lf1xPCt4RfQI",
+            "_locale": "en-US",
+            "content": Object {
+              "content": Array [
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "The new Luxury",
+                    },
+                  ],
+                  "data": Object {},
+                  "nodeType": "heading-1",
+                },
+                Object {
+                  "content": Array [
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "Look at this video: ",
+                    },
+                    Object {
+                      "content": Array [
+                        Object {
+                          "data": Object {},
+                          "marks": Array [],
+                          "nodeType": "text",
+                          "value": "Wide Putin",
+                        },
+                      ],
+                      "data": Object {
+                        "uri": "https://www.youtube.com/watch?v=VQ7lKPSUc2g",
+                      },
+                      "nodeType": "hyperlink",
+                    },
+                    Object {
+                      "data": Object {},
+                      "marks": Array [],
+                      "nodeType": "text",
+                      "value": "",
+                    },
+                  ],
+                  "data": Object {},
+                  "nodeType": "paragraph",
+                },
+              ],
+              "data": Object {},
+              "nodeType": "document",
+            },
+            "name": "RichTextoo",
+          },
+          "name": "",
+          "type": "richText",
+        },
+      ],
+    },
+    "name": "",
+    "type": "container",
+  },
+]
+`;
+
 exports[`ContentfulAPI It fetches lookbook pages 1`] = `
 Array [
   Object {

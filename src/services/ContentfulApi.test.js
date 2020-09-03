@@ -1,12 +1,14 @@
 import { ContentfulAPI } from './ContentfulApi'
-import { looks, queryOptions, credentials } from './ContentfulAPI.mock'
+import { mockData, queryOptions, credentials } from './ContentfulAPI.mock'
 
-const mockedContentfulClient = { getEntries: async (query) => looks }
+const mockedContentfulClient = {
+  getEntries: async ({ content_type }) => mockData[content_type]
+}
 
 describe('ContentfulAPI', () => {
   it('Response is formatted properly', async () => {
     const instance = new ContentfulAPI(credentials)
-    const formattedResponse = instance.formatResponse(looks)
+    const formattedResponse = instance.formatResponse(mockData.lookPage)
     expect(formattedResponse).toMatchSnapshot()
   })
 
@@ -14,6 +16,15 @@ describe('ContentfulAPI', () => {
     const instance = new ContentfulAPI(credentials)
     const formattedQuery = instance.formatQuery(queryOptions)
     expect(formattedQuery).toMatchSnapshot()
+  })
+
+  it('It fetches generic components', async () => {
+    const instance = new ContentfulAPI(credentials)
+    const response = await instance.getComponents({
+      id: '1egd1bENEWRUWOXBRVZEUq',
+      client: mockedContentfulClient
+    })
+    expect(response).toMatchSnapshot()
   })
 
   it('It fetches lookbook pages', async () => {
