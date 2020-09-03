@@ -15,7 +15,7 @@ export const credentials = {
   locale: 'en'
 }
 
-export const looks = {
+const lookPage = {
   items: [
     {
       fields: {
@@ -927,3 +927,445 @@ export const looks = {
     }
   ]
 }
+
+const componentGeneric = {
+	"sys": {
+		"type": "Array"
+	},
+	"total": 1,
+	"skip": 0,
+	"limit": 100,
+	"items": [
+		{
+			"sys": {
+				"space": {
+					"sys": {
+						"type": "Link",
+						"linkType": "Space",
+						"id": "e48r2iwyjczp"
+					}
+				},
+				"type": "Entry",
+				"id": "1egd1bENEWRUWOXBRVZEUq",
+				"contentType": {
+					"sys": {
+						"type": "Link",
+						"linkType": "ContentType",
+						"id": "componentGeneric"
+					}
+				},
+				"revision": 0,
+				"createdAt": "2020-09-02T21:53:00.316Z",
+				"updatedAt": "2020-09-03T16:00:40.972Z",
+				"environment": {
+					"sys": {
+						"id": "staging",
+						"type": "Link",
+						"linkType": "Environment"
+					}
+				},
+				"locale": "en-US"
+			},
+			"fields": {
+				"name": "Test Component",
+				"data": {
+					"name": "",
+					"cssByBreakpoint": [],
+					"behaviours": [],
+					"type": "container",
+					"data": {
+						"components": [
+							{
+								"name": "",
+								"cssByBreakpoint": [],
+								"behaviours": [],
+								"type": "text",
+								"data": {
+									"content": "Holi"
+								}
+							},
+							{
+								"name": "",
+								"cssByBreakpoint": [],
+								"behaviours": [],
+								"type": "grid",
+								"data": {
+									"gridConfigurations": [
+										{
+											"cols": [
+												{
+													"unit": "fr",
+													"size": 1,
+													"cssValue": "1fr"
+												},
+												{
+													"unit": "fr",
+													"size": 1,
+													"cssValue": "1fr"
+												}
+											],
+											"rows": [
+												{
+													"unit": "fr",
+													"size": 1,
+													"cssValue": "1fr"
+												},
+												{
+													"unit": "fr",
+													"size": 1,
+													"cssValue": "1fr"
+												}
+											],
+											"breakpoint": {
+												"orientation": "all",
+												"minWidth": 0
+											}
+										}
+									],
+									"componentGroups": [
+										{
+											"name": "Group 0",
+											"cellsByBreakpoint": [
+												{
+													"breakpoint": {
+														"orientation": "all",
+														"minWidth": 0
+													},
+													"cols": {
+														"start": 1,
+														"end": 1
+													},
+													"rows": {
+														"start": 1,
+														"end": 1
+													}
+												}
+											],
+											"components": [
+												{
+													"name": "",
+													"cssByBreakpoint": [],
+													"behaviours": [],
+													"type": "text",
+													"data": {
+														"content": "From Grid"
+													}
+												},
+												{
+													"name": "",
+													"cssByBreakpoint": [],
+													"behaviours": [],
+													"type": "richText",
+													"data": {
+														"entryId": "3RYPImN3uwZ6itpqsvQ7bi"
+													}
+												}
+											]
+										}
+									]
+								}
+							},
+							{
+								"name": "",
+								"cssByBreakpoint": [],
+								"behaviours": [],
+								"type": "richText",
+								"data": {
+									"entryId": "2wvej6Me2lf1xPCt4RfQI"
+								}
+							}
+						]
+					}
+				},
+				"linkedEntries": [
+					{
+						"sys": {
+							"space": {
+								"sys": {
+									"type": "Link",
+									"linkType": "Space",
+									"id": "e48r2iwyjczp"
+								}
+							},
+							"type": "Entry",
+							"id": "2wvej6Me2lf1xPCt4RfQI",
+							"contentType": {
+								"sys": {
+									"type": "Link",
+									"linkType": "ContentType",
+									"id": "richTextGeneric"
+								}
+							},
+							"revision": 0,
+							"createdAt": "2020-09-03T14:57:28.295Z",
+							"updatedAt": "2020-09-03T14:58:41.172Z",
+							"environment": {
+								"sys": {
+									"id": "staging",
+									"type": "Link",
+									"linkType": "Environment"
+								}
+							},
+							"locale": "en-US"
+						},
+						"fields": {
+							"name": "RichTextoo",
+							"content": {
+								"nodeType": "document",
+								"data": {},
+								"content": [
+									{
+										"nodeType": "heading-1",
+										"content": [
+											{
+												"nodeType": "text",
+												"value": "The new Luxury",
+												"marks": [],
+												"data": {}
+											}
+										],
+										"data": {}
+									},
+									{
+										"nodeType": "paragraph",
+										"content": [
+											{
+												"nodeType": "text",
+												"value": "Look at this video: ",
+												"marks": [],
+												"data": {}
+											},
+											{
+												"nodeType": "hyperlink",
+												"content": [
+													{
+														"nodeType": "text",
+														"value": "Wide Putin",
+														"marks": [],
+														"data": {}
+													}
+												],
+												"data": {
+													"uri": "https://www.youtube.com/watch?v=VQ7lKPSUc2g"
+												}
+											},
+											{
+												"nodeType": "text",
+												"value": "",
+												"marks": [],
+												"data": {}
+											}
+										],
+										"data": {}
+									}
+								]
+							}
+						}
+					},
+					{
+						"sys": {
+							"space": {
+								"sys": {
+									"type": "Link",
+									"linkType": "Space",
+									"id": "e48r2iwyjczp"
+								}
+							},
+							"type": "Entry",
+							"id": "3RYPImN3uwZ6itpqsvQ7bi",
+							"contentType": {
+								"sys": {
+									"type": "Link",
+									"linkType": "ContentType",
+									"id": "richTextGeneric"
+								}
+							},
+							"revision": 0,
+							"createdAt": "2020-09-03T16:00:19.030Z",
+							"updatedAt": "2020-09-03T16:00:33.300Z",
+							"environment": {
+								"sys": {
+									"id": "staging",
+									"type": "Link",
+									"linkType": "Environment"
+								}
+							},
+							"locale": "en-US"
+						},
+						"fields": {
+							"name": "Riquito",
+							"content": {
+								"nodeType": "document",
+								"data": {},
+								"content": [
+									{
+										"nodeType": "paragraph",
+										"content": [
+											{
+												"nodeType": "text",
+												"value": "El Rick",
+												"marks": [
+													{
+														"type": "bold"
+													}
+												],
+												"data": {}
+											}
+										],
+										"data": {}
+									}
+								]
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	"includes": {
+		"Entry": [
+			{
+				"sys": {
+					"space": {
+						"sys": {
+							"type": "Link",
+							"linkType": "Space",
+							"id": "e48r2iwyjczp"
+						}
+					},
+					"type": "Entry",
+					"id": "2wvej6Me2lf1xPCt4RfQI",
+					"contentType": {
+						"sys": {
+							"type": "Link",
+							"linkType": "ContentType",
+							"id": "richTextGeneric"
+						}
+					},
+					"revision": 0,
+					"createdAt": "2020-09-03T14:57:28.295Z",
+					"updatedAt": "2020-09-03T14:58:41.172Z",
+					"environment": {
+						"sys": {
+							"id": "staging",
+							"type": "Link",
+							"linkType": "Environment"
+						}
+					},
+					"locale": "en-US"
+				},
+				"fields": {
+					"name": "RichTextoo",
+					"content": {
+						"nodeType": "document",
+						"data": {},
+						"content": [
+							{
+								"nodeType": "heading-1",
+								"content": [
+									{
+										"nodeType": "text",
+										"value": "The new Luxury",
+										"marks": [],
+										"data": {}
+									}
+								],
+								"data": {}
+							},
+							{
+								"nodeType": "paragraph",
+								"content": [
+									{
+										"nodeType": "text",
+										"value": "Look at this video: ",
+										"marks": [],
+										"data": {}
+									},
+									{
+										"nodeType": "hyperlink",
+										"content": [
+											{
+												"nodeType": "text",
+												"value": "Wide Putin",
+												"marks": [],
+												"data": {}
+											}
+										],
+										"data": {
+											"uri": "https://www.youtube.com/watch?v=VQ7lKPSUc2g"
+										}
+									},
+									{
+										"nodeType": "text",
+										"value": "",
+										"marks": [],
+										"data": {}
+									}
+								],
+								"data": {}
+							}
+						]
+					}
+				}
+			},
+			{
+				"sys": {
+					"space": {
+						"sys": {
+							"type": "Link",
+							"linkType": "Space",
+							"id": "e48r2iwyjczp"
+						}
+					},
+					"type": "Entry",
+					"id": "3RYPImN3uwZ6itpqsvQ7bi",
+					"contentType": {
+						"sys": {
+							"type": "Link",
+							"linkType": "ContentType",
+							"id": "richTextGeneric"
+						}
+					},
+					"revision": 0,
+					"createdAt": "2020-09-03T16:00:19.030Z",
+					"updatedAt": "2020-09-03T16:00:33.300Z",
+					"environment": {
+						"sys": {
+							"id": "staging",
+							"type": "Link",
+							"linkType": "Environment"
+						}
+					},
+					"locale": "en-US"
+				},
+				"fields": {
+					"name": "Riquito",
+					"content": {
+						"nodeType": "document",
+						"data": {},
+						"content": [
+							{
+								"nodeType": "paragraph",
+								"content": [
+									{
+										"nodeType": "text",
+										"value": "El Rick",
+										"marks": [
+											{
+												"type": "bold"
+											}
+										],
+										"data": {}
+									}
+								],
+								"data": {}
+							}
+						]
+					}
+				}
+			}
+		]
+	}
+}
+
+export const mockData = { lookPage, componentGeneric }
