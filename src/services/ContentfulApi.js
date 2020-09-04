@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-catch */
 import * as contentful from 'contentful'
-import { Cloudinary } from "cloudinary-core";
+import { Cloudinary } from 'cloudinary-core'
 
 export class ContentfulAPI {
   constructor({
@@ -261,50 +261,47 @@ export class ContentfulAPI {
     }
 
     // Parse cloudinary data
-    if(component.type == 'image'){
+    if (component.type === 'image') {
       component.data = this.formatCloudinaryData(component.data)
     }
 
     return component
   }
 
-  formatCloudinaryData(data){
+  formatCloudinaryData(data) {
+    const cloudinary = Cloudinary.new({ cloud_name: this.cloudinaryCloudName })
+    const asset = data.file[0]
+    const id = asset.public_id
+    const version = asset.version
 
-    const cloudinary = Cloudinary.new( { cloud_name : this.cloudinaryCloudName })
-    const asset    = data.file[0]
-    const id       = asset.public_id
-    const version  = asset.version
-
-    const imageSizes = [ 80 , 320, 640, 1200 , 1980, 2400 ]
+    const imageSizes = [80, 320, 640, 1200, 1980, 2400]
 
     const options = {
       version: version,
       quality: 'auto:best',
-      format : 'auto'
+      format: 'auto'
     }
 
     const output = {
-      defaultImage : cloudinary.url( id, {...options , width: 640} ),
-      media : null,
-      alt : '',
-      sources : [
+      defaultImage: cloudinary.url(id, { ...options, width: 640 }),
+      media: null,
+      alt: '',
+      sources: [
         {
-          "type": "image/jpeg",
-          "media": null,
-          "srcSet": imageSizes.map(
-            width => (
-              { width, src : cloudinary.url( id, {...options , width} ) }
-            )
-          )
+          type: 'image/jpeg',
+          media: null,
+          srcSet: imageSizes.map((width) => ({
+            width,
+            src: cloudinary.url(id, { ...options, width })
+          }))
         },
         {
-          "type": "image/webp",
-          "media": null,
-          "srcSet": imageSizes.map(
-            width => (
-              { width, src : cloudinary.url( id, {...options , width} ) }
-            )
-          )
+          type: 'image/webp',
+          media: null,
+          srcSet: imageSizes.map((width) => ({
+            width,
+            src: cloudinary.url(id, { ...options, width })
+          }))
         }
       ]
     }
