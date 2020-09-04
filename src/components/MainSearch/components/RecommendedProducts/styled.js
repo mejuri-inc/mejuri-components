@@ -13,7 +13,7 @@ Title.displayName = 'RecommendedTitle'
 export const List = styled.ul`
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+  grid-template-columns: repeat(auto-fit, 120px);
   grid-gap: 16px;
   margin: 0%;
 `
