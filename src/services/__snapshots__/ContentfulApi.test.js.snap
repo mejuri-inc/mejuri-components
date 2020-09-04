@@ -868,7 +868,10 @@ Array [
 exports[`ContentfulAPI It formats cloudinary images data 1`] = `
 Object {
   "alt": "",
+  "asBackground": false,
   "defaultImage": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+  "fitType": "cover",
+  "horizontalAlignment": "center",
   "media": null,
   "sources": Array [
     Object {
@@ -932,6 +935,7 @@ Object {
       "type": "image/webp",
     },
   ],
+  "verticalAlignment": "center",
 }
 `;
 
