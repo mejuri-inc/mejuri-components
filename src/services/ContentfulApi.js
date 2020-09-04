@@ -279,7 +279,7 @@ export class ContentfulAPI {
     const options = {
       version: version,
       quality: 'auto:best',
-      format: 'auto'
+      fetchFormat: 'auto'
     }
 
     const output = {
