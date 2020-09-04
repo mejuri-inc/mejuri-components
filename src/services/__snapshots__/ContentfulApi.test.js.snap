@@ -865,6 +865,76 @@ Array [
 ]
 `;
 
+exports[`ContentfulAPI It formats cloudinary images data 1`] = `
+Object {
+  "alt": "",
+  "defaultImage": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+  "media": null,
+  "sources": Array [
+    Object {
+      "media": null,
+      "srcSet": Array [
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 80,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 320,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 640,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 1200,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 1980,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 2400,
+        },
+      ],
+      "type": "image/jpeg",
+    },
+    Object {
+      "media": null,
+      "srcSet": Array [
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 80,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 320,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 640,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 1200,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 1980,
+        },
+        Object {
+          "src": "http://res.cloudinary.com/mejuri-com/image/upload/q_auto:best/v1599244288/new-homepage/Desktop_Hero.auto",
+          "width": 2400,
+        },
+      ],
+      "type": "image/webp",
+    },
+  ],
+}
+`;
+
 exports[`ContentfulAPI Query Options are formatted properly 1`] = `
 Object {
   "fields.slug": "chain-reaction",

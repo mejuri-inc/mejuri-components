@@ -15,6 +15,36 @@ export const credentials = {
   locale: 'en'
 }
 
+const cloudinaryImageData = {
+  "_id": "46wVRNQ897ioKaYqSlwL6H",
+  "_contentType": {
+    "_id": "imageGeneric"
+  },
+  "_locale": "en-US",
+  "name": "Homepage image desktop test",
+  "file": [
+    {
+      "url": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto/v1599244288/new-homepage/Desktop_Hero.jpg",
+      "tags": [],
+      "type": "upload",
+      "bytes": 2399639,
+      "width": 2878,
+      "format": "jpg",
+      "height": 1054,
+      "version": 1599244288,
+      "duration": null,
+      "metadata": [],
+      "public_id": "new-homepage/Desktop_Hero",
+      "created_at": "2020-09-04T18:31:28Z",
+      "secure_url": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto/v1599244288/new-homepage/Desktop_Hero.jpg",
+      "resource_type": "image",
+      "original_url": "http://res.cloudinary.com/mejuri-com/image/upload/v1599244288/new-homepage/Desktop_Hero.jpg",
+      "original_secure_url": "https://res.cloudinary.com/mejuri-com/image/upload/v1599244288/new-homepage/Desktop_Hero.jpg",
+      "raw_transformation": "f_auto,q_auto"
+    }
+  ]
+}
+
 const lookPage = {
   items: [
     {
@@ -1369,4 +1399,4 @@ const componentGeneric = {
 	}
 }
 
-export const mockData = { lookPage, componentGeneric }
+export const mockData = { lookPage, componentGeneric, cloudinaryImageData }
