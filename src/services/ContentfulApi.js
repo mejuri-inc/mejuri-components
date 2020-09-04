@@ -283,10 +283,10 @@ export class ContentfulAPI {
     }
 
     const output = {
-      asBackground : !!data.asBackground,
-      fitType : data.fitType || 'cover',
-      horizontalAlignment : data.horizontalAlignment || 'center',
-      verticalAlignment : data.verticalAlignment || 'center',
+      asBackground: !!data.asBackground,
+      fitType: data.fitType || 'cover',
+      horizontalAlignment: data.horizontalAlignment || 'center',
+      verticalAlignment: data.verticalAlignment || 'center',
       defaultImage: cloudinary.url(id, { ...options, width: 640 }),
       media: null,
       alt: data.alt || '',
