@@ -292,21 +292,33 @@ export class ContentfulAPI {
     return undefined
   }
 
-  async getYouMightAlsoLikeProducts() {
+  async getTopSearchSuggestions(localeCode) {
     try {
-      const Also = await this.getContentType('you-might-also-like')
-      return Also
+      const client = this.getClient()
+      const response = await client.getEntries({
+        content_type: 'productList',
+        'fields.identifier': 'suggested-products',
+        locale: localeCode || this.locale
+      })
+      const formatted = this.formatResponse(response)
+      return formatted && formatted.length && formatted[0]
     } catch (e) {
-      throw e
+      console.error('Could not get top search suggestions', e)
     }
   }
 
-  async getTopSearchSuggestions() {
+  async getYouMightAlsoLikeProducts(localeCode) {
     try {
-      const Suggestions = await this.getContentType('top-search-suggestions')
-      return Suggestions
+      const client = this.getClient()
+      const response = await client.getEntries({
+        content_type: 'productList',
+        'fields.identifier': 'you-might-also-like',
+        locale: localeCode || this.locale
+      })
+      const formatted = this.formatResponse(response)
+      return formatted && formatted.length && formatted[0]
     } catch (e) {
-      throw e
+      console.error('Could not get you might also like', e)
     }
   }
 
@@ -351,7 +363,8 @@ export class ContentfulAPI {
         include: 3,
         locale: localeCode || this.locale
       })
-      return this.formatResponse(response)
+      const formatted = this.formatResponse(response)
+      return formatted && formatted.length && formatted[0]
     } catch (e) {
       console.log(e)
     }
@@ -386,6 +399,21 @@ export class ContentfulAPI {
       return formatted && formatted.length && formatted[0]
     } catch (e) {
       console.log(e)
+    }
+  }
+
+  async getTranslations(localeCode) {
+    try {
+      const client = this.getClient()
+      const response = await client.getEntries({
+        content_type: 'customConfig',
+        'fields.slug': 'translations',
+        locale: localeCode || this.locale
+      })
+      const formatted = this.formatResponse(response)
+      return formatted && formatted.length && formatted[0]
+    } catch (e) {
+      console.error('Could not get translations', e)
     }
   }
 }

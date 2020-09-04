@@ -73,20 +73,18 @@ export class MainSearch extends PureComponent {
     }
   }
 
-  getProducts(productSlugs) {
-    productSlugs.map((s) => this.getProduct(s))
-  }
-
-  async getProduct(slug) {
+  async getProducts(productSlugs) {
     try {
       const { apiHost } = this.props
       const { recommendedProducts } = this.state
-      const response = await fetch(`${apiHost}/shop/api/products/${slug}`)
+      const response = await fetch(
+        `${apiHost}/api/v1/products/get/${productSlugs}`
+      )
       const result = await response.json()
 
       result &&
         this.setState({
-          recommendedProducts: [...recommendedProducts, result]
+          recommendedProducts: [...recommendedProducts, ...result.products]
         })
     } catch (e) {
       console.log(e)

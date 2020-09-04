@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Suggestions = styled.ul`
+export const Wrapper = styled.ul`
   list-style: none;
   margin: 0 auto;
   max-width: 800px;
@@ -15,6 +15,7 @@ export const Suggestions = styled.ul`
     text-transform: uppercase;
   }
 `
+Wrapper.displayName = 'SuggestionsWrapper'
 
 export const Suggestion = styled.li`
   font-size: 15px;
@@ -29,3 +30,4 @@ export const Suggestion = styled.li`
     padding: 0%;
   }
 `
+Suggestion.displayName = 'SuggestionsItem'

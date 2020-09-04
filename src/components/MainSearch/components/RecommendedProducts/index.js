@@ -12,11 +12,9 @@ const RecommendedProducts = ({ products, apiHost }) => (
         return (
           <Product key={item.id}>
             <Image href={`${apiHost}/shop/products/${item.slug}`}>
-              <img
-                src={item.images_versions[0].attachment_url_small}
-                alt={item.name}
-              />
+              <img src={item.image.small} alt={item.name} />
             </Image>
+
             <Name href={`${apiHost}/shop/products/${item.slug}`}>
               {item.name}
             </Name>
