@@ -5,7 +5,7 @@ import { Card, Image, Name, Detail } from './styled'
 export const ProductCard = ({ image, path, name, materialName }) => {
   return (
     <Card href={path}>
-      <Image src={image.small || image.large} />
+      {image && <Image src={image.small || image.large} />}
       <Name href={path}>{name}</Name>
       <Detail>{materialName}</Detail>
     </Card>

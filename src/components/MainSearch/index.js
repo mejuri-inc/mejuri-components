@@ -10,7 +10,8 @@ import {
   Scrollable,
   Wrapper,
   Close,
-  LoadMore
+  LoadMore,
+  NoResults
 } from './styled'
 import debounce from 'lodash.debounce'
 import IsOnScreen from 'components/common/IsOnScreen'
@@ -18,6 +19,7 @@ import SearchOverlaySuggestions from './components/SearchOverlaySuggestions'
 import ProductGrid from './components/ProductGrid'
 import CloseIcon from 'resources/icons/CloseIcon'
 import Overlay from 'components/common/Overlay'
+import RecommendedProducts from './components/RecommendedProducts'
 import { FormattedMessage } from 'react-intl'
 import AlgoliaService from './service'
 
@@ -32,7 +34,8 @@ export class MainSearch extends PureComponent {
       isFetchingPage: false,
       searchString: '',
       results: [],
-      count: 0
+      count: 0,
+      recommendedProducts: []
     }
 
     this.client = null
@@ -59,8 +62,32 @@ export class MainSearch extends PureComponent {
   componentDidUpdate(prevProps) {
     // Focus on the input when opening.
     const { current } = this.input
-    if (this.props.isOpened && !prevProps.isOpened) {
+    const { recommendedProducts } = this.state
+    const { isOpened, mightAlsoLikeProducts } = this.props
+
+    if (isOpened && !prevProps.isOpened) {
       current && current.focus() && current.scrollIntoView()
+
+      !recommendedProducts.length > 0 &&
+        this.getProducts(mightAlsoLikeProducts.productSlugs)
+    }
+  }
+
+  async getProducts(productSlugs) {
+    try {
+      const { apiHost } = this.props
+      const { recommendedProducts } = this.state
+      const response = await fetch(
+        `${apiHost}/api/v1/products/get/${productSlugs}`
+      )
+      const result = await response.json()
+
+      result &&
+        this.setState({
+          recommendedProducts: [...recommendedProducts, ...result.products]
+        })
+    } catch (e) {
+      console.log(e)
     }
   }
 
@@ -119,15 +146,67 @@ export class MainSearch extends PureComponent {
     this.debouncedSearch(e)
   }
 
-  render() {
-    const { isOpened, appId, appKey, index } = this.props
+  renderContent() {
     const {
       isFetching,
       isFetchingPage,
-      searchString,
       results,
-      count
+      searchString,
+      count,
+      recommendedProducts
     } = this.state
+    const { topSearchSuggestions } = this.props
+
+    // If user has not entered a product to search
+    // show Suggestion products name list
+    if (searchString === '') {
+      return (
+        <SearchOverlaySuggestions
+          suggestions={topSearchSuggestions.productSlugs}
+          search={this.setSearch}
+        />
+      )
+    }
+
+    // If user did entered a product name
+    // show a grid of products that match that name
+    if (results.length) {
+      return (
+        <ProductGrid products={results} innerRef={this.scroll}>
+          {results.length < count && (
+            <IsOnScreen
+              onVisible={() => this.addPage()}
+              root={this.scroll.current}
+              offset={400}
+            >
+              <LoadMore isFetching={isFetchingPage} />
+            </IsOnScreen>
+          )}
+        </ProductGrid>
+      )
+    }
+
+    // If none of the above then user entered a unknown product
+    // Show a list of recomended products
+    if (!isFetching) {
+      return (
+        <>
+          <NoResults>
+            <FormattedMessage id='header.search.noResults' />
+          </NoResults>
+          {!!recommendedProducts && (
+            <RecommendedProducts products={recommendedProducts} />
+          )}
+        </>
+      )
+    }
+
+    return null
+  }
+
+  render() {
+    const { isOpened, appId, appKey, index } = this.props
+    const { isFetching, searchString, results, count } = this.state
 
     if (!appId || !appKey || !index) {
       return null
@@ -159,26 +238,13 @@ export class MainSearch extends PureComponent {
               </Hint>
             </Header>
             <Scrollable isFetching={isFetching}>
-              {!!results.length && (
+              {!!results.length && searchString !== '' && (
                 <NumberOfResults>
                   {count} <FormattedMessage id='header.search.results' />
                 </NumberOfResults>
               )}
-              {results.length ? (
-                <ProductGrid products={results} innerRef={this.scroll}>
-                  {results.length < count && (
-                    <IsOnScreen
-                      onVisible={() => this.addPage()}
-                      root={this.scroll.current}
-                      offset={400}
-                    >
-                      <LoadMore isFetching={isFetchingPage} />
-                    </IsOnScreen>
-                  )}
-                </ProductGrid>
-              ) : (
-                <SearchOverlaySuggestions search={this.setSearch} />
-              )}
+
+              {this.renderContent()}
             </Scrollable>
           </Content>
         </Wrapper>
@@ -195,15 +261,33 @@ MainSearch.propTypes = {
   trackSearchClose: PropTypes.func,
   appId: PropTypes.string,
   appKey: PropTypes.string,
-  index: PropTypes.string
+  index: PropTypes.string,
+  apiHost: PropTypes.string,
+  mightAlsoLikeProducts: PropTypes.shape({
+    productSlugs: PropTypes.array
+  }),
+  topSearchSuggestions: PropTypes.shape({
+    productSlugs: PropTypes.array
+  })
 }
 
 MainSearch.defaultProps = {
+  apiHost: typeof window !== 'undefined' ? window.location.origin : '',
   close: () => {
     console.error('close prop missing in <MainSearch />')
   },
   trackSearch: () => {},
-  trackSearchClose: () => {}
+  trackSearchClose: () => {},
+  mightAlsoLikeProducts: { productSlugs: [] },
+  topSearchSuggestions: {
+    productSlugs: [
+      'Hoop Earrings',
+      'Diamond Necklace',
+      'Zodiac Necklace',
+      'Gold Bracelet',
+      'Gold Necklace'
+    ]
+  }
 }
 
 export default MainSearch
