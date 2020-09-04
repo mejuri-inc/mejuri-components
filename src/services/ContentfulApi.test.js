@@ -37,6 +37,14 @@ describe('ContentfulAPI', () => {
     expect(response).toMatchSnapshot()
   })
 
+  it('It formats cloudinary images data', async () => {
+    const instance = new ContentfulAPI(credentials)
+    const formatted = instance.formatCloudinaryData(mockData.cloudinaryImageData)
+    expect(formatted).toMatchSnapshot()
+  })
+
+
+
   it('It fetches lookbook pages', async () => {
     const instance = new ContentfulAPI(credentials)
     const response = await instance.getLookBookPages({

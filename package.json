@@ -34,6 +34,7 @@
     "algoliasearch": "^4.3.0",
     "axios": "^0.19.2",
     "body-scroll-lock": "^3.0.3",
+    "cloudinary-core": "^2.11.2",
     "contentful": "^7.14.5",
     "humps": "^2.0.1",
     "lodash.debounce": "^4.0.8",
