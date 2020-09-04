@@ -27,4 +27,8 @@ const RecommendedProducts = ({ products, apiHost }) => (
   </>
 )
 
+RecommendedProducts.defaultProps = {
+  apiHost: ''
+}
+
 export default RecommendedProducts

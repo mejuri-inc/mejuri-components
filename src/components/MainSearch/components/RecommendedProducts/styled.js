@@ -46,6 +46,7 @@ Image.displayName = 'RecommendedProductImage'
 
 export const Name = styled.a`
   display: block;
+  color: ${(p) => p.theme.colors.black};
   min-height: 22px;
   font-weight: 700;
   text-decoration: none;
