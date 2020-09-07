@@ -869,7 +869,7 @@ exports[`ContentfulAPI It formats cloudinary images data 1`] = `
 Object {
   "alt": "",
   "asBackground": false,
-  "defaultImage": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+  "defaultImage": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
   "fitType": "cover",
   "horizontalAlignment": "center",
   "media": null,
@@ -878,27 +878,27 @@ Object {
       "media": null,
       "srcSet": Array [
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 80,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 320,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 640,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 1200,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 1980,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 2400,
         },
       ],
@@ -908,27 +908,27 @@ Object {
       "media": null,
       "srcSet": Array [
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 80,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 320,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 640,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 1200,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 1980,
         },
         Object {
-          "src": "http://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
+          "src": "https://res.cloudinary.com/mejuri-com/image/upload/f_auto,q_auto:best/v1599244288/new-homepage/Desktop_Hero",
           "width": 2400,
         },
       ],

@@ -277,6 +277,7 @@ export class ContentfulAPI {
     const imageSizes = [80, 320, 640, 1200, 1980, 2400]
 
     const options = {
+      secure : true, // Use https
       version: version,
       quality: 'auto:best',
       fetchFormat: 'auto'
