@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Name, Options, PriceBox, Wrapper } from './styled'
 import QuantitySelector from 'components/common/QuantitySelector'
 import { toCurrency } from 'helpers/currency'
+import { FormattedMessage } from 'react-intl'
 
 export const getItemDetails = (ringSize, engravings, material) => {
   if (!ringSize && !engravings && !material) return null
@@ -24,7 +25,7 @@ export const ItemProperties = ({
   trackIncrease
 }) => {
   const {
-    variant: { backorderable, slug, material, optionsText },
+    variant: { backorderable, slug, material, optionsText, sample },
     id,
     price,
     quantity,
@@ -39,18 +40,25 @@ export const ItemProperties = ({
         <a href={`/shop/products/${slug}`}>{item.accurateName}</a>
       </Name>
       <Options>{getItemDetails(ringSize, displayEngravings, material)}</Options>
-      <PriceBox>
-        <QuantitySelector
-          itemId={id}
-          value={quantity}
-          stock={variantStock}
-          backOrderable={backorderable}
-          updateQuantity={updateQuantity}
-          trackIncrease={trackIncrease}
-          trackDecrease={trackDecrease}
-        />
-        <span>{formatedPrice}</span>
-      </PriceBox>
+      {sample ? (
+        <PriceBox>
+          <span />
+          <FormattedMessage id='displayFreeAmount' />
+        </PriceBox>
+      ) : (
+        <PriceBox>
+          <QuantitySelector
+            itemId={id}
+            value={quantity}
+            stock={variantStock}
+            backOrderable={backorderable}
+            updateQuantity={updateQuantity}
+            trackIncrease={trackIncrease}
+            trackDecrease={trackDecrease}
+          />
+          <span>{formatedPrice}</span>
+        </PriceBox>
+      )}
     </Wrapper>
   )
 }
@@ -60,7 +68,8 @@ ItemProperties.propTypes = {
     variant: PropTypes.shape({
       backOrderable: PropTypes.bool,
       name: PropTypes.string,
-      material: PropTypes.string
+      material: PropTypes.string,
+      sample: PropTypes.bool
     }),
     id: PropTypes.number,
     price: PropTypes.string,

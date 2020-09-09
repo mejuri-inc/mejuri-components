@@ -28,15 +28,6 @@ export const ItemsList = ({
         return (
           <ListElement key={i.id}>
             <ElementWrapper>
-              <RemoveButton
-                onClick={() => {
-                  remove(i.id)
-                  trackRemoveItem({ lineItem: i, quantity: i.quantity })
-                }}
-                data-h='cart-remove-line-item-btn'
-              >
-                <CloseIcon />
-              </RemoveButton>
               {imageUrl && (
                 <Thumbnail
                   href={href}
@@ -56,6 +47,15 @@ export const ItemsList = ({
                   trackDecreaseProduct({ lineItem: i, quantity: q })
                 }
               />
+              <RemoveButton
+                onClick={() => {
+                  remove(i.id)
+                  trackRemoveItem({ lineItem: i, quantity: i.quantity })
+                }}
+                data-h='cart-remove-line-item-btn'
+              >
+                <CloseIcon />
+              </RemoveButton>
             </ElementWrapper>
             {isPos && (
               <ItemPOS
