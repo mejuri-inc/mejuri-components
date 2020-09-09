@@ -159,7 +159,11 @@ export class MainSearch extends PureComponent {
 
     // If user has not entered a product to search
     // show Suggestion products name list
-    if (searchString === '') {
+    if (
+      searchString === '' &&
+      topSearchSuggestions &&
+      topSearchSuggestions.productSlugs
+    ) {
       return (
         <SearchOverlaySuggestions
           suggestions={topSearchSuggestions.productSlugs}
