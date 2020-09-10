@@ -289,7 +289,7 @@ export class ContentfulAPI {
       fitType: data.fitType || 'cover',
       horizontalAlignment: data.horizontalAlignment || 'center',
       verticalAlignment: data.verticalAlignment || 'center',
-      defaultSrc: cloudinary.url(id, { ...options, width : 640 }),
+      defaultSrc: cloudinary.url(id, { ...options, width: 640 }),
       media: null,
       alt: data.alt || '',
       sources: [
