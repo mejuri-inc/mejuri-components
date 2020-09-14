@@ -11,7 +11,8 @@ import {
   Wrapper,
   Close,
   LoadMore,
-  NoResults
+  NoResults,
+  LoadingSpinner
 } from './styled'
 import debounce from 'lodash.debounce'
 import IsOnScreen from 'components/common/IsOnScreen'
@@ -23,7 +24,8 @@ import RecommendedProducts from './components/RecommendedProducts'
 import { FormattedMessage } from 'react-intl'
 import AlgoliaService from './service'
 
-const typingDelay = 1000
+const TYPING_DELAY = 1000
+const START_SEARCH_THRESHOLD = 3
 
 export class MainSearch extends PureComponent {
   constructor(props) {
@@ -44,7 +46,7 @@ export class MainSearch extends PureComponent {
         const searchString = e.target.value
         this.query(searchString)
       }.bind(this),
-      typingDelay
+      TYPING_DELAY
     )
     this.handleSearchChange = this.handleSearchChange.bind(this)
     this.setSearch = this.setSearch.bind(this)
@@ -140,27 +142,27 @@ export class MainSearch extends PureComponent {
   handleSearchChange(e) {
     e.persist()
     const searchString = e.target.value
+    const startSearching = searchString.length >= START_SEARCH_THRESHOLD
 
-    this.setState({ isFetching: true, searchString, results: [] })
+    this.setState({ isFetching: startSearching, searchString, results: [] })
 
-    this.debouncedSearch(e)
+    startSearching && this.debouncedSearch(e)
   }
 
   renderContent() {
     const {
-      isFetching,
       isFetchingPage,
       results,
       searchString,
       count,
       recommendedProducts
     } = this.state
-    const { topSearchSuggestions } = this.props
+    const { topSearchSuggestions, apiHost } = this.props
 
     // If user has not entered a product to search
     // show Suggestion products name list
     if (
-      searchString === '' &&
+      searchString.length < START_SEARCH_THRESHOLD &&
       topSearchSuggestions &&
       topSearchSuggestions.productSlugs
     ) {
@@ -192,20 +194,19 @@ export class MainSearch extends PureComponent {
 
     // If none of the above then user entered a unknown product
     // Show a list of recomended products
-    if (!isFetching) {
-      return (
-        <>
-          <NoResults>
-            <FormattedMessage id='header.search.noResults' />
-          </NoResults>
-          {!!recommendedProducts && (
-            <RecommendedProducts products={recommendedProducts} />
-          )}
-        </>
-      )
-    }
-
-    return null
+    return (
+      <>
+        <NoResults>
+          <FormattedMessage id='header.search.noResults' />
+        </NoResults>
+        {!!recommendedProducts && (
+          <RecommendedProducts
+            apiHost={apiHost}
+            products={recommendedProducts}
+          />
+        )}
+      </>
+    )
   }
 
   render() {
@@ -241,18 +242,21 @@ export class MainSearch extends PureComponent {
                 <FormattedMessage id='header.search.hint' />
               </Hint>
             </Header>
-            <Scrollable isFetching={isFetching}>
-              {!!results.length && searchString !== '' && (
-                <NumberOfResults>
-                  {count} <FormattedMessage id='header.search.results' />
-                </NumberOfResults>
-              )}
+            <Scrollable>
+              <LoadingSpinner isFetching={isFetching} />
+
+              {searchString.length >= START_SEARCH_THRESHOLD &&
+                !!results.length && (
+                  <NumberOfResults>
+                    {count} <FormattedMessage id='header.search.results' />
+                  </NumberOfResults>
+                )}
 
               {this.renderContent()}
             </Scrollable>
           </Content>
         </Wrapper>
-        {isOpened && <Overlay />}
+        {isOpened && <Overlay onClickHandler={() => this.close()} />}
       </Position>
     )
   }
