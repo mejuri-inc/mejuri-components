@@ -15,7 +15,7 @@ const Layer = styled.div`
   z-index: ${(p) => p.zIndex || 0};
 `
 
-export default function Overlay({ innerRef }) {
+export default function Overlay({ innerRef, onClickHandler }) {
   const ownRef = useRef(null)
 
   useEffect(() => {
@@ -25,5 +25,5 @@ export default function Overlay({ innerRef }) {
     }
   })
 
-  return <Layer innerRef={ownRef} />
+  return <Layer innerRef={ownRef} onClick={onClickHandler} />
 }

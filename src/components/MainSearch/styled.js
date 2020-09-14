@@ -38,8 +38,6 @@ export const Wrapper = styled.section`
   @media screen and (min-width: 768px) {
     padding-top: 30px;
     position: absolute;
-    max-height: ${(props) => (props.isOpened ? '100vh' : '550px')};
-    height: ${(props) => props.isOpened && '100vh'};
   }
 `
 
@@ -95,9 +93,7 @@ export const NumberOfResults = styled.div`
 `
 
 export const Scrollable = styled.div`
-  ${({ isFetching }) => isFetching && spinner()}
   overflow-y: scroll;
-  height: 65vh;
   position: relative;
   padding-top: 10px;
   &::-webkit-scrollbar {
@@ -131,4 +127,13 @@ export const NoResults = styled.span`
   text-transform: none;
   font-weight: 500;
   display: block;
+`
+
+export const LoadingSpinner = styled.div`
+  ${({ isFetching }) =>
+    isFetching &&
+    spinner({
+      position: 'absolute'
+    })}
+  position: static;
 `
