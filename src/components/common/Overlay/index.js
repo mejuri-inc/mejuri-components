@@ -7,7 +7,7 @@ const Layer = styled.div`
   bottom: 0;
   height: 100%;
   left: 0;
-  opacity: 0.6;
+  opacity: ${(p) => p.opacity || 0.6};
   position: fixed;
   right: 0;
   top: 0;
@@ -15,7 +15,7 @@ const Layer = styled.div`
   z-index: ${(p) => p.zIndex || 0};
 `
 
-export default function Overlay({ innerRef, onClickHandler }) {
+export default function Overlay({ innerRef, onClickHandler, opacity, zIndex }) {
   const ownRef = useRef(null)
 
   useEffect(() => {
@@ -25,5 +25,12 @@ export default function Overlay({ innerRef, onClickHandler }) {
     }
   })
 
-  return <Layer innerRef={ownRef} onClick={onClickHandler} />
+  return (
+    <Layer
+      ref={ownRef}
+      onClick={onClickHandler}
+      opacity={opacity}
+      zIndex={zIndex}
+    />
+  )
 }
