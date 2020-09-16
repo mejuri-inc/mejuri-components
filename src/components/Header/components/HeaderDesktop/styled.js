@@ -51,14 +51,10 @@ export const Menu = styled.nav`
   align-items: center;
   display: flex;
   height: 100%;
+  justify-content: space-between;
   padding-right: 16px;
   width: 50%;
   white-space: nowrap;
-
-  justify-content: flex-end;
-  & > *:not(:last-child) {
-    padding: 0 1.75em;
-  }
 
   @media (min-width: 1280px) {
     width: 35%;

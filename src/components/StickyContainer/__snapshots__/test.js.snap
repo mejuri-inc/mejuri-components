@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StickyContainer renders ok 1`] = `
+.c0 {
+  min-height: 0px;
+  width: 100%;
+}
+
+.c1 {
+  position: relative;
+  top: 0;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+  width: 100%;
+  z-index: 1;
+}
+
+<div>
+  <div
+    class="c0"
+    height="0"
+  >
+    <div
+      class="c1"
+      data-h="header-visible"
+    />
+  </div>
+</div>
+`;
