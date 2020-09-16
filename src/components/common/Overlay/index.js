@@ -31,11 +31,6 @@ export default function Overlay({
   })
 
   return (
-    <Layer
-      ref={ownRef}
-      onClick={onClickHandler}
-      opacity={opacity}
-      zIndex={zIndex}
-    />
+    <Layer ref={ownRef} onClick={onClickHandler} show={show} zIndex={zIndex} />
   )
 }
