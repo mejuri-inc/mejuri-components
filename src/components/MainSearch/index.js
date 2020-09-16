@@ -256,7 +256,9 @@ export class MainSearch extends PureComponent {
             </Scrollable>
           </Content>
         </Wrapper>
-        {isOpened && <Overlay onClickHandler={() => this.close()} />}
+        {isOpened && (
+          <Overlay onClickHandler={() => this.close()} show={false} />
+        )}
       </Position>
     )
   }
