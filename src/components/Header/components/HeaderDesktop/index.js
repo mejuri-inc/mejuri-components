@@ -48,7 +48,7 @@ function HeaderDesktop({
             onMouseEnter={() => setActiveSection(null)}
             isVisible={!!activeSection}
           />
-          <Content shrinked={shrinkPointReached}>
+          <Content shrinked={shrinkPointReached} data-h='site-header'>
             <Navigation
               config={leftMenu}
               setActive={setActiveSection}

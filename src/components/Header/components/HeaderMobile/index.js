@@ -15,7 +15,7 @@ const HeaderMobile = ({
   trackOpenCart
 }) => {
   return (
-    <Wrapper>
+    <Wrapper data-h='site-header'>
       <Navigation toggleMobileMenu={toggleMobileMenu} />
       <Logo href='/'>
         <MejuriLogo />
