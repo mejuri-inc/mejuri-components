@@ -35,9 +35,9 @@ export const Wrapper = styled.section`
   z-index: 1;
   max-height: 100vh;
   padding: 20px;
+  position: absolute;
   @media screen and (min-width: 768px) {
     padding-top: 30px;
-    position: absolute;
   }
 `
 
