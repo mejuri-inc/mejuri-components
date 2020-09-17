@@ -27,7 +27,8 @@ export default createMuiTheme({
         padding: '16px',
         lineHeight: '1.4',
         width: '100%',
-        minHeight: '56px'
+        minHeight: '56px',
+        fontSize: '14px'
       }
     },
     MuiInputBase: {
@@ -35,6 +36,7 @@ export default createMuiTheme({
         fontSize: '16px'
       },
       root: {
+        fontSize: '16px',
         backgroundColor: colors.white
       }
     },
@@ -80,8 +82,10 @@ export default createMuiTheme({
         top: '50%',
         transform: 'translate(14px, -50%) scale(1)',
         transition: 'all 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
+        fontSize: '16px',
         '&$shrink': {
-          top: 0
+          top: 0,
+          fontSize: '12px'
         }
       }
     },

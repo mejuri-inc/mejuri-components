@@ -45,7 +45,7 @@ export const Content = styled.div`
   overflow: hidden;
   position: relative;
   width: 100%;
-  padding: 20px;
+  padding: 0 20px;
   z-index: ${zindex + 2};
 `
 Content.displayName = 'PopupContent'

@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import Button from 'components/common/Button'
+import { MuiThemeProvider } from '@material-ui/core'
+import MejuriTheme from 'themes/material'
 import {
   BlockWrapper,
   Content,
@@ -130,99 +132,101 @@ export class Cart extends PureComponent {
     const { freeShipping, total, progress } = this.props.shippingStatus
 
     return (
-      <div>
-        {isOpened && <Backdrop onClick={this.handleBackdropClick} />}
-        <Wrapper isOpened={isOpened}>
-          <SectionLoader isFetching={isSomethingFetching}>
-            <Content>
-              <CartHeader
-                cartToggle={cartToggle}
-                lineItems={lineItems}
-                isOpened={isOpened}
-              >
-                {!!lineItems.length && (
-                  <FormattedMessage
-                    id={
-                      freeShipping
-                        ? 'cart.header.freeShippingReached'
-                        : 'cart.header.advice'
-                    }
-                    values={{ label: toCurrency(total - progress, currency) }}
-                  />
-                )}
-              </CartHeader>
-              <ProgressBar total={total} progress={progress} />
-              <Scrollable>
-                {lineItems.length ? (
-                  <ItemsList
-                    items={lineItems}
-                    isPos={isPos}
-                    remove={removeItem}
-                    updateQuantity={updateItemQuantity}
-                    setWalkout={setWalkout}
-                    currency={currency}
-                    trackIncreaseProduct={(context) =>
-                      trackIncreaseProduct(order, context)
-                    }
-                    trackDecreaseProduct={(context) =>
-                      trackDecreaseProduct(order, context)
-                    }
-                    trackRemoveItem={(context) =>
-                      trackRemoveItem(order, context)
-                    }
-                  />
-                ) : (
-                  <EmptyCart>
-                    <FormattedMessage id='cart.empty' />
-                  </EmptyCart>
-                )}
-                <Suggestions
-                  addSuggestion={addSuggestionItem}
-                  isFetching={isFetchingSuggestion}
-                  items={suggestions}
+      <MuiThemeProvider theme={MejuriTheme}>
+        <div>
+          {isOpened && <Backdrop onClick={this.handleBackdropClick} />}
+          <Wrapper isOpened={isOpened}>
+            <SectionLoader isFetching={isSomethingFetching}>
+              <Content>
+                <CartHeader
+                  cartToggle={cartToggle}
                   lineItems={lineItems}
-                />
-              </Scrollable>
-              {!!lineItems.length && (
-                <BottomWrapper>
-                  <CartSummary
-                    currency={currency}
-                    subtotal={subtotal}
-                    estimatedTotal={estimatedTotal}
-                    estimates={estimates}
-                    adjustments={adjustments}
+                  isOpened={isOpened}
+                >
+                  {!!lineItems.length && (
+                    <FormattedMessage
+                      id={
+                        freeShipping
+                          ? 'cart.header.freeShippingReached'
+                          : 'cart.header.advice'
+                      }
+                      values={{ label: toCurrency(total - progress, currency) }}
+                    />
+                  )}
+                </CartHeader>
+                <ProgressBar total={total} progress={progress} />
+                <Scrollable>
+                  {lineItems.length ? (
+                    <ItemsList
+                      items={lineItems}
+                      isPos={isPos}
+                      remove={removeItem}
+                      updateQuantity={updateItemQuantity}
+                      setWalkout={setWalkout}
+                      currency={currency}
+                      trackIncreaseProduct={(context) =>
+                        trackIncreaseProduct(order, context)
+                      }
+                      trackDecreaseProduct={(context) =>
+                        trackDecreaseProduct(order, context)
+                      }
+                      trackRemoveItem={(context) =>
+                        trackRemoveItem(order, context)
+                      }
+                    />
+                  ) : (
+                    <EmptyCart>
+                      <FormattedMessage id='cart.empty' />
+                    </EmptyCart>
+                  )}
+                  <Suggestions
+                    addSuggestion={addSuggestionItem}
+                    isFetching={isFetchingSuggestion}
+                    items={suggestions}
+                    lineItems={lineItems}
                   />
-                  <BlockWrapper>
-                    <CouponErrorAdvice
-                      visible={couponCodeError}
-                      dismiss={dismissCouponCodeError}
+                </Scrollable>
+                {!!lineItems.length && (
+                  <BottomWrapper>
+                    <CartSummary
+                      currency={currency}
+                      subtotal={subtotal}
+                      estimatedTotal={estimatedTotal}
+                      estimates={estimates}
+                      adjustments={adjustments}
                     />
-                    <CartCoupon setCouponCode={setCouponCode} />
-                    <Button
-                      onClick={(...args) => {
-                        trackCartGoToCheckout(order.number)
-                        onContinue(...args)
-                      }}
-                      data-h='cart-go-to-checkout-btn'
-                    >
-                      <FormattedMessage id='cart.actions.continue' />
-                    </Button>
-                    <ApplePayButton
-                      order={order}
-                      lineItems={lineItems}
-                      applePayKey={applePayKey}
-                      trackEvent={trackEvent}
-                      calculateTaxes={calculateTaxes}
-                      makeApplePayPayment={makeApplePayPayment}
-                      data-h='cart-apple-pay-btn'
-                    />
-                  </BlockWrapper>
-                </BottomWrapper>
-              )}
-            </Content>
-          </SectionLoader>
-        </Wrapper>
-      </div>
+                    <BlockWrapper>
+                      <CouponErrorAdvice
+                        visible={couponCodeError}
+                        dismiss={dismissCouponCodeError}
+                      />
+                      <CartCoupon setCouponCode={setCouponCode} />
+                      <Button
+                        onClick={(...args) => {
+                          trackCartGoToCheckout(order.number)
+                          onContinue(...args)
+                        }}
+                        data-h='cart-go-to-checkout-btn'
+                      >
+                        <FormattedMessage id='cart.actions.continue' />
+                      </Button>
+                      <ApplePayButton
+                        order={order}
+                        lineItems={lineItems}
+                        applePayKey={applePayKey}
+                        trackEvent={trackEvent}
+                        calculateTaxes={calculateTaxes}
+                        makeApplePayPayment={makeApplePayPayment}
+                        data-h='cart-apple-pay-btn'
+                      />
+                    </BlockWrapper>
+                  </BottomWrapper>
+                )}
+              </Content>
+            </SectionLoader>
+          </Wrapper>
+        </div>
+      </MuiThemeProvider>
     )
   }
 }

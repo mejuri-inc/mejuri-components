@@ -10,7 +10,7 @@ export const Content = styled.div`
 `
 
 export const Wrapper = styled.div`
-  z-index: 2;
+  z-index: 11;
   position: fixed;
   right: 0;
   top: 0;

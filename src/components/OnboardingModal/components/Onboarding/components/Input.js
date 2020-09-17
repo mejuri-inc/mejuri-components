@@ -4,9 +4,7 @@ import PropTypes from 'prop-types'
 import { intlShape, injectIntl } from 'react-intl'
 import { TextField } from '@material-ui/core'
 
-const StyledTextField = styled(TextField)`
-  border: 2px solid tomato;
-`
+const StyledTextField = styled(TextField)``
 
 export const getFormLabel = (name, intl) => {
   const key = name && name.split('.').pop()
