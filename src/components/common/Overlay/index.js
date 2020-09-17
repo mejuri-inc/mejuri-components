@@ -7,19 +7,18 @@ const Layer = styled.div`
   bottom: 0;
   height: 100%;
   left: 0;
-  opacity: ${(p) => (p.show ? 0 : 0.6)};
+  opacity: ${(p) => p.opacity};
   position: fixed;
   right: 0;
   top: 0;
   width: 100%;
   z-index: ${(p) => p.zIndex};
-  pointer-events: ${(p) => (p.show ? 'all' : 'none')};
 `
 
 export default function Overlay({
   innerRef,
   onClickHandler,
-  show = true,
+  opacity = 0.6,
   zIndex = 0
 }) {
   const ownRef = useRef(null)
@@ -32,6 +31,11 @@ export default function Overlay({
   })
 
   return (
-    <Layer ref={ownRef} onClick={onClickHandler} show={show} zIndex={zIndex} />
+    <Layer
+      ref={ownRef}
+      onClick={onClickHandler}
+      opacity={opacity}
+      zIndex={zIndex}
+    />
   )
 }
