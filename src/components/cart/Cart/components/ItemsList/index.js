@@ -30,7 +30,7 @@ export const ItemsList = ({
             <ElementWrapper>
               {imageUrl && (
                 <Thumbnail
-                  href={`${window.location.origin}/shop/products/${href}`}
+                  href={`/shop/products/${href}`}
                   src={imageUrl}
                   alt={alt}
                   data-h='cart-product-link'
