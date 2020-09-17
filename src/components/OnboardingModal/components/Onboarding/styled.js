@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import styled from 'styled-components'
 import colors from 'styles/colors'
 import { fadeIn } from 'styles/effects'
@@ -5,12 +6,21 @@ import { fadeIn } from 'styles/effects'
 export const Wrapper = styled.div`
   ${fadeIn}
   line-height: 30px;
+
+  label[class^="MuiFormLabel"] {
+    font-size: 16px;
+    transform: translate(12px, -6px) scale(0.75);
+  }
+
+  button[class^="MuiButtonBase-root"] {
+    min-height: 42px;
+  }
 `
 Wrapper.displayName = 'OnboardingWrapper'
 
 export const Title = styled.div`
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 24px;
   padding: 6px 0;
 `

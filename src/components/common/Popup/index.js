@@ -43,7 +43,7 @@ class Popup extends Component {
           {children}
           {showClose && (
             <CloseButton onClick={onClose}>
-              <CloseIcon />
+              <CloseIcon size={18} />
             </CloseButton>
           )}
         </Content>

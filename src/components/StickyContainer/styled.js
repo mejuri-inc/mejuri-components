@@ -10,5 +10,5 @@ export const Content = styled.div`
   top: 0;
   transition: top 0.5s ease;
   width: 100%;
-  z-index: 1;
+  z-index: 11;
 `
