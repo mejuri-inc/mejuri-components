@@ -49,7 +49,6 @@ export const ItemLink = styled.a`
 export const Layer = styled.div`
   ${fadeIn};
   display: ${(p) => (p.active ? 'flex' : 'none')};
-  max-height: 300px;
   position: absolute;
   top: 35px;
   width: 100vw;
