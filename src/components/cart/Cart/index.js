@@ -20,7 +20,7 @@ import Suggestions from 'components/cart/Cart/components/Suggestions'
 import CartSummary from 'components/cart/Cart/components/CartSummary'
 import CouponErrorAdvice from 'components/cart/Cart/components/CouponErrorAdvice'
 import CartCoupon from 'components/cart/Cart/components/CartCoupon'
-import ApplePayButton from 'components/cart/Cart/components/ApplePayButton'
+import ApplePay from 'components/ApplePay'
 import Backdrop from 'components/cart/Cart/components/Backdrop'
 import { toCurrency } from 'helpers/currency'
 
@@ -100,6 +100,7 @@ export class Cart extends PureComponent {
 
     const {
       order,
+      orderToken,
       couponCodeError,
       isSomethingFetching,
       isOpened,
@@ -120,10 +121,7 @@ export class Cart extends PureComponent {
       addSuggestionItem,
       isFetchingSuggestion,
       suggestions,
-      applePayKey,
       trackEvent,
-      calculateTaxes,
-      makeApplePayPayment,
       trackIncreaseProduct,
       trackDecreaseProduct,
       trackRemoveItem,
@@ -210,14 +208,10 @@ export class Cart extends PureComponent {
                       >
                         <FormattedMessage id='cart.actions.continue' />
                       </Button>
-                      <ApplePayButton
+                      <ApplePay
                         order={order}
-                        lineItems={lineItems}
-                        applePayKey={applePayKey}
+                        orderToken={orderToken}
                         trackEvent={trackEvent}
-                        calculateTaxes={calculateTaxes}
-                        makeApplePayPayment={makeApplePayPayment}
-                        data-h='cart-apple-pay-btn'
                       />
                     </BlockWrapper>
                   </BottomWrapper>
