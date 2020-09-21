@@ -101,7 +101,7 @@ export class NotificationsBar extends React.Component {
 
   formatText(legend) {
     const formatLegend = documentToReactComponents(legend)
-    const text = get(formatLegend, '[0].props.children', [])
+    const text = get(formatLegend, '[0].props.children')
     return text
   }
 
