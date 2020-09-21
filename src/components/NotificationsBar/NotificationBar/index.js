@@ -9,20 +9,24 @@ const NotificationBar = ({
   identifier,
   text,
   onDismiss
-}) => (
-  <Wrapper
-    backgroundColor={backgroundColor}
-    color={textColor}
-    hide={mustHideInMobile}
-  >
-    {text}
-    <Icon
-      onClick={() => onDismiss(identifier)}
+}) => {
+  if (!text) return null
+
+  return (
+    <Wrapper
+      backgroundColor={backgroundColor}
       color={textColor}
-      data-h='notification-close-btn'
-    />
-  </Wrapper>
-)
+      hide={mustHideInMobile}
+    >
+      {text}
+      <Icon
+        onClick={() => onDismiss(identifier)}
+        color={textColor}
+        data-h='notification-close-btn'
+      />
+    </Wrapper>
+  )
+}
 
 NotificationBar.propTypes = {
   backgroundColor: PropTypes.string,
@@ -37,7 +41,6 @@ NotificationBar.defaultProps = {
   backgroundColor: '#000',
   textColor: '#fff',
   mustHideInMobile: false,
-  text: [],
   onDismiss: () => {}
 }
 
