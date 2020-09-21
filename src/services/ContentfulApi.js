@@ -36,7 +36,7 @@ export class ContentfulAPI {
   }
 
   setLocale(localeCode) {
-    this.localeCode = localeCode
+    this.locale = localeCode
     return this
   }
 
