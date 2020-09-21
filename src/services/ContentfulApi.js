@@ -21,7 +21,7 @@ export class ContentfulAPI {
     this.host = contentfulApiHost
     this.accessToken = CONTENTFUL_ACCESS_TOKEN
     this.environment = CONTENTFUL_ENVIRONMENT || 'master'
-    this.localeCode = localeCode || 'en-US'
+    this.localeCode = locale || 'en-US'
     this.cloudinaryCloudName = cloudinaryCloudName || 'mejuri-com'
 
     this.previewAccessToken = CONTENTFUL_PREVIEW_ACCESS_TOKEN
