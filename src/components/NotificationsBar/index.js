@@ -67,7 +67,7 @@ export class NotificationsBar extends React.Component {
     localStorage.setItem(storeKey, JSON.stringify(dismissList))
   }
 
-  notificationBarsFilterByDismiss(dismissList, notificationBars) {
+  notificationBarsFilterByDismiss(dismissList, notificationBars = []) {
     const newNotificationBars = notificationBars.filter(function (
       notification
     ) {

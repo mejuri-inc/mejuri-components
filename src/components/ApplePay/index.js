@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 import humps from 'humps'
 import ApplePayButton from 'components/cart/Cart/components/ApplePayButton'
@@ -51,25 +52,45 @@ const calculateTaxes = (orderToken) =>
       .catch((e) => onError(e))
   }
 
-export default function ApplePay({ orderToken, csrfToken, order, trackEvent }) {
-  const [settings, setSettings] = useState(null)
+export default function ApplePay({
+  orderToken,
+  csrfToken,
+  order,
+  trackEvent,
+  settings
+}) {
+  const [settingsData, setSettingsData] = useState(settings)
   useEffect(() => {
-    fetchSettings(orderToken, order.number).then((r) =>
-      setSettings(r.status === 200 ? r.data : {})
-    )
+    if (!settingsData) {
+      fetchSettings(orderToken, order.number).then((r) =>
+        setSettingsData(r.status === 200 ? r.data : {})
+      )
+    }
   }, [])
 
-  if (!settings) return null
+  if (!settingsData) return null
 
   return (
     <ApplePayButton
       order={order}
       lineItems={order.lineItems}
-      applePayKey={settings.apple_pay}
+      applePayKey={settingsData.apple_pay}
       trackEvent={trackEvent}
       calculateTaxes={calculateTaxes(orderToken)}
       makeApplePayPayment={payment(orderToken, csrfToken)}
       data-h='cart-apple-pay-btn'
     />
   )
+}
+
+ApplePay.defaultProps = {
+  settings: null
+}
+
+ApplePay.propTypes = {
+  orderToken: PropTypes.string,
+  csrfToken: PropTypes.string,
+  order: PropTypes.object,
+  trackEvent: PropTypes.func,
+  settings: PropTypes.object
 }
