@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import humps from 'humps'
 import ApplePayButton from 'components/cart/Cart/components/ApplePayButton'
 
 const fetchSettings = (orderToken, orderId) => {
@@ -11,68 +12,63 @@ const fetchSettings = (orderToken, orderId) => {
   })
 }
 
-const makeApplePayPayment = (orderNumber, orderToken, orderData) => {
-  return axios(
-    `/api/v2/orders/apple_pay_payments`,
-    {
+const makeApplePayPayment = (orderNumber, orderToken, orderData, csrfToken) => {
+  return axios(`/api/v2/orders/apple_pay_payments`, {
+    method: 'POST',
+    headers: { 'X-Spree-Order-Token': orderToken, 'X-CSRF-Token': csrfToken },
+    data: {
+      order_number: orderNumber,
+      order: orderData
+    },
+    withCredentials: true
+  })
+}
+
+const payment = (orderToken, csrfToken) =>
+  function (orderNumber, orderData, callback, onError) {
+    makeApplePayPayment(orderNumber, orderToken, orderData, csrfToken)
+      .then(() => {
+        callback()
+        window.location.href =
+          '/shop/orders/' + orderNumber + '?token=' + orderToken
+      })
+      .catch((e) => onError(e))
+  }
+
+const calculateTaxes = (orderToken) =>
+  function calculateTaxes(orderNumber, orderData, callback, onError) {
+    return axios(`/api/v2/orders/calculate_taxes`, {
       method: 'POST',
       headers: { 'X-Spree-Order-Token': orderToken },
       data: {
         order_number: orderNumber,
         order: orderData
-      },
-      withCredentials: true
-    },
-    false
-  )
-}
-
-const payment = async (
-  orderNumber,
-  orderToken,
-  orderData,
-  callback,
-  onError
-) => {
-  try {
-    await makeApplePayPayment(orderNumber, orderToken, orderData)
-    callback()
-    window.location.href =
-      '/shop/orders/' + orderNumber + '?token=' + orderToken
-  } catch (error) {
-    onError(error)
+      }
+    })
+      .then((d) => {
+        callback(humps.camelizeKeys(d.data))
+      })
+      .catch((e) => onError(e))
   }
-}
 
-const calculateTaxes = (orderToken) => (orderNumber, orderData) => {
-  return axios(`/api/v2/orders/calculate_taxes`, {
-    method: 'POST',
-    headers: { 'X-Spree-Order-Token': orderToken },
-    data: {
-      order_number: orderNumber,
-      order: orderData
-    }
-  })
-}
-
-export default function ApplePay({ orderToken, order, trackEvent }) {
-  const [settings, setSettings] = useState({})
+export default function ApplePay({ orderToken, csrfToken, order, trackEvent }) {
+  const [settings, setSettings] = useState(null)
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetchSettings(orderToken, order.number)
-      return response.data
-    }
-    const data = fetchData()
-    setSettings(data)
+    fetchSettings(orderToken, order.number).then((r) =>
+      setSettings(r.status === 200 ? r.data : {})
+    )
   }, [])
+
+  if (!settings) return null
+
   return (
     <ApplePayButton
       order={order}
-      lineItems={order.line_items}
+      lineItems={order.lineItems}
       applePayKey={settings.apple_pay}
       trackEvent={trackEvent}
       calculateTaxes={calculateTaxes(orderToken)}
-      makeApplePayPayment={payment}
+      makeApplePayPayment={payment(orderToken, csrfToken)}
       data-h='cart-apple-pay-btn'
     />
   )

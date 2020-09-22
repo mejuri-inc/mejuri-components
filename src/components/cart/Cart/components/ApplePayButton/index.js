@@ -210,7 +210,9 @@ export class ApplePayButton extends React.PureComponent {
           let selectedShippingMethod = null
           try {
             selectedShippingMethod = data.shippingMethods[0].identifier
-          } catch (e) {}
+          } catch (e) {
+            console.error('Error getting shipping method')
+          }
 
           this.setState({ lineItems, selectedShippingMethod })
 

@@ -101,6 +101,7 @@ export class Cart extends PureComponent {
     const {
       order,
       orderToken,
+      csrfToken,
       couponCodeError,
       isSomethingFetching,
       isOpened,
@@ -211,6 +212,7 @@ export class Cart extends PureComponent {
                       <ApplePay
                         order={order}
                         orderToken={orderToken}
+                        csrfToken={csrfToken}
                         trackEvent={trackEvent}
                       />
                     </BlockWrapper>
