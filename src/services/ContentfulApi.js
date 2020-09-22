@@ -383,15 +383,27 @@ export class ContentfulAPI {
     return formattedData
   }
 
-  async getNotificationBars(localeCode) {
+  filterNotificationsByLocale(bars, localeCode) {
+    return bars.filter(
+      (n) =>
+        !n.exclusiveLocales ||
+        (n.exclusiveLocales && n.exclusiveLocales.find((l) => l === localeCode))
+    )
+  }
+
+  async getNotificationBars(localeCode, geoLocaleCode) {
     try {
       const client = this.getClient()
       const result = await client.getEntries({
         content_type: 'notificationBar',
         locale: localeCode || this.localeCode
       })
-      const formatted = this.formatResponse(result)
-      return formatted && formatted.length && formatted[0]
+      const formattedData = this.formatResponse(result)
+      const filtered = this.filterNotificationsByLocale(
+        formattedData,
+        geoLocaleCode || localeCode
+      )
+      return filtered
     } catch (e) {
       console.log(e)
     }
