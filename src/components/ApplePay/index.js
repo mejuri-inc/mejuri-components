@@ -4,8 +4,8 @@ import axios from 'axios'
 import humps from 'humps'
 import ApplePayButton from 'components/cart/Cart/components/ApplePayButton'
 
-const fetchSettings = (orderToken, orderId) => {
-  return axios(`/api/v2/settings`, {
+const fetchSettings = (orderToken, orderId, host = '') => {
+  return axios(host + `/api/v2/settings`, {
     auth: false,
     headers: { 'X-Spree-Order-Token': orderToken },
     params: { order_number: orderId },
@@ -57,12 +57,13 @@ export default function ApplePay({
   csrfToken,
   order,
   trackEvent,
-  settings
+  settings,
+  host
 }) {
   const [settingsData, setSettingsData] = useState(settings)
   useEffect(() => {
     if (!settingsData) {
-      fetchSettings(orderToken, order.number).then((r) =>
+      fetchSettings(orderToken, order.number, host).then((r) =>
         setSettingsData(r.status === 200 ? r.data : {})
       )
     }
@@ -92,5 +93,6 @@ ApplePay.propTypes = {
   csrfToken: PropTypes.string,
   order: PropTypes.object,
   trackEvent: PropTypes.func,
-  settings: PropTypes.object
+  settings: PropTypes.object,
+  host: PropTypes.string
 }

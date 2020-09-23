@@ -68,7 +68,6 @@ export class Cart extends PureComponent {
 
     // apple pay
     order: PropTypes.object,
-    applePayKey: PropTypes.string,
     trackEvent: PropTypes.func,
     makeApplePayPayment: PropTypes.func,
     calculateTaxes: PropTypes.func,
@@ -76,7 +75,10 @@ export class Cart extends PureComponent {
     // tracking.
     trackDecreaseProduct: PropTypes.func,
     trackIncreaseProduct: PropTypes.func,
-    trackRemoveItem: PropTypes.func
+    trackRemoveItem: PropTypes.func,
+
+    host: PropTypes.string,
+    settings: PropTypes.object
   }
 
   handleBackdropClick = () => {
@@ -126,7 +128,9 @@ export class Cart extends PureComponent {
       trackIncreaseProduct,
       trackDecreaseProduct,
       trackRemoveItem,
-      trackCartGoToCheckout
+      trackCartGoToCheckout,
+      host,
+      settings
     } = this.props
     const { freeShipping, total, progress } = this.props.shippingStatus
 
@@ -214,6 +218,8 @@ export class Cart extends PureComponent {
                         orderToken={orderToken}
                         csrfToken={csrfToken}
                         trackEvent={trackEvent}
+                        host={host}
+                        settings={settings}
                       />
                     </BlockWrapper>
                   </BottomWrapper>
