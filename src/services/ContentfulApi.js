@@ -21,7 +21,7 @@ export class ContentfulAPI {
     this.host = contentfulApiHost
     this.accessToken = CONTENTFUL_ACCESS_TOKEN
     this.environment = CONTENTFUL_ENVIRONMENT || 'master'
-    this.locale = locale || 'en-US'
+    this.localeCode = locale || 'en-US'
     this.cloudinaryCloudName = cloudinaryCloudName || 'mejuri-com'
 
     this.previewAccessToken = CONTENTFUL_PREVIEW_ACCESS_TOKEN
@@ -353,7 +353,7 @@ export class ContentfulAPI {
       const response = await client.getEntries({
         content_type: 'productList',
         'fields.identifier': 'suggested-products',
-        locale: localeCode || this.locale
+        locale: localeCode || this.localeCode
       })
       const formatted = this.formatResponse(response)
       return formatted && formatted.length && formatted[0]
@@ -368,7 +368,7 @@ export class ContentfulAPI {
       const response = await client.getEntries({
         content_type: 'productList',
         'fields.identifier': 'you-might-also-like',
-        locale: localeCode || this.locale
+        locale: localeCode || this.localeCode
       })
       const formatted = this.formatResponse(response)
       return formatted && formatted.length && formatted[0]
@@ -383,15 +383,27 @@ export class ContentfulAPI {
     return formattedData
   }
 
-  async getNotificationBars(localeCode) {
+  filterNotificationsByLocale(bars, localeCode) {
+    return bars.filter(
+      (n) =>
+        !n.exclusiveLocales ||
+        (n.exclusiveLocales && n.exclusiveLocales.find((l) => l === localeCode))
+    )
+  }
+
+  async getNotificationBars(localeCode, geoLocaleCode) {
     try {
       const client = this.getClient()
       const result = await client.getEntries({
         content_type: 'notificationBar',
-        locale: localeCode || this.locale
+        locale: localeCode || this.localeCode
       })
-      const formatted = this.formatResponse(result)
-      return formatted && formatted.length && formatted[0]
+      const formattedData = this.formatResponse(result)
+      const filtered = this.filterNotificationsByLocale(
+        formattedData,
+        geoLocaleCode || localeCode
+      )
+      return filtered
     } catch (e) {
       console.log(e)
     }
@@ -404,7 +416,7 @@ export class ContentfulAPI {
         content_type: 'menuConfiguration',
         'fields.text': 'global-mobile-menu',
         include: 3,
-        locale: localeCode || this.locale
+        locale: localeCode || this.localeCode
       })
       const formatted = this.formatResponse(response)
       return formatted && formatted.length && formatted[0]
@@ -420,7 +432,7 @@ export class ContentfulAPI {
         content_type: 'menuConfiguration',
         'fields.text': 'global-header-menu',
         include: 3,
-        locale: localeCode || this.locale
+        locale: localeCode || this.localeCode
       })
       const formatted = this.formatResponse(response)
       return formatted && formatted.length && formatted[0].children
@@ -436,7 +448,7 @@ export class ContentfulAPI {
         content_type: 'menuConfiguration',
         'fields.text': 'global-footer',
         include: 3,
-        locale: localeCode || this.locale
+        locale: localeCode || this.localeCode
       })
       const formatted = this.formatResponse(response)
       return formatted && formatted.length && formatted[0]
@@ -451,7 +463,7 @@ export class ContentfulAPI {
       const response = await client.getEntries({
         content_type: 'customConfig',
         'fields.slug': 'translations',
-        locale: localeCode || this.locale
+        locale: localeCode || this.localeCode
       })
       const formatted = this.formatResponse(response)
       return formatted && formatted.length && formatted[0]
