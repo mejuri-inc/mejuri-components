@@ -68,6 +68,7 @@ export class NotificationsBar extends React.Component {
   }
 
   notificationBarsFilterByDismiss(dismissList, notificationBars = []) {
+    if (!Array.isArray(notificationBars)) return []
     const newNotificationBars = notificationBars.filter(function (
       notification
     ) {
