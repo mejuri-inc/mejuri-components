@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const RegularNotificationBar = styled.div`
+const GenericNotificationBar = styled.div`
   background-color: ${(p) => p.theme.colors.black};
   padding: 10px 20px;
   color: ${(p) => p.theme.colors.white};
@@ -27,4 +27,4 @@ const RegularNotificationBar = styled.div`
   }
 `
 
-export default RegularNotificationBar
+export default GenericNotificationBar

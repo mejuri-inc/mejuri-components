@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FormattedHTMLMessage } from 'react-intl'
-import RegularNotificationBar from 'components/RegularNotificationBar'
+import GenericNotificationBar from 'components/GenericNotificationBar'
 
 const linkUrl = (host, url) => `${host}${url}`
 
 const DiscountNotificationBar = ({ apiHost, name, link }) => {
   if (!name) return null
   return (
-    <RegularNotificationBar>
+    <GenericNotificationBar>
       <FormattedHTMLMessage
         id='header.notifications.discount'
         values={{
@@ -16,7 +16,7 @@ const DiscountNotificationBar = ({ apiHost, name, link }) => {
           link: linkUrl(apiHost, link)
         }}
       />
-    </RegularNotificationBar>
+    </GenericNotificationBar>
   )
 }
 
