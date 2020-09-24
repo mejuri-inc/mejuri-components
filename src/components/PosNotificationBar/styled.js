@@ -1,16 +1,14 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
-import { fontWeight } from 'styles/settings'
 
 export const Wrapper = styled.div`
-  background-color: ${colors.black};
+  background-color: ${(p) => p.theme.colors.black};
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  color: ${colors.white};
-  font-weight: ${fontWeight.light};
+  color: ${(p) => p.theme.colors.white};
+  font-weight: ${(p) => p.theme.fontWeight.light};
   letter-spacing: 1px;
   line-height: 18px;
   font-size: 14px;
@@ -30,7 +28,7 @@ POSName.displayName = 'POSName'
 
 export const Buyer = styled.div`
   & > a {
-    color: ${colors.white};
+    color: ${(p) => p.theme.colors.white};
     white-space: nowrap;
 
     &:focus {

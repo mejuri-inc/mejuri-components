@@ -16,6 +16,7 @@ import Footer from './components/Footer'
 import CurrencySelector from './components/CurrencySelector'
 import OnboardingModal from './components/OnboardingModal'
 import PosNotificationBar from './components/PosNotificationBar'
+import DiscountNotificationBar from './components/DiscountNotificationBar'
 import {
   ClientStateProvider,
   ClientStateContext
@@ -57,6 +58,7 @@ export {
   Spinner,
   ButtonLink,
   PosNotificationBar,
+  DiscountNotificationBar,
   ClientStateProvider,
   ClientStateContext
 }
