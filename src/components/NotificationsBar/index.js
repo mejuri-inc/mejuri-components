@@ -74,7 +74,7 @@ export class NotificationsBar extends React.Component {
     ) {
       return (
         dismissList.findIndex(
-          (element) => element.id === notification.fields.identifier
+          (element) => element.id === notification.identifier
         ) < 0
       )
     })
