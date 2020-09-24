@@ -10,9 +10,6 @@ export const Wrapper = styled.div`
 `
 Wrapper.displayName = 'HeaderWrapper'
 
-export const Content = styled.div``
-Content.displayName = 'HeaderContent'
-
 export const Sticky = styled.div`
   position: sticky;
   top: 0;
