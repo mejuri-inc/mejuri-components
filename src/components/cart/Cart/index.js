@@ -20,7 +20,7 @@ import CouponErrorAdvice from 'components/cart/Cart/components/CouponErrorAdvice
 import CartCoupon from 'components/cart/Cart/components/CartCoupon'
 import ApplePayButton from 'components/cart/Cart/components/ApplePayButton'
 import Backdrop from 'components/cart/Cart/components/Backdrop'
-import { toCurrency } from 'helpers/currency'
+// import { toCurrency } from 'helpers/currency'
 
 export class Cart extends PureComponent {
   static propTypes = {
@@ -127,7 +127,11 @@ export class Cart extends PureComponent {
       trackRemoveItem,
       trackCartGoToCheckout
     } = this.props
-    const { freeShipping, total, progress } = this.props.shippingStatus
+    const {
+      // freeShipping,
+      total
+      // progress
+    } = this.props.shippingStatus
 
     return (
       <div>
@@ -140,8 +144,9 @@ export class Cart extends PureComponent {
                 lineItems={lineItems}
                 isOpened={isOpened}
               >
-                {!!lineItems.length && null
-                  /*(
+                {
+                  !!lineItems.length && null
+                  /* (
                   <FormattedMessage
                     id={
                       freeShipping
@@ -150,8 +155,8 @@ export class Cart extends PureComponent {
                     }
                     values={{ label: toCurrency(total - progress, currency) }}
                   />
-                )*/
-              }
+                ) */
+                }
               </CartHeader>
               <ProgressBar total={total} progress={0} />
               <Scrollable>
