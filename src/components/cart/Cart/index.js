@@ -140,7 +140,8 @@ export class Cart extends PureComponent {
                 lineItems={lineItems}
                 isOpened={isOpened}
               >
-                {!!lineItems.length && (
+                {!!lineItems.length && null
+                  /*(
                   <FormattedMessage
                     id={
                       freeShipping
@@ -149,9 +150,10 @@ export class Cart extends PureComponent {
                     }
                     values={{ label: toCurrency(total - progress, currency) }}
                   />
-                )}
+                )*/
+              }
               </CartHeader>
-              <ProgressBar total={total} progress={progress} />
+              <ProgressBar total={total} progress={0} />
               <Scrollable>
                 {lineItems.length ? (
                   <ItemsList
