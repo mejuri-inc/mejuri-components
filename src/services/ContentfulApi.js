@@ -94,6 +94,20 @@ export class ContentfulAPI {
     }
   }
 
+  async getPageGeneric(slug, queryOptions = {}) {
+    try {
+      let pages = await this.getContentType('pageGeneric', {
+        slug,
+        include: 4,
+        ...queryOptions
+      })
+      pages = pages.map(this.formatComponentData)
+      return pages
+    } catch (e) {
+      throw e
+    }
+  }
+
   async getLocales() {
     try {
       return await this.getClient().getLocales()
