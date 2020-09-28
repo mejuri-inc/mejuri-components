@@ -132,7 +132,13 @@ export class Cart extends PureComponent {
       host,
       settings
     } = this.props
-    const { freeShipping, total, progress } = this.props.shippingStatus
+
+    const {
+      freeShipping,
+      total,
+      progress,
+      disabledFreeShipping
+    } = this.props.shippingStatus
 
     return (
       <MuiThemeProvider theme={MejuriTheme}>
@@ -149,7 +155,7 @@ export class Cart extends PureComponent {
                   {!!lineItems.length && (
                     <FormattedMessage
                       id={
-                        freeShipping
+                        disabledFreeShipping || freeShipping
                           ? 'cart.header.freeShippingReached'
                           : 'cart.header.advice'
                       }
@@ -157,7 +163,12 @@ export class Cart extends PureComponent {
                     />
                   )}
                 </CartHeader>
-                <ProgressBar total={total} progress={progress} />
+                <ProgressBar
+                  total={total}
+                  progress={
+                    disabledFreeShipping || freeShipping ? total : progress
+                  }
+                />
                 <Scrollable>
                   {lineItems.length ? (
                     <ItemsList
