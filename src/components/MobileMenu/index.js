@@ -70,14 +70,17 @@ export class MobileMenu extends React.Component {
     this.toggleMenuState()
   }
 
-  handleBagClick = (e) => {
-    const { toggleCart } = this.props
+  handleBagClick = () => {
+    const { toggleCart, trackOpenCart } = this.props
     toggleCart(true)
+    trackOpenCart()
     setTimeout(() => this.toggleMenuState(), 300)
   }
 
   handleSearchClick = () => {
-    this.props.toggleSearch()
+    const { toggleSearch, trackSearchOpen } = this.props
+    toggleSearch()
+    trackSearchOpen()
     this.toggleMenuState()
   }
 
@@ -188,7 +191,16 @@ MobileMenu.propTypes = {
   toggleSearch: PropTypes.func,
   openOnboarding: PropTypes.func,
   currencySelector: PropTypes.element,
+  trackOpenCart: PropTypes.func,
+  trackSearchOpen: PropTypes.func,
   pos: PropTypes.object
+}
+
+MobileMenu.defaultProps = {
+  trackOpenCart: () =>
+    console.log('trackOpenCart callback function missing in <HeaderDesktop />'),
+  trackSearchOpen: () =>
+    console.log('trackSearchOpen prop missing in <MainSearch />')
 }
 
 export default MobileMenu

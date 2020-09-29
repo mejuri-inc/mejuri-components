@@ -3,6 +3,7 @@ import colors from 'styles/colors'
 
 export const ElementWrapper = styled.div`
   padding: 0 30px;
+  display: flex;
 `
 
 export const RemoveButton = styled.button`

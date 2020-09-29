@@ -86,7 +86,7 @@ export class Cart extends PureComponent {
     cartToggle(false)
   }
 
-  static componentDidUpdate() {
+  toggleZendeskWidget() {
     if (typeof window !== 'undefined') {
       if (this.props.isOpened) {
         window.zE && window.zE.hide()
@@ -139,6 +139,8 @@ export class Cart extends PureComponent {
       progress,
       disabledFreeShipping
     } = this.props.shippingStatus
+
+    this.toggleZendeskWidget()
 
     return (
       <MuiThemeProvider theme={MejuriTheme}>

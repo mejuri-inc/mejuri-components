@@ -3,10 +3,7 @@ import colors from 'styles/colors'
 import { fontWeight } from 'styles/settings'
 
 export const Wrapper = styled.div`
-  display: inline-block;
-  letter-spacing: 0.025em;
-  justify-content: space-between;
-  width: 70%;
+  flex: 2.3;
 `
 Wrapper.displayName = 'ItemPropertiesWrapper'
 

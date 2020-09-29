@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const ThumbWrapper = styled.a`
-  display: inline-block;
-  width: 30%;
+  flex: 1;
 
   & > img {
     max-height: 95px;
