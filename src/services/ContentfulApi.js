@@ -23,9 +23,11 @@ export class ContentfulAPI {
     this.environment = CONTENTFUL_ENVIRONMENT || 'master'
     this.localeCode = locale || 'en-US'
     this.cloudinaryCloudName = cloudinaryCloudName || 'mejuri-com'
-
     this.previewAccessToken = CONTENTFUL_PREVIEW_ACCESS_TOKEN
     this.contentfulPreviewApiHost = contentfulPreviewApiHost
+    this.defaultQuery = {
+      include: 10
+    }
   }
 
   setPreviewMode() {
@@ -103,7 +105,7 @@ export class ContentfulAPI {
   async getContentType(type, queryOptions = {}) {
     const { client = this.getClient(), ...rest } = queryOptions
     const currentLocale = this.localeCode
-    const query = this.formatQuery(rest)
+    const query = this.formatQuery({ ...this.defaultQuery, ...rest })
     try {
       const args = { content_type: type, locale: currentLocale, ...query }
       if (!process.browser)
@@ -134,13 +136,7 @@ export class ContentfulAPI {
   formatResponse(response = {}) {
     const { items = [] } = response
     const formattedResponse = items.map((item) => {
-      let formatted = this.formatResponseLevel(item)
-      if (
-        formatted._contentType &&
-        formatted._contentType._id === 'componentGeneric'
-      ) {
-        formatted = this.formatComponentData(formatted)
-      }
+      const formatted = this.formatResponseLevel(item)
       return formatted
     })
     return formattedResponse
@@ -177,8 +173,9 @@ export class ContentfulAPI {
     if (!item.sys && !item.fields) return item
     const { sys = {}, fields = {} } = item
 
-    const formatted = {}
+    let formatted = {}
 
+    // Ugly fix start ------------------------------------------------------------
     // Ugly solution for circular relation in related relatedEdits
     // Needs a refactor
     if (
@@ -196,6 +193,7 @@ export class ContentfulAPI {
         })
       }
     }
+    // Ugly fix end -------------------------------------------------------------
 
     // COPY SYS ATTRIBUTES
     for (const key in sys) {
@@ -212,6 +210,14 @@ export class ContentfulAPI {
         const value = fields[key]
         formatted[`${key}`] = this.formatResponseValue(value)
       }
+    }
+
+    // PARSE COMPONENT GENERIC DATA
+    if (
+      formatted._contentType &&
+      formatted._contentType._id === 'componentGeneric'
+    ) {
+      formatted = this.formatComponentData(formatted)
     }
 
     return formatted
