@@ -1399,4 +1399,329 @@ const componentGeneric = {
 	}
 }
 
-export const mockData = { lookPage, componentGeneric, cloudinaryImageData }
+const pageGeneric = {
+  items : [
+    {
+    	"sys": {
+    		"space": {
+    			"sys": {
+    				"type": "Link",
+    				"linkType": "Space",
+    				"id": "e48r2iwyjczp"
+    			}
+    		},
+    		"id": "2rczcQGdjFigxvc0SAyMp2",
+    		"type": "Entry",
+    		"createdAt": "2020-09-28T16:44:41.685Z",
+    		"updatedAt": "2020-09-28T18:21:57.290Z",
+    		"environment": {
+    			"sys": {
+    				"id": "staging",
+    				"type": "Link",
+    				"linkType": "Environment"
+    			}
+    		},
+    		"revision": 4,
+    		"contentType": {
+    			"sys": {
+    				"type": "Link",
+    				"linkType": "ContentType",
+    				"id": "pageGeneric"
+    			}
+    		},
+    		"locale": "en-US"
+    	},
+    	"fields": {
+    		"title": "Home test",
+    		"slug": "homepage",
+    		"components": [
+    			{
+    				"sys": {
+    					"space": {
+    						"sys": {
+    							"type": "Link",
+    							"linkType": "Space",
+    							"id": "e48r2iwyjczp"
+    						}
+    					},
+    					"id": "2NVpKVenrJEZtw1ivfLyLF",
+    					"type": "Entry",
+    					"createdAt": "2020-09-28T16:54:52.867Z",
+    					"updatedAt": "2020-09-28T17:04:34.337Z",
+    					"environment": {
+    						"sys": {
+    							"id": "staging",
+    							"type": "Link",
+    							"linkType": "Environment"
+    						}
+    					},
+    					"revision": 2,
+    					"contentType": {
+    						"sys": {
+    							"type": "Link",
+    							"linkType": "ContentType",
+    							"id": "componentGeneric"
+    						}
+    					},
+    					"locale": "en-US"
+    				},
+    				"fields": {
+    					"name": "home test",
+    					"data": {
+    						"data": {
+    							"components": [
+    								{
+    									"data": {
+    										"content": "hello world"
+    									},
+    									"name": "",
+    									"type": "text",
+    									"behaviours": [],
+    									"referenceId": "1-1601312085538",
+    									"cssByBreakpoint": [
+    										{
+    											"css": [],
+    											"cssHover": [],
+    											"cssActive": [],
+    											"breakpoint": {
+    												"minWidth": 0,
+    												"orientation": "all"
+    											},
+    											"cssDisabled": []
+    										}
+    									]
+    								},
+    								{
+    									"data": {
+    										"entryId": "1h7nECti5sNzqLeQ3P45N5"
+    									},
+    									"name": "",
+    									"type": "richText",
+    									"behaviours": [],
+    									"referenceId": "2-1601312353594",
+    									"cssByBreakpoint": [
+    										{
+    											"css": [],
+    											"cssHover": [],
+    											"cssActive": [],
+    											"breakpoint": {
+    												"minWidth": 0,
+    												"orientation": "all"
+    											},
+    											"cssDisabled": []
+    										}
+    									]
+    								}
+    							]
+    						},
+    						"name": "",
+    						"type": "container",
+    						"behaviours": [],
+    						"referenceId": "0-1601312079429",
+    						"cssByBreakpoint": [
+    							{
+    								"css": [],
+    								"cssHover": [],
+    								"cssActive": [],
+    								"breakpoint": {
+    									"minWidth": 0,
+    									"orientation": "all"
+    								},
+    								"cssDisabled": []
+    							}
+    						]
+    					},
+    					"linkedEntries": [
+    						{
+    							"sys": {
+    								"space": {
+    									"sys": {
+    										"type": "Link",
+    										"linkType": "Space",
+    										"id": "e48r2iwyjczp"
+    									}
+    								},
+    								"id": "1h7nECti5sNzqLeQ3P45N5",
+    								"type": "Entry",
+    								"createdAt": "2020-09-28T16:59:31.734Z",
+    								"updatedAt": "2020-09-28T16:59:31.734Z",
+    								"environment": {
+    									"sys": {
+    										"id": "staging",
+    										"type": "Link",
+    										"linkType": "Environment"
+    									}
+    								},
+    								"revision": 1,
+    								"contentType": {
+    									"sys": {
+    										"type": "Link",
+    										"linkType": "ContentType",
+    										"id": "richTextGeneric"
+    									}
+    								},
+    								"locale": "en-US"
+    							},
+    							"fields": {
+    								"name": "rich test",
+    								"content": {
+    									"nodeType": "document",
+    									"data": {},
+    									"content": [
+    										{
+    											"nodeType": "paragraph",
+    											"content": [
+    												{
+    													"nodeType": "text",
+    													"value": "HOla desde rich",
+    													"marks": [],
+    													"data": {}
+    												}
+    											],
+    											"data": {}
+    										}
+    									]
+    								}
+    							}
+    						}
+    					]
+    				}
+    			},
+    			{
+    				"sys": {
+    					"space": {
+    						"sys": {
+    							"type": "Link",
+    							"linkType": "Space",
+    							"id": "e48r2iwyjczp"
+    						}
+    					},
+    					"id": "DporMEWCVGQIU9mFEr76N",
+    					"type": "Entry",
+    					"createdAt": "2020-09-28T17:07:59.664Z",
+    					"updatedAt": "2020-09-28T17:07:59.664Z",
+    					"environment": {
+    						"sys": {
+    							"id": "staging",
+    							"type": "Link",
+    							"linkType": "Environment"
+    						}
+    					},
+    					"revision": 1,
+    					"contentType": {
+    						"sys": {
+    							"type": "Link",
+    							"linkType": "ContentType",
+    							"id": "componentGeneric"
+    						}
+    					},
+    					"locale": "en-US"
+    				},
+    				"fields": {
+    					"name": "home test 2",
+    					"data": {
+    						"name": "",
+    						"cssByBreakpoint": [
+    							{
+    								"breakpoint": {
+    									"orientation": "all",
+    									"minWidth": 0
+    								},
+    								"css": [],
+    								"cssHover": [],
+    								"cssActive": [],
+    								"cssDisabled": []
+    							}
+    						],
+    						"behaviours": [],
+    						"type": "container",
+    						"data": {
+    							"components": [
+    								{
+    									"name": "",
+    									"cssByBreakpoint": [
+    										{
+    											"breakpoint": {
+    												"orientation": "all",
+    												"minWidth": 0
+    											},
+    											"css": [],
+    											"cssHover": [],
+    											"cssActive": [],
+    											"cssDisabled": []
+    										}
+    									],
+    									"behaviours": [],
+    									"type": "richText",
+    									"data": {
+    										"entryId": "Fsd4JmUc6TfXwX59ptn8M"
+    									},
+    									"referenceId": "1-1601312866804"
+    								}
+    							]
+    						},
+    						"referenceId": "0-1601312858380"
+    					},
+    					"linkedEntries": [
+    						{
+    							"sys": {
+    								"space": {
+    									"sys": {
+    										"type": "Link",
+    										"linkType": "Space",
+    										"id": "e48r2iwyjczp"
+    									}
+    								},
+    								"id": "Fsd4JmUc6TfXwX59ptn8M",
+    								"type": "Entry",
+    								"createdAt": "2020-09-28T17:07:56.311Z",
+    								"updatedAt": "2020-09-28T17:07:56.311Z",
+    								"environment": {
+    									"sys": {
+    										"id": "staging",
+    										"type": "Link",
+    										"linkType": "Environment"
+    									}
+    								},
+    								"revision": 1,
+    								"contentType": {
+    									"sys": {
+    										"type": "Link",
+    										"linkType": "ContentType",
+    										"id": "richTextGeneric"
+    									}
+    								},
+    								"locale": "en-US"
+    							},
+    							"fields": {
+    								"name": "New rich text another",
+    								"content": {
+    									"nodeType": "document",
+    									"data": {},
+    									"content": [
+    										{
+    											"nodeType": "paragraph",
+    											"content": [
+    												{
+    													"nodeType": "text",
+    													"value": "Another test",
+    													"marks": [],
+    													"data": {}
+    												}
+    											],
+    											"data": {}
+    										}
+    									]
+    								}
+    							}
+    						}
+    					]
+    				}
+    			}
+    		]
+    	}
+    }
+  ]
+}
+
+export const mockData = { pageGeneric, lookPage, componentGeneric, cloudinaryImageData }

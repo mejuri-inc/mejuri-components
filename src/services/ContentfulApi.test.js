@@ -37,13 +37,20 @@ describe('ContentfulAPI', () => {
     expect(response).toMatchSnapshot()
   })
 
+  it('It formats generic components deep nested in a response', async () => {
+    const instance = new ContentfulAPI(credentials)
+    const response = await instance.getContentType('pageGeneric', {
+      id: '1egd1bENEWRUWOXBRVZEUq',
+      client: mockedContentfulClient
+    })
+    expect(response).toMatchSnapshot()
+  })
+
   it('It formats cloudinary images data', async () => {
     const instance = new ContentfulAPI(credentials)
     const formatted = instance.formatCloudinaryData(mockData.cloudinaryImageData)
     expect(formatted).toMatchSnapshot()
   })
-
-
 
   it('It fetches lookbook pages', async () => {
     const instance = new ContentfulAPI(credentials)
