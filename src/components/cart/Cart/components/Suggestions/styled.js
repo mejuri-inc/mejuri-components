@@ -1,10 +1,8 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
-import { fontWeight } from 'styles/settings'
 
 export const Legend = styled.h5`
   font-size: 14px;
-  font-weight: ${fontWeight.light};
+  font-weight: ${(p) => p.theme.fontWeight.light};
   margin: 0;
   margin-top: 8px;
   padding: 0;
@@ -14,7 +12,7 @@ Legend.displayName = 'SuggestedProductsLegend'
 
 export const Title = styled.h4`
   font-size: 14px;
-  font-weight: ${fontWeight.regular};
+  font-weight: ${(p) => p.theme.fontWeight.regular};
   margin: 0;
   padding: 0;
   text-transform: none;
@@ -22,7 +20,7 @@ export const Title = styled.h4`
 Title.displayName = 'SuggestedProductsTitle'
 
 export const Wrapper = styled.div`
-  background: ${colors.lightGray3};
+  background: ${(p) => p.theme.colors.lightGray3};
   display: block;
   padding: 20px 0;
   width: 100%;
@@ -47,6 +45,7 @@ Item.displayName = 'SuggestedProductsItem'
 export const Columns = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `
 Columns.displayName = 'SuggestedColumnsProductsItem'
 
@@ -66,9 +65,10 @@ export const AddButton = styled.button`
   align-items: center;
   appearance: none;
   background-color: ${(p) =>
-    p.isFetching ? colors.lightGray3 : 'transparent'};
-  border: 1px solid ${colors.black};
-  border-color: ${(p) => (p.isFetching ? colors.lightGray3 : colors.black)};
+    p.isFetching ? (p) => p.theme.colors.lightGray3 : 'transparent'};
+  border: 1px solid ${(p) => p.theme.colors.black};
+  border-color: ${(p) =>
+    p.isFetching ? p.theme.colors.lightGray3 : p.theme.colors.black};
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -80,8 +80,9 @@ export const AddButton = styled.button`
   margin-top: 16px;
 
   &:hover {
-    background-color: ${(p) => (p.isFetching ? 'transparent' : colors.black)};
-    color: ${colors.white};
+    background-color: ${(p) =>
+      p.isFetching ? 'transparent' : p.theme.colors.black};
+    color: ${(p) => p.theme.colors.white};
   }
 `
 
@@ -100,19 +101,19 @@ export const Link = styled.a`
     background: #000;
     left: 0;
     bottom: 3px;
-    background: ${colors.black};
+    background: ${(p) => p.theme.colors.black};
   }
   &:hover {
-    color: ${colors.darkGray1};
+    color: ${(p) => p.theme.colors.darkGray1};
   }
   &::after:after {
-    background: ${colors.darkGray1};
+    background: ${(p) => p.theme.colors.darkGray1};
   }
 `
 
 export const Price = styled.p`
   font-size: 12px;
-  font-weight: ${fontWeight.light};
+  font-weight: ${(p) => p.theme.fontWeight.light};
 `
 
 export const Header = styled.div`
