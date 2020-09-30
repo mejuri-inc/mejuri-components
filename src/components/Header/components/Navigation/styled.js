@@ -3,14 +3,14 @@ import colors from 'styles/colors'
 import { fadeIn } from 'styles/effects'
 
 export const Wrapper = styled.div`
-  flex: 1;
   display: flex;
   justify-content: space-between;
   list-style-type: none;
   padding: 0;
+  flex-basis: 22%;
 
-  @media (min-width: 1280px) {
-    width: 35%;
+  @media (max-width: 1440px) {
+    flex-basis: 33.3%;
   }
 `
 Wrapper.displayName = 'WrapperNavigation'
@@ -18,10 +18,6 @@ Wrapper.displayName = 'WrapperNavigation'
 export const Item = styled.div`
   max-height: 18px;
   position: relative;
-  padding: 0 1.75em;
-  &:first-child {
-    padding: 0 1.75em 0 0;
-  }
 `
 
 export const ItemLink = styled.a`

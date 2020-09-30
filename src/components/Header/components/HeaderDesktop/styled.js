@@ -13,7 +13,11 @@ export const Logo = styled.a`
   height: ${({ shrinked }) => (shrinked ? '45px' : '58px')};
   text-transform: uppercase;
   text-align: center;
-  flex: 1;
+  flex-basis: 56%;
+
+  @media (max-width: 1440px) {
+    flex-basis: 33.3%;
+  }
 `
 
 export const Wrapper = styled.section`
@@ -54,10 +58,10 @@ export const Menu = styled.nav`
   display: flex;
   justify-content: space-between;
   white-space: nowrap;
-  flex: 1;
+  flex-basis: 22%;
 
-  @media (min-width: 1280px) {
-    width: 35%;
+  @media (max-width: 1440px) {
+    flex-basis: 33.3%;
   }
 `
 Menu.displayName = 'HeaderDesktopMenu'
