@@ -94,6 +94,15 @@ export class ContentfulAPI {
     }
   }
 
+  async getPageGeneric(queryOptions = {}) {
+    try {
+      const pages = await this.getContentType('pageGeneric', queryOptions)
+      return pages
+    } catch (e) {
+      throw e
+    }
+  }
+
   async getLocales() {
     try {
       return await this.getClient().getLocales()

@@ -61,6 +61,15 @@ describe('ContentfulAPI', () => {
     expect(response).toMatchSnapshot()
   })
 
+  it('It fetches page generic pages', async () => {
+    const instance = new ContentfulAPI(credentials)
+    const response = await instance.getPageGeneric({
+      slug: 'homepage',
+      client: mockedContentfulClient
+    })
+    expect(response).toMatchSnapshot()
+  })
+
   it('Send preview mode requests when preview mode is selected', async () => {
     const previewApi = new ContentfulAPI(credentials)
     previewApi.setPreviewMode()

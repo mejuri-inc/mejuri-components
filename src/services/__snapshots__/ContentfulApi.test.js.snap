@@ -865,6 +865,175 @@ Array [
 ]
 `;
 
+exports[`ContentfulAPI It fetches page generic pages 1`] = `
+Array [
+  Object {
+    "_contentType": Object {
+      "_id": "pageGeneric",
+    },
+    "_id": "2rczcQGdjFigxvc0SAyMp2",
+    "_locale": "en-US",
+    "components": Array [
+      Object {
+        "behaviours": Array [],
+        "cssByBreakpoint": Array [
+          Object {
+            "breakpoint": Object {
+              "minWidth": 0,
+              "orientation": "all",
+            },
+            "css": Array [],
+            "cssActive": Array [],
+            "cssDisabled": Array [],
+            "cssHover": Array [],
+          },
+        ],
+        "data": Object {
+          "components": Array [
+            Object {
+              "behaviours": Array [],
+              "cssByBreakpoint": Array [
+                Object {
+                  "breakpoint": Object {
+                    "minWidth": 0,
+                    "orientation": "all",
+                  },
+                  "css": Array [],
+                  "cssActive": Array [],
+                  "cssDisabled": Array [],
+                  "cssHover": Array [],
+                },
+              ],
+              "data": Object {
+                "content": "hello world",
+              },
+              "name": "",
+              "referenceId": "1-1601312085538",
+              "type": "text",
+            },
+            Object {
+              "behaviours": Array [],
+              "cssByBreakpoint": Array [
+                Object {
+                  "breakpoint": Object {
+                    "minWidth": 0,
+                    "orientation": "all",
+                  },
+                  "css": Array [],
+                  "cssActive": Array [],
+                  "cssDisabled": Array [],
+                  "cssHover": Array [],
+                },
+              ],
+              "data": Object {
+                "_contentType": Object {
+                  "_id": "richTextGeneric",
+                },
+                "_id": "1h7nECti5sNzqLeQ3P45N5",
+                "_locale": "en-US",
+                "content": Object {
+                  "content": Array [
+                    Object {
+                      "content": Array [
+                        Object {
+                          "data": Object {},
+                          "marks": Array [],
+                          "nodeType": "text",
+                          "value": "HOla desde rich",
+                        },
+                      ],
+                      "data": Object {},
+                      "nodeType": "paragraph",
+                    },
+                  ],
+                  "data": Object {},
+                  "nodeType": "document",
+                },
+                "name": "rich test",
+              },
+              "name": "",
+              "referenceId": "2-1601312353594",
+              "type": "richText",
+            },
+          ],
+        },
+        "name": "",
+        "referenceId": "0-1601312079429",
+        "type": "container",
+      },
+      Object {
+        "behaviours": Array [],
+        "cssByBreakpoint": Array [
+          Object {
+            "breakpoint": Object {
+              "minWidth": 0,
+              "orientation": "all",
+            },
+            "css": Array [],
+            "cssActive": Array [],
+            "cssDisabled": Array [],
+            "cssHover": Array [],
+          },
+        ],
+        "data": Object {
+          "components": Array [
+            Object {
+              "behaviours": Array [],
+              "cssByBreakpoint": Array [
+                Object {
+                  "breakpoint": Object {
+                    "minWidth": 0,
+                    "orientation": "all",
+                  },
+                  "css": Array [],
+                  "cssActive": Array [],
+                  "cssDisabled": Array [],
+                  "cssHover": Array [],
+                },
+              ],
+              "data": Object {
+                "_contentType": Object {
+                  "_id": "richTextGeneric",
+                },
+                "_id": "Fsd4JmUc6TfXwX59ptn8M",
+                "_locale": "en-US",
+                "content": Object {
+                  "content": Array [
+                    Object {
+                      "content": Array [
+                        Object {
+                          "data": Object {},
+                          "marks": Array [],
+                          "nodeType": "text",
+                          "value": "Another test",
+                        },
+                      ],
+                      "data": Object {},
+                      "nodeType": "paragraph",
+                    },
+                  ],
+                  "data": Object {},
+                  "nodeType": "document",
+                },
+                "name": "New rich text another",
+              },
+              "name": "",
+              "referenceId": "1-1601312866804",
+              "type": "richText",
+            },
+          ],
+        },
+        "name": "",
+        "referenceId": "0-1601312858380",
+        "type": "container",
+      },
+    ],
+    "slug": "homepage",
+    "title": "Home test",
+  },
+]
+`;
+
 exports[`ContentfulAPI It formats cloudinary images data 1`] = `
 Object {
   "alt": "",
