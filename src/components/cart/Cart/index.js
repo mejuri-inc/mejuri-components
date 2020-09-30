@@ -88,10 +88,14 @@ export class Cart extends PureComponent {
 
   toggleZendeskWidget() {
     if (typeof window !== 'undefined') {
-      if (this.props.isOpened) {
-        window.zE && window.zE.hide()
-      } else {
-        window.zE && window.zE.show()
+      try {
+        if (this.props.isOpened) {
+          window.zE && window.zE.hide()
+        } else {
+          window.zE && window.zE.show()
+        }
+      } catch (e) {
+        console.error(e)
       }
     }
     return null
@@ -195,12 +199,14 @@ export class Cart extends PureComponent {
                       <FormattedMessage id='cart.empty' />
                     </EmptyCart>
                   )}
-                  <Suggestions
-                    addSuggestion={addSuggestionItem}
-                    isFetching={isFetchingSuggestion}
-                    items={suggestions}
-                    lineItems={lineItems}
-                  />
+                  {!!lineItems.length && (
+                    <Suggestions
+                      addSuggestion={addSuggestionItem}
+                      isFetching={isFetchingSuggestion}
+                      items={suggestions}
+                      lineItems={lineItems}
+                    />
+                  )}
                 </Scrollable>
                 {!!lineItems.length && (
                   <BottomWrapper>
