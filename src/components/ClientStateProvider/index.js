@@ -3,6 +3,7 @@ import PropType from 'prop-types'
 import getCurrentSession from './session'
 import api from './api'
 import get from 'lodash.get'
+import { isCartEmpty } from './orderSelectors'
 
 export const ClientStateContext = React.createContext({})
 
@@ -119,7 +120,7 @@ export class ClientStateProvider extends React.Component {
         {
           session: sessionResponse.current
         },
-        () => this.getOrder() && this.loadSuggestions()
+        () => this.getOrder()
       )
     } catch (e) {
       console.error('Error getting session', e)
@@ -133,14 +134,19 @@ export class ClientStateProvider extends React.Component {
         this.props.apiHost
       )
 
-      this.setState({
-        order: orderResponse,
-        cartItemsCount: calculateCartItemsCount(
-          get(orderResponse, 'lineItems')
-        ),
-        estimates: calculateEstimates(orderResponse),
-        adjustments: calculateAdjustments(orderResponse)
-      })
+      this.setState(
+        {
+          order: orderResponse,
+          cartItemsCount: calculateCartItemsCount(
+            get(orderResponse, 'lineItems')
+          ),
+          estimates: calculateEstimates(orderResponse),
+          adjustments: calculateAdjustments(orderResponse)
+        },
+        () => {
+          isCartEmpty(this.state) && this.loadSuggestions()
+        }
+      )
     } catch (e) {
       console.error('Error getting order', e)
     }
