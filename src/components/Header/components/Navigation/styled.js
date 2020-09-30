@@ -47,6 +47,7 @@ export const Layer = styled.div`
 
 export const Layers = styled.div`
   background: white;
+  border-top: 1px solid ${colors.whiteSmoke};
   border-bottom: 1px solid ${colors.whiteSmoke};
   display: ${(p) => (p.active ? 'flex' : 'none')};
   left: 0;
@@ -62,5 +63,7 @@ export const Layers = styled.div`
     position: absolute;
     width: 100vw;
     left: -100%;
+    border-top: 1px solid ${colors.whiteSmoke};
+    border-bottom: 1px solid ${colors.whiteSmoke};
   }
 `
