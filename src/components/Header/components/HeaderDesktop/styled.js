@@ -12,13 +12,19 @@ export const MejuriLogo = styled(LogoSvg)`
 export const Logo = styled.a`
   height: ${({ shrinked }) => (shrinked ? '45px' : '58px')};
   text-transform: uppercase;
+  text-align: center;
+  flex-basis: 56%;
+
+  @media (max-width: 1440px) {
+    flex-basis: 33.3%;
+  }
 `
 
 export const Wrapper = styled.section`
   background: transparent;
   display: none;
   height: 80px;
-  width: 100%;
+  padding: 0 30px;
 
   /* Fixes button inherited line-height in pdp */
   button {
@@ -26,7 +32,7 @@ export const Wrapper = styled.section`
   }
 
   @media only screen and (min-width: 990px) {
-    display: initial;
+    display: block;
   }
 `
 Wrapper.displayName = 'HeaderDesktopWrapper'
@@ -50,14 +56,12 @@ Content.displayName = 'HeaderDesktopContent'
 export const Menu = styled.nav`
   align-items: center;
   display: flex;
-  height: 100%;
   justify-content: space-between;
-  padding-right: 16px;
-  width: 50%;
   white-space: nowrap;
+  flex-basis: 22%;
 
-  @media (min-width: 1280px) {
-    width: 35%;
+  @media (max-width: 1440px) {
+    flex-basis: 33.3%;
   }
 `
 Menu.displayName = 'HeaderDesktopMenu'
@@ -94,6 +98,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   background-color: ${(p) => p.theme.colors.white};
   border: none;
+  padding: 0px;
 
   &:focus,
   &:hover {
@@ -114,7 +119,6 @@ export const Button = styled.button`
 export const ButtonLink = styled.a`
   display: block;
   line-height: 40px;
-  padding: 5px;
   text-decoration: none;
   text-transform: uppercase;
   border: none;

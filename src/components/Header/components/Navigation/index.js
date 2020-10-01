@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, MainSections, Item, ItemLink, Layer, Layers } from './styled'
+import { Wrapper, Item, ItemLink, Layer, Layers } from './styled'
 import get from 'lodash.get'
 import LayerContent from './components/LayerContent'
 
@@ -17,32 +17,30 @@ export const Navigation = ({
 
   return (
     <Wrapper>
-      <MainSections>
-        {config.map((i) => (
-          <Item
-            onMouseEnter={() => setActive(i._id)}
-            onClick={() => setActive(i._id)}
-            key={i._id}
+      {config.map((i) => (
+        <Item
+          onMouseEnter={() => setActive(i._id)}
+          onClick={() => setActive(i._id)}
+          key={i._id}
+        >
+          <ItemLink
+            href={get(i, 'url') ? i.url : '#'}
+            data-h='header-left-navigation-btn'
           >
-            <ItemLink
-              href={get(i, 'url') ? i.url : '#'}
-              data-h='header-left-navigation-btn'
-            >
-              {i.text}
-            </ItemLink>
-            <Layer active={i._id === activeSection}>
-              <Layers active={i._id === activeSection} />
-              {i.children && (
-                <LayerContent
-                  config={i.children}
-                  onClickTracking={onClickTracking}
-                  pos={pos}
-                />
-              )}
-            </Layer>
-          </Item>
-        ))}
-      </MainSections>
+            {i.text}
+          </ItemLink>
+          <Layer active={i._id === activeSection}>
+            <Layers active={i._id === activeSection} />
+            {i.children && (
+              <LayerContent
+                config={i.children}
+                onClickTracking={onClickTracking}
+                pos={pos}
+              />
+            )}
+          </Layer>
+        </Item>
+      ))}
     </Wrapper>
   )
 }

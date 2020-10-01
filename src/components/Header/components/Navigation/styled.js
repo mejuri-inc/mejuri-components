@@ -3,30 +3,21 @@ import colors from 'styles/colors'
 import { fadeIn } from 'styles/effects'
 
 export const Wrapper = styled.div`
-  padding-left: 30px;
-  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  flex-basis: 22%;
 
-  @media (min-width: 1280px) {
-    width: 35%;
+  @media (max-width: 1440px) {
+    flex-basis: 33.3%;
   }
 `
 Wrapper.displayName = 'WrapperNavigation'
 
-export const MainSections = styled.div`
-  display: flex;
-  list-style-type: none;
-  padding: 0;
-  padding-right: 50px;
-`
-MainSections.displayName = 'MainSectionsNavigation'
-
 export const Item = styled.div`
   max-height: 18px;
   position: relative;
-  padding: 0 1.75em;
-  &:first-child {
-    padding: 0 1.75em 0 0;
-  }
 `
 
 export const ItemLink = styled.a`
@@ -56,6 +47,7 @@ export const Layer = styled.div`
 
 export const Layers = styled.div`
   background: white;
+  border-top: 1px solid ${colors.whiteSmoke};
   border-bottom: 1px solid ${colors.whiteSmoke};
   display: ${(p) => (p.active ? 'flex' : 'none')};
   left: 0;
@@ -71,5 +63,7 @@ export const Layers = styled.div`
     position: absolute;
     width: 100vw;
     left: -100%;
+    border-top: 1px solid ${colors.whiteSmoke};
+    border-bottom: 1px solid ${colors.whiteSmoke};
   }
 `

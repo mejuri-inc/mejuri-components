@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   color: ${(p) => p.theme.colors.black};
   border: none;
   height: 40px;
-  padding: 5px;
   text-decoration: none;
 `
 Wrapper.displayName = 'UserSelectionWrapper'
