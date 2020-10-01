@@ -16,11 +16,10 @@ export const Wrapper = styled.header`
 Wrapper.displayName = 'HeaderMobileWrapper'
 
 export const Logo = styled.a`
-  width: 160px;
+  width: 28%;
   height: 58px;
   svg {
     height: 100%;
-    width: inherit;
   }
 `
 Logo.displayName = 'HeaderMobileLogo'

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, Selector, Label } from './styled'
+import { Wrapper, SelectorContainer, Selector, Label } from './styled'
 import AUFlag from 'resources/icons/AUFlag'
 import GBFlag from 'resources/icons/GBFlag'
 import CAFlag from 'resources/icons/CAFlag'
 import USFlag from 'resources/icons/USFlag'
+import ChevronIcon from 'resources/icons/Chevron'
 
 function CurrencySelector({
   setCurrency,
@@ -12,6 +13,8 @@ function CurrencySelector({
   availableCurrencies,
   isPos
 }) {
+  const [isOpen, setIsOpen] = useState(false)
+
   const renderFlag = () => {
     switch (orderCurrency) {
       case 'AUD':
@@ -25,22 +28,30 @@ function CurrencySelector({
     }
   }
 
+  const selectRef = useRef(null)
+
   return (
     <Wrapper>
       {renderFlag()}
       {availableCurrencies.length > 1 ? (
-        <Selector
-          value={orderCurrency}
-          onChange={(e) => setCurrency(e.target.value)}
-          disabled={isPos}
-          data-h='currency-selector'
-        >
-          {availableCurrencies.map((c) => (
-            <option value={c} key={c}>
-              {c}
-            </option>
-          ))}
-        </Selector>
+        <SelectorContainer isOpen={isOpen}>
+          <Selector
+            ref={selectRef}
+            value={orderCurrency}
+            onChange={(e) => setCurrency(e.target.value)}
+            onClick={() => !isOpen && setIsOpen(true)}
+            onMouseLeave={() => isOpen && setIsOpen(false)}
+            disabled={isPos}
+            data-h='currency-selector'
+          >
+            {availableCurrencies.map((c) => (
+              <option value={c} key={c}>
+                {c}
+              </option>
+            ))}
+          </Selector>
+          <ChevronIcon />
+        </SelectorContainer>
       ) : (
         <Label>
           {availableCurrencies.length ? availableCurrencies[0] : ''}
