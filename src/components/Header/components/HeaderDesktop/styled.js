@@ -24,7 +24,6 @@ export const Wrapper = styled.section`
   background: transparent;
   display: none;
   height: 80px;
-  padding: 0 30px;
 
   /* Fixes button inherited line-height in pdp */
   button {
@@ -50,6 +49,7 @@ export const Content = styled.header`
   line-height: 1.5;
   position: relative;
   transition: height 0.4s ease;
+  padding: 0 30px;
 `
 Content.displayName = 'HeaderDesktopContent'
 

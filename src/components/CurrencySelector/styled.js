@@ -49,6 +49,7 @@ export const Selector = styled.select`
 Selector.displayName = 'Selector'
 
 export const Label = styled.p`
+  margin: 0;
   border-width: 0;
   font-size: 14px;
   background-color: transparent;
