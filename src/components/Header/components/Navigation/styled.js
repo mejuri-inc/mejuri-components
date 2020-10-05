@@ -38,16 +38,17 @@ export const ItemLink = styled.a`
   }
 `
 
-export const Layer = styled.div`
+export const LayerContainer = styled.div`
   display: flex;
   opacity: ${(p) => (p.active ? '1' : '0')};
+  pointer-events: ${(p) => (p.active ? 'auto' : 'none')};
   transition: 0.5s opacity;
   position: absolute;
   top: ${(p) => (p.shrinked ? '36px' : '51px')};
   width: 100vw;
 `
 
-export const Layers = styled.div`
+export const LayerBackground = styled.div`
   background: white;
   border-bottom: 1px solid ${colors.whiteSmoke};
   display: flex;

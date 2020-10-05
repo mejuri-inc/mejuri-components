@@ -1,6 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, Item, ItemLink, Layer, Layers } from './styled'
+import {
+  Wrapper,
+  Item,
+  ItemLink,
+  LayerBackground,
+  LayerContainer
+} from './styled'
 import get from 'lodash.get'
 import LayerContent from './components/LayerContent'
 
@@ -30,8 +36,8 @@ export const Navigation = ({
           >
             {i.text}
           </ItemLink>
-          <Layer active={i._id === activeSection} shrinked={shrinked}>
-            <Layers active={i._id === activeSection} />
+          <LayerContainer active={i._id === activeSection} shrinked={shrinked}>
+            <LayerBackground active={i._id === activeSection} />
             {i.children && (
               <LayerContent
                 config={i.children}
@@ -39,7 +45,7 @@ export const Navigation = ({
                 pos={pos}
               />
             )}
-          </Layer>
+          </LayerContainer>
         </Item>
       ))}
     </Wrapper>
