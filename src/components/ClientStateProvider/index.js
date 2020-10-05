@@ -152,13 +152,15 @@ export class ClientStateProvider extends React.Component {
     }
   }
 
-  async setCurrency(currency) {
+  async setCurrency(currency, cb) {
     try {
       this.setState({ isLoading: true })
 
       await api.cart.setCurrency(this.state, currency, this.props.apiHost)
 
       await this.getOrder()
+
+      cb && cb()
     } catch (e) {
       console.error('Error setting currency', e)
     } finally {
