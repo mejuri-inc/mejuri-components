@@ -15,7 +15,7 @@ export const Logo = styled.a`
   text-align: center;
   flex-basis: 56%;
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1200px) {
     flex-basis: 33.3%;
   }
 `
@@ -58,10 +58,16 @@ export const Menu = styled.nav`
   display: flex;
   justify-content: space-between;
   white-space: nowrap;
-  flex-basis: 22%;
+  flex-basis: 33.3%;
 
-  @media (max-width: 1440px) {
-    flex-basis: 33.3%;
+  @media (min-width: 1200px) {
+    flex-basis: 22%;
+    column-gap: 30px;
+    justify-content: flex-end;
+  }
+
+  svg {
+    margin-right: 8px;
   }
 `
 Menu.displayName = 'HeaderDesktopMenu'

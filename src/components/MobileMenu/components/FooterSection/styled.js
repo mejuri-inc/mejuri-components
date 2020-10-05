@@ -9,6 +9,7 @@ export const Footer = styled.ul`
 `
 
 export const FooterItem = styled.li`
+  font-family: Brandon Grotesque, sans-serif;
   border-bottom: 1px solid ${(p) => p.theme.colors.lightGray1};
   font-size: 14px;
   font-weight: 600;

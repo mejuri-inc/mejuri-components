@@ -40,7 +40,7 @@ export const Button = styled.button`
   border: none;
   height: 40px;
   width: 40px;
-  padding: 0 3px;
+  padding: 0 16px 0 3px;
   svg {
     height: 18px;
     width: 18px;

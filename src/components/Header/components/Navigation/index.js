@@ -6,6 +6,7 @@ import LayerContent from './components/LayerContent'
 
 export const Navigation = ({
   config,
+  shrinked,
   setActive,
   activeSection,
   onClickTracking,
@@ -29,7 +30,7 @@ export const Navigation = ({
           >
             {i.text}
           </ItemLink>
-          <Layer active={i._id === activeSection}>
+          <Layer active={i._id === activeSection} shrinked={shrinked}>
             <Layers active={i._id === activeSection} />
             {i.children && (
               <LayerContent
