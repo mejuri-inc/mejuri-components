@@ -160,7 +160,7 @@ export class ClientStateProvider extends React.Component {
 
       await this.getOrder()
 
-      cb && cb()
+      !!cb && cb()
     } catch (e) {
       console.error('Error setting currency', e)
     } finally {
