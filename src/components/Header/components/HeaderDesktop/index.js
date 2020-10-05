@@ -54,6 +54,7 @@ function HeaderDesktop({
               setActive={setActiveSection}
               activeSection={activeSection}
               onClickTracking={onClickTracking}
+              shrinked={shrinkPointReached}
               pos={!!pos}
             />
             <Logo href='/' shrinked={shrinkPointReached}>

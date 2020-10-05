@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 import colors from 'styles/colors'
-import { fadeIn } from 'styles/effects'
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   list-style-type: none;
   padding: 0;
-  flex-basis: 22%;
+  flex-basis: 33.3%;
 
-  @media (max-width: 1440px) {
-    flex-basis: 33.3%;
+  @media (min-width: 1200px) {
+    flex-basis: 22%;
+    column-gap: 30px;
+    justify-content: flex-start;
   }
 `
 Wrapper.displayName = 'WrapperNavigation'
@@ -38,18 +39,18 @@ export const ItemLink = styled.a`
 `
 
 export const Layer = styled.div`
-  ${fadeIn};
-  display: ${(p) => (p.active ? 'flex' : 'none')};
+  display: flex;
+  opacity: ${(p) => (p.active ? '1' : '0')};
+  transition: 0.5s opacity;
   position: absolute;
-  top: 35px;
+  top: ${(p) => (p.shrinked ? '36px' : '51px')};
   width: 100vw;
 `
 
 export const Layers = styled.div`
   background: white;
-  border-top: 1px solid ${colors.whiteSmoke};
   border-bottom: 1px solid ${colors.whiteSmoke};
-  display: ${(p) => (p.active ? 'flex' : 'none')};
+  display: flex;
   left: 0;
   height: 100%;
   position: absolute;
@@ -63,7 +64,6 @@ export const Layers = styled.div`
     position: absolute;
     width: 100vw;
     left: -100%;
-    border-top: 1px solid ${colors.whiteSmoke};
     border-bottom: 1px solid ${colors.whiteSmoke};
   }
 `

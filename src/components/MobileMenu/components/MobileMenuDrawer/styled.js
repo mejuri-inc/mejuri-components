@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Header = styled.header`
+  font-family: Brandon Grotesque, sans-serif;
   background: ${(p) => p.theme.colors.white};
   border-bottom: 1px solid ${(p) => p.theme.colors.lightGray1};
   box-shadow: 0 10px 5px 0 rgba(255, 255, 255, 0.75);
