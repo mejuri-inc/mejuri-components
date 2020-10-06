@@ -32,6 +32,7 @@ import UserConsent from './services/UserConsent'
 
 // OTHER
 import Theme from './themes/styled'
+import TrackingProvider, { UserIdentifier } from './components/TrackingProvider'
 
 // HELPERS
 export * from './helpers/itemDescription'
@@ -60,5 +61,7 @@ export {
   PosNotificationBar,
   DiscountNotificationBar,
   ClientStateProvider,
-  ClientStateContext
+  ClientStateContext,
+  TrackingProvider,
+  UserIdentifier
 }

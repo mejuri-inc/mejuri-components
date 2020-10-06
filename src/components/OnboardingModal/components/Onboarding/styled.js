@@ -104,3 +104,7 @@ export const FacebookLogin = styled.a`
   }
 `
 FacebookLogin.displayName = 'OnboardingFacebookLogin'
+
+export const OptEmails = styled.div`
+  display: flex;
+`

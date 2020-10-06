@@ -34,7 +34,8 @@ export class Onboarding extends Component {
       form: {
         email: '',
         password: '',
-        name: ''
+        name: '',
+        newsletter: false
       },
       errors: {},
       apiErrors: {},
@@ -95,6 +96,13 @@ export class Onboarding extends Component {
   handleFieldChange = (e) => {
     const { name, value } = e.target
     this.updateField(name, value)
+  }
+
+  handleCheckboxChange = (e) => {
+    const { checked } = e.target
+    this.setState((prev) => ({
+      form: { ...prev.form, newsletter: checked }
+    }))
   }
 
   handleSubmit = (e) => {
@@ -185,20 +193,23 @@ export class Onboarding extends Component {
   }
 
   register = async () => {
-    const { email, password, name } = this.state.form
-    const { mejuriApiHost, csrf } = this.props
+    const { email, password, name, newsletter } = this.state.form
+    const { mejuriApiHost, csrf, tracking } = this.props
 
     try {
       const response = await register(
         {
           email,
           password,
-          first_name: name
+          first_name: name,
+          name,
+          newsletter
         },
         mejuriApiHost,
         csrf
       )
       if (response.ok) {
+        newsletter && tracking.subscribeNewsletter({ email, name })
         this.userChanged()
       } else {
         this.setApiErrors(response.errors)
@@ -363,11 +374,13 @@ export class Onboarding extends Component {
         <View
           isFetching={isFetching}
           key={step}
+          step={step}
           values={form}
           errors={errors}
           apiErrors={apiErrors}
           controls={this.controls}
           onChange={this.handleFieldChange}
+          checkboxOnChange={this.handleCheckboxChange}
           onSubmit={this.handleSubmit}
           {...config}
         />

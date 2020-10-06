@@ -1,10 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage, intlShape, injectIntl } from 'react-intl'
+import {
+  FormattedMessage,
+  FormattedHTMLMessage,
+  intlShape,
+  injectIntl
+} from 'react-intl'
 import Input from './components/Input'
 import ContinueButton from './components/Button'
 import Errors from './components/Errors'
 import Icon from './components/Icon'
+import Checkbox from './components/Checkbox'
 import Facebook from 'resources/icons/FacebookSquare'
 import { MuiThemeProvider } from '@material-ui/core'
 import MejuriTheme from 'themes/material'
@@ -17,7 +23,8 @@ import {
   Control,
   Actions,
   FacebookLogin,
-  FooterLink
+  FooterLink,
+  OptEmails
 } from './styled'
 
 const OnboardingView = ({
@@ -35,60 +42,76 @@ const OnboardingView = ({
   footerLink,
   facebookLogin,
   onChange,
-  onSubmit
-}) => (
-  <MuiThemeProvider theme={MejuriTheme}>
-    <Wrapper>
-      {!!title && <Title>{intl.formatMessage({ id: title })}</Title>}
-      {!!caption && <Caption>{intl.formatMessage({ id: caption })}</Caption>}
-      <form action='#' onSubmit={onSubmit}>
-        {!!fields.length && (
-          <Controls>
-            {fields.map((field) => {
-              const inputProps = controls[field]
-              const value = values[inputProps.name]
-              const error =
-                errors[inputProps.name] &&
-                intl.formatMessage({ id: errors[inputProps.name] })
-              const apiError = apiErrors[inputProps.name]
-              return (
-                <Control key={field} readOnly={inputProps.readOnly}>
-                  <Input
-                    value={value}
-                    onChange={onChange}
-                    autoFocus={field === autoFocus}
-                    {...inputProps}
+  checkboxOnChange,
+  onSubmit,
+  step
+}) => {
+  return (
+    <MuiThemeProvider theme={MejuriTheme}>
+      <Wrapper>
+        {!!title && <Title>{intl.formatMessage({ id: title })}</Title>}
+        {!!caption && <Caption>{intl.formatMessage({ id: caption })}</Caption>}
+        <form action='#' onSubmit={onSubmit}>
+          {!!fields.length && (
+            <Controls>
+              {fields.map((field) => {
+                const inputProps = controls[field]
+                const value = values[inputProps.name]
+                const error =
+                  errors[inputProps.name] &&
+                  intl.formatMessage({ id: errors[inputProps.name] })
+                const apiError = apiErrors[inputProps.name]
+                return (
+                  <Control key={field} readOnly={inputProps.readOnly}>
+                    <Input
+                      value={value}
+                      onChange={onChange}
+                      autoFocus={field === autoFocus}
+                      {...inputProps}
+                    />
+                    <Errors list={[error, apiError]} />
+                  </Control>
+                )
+              })}
+              {step === 'register' && (
+                <OptEmails>
+                  <Checkbox
+                    name='newsletter-opt'
+                    onChange={checkboxOnChange}
+                    checked={values.newsletter}
+                    labelText={
+                      <FormattedHTMLMessage id='onboarding.login.emailOpt' />
+                    }
                   />
-                  <Errors list={[error, apiError]} />
-                </Control>
-              )
-            })}
-          </Controls>
+                </OptEmails>
+              )}
+            </Controls>
+          )}
+          {!!action && (
+            <Actions>
+              <ContinueButton disabled={isFetching} type='submit'>
+                <FormattedMessage id={action} />
+              </ContinueButton>
+            </Actions>
+          )}
+        </form>
+        {!!footerLink && (
+          <FooterLink href='#forgot-password' onClick={footerLink.onClick}>
+            <FormattedMessage id={footerLink.label} />
+          </FooterLink>
         )}
-        {!!action && (
-          <Actions>
-            <ContinueButton disabled={isFetching} type='submit'>
-              <FormattedMessage id={action} />
-            </ContinueButton>
-          </Actions>
+        {!!facebookLogin && (
+          <FacebookLogin href='#facebook-login' onClick={facebookLogin.onClick}>
+            <Icon w='24px'>
+              <Facebook />
+            </Icon>
+            <FormattedMessage id={facebookLogin.label} />
+          </FacebookLogin>
         )}
-      </form>
-      {!!footerLink && (
-        <FooterLink href='#forgot-password' onClick={footerLink.onClick}>
-          <FormattedMessage id={footerLink.label} />
-        </FooterLink>
-      )}
-      {!!facebookLogin && (
-        <FacebookLogin href='#facebook-login' onClick={facebookLogin.onClick}>
-          <Icon w='24px'>
-            <Facebook />
-          </Icon>
-          <FormattedMessage id={facebookLogin.label} />
-        </FacebookLogin>
-      )}
-    </Wrapper>
-  </MuiThemeProvider>
-)
+      </Wrapper>
+    </MuiThemeProvider>
+  )
+}
 
 OnboardingView.defaultProps = {
   isFetching: false
@@ -115,7 +138,8 @@ OnboardingView.propTypes = {
     onClick: PropTypes.func
   }),
   onChange: PropTypes.func,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  step: PropTypes.string
 }
 
 export default injectIntl(OnboardingView)

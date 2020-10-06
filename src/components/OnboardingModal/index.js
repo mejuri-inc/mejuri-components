@@ -4,7 +4,14 @@ import PropTypes from 'prop-types'
 import Onboarding from './components/Onboarding'
 import Popup from 'components/common/Popup'
 
-function OnboardingModal({ isOpen, csrf, close, mejuriApiHost, recaptchaKey }) {
+function OnboardingModal({
+  isOpen,
+  csrf,
+  close,
+  mejuriApiHost,
+  recaptchaKey,
+  tracking
+}) {
   if (!isOpen) return null
 
   return (
@@ -16,6 +23,7 @@ function OnboardingModal({ isOpen, csrf, close, mejuriApiHost, recaptchaKey }) {
             csrf={csrf}
             mejuriApiHost={mejuriApiHost}
             recaptchaKey={recaptchaKey}
+            tracking={tracking}
           />
         </Content>
       </Wrapper>
@@ -27,7 +35,8 @@ OnboardingModal.propTypes = {
   csrf: PropTypes.string,
   isOpen: PropTypes.bool,
   close: PropTypes.func,
-  recaptchaKey: PropTypes.string
+  recaptchaKey: PropTypes.string,
+  tracking: PropTypes.object
 }
 
 OnboardingModal.defaultProps = {
