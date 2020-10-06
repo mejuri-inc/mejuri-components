@@ -1,6 +1,10 @@
 import axios from 'axios'
 import humps from 'humps'
-import { selectCsrf, selectTokenHeaders } from './sessionSelectors'
+import {
+  selectCsrf,
+  selectOrderToken,
+  selectTokenHeaders
+} from './sessionSelectors'
 import get from 'lodash.get'
 
 export const fetchSession = async (state, url, config = {}) => {
@@ -25,21 +29,27 @@ export const fetchSession = async (state, url, config = {}) => {
   }
 }
 
-export const fetchApi = async (state, url, config = {}) => {
+export const fetchApi = async (state, url, config = {}, decamelize = true) => {
   const tokenHeaders = selectTokenHeaders(state)
+  const orderToken = selectOrderToken(state)
 
-  const { headers, method = 'GET', data, ...rest } = config
+  const { auth = true, headers, method = 'GET', data, ...rest } = config
 
   const newHeaders = {
-    ...tokenHeaders,
+    ...(auth && tokenHeaders),
     ...headers
   }
+
+  const body = decamelize ? humps.decamelizeKeys(data) : data
 
   const options = {
     withCredentials: true,
     method,
     headers: newHeaders,
-    data: humps.decamelizeKeys(data),
+    data: {
+      ...(auth && !!orderToken && { order_token: orderToken }),
+      ...body
+    },
     ...rest
   }
 
