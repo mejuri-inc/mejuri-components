@@ -8,7 +8,7 @@ export const Header = styled.header`
   box-shadow: 0 10px 5px 0 rgba(255, 255, 255, 0.75);
   display: flex;
   font-size: 14px;
-  font-weight: ${fontWeight.regular};
+  font-weight: ${(p) => p.theme.fontWeight.regular};
   justify-content: space-between;
   line-height: 14px;
   padding: 25px 0;
