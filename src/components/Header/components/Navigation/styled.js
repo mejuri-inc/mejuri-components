@@ -4,8 +4,8 @@ import colors from 'styles/colors'
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
-  grid-column-gap: 30px;
-  justify-content: space-between;
+  grid-column-gap: 45px;
+  justify-content: flex-start;
   flex-basis: 33.3%;
 
   @media (min-width: 1200px) {
