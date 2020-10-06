@@ -25,6 +25,7 @@ export class ContentfulAPI {
     this.cloudinaryCloudName = cloudinaryCloudName || 'mejuri-com'
     this.previewAccessToken = CONTENTFUL_PREVIEW_ACCESS_TOKEN
     this.contentfulPreviewApiHost = contentfulPreviewApiHost
+    this.cloudinaryImagesOptions = {}
     this.defaultQuery = {
       include: 10
     }
@@ -296,7 +297,8 @@ export class ContentfulAPI {
       version: version,
       quality: 'auto:best',
       fetchFormat: 'auto',
-      crop: 'scale'
+      crop: 'scale',
+      ...this.cloudinaryImagesOptions
     }
 
     const output = {
