@@ -50,7 +50,7 @@ function CurrencySelector({
               </option>
             ))}
           </Selector>
-          <ChevronIcon />
+          {!isPos && <ChevronIcon />}
         </SelectorContainer>
       ) : (
         <Label>

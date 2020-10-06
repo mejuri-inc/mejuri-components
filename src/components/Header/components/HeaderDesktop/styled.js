@@ -54,16 +54,15 @@ export const Content = styled.header`
 Content.displayName = 'HeaderDesktopContent'
 
 export const Menu = styled.nav`
-  align-items: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 30px;
   justify-content: space-between;
   white-space: nowrap;
   flex-basis: 33.3%;
 
   @media (min-width: 1200px) {
     flex-basis: 22%;
-    column-gap: 30px;
-    justify-content: flex-end;
   }
 
   svg {
