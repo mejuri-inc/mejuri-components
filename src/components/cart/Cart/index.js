@@ -25,62 +25,6 @@ import Backdrop from 'components/cart/Cart/components/Backdrop'
 import { toCurrency } from 'helpers/currency'
 
 export class Cart extends PureComponent {
-  static propTypes = {
-    isPos: PropTypes.bool,
-    currency: PropTypes.string,
-    removeItem: PropTypes.func,
-    updateItemQuantity: PropTypes.func,
-    setWalkout: PropTypes.func,
-
-    isSomethingFetching: PropTypes.bool,
-    isOpened: PropTypes.bool,
-    lineItems: PropTypes.array,
-    orderExists: PropTypes.bool,
-    shippingStatus: PropTypes.object,
-
-    cartToggle: PropTypes.func,
-    onContinue: PropTypes.func,
-
-    estimatedTotal: PropTypes.string,
-    subtotal: PropTypes.string,
-    adjustments: PropTypes.array,
-    estimates: PropTypes.arrayOf(
-      PropTypes.shape({
-        type: PropTypes.string,
-        amount: PropTypes.number,
-        label: PropTypes.string,
-        currency: PropTypes.string,
-        displayAmount: PropTypes.string,
-        eligible: PropTypes.bool,
-        id: PropTypes.string
-      })
-    ),
-    // coupon
-    setCouponCode: PropTypes.func,
-    // couponError
-    couponCodeError: PropTypes.bool,
-    dismissCouponCodeError: PropTypes.func,
-
-    // suggestions
-    addSuggestionItem: PropTypes.func,
-    isFetchingSuggestion: PropTypes.bool,
-    suggestions: PropTypes.array,
-
-    // apple pay
-    order: PropTypes.object,
-    trackEvent: PropTypes.func,
-    makeApplePayPayment: PropTypes.func,
-    calculateTaxes: PropTypes.func,
-
-    // tracking.
-    trackDecreaseProduct: PropTypes.func,
-    trackIncreaseProduct: PropTypes.func,
-    trackRemoveItem: PropTypes.func,
-
-    host: PropTypes.string,
-    settings: PropTypes.object
-  }
-
   handleBackdropClick = () => {
     const { cartToggle } = this.props
     cartToggle(false)
@@ -262,6 +206,62 @@ Cart.defaultProps = {
     console.log('trackRemoveItem prop missing in <Cart />'),
   trackCartGoToCheckout: () =>
     console.log('trackCartGoToCheckout prop missing in <Cart />')
+}
+
+Cart.propTypes = {
+  isPos: PropTypes.bool,
+  currency: PropTypes.string,
+  removeItem: PropTypes.func,
+  updateItemQuantity: PropTypes.func,
+  setWalkout: PropTypes.func,
+
+  isSomethingFetching: PropTypes.bool,
+  isOpened: PropTypes.bool,
+  lineItems: PropTypes.array,
+  orderExists: PropTypes.bool,
+  shippingStatus: PropTypes.object,
+
+  cartToggle: PropTypes.func,
+  onContinue: PropTypes.func,
+
+  estimatedTotal: PropTypes.string,
+  subtotal: PropTypes.string,
+  adjustments: PropTypes.array,
+  estimates: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string,
+      amount: PropTypes.number,
+      label: PropTypes.string,
+      currency: PropTypes.string,
+      displayAmount: PropTypes.string,
+      eligible: PropTypes.bool,
+      id: PropTypes.string
+    })
+  ),
+  // coupon
+  setCouponCode: PropTypes.func,
+  // couponError
+  couponCodeError: PropTypes.bool,
+  dismissCouponCodeError: PropTypes.func,
+
+  // suggestions
+  addSuggestionItem: PropTypes.func,
+  isFetchingSuggestion: PropTypes.bool,
+  suggestions: PropTypes.array,
+
+  // apple pay
+  order: PropTypes.object,
+  trackEvent: PropTypes.func,
+  makeApplePayPayment: PropTypes.func,
+  calculateTaxes: PropTypes.func,
+
+  // tracking.
+  trackDecreaseProduct: PropTypes.func,
+  trackIncreaseProduct: PropTypes.func,
+  trackRemoveItem: PropTypes.func,
+
+  host: PropTypes.string,
+  settings: PropTypes.object
 }
 
 export default Cart
