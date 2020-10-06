@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { fontWeight } from 'styles/settings'
 
 export const Header = styled.header`
   font-family: Brandon Grotesque, sans-serif;
