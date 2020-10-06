@@ -23,7 +23,6 @@ export const Logo = styled.a`
 export const Wrapper = styled.section`
   background: transparent;
   display: none;
-  height: 80px;
 
   /* Fixes button inherited line-height in pdp */
   button {

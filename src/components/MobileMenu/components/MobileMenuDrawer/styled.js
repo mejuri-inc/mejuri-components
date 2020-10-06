@@ -32,8 +32,9 @@ export const Options = styled.ul`
 Options.displayName = 'MobileMenuDriverOptions'
 
 export const Item = styled.li`
+  font-family: Brandon Grotesque, sans-serif;
   font-size: 15px;
-  font-weight: ${(p) => (p.sub ? '600' : '300')};
+  font-weight: ${(p) => (p.sub ? '500' : '300')};
   letter-spacing: 0.5px;
   text-transform: none;
   padding-top: ${(p) => (p.sub ? '30px' : '18px')};
