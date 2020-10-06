@@ -56,8 +56,8 @@ Content.displayName = 'HeaderDesktopContent'
 export const Menu = styled.nav`
   display: grid;
   grid-template-columns: auto auto auto auto;
-  grid-column-gap: 30px;
-  justify-content: space-between;
+  grid-column-gap: 45px;
+  justify-content: flex-end;
   white-space: nowrap;
   flex-basis: 33.3%;
 

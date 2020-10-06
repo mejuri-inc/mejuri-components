@@ -25,7 +25,7 @@ export const SelectorContainer = styled.div`
     transform: ${({ isOpen }) => (isOpen ? 'none' : 'rotate(180deg)')};
 
     path {
-      fill: ${colors.darkGray2};
+      fill: ${colors.darkGray1};
     }
   }
 `
@@ -39,7 +39,7 @@ export const Selector = styled.select`
   font-size: 14px;
   background-color: transparent;
   cursor: pointer;
-  color: ${colors.darkGray2};
+  color: ${colors.darkGray1};
   height: fit-content;
 
   &:focus {
@@ -53,7 +53,7 @@ export const Label = styled.p`
   border-width: 0;
   font-size: 14px;
   background-color: transparent;
-  color: ${colors.darkGray2};
+  color: ${colors.darkGray1};
   height: fit-content;
 `
 Label.displayName = 'SelectorLabel'
