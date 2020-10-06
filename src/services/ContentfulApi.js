@@ -1,6 +1,11 @@
 /* eslint-disable no-useless-catch */
+// Dependencies
 import * as contentful from 'contentful'
 import { Cloudinary } from 'cloudinary-core'
+
+/**
+@class ContentfulAPI
+*/
 
 export class ContentfulAPI {
   constructor({
@@ -111,6 +116,10 @@ export class ContentfulAPI {
     }
   }
 
+  /*
+    Use this method for fetching specific content types.
+    It will parse query options and contentful response.
+  */
   async getContentType(type, queryOptions = {}) {
     const { client = this.getClient(), ...rest } = queryOptions
     const currentLocale = this.localeCode
@@ -247,6 +256,10 @@ export class ContentfulAPI {
     return formatted
   }
 
+  /*
+    Format "componentGeneric" content type.
+    Linking data and formatting data from types as "imageGeneric"
+  */
   formatComponentData({ data: component, linkedEntries = [] }) {
     const components = component.data.components
     const componentGroups = component.data.componentGroups
@@ -285,7 +298,8 @@ export class ContentfulAPI {
 
   formatCloudinaryData(data) {
     const cloudinary = Cloudinary.new({ cloud_name: this.cloudinaryCloudName })
-    const asset = data.file[0]
+    const asset = data?.file?.[0]
+    if (!asset) return { defaultSrc: '', sources: [] }
     const id = asset.public_id
     const version = asset.version
 
