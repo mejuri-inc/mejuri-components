@@ -2,16 +2,14 @@ import styled from 'styled-components'
 import colors from 'styles/colors'
 
 export const Wrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 30px;
   justify-content: space-between;
-  list-style-type: none;
-  padding: 0;
   flex-basis: 33.3%;
 
   @media (min-width: 1200px) {
     flex-basis: 22%;
-    column-gap: 30px;
-    justify-content: flex-start;
   }
 `
 Wrapper.displayName = 'WrapperNavigation'
@@ -44,7 +42,7 @@ export const LayerContainer = styled.div`
   pointer-events: ${(p) => (p.active ? 'auto' : 'none')};
   transition: 0.5s opacity;
   position: absolute;
-  top: ${(p) => (p.shrinked ? '36px' : '51px')};
+  top: ${(p) => (p.shrinked ? '36px' : '50px')};
   width: 100vw;
 `
 

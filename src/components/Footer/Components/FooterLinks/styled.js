@@ -45,7 +45,8 @@ export const Col = styled.div`
 Col.displayName = 'FooterLinksCol'
 
 export const Title = styled.div`
-  font-weight: ${fontWeight.medium};
+  font-family: Brandon Grotesque, sans-serif;
+  font-weight: ${(p) => p.theme.fontWeight.regular};
   text-transform: uppercase;
   margin-bottom: 24px;
   letter-spacing: 1.5px;
