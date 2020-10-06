@@ -25,7 +25,7 @@ export const SelectorContainer = styled.div`
     transform: ${({ isOpen }) => (isOpen ? 'none' : 'rotate(180deg)')};
 
     path {
-      fill: ${colors.darkGray1};
+      fill: ${(p) => p.theme.colors.darkGray1};
     }
   }
 `
