@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import LogoSvg from 'resources/icons/Logo'
 
 export const MejuriLogo = styled(LogoSvg)`
-  width: fit-content;
   height: 100%;
   &:hover {
     fill: inherit;
