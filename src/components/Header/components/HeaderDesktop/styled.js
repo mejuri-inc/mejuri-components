@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import LogoSvg from 'resources/icons/Logo'
 
 export const MejuriLogo = styled(LogoSvg)`
-  width: fit-content;
   height: 100%;
   &:hover {
     fill: inherit;
@@ -23,7 +22,6 @@ export const Logo = styled.a`
 export const Wrapper = styled.section`
   background: transparent;
   display: none;
-  height: 80px;
 
   /* Fixes button inherited line-height in pdp */
   button {

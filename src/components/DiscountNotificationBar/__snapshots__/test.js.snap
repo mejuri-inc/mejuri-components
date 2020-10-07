@@ -8,6 +8,13 @@ exports[`DiscountNotificationBar Renders just fine if a name is provided 1`] = `
     <span>
       This is a notification Roger Rabbit
     </span>
+    <a
+      href="http://localhost/static/crewfineprint"
+    >
+      <span>
+        The Fine Print
+      </span>
+    </a>
   </div>
 </div>
 `;
