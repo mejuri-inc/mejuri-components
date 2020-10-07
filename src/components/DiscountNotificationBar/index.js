@@ -11,11 +11,11 @@ const DiscountNotificationBar = ({ apiHost, name, link }) => {
     <GenericNotificationBar>
       <FormattedHTMLMessage
         id='header.notifications.discount'
-        values={{
-          name,
-          link: linkUrl(apiHost, link)
-        }}
+        values={{ name }}
       />
+      <a href={linkUrl(apiHost, link)}>
+        <FormattedHTMLMessage id='header.notifications.discount.link' />
+      </a>
     </GenericNotificationBar>
   )
 }

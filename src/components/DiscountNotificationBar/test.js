@@ -18,7 +18,8 @@ describe('DiscountNotificationBar', () => {
       <IntlProvider
         locale='en'
         messages={{
-          'header.notifications.discount': 'This is a notification {name}'
+          'header.notifications.discount': 'This is a notification {name}',
+          'header.notifications.discount.link': 'The Fine Print'
         }}
       >
         <ThemeProvider theme={Theme}>
