@@ -62,6 +62,7 @@ const tracking = {
     sailthruInScope() &&
     Sailthru.integration('userSignUp', {
       email: user && user.email,
+      name: user && user.name,
       list: lists,
       vars: {
         sign_up_date: new Date(Date.now()).toISOString().split('T')[0],
