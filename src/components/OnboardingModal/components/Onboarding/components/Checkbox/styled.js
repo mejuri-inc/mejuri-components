@@ -31,6 +31,7 @@ export const StyledCheckbox = styled.div`
     ${(p) => {
       return p.theme.colors.black
     }};
+  cursor: pointer;
   height: 16px;
   position: relative;
   transition: all 150ms;
@@ -49,7 +50,12 @@ export const Text = styled.p`
   cursor: pointer;
   font-size: 11px;
   line-height: 14px;
+  margin: 0;
   text-align: left;
   padding-left: 10px;
   width: 100%;
+
+  a {
+    color: ${(p) => p.theme.colors.black};
+  }
 `
