@@ -109,14 +109,13 @@ export class Onboarding extends Component {
     e.preventDefault()
     const { isFetching, step } = this.state
     const { recaptchaKey } = this.props
-
     if (isFetching) return
 
     if (!this.validateStep(step)) return
 
     this.setState({ isFetching: true })
 
-    if (recaptchaKey) {
+    if (recaptchaKey && window.grecaptcha) {
       window.grecaptcha && window.grecaptcha.execute()
     } else {
       this.next(null)
@@ -174,7 +173,7 @@ export class Onboarding extends Component {
 
   login = async (token) => {
     const { email, password } = this.state.form
-    const { mejuriApiHost, csrf } = this.props
+    const { mejuriApiHost, csrf, tracking } = this.props
     try {
       await login(
         {
@@ -186,6 +185,7 @@ export class Onboarding extends Component {
         csrf
       )
       this.userChanged()
+      tracking.onSignIn && tracking.onSignIn()
     } catch (e) {
       this.setApiErrors(e)
     }
@@ -209,7 +209,10 @@ export class Onboarding extends Component {
         csrf
       )
       if (response.ok) {
-        newsletter && tracking.subscribeNewsletter({ email, name })
+        tracking.onSignUp && tracking.onSignUp()
+        newsletter &&
+          tracking.subscribeNewsletter &&
+          tracking.subscribeNewsletter({ email, name })
         this.userChanged()
       } else {
         this.setApiErrors(response.errors)
@@ -401,7 +404,12 @@ Onboarding.propTypes = {
   isFetching: PropTypes.bool,
   onClose: PropTypes.func,
   mejuriApiHost: PropTypes.string,
-  recaptchaKey: PropTypes.string
+  recaptchaKey: PropTypes.string,
+  tracking: PropTypes.shape({
+    onSignIn: PropTypes.func,
+    onSignUp: PropTypes.func,
+    subscribeNewsletter: PropTypes.func
+  })
 }
 
 export default Onboarding
