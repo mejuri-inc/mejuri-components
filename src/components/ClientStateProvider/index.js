@@ -4,6 +4,7 @@ import getCurrentSession from './session'
 import api from './api'
 import get from 'lodash.get'
 import { isCartEmpty } from './orderSelectors'
+import { buildAmbassadorParams } from './ambassador'
 
 export const ClientStateContext = React.createContext({})
 
@@ -128,12 +129,27 @@ export class ClientStateProvider extends React.Component {
   }
 
   async getOrder() {
+    let orderResponse = null
     try {
-      const orderResponse = await api.cart.fetchOrder(
+      orderResponse = await api.cart.fetchOrder(
         this.state,
-        this.props.apiHost
+        this.props.apiHost,
+        buildAmbassadorParams()
       )
+    } catch (e) {
+      // If there was an error retry to the GET order endpoint (As if no discount).
+      console.log('Error sending ambassador, retrying', e)
+      try {
+        orderResponse = await api.cart.fetchOrder(
+          this.state,
+          this.props.apiHost
+        )
+      } catch (e) {
+        console.log('Error getting the order', e)
+      }
+    }
 
+    orderResponse &&
       this.setState(
         {
           order: orderResponse,
@@ -147,9 +163,6 @@ export class ClientStateProvider extends React.Component {
           isCartEmpty(this.state) && this.loadSuggestions()
         }
       )
-    } catch (e) {
-      console.error('Error getting order', e)
-    }
   }
 
   async setCurrency(currency, cb) {
