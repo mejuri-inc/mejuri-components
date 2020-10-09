@@ -1,10 +1,10 @@
 import { fetchApi } from '../../connector'
 import get from 'lodash.get'
 
-export const fetchOrder = (state, apiHost) => {
+export const fetchOrder = (state, apiHost, config = {}) => {
   const orderNumber = get(state, 'session.order.number')
 
-  return fetchApi(state, `${apiHost}/shop/api/orders/${orderNumber}`)
+  return fetchApi(state, `${apiHost}/shop/api/orders/${orderNumber}`, config)
 }
 
 export const removeItem = (state, number, itemId, apiHost) =>
