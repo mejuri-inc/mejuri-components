@@ -193,7 +193,7 @@ export class Onboarding extends Component {
         {
           email,
           password,
-          name
+          first_name: name
         },
         mejuriApiHost,
         csrf
