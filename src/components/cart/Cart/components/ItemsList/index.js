@@ -5,7 +5,6 @@ import { ElementWrapper, List, ListElement, RemoveButton } from './styled'
 import CloseIcon from 'resources/icons/CloseIcon'
 import ItemProperties from '../ItemProperties'
 import ItemPOS from '../ItemPOS'
-import get from 'lodash.get'
 
 export const ItemsList = ({
   currency,
@@ -22,9 +21,9 @@ export const ItemsList = ({
   return (
     <List>
       {items.map((i) => {
-        const imageUrl = get(i, 'variant.images[0].attachmentUrl')
-        const alt = get(i, 'variant.images[0].alt')
-        const href = get(i, 'variant.slug')
+        const imageUrl = i?.variant?.images?.[0]?.attachmentUrl
+        const alt = i?.variant?.images?.[0]?.alt
+        const href = i?.variant?.slug
         return (
           <ListElement key={i.id}>
             <ElementWrapper>

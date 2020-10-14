@@ -7,7 +7,6 @@ import {
   LayerBackground,
   LayerContainer
 } from './styled'
-import get from 'lodash.get'
 import LayerContent from './components/LayerContent'
 
 export const Navigation = ({
@@ -31,7 +30,7 @@ export const Navigation = ({
           key={i._id}
         >
           <ItemLink
-            href={get(i, 'url') ? i.url : '#'}
+            href={i?.url ? i.url : '#'}
             data-h='header-left-navigation-btn'
           >
             {i.text}
