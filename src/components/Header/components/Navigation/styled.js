@@ -42,27 +42,17 @@ export const LayerContainer = styled.div`
   pointer-events: ${(p) => (p.active ? 'auto' : 'none')};
   transition: 0.5s opacity;
   position: absolute;
-  top: ${(p) => (p.shrinked ? '36px' : '50px')};
-  width: 100vw;
+  top: ${(p) => (p.shrinked ? '35px' : '50px')};
+  width: max-content;
 `
 
 export const LayerBackground = styled.div`
   background: white;
   border-bottom: 1px solid ${colors.whiteSmoke};
   display: flex;
-  left: 0;
+  left: ${(p) => p.left}px;
   height: 100%;
   position: absolute;
   top: -1px;
   width: 100vw;
-
-  &::before {
-    background: white;
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100vw;
-    left: -100%;
-    border-bottom: 1px solid ${colors.whiteSmoke};
-  }
 `

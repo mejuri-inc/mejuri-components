@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useLayoutEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import {
   Wrapper,
@@ -9,6 +9,17 @@ import {
 } from './styled'
 import get from 'lodash.get'
 import LayerContent from './components/LayerContent'
+
+function SmartLayerBackground(props) {
+  const r = useRef()
+  const [left, setLeft] = useState(0)
+
+  useLayoutEffect(() => {
+    const rect = (r.current && r.current.getBoundingClientRect()) || null
+    rect && setLeft(rect.left)
+  }, [r])
+  return <LayerBackground {...props} ref={r} left={left * -1} />
+}
 
 export const Navigation = ({
   config,
@@ -37,7 +48,7 @@ export const Navigation = ({
             {i.text}
           </ItemLink>
           <LayerContainer active={i._id === activeSection} shrinked={shrinked}>
-            <LayerBackground active={i._id === activeSection} />
+            <SmartLayerBackground active={i._id === activeSection} />
             {i.children && (
               <LayerContent
                 config={i.children}
