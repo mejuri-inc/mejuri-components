@@ -15,7 +15,7 @@ function SmartLayerBackground(props) {
   const [left, setLeft] = useState(0)
 
   useLayoutEffect(() => {
-    const rect = (r.current && r.current.getBoundingClientRect()) || null
+    const rect = r?.current?.getBoundingClientRect()
     rect && setLeft(rect.left)
   }, [r])
   return <LayerBackground {...props} ref={r} left={left * -1} />
