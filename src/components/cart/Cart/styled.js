@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import colors from 'styles/colors'
-import { fontWeight } from 'styles/settings'
 
 export const Content = styled.div`
   display: flex;
@@ -17,7 +15,7 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 450px;
   height: 100%;
-  background-color: ${colors.white};
+  background-color: ${(p) => p.theme.colors.white};
   border-left: 1px solid rgba(0, 0, 0, 0.5);
   overflow: auto;
   transform: translateX(100%);
@@ -37,7 +35,7 @@ Wrapper.displayName = 'CartWrapper'
 
 export const BlockWrapper = styled.div`
   align-self: flex-end;
-  border-top: 1px solid ${colors.lightGray2};
+  border-top: 1px solid ${(p) => p.theme.colors.lightGray2};
   padding: 15px 30px 25px 30px;
 `
 BlockWrapper.displayName = 'CartBlockWrapper'
@@ -45,7 +43,7 @@ BlockWrapper.displayName = 'CartBlockWrapper'
 export const EmptyCart = styled.div`
   font-size: 15px;
   font-style: italic;
-  font-weight: ${fontWeight.light};
+  font-weight: ${(p) => p.theme.fontWeight.light};
   padding: 50px 30px;
 `
 EmptyCart.displayName = 'CartEmptyCart'
@@ -59,3 +57,9 @@ export const BottomWrapper = styled.div`
   margin-top: auto;
 `
 BottomWrapper.displayName = 'CartBottomWrapper'
+
+export const BfLine = styled.hr`
+  border: 0;
+  border-top: 1px solid ${(p) => p.theme.colors.black};
+  width: 100%;
+`
