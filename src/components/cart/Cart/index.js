@@ -10,7 +10,8 @@ import {
   EmptyCart,
   Scrollable,
   Wrapper,
-  BottomWrapper
+  BottomWrapper,
+  BfLine
 } from './styled'
 import SectionLoader from 'components/common/SectionLoader'
 import CartHeader from 'components/cart/Cart/components/CartHeader'
@@ -113,12 +114,15 @@ export class Cart extends PureComponent {
                     />
                   )}
                 </CartHeader>
-                <ProgressBar
-                  total={total}
-                  progress={
-                    disabledFreeShipping || freeShipping ? total : progress
-                  }
-                />
+                {!order.isBlackfriday && (
+                  <ProgressBar
+                    total={total}
+                    progress={
+                      disabledFreeShipping || freeShipping ? total : progress
+                    }
+                  />
+                )}
+                {order.isBlackfriday && <BfLine />}
                 <Scrollable>
                   {lineItems.length ? (
                     <ItemsList
@@ -166,10 +170,9 @@ export class Cart extends PureComponent {
                         visible={couponCodeError}
                         dismiss={dismissCouponCodeError}
                       />
-                      {
-                        order['allowCoupons?'] &&
+                      {order['allowCoupons?'] && (
                         <CartCoupon setCouponCode={setCouponCode} />
-                      }
+                      )}
                       <Button
                         onClick={(...args) => {
                           trackCartGoToCheckout(order.number)
