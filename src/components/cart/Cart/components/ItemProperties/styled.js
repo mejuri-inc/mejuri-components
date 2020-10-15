@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
 `
 Wrapper.displayName = 'ItemPropertiesWrapper'
 
+
 export const Name = styled.h4`
   font-size: 16px;
   font-weight: ${fontWeight.regular};
@@ -23,6 +24,14 @@ export const Name = styled.h4`
   }
 `
 Name.displayName = 'ItemPropertiesName'
+
+
+export const SpecialMessage = styled.span`
+  color: #8D3F2D;
+  font-style:italic;
+  font-weight:400;
+  font-size: 12px;
+`
 
 export const Options = styled.p`
   font-size: 14px;
