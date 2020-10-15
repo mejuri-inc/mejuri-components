@@ -126,6 +126,7 @@ export class Cart extends PureComponent {
                 <Scrollable>
                   {lineItems.length ? (
                     <ItemsList
+                      isBlackfriday={order.isBlackfriday}
                       items={lineItems}
                       isPos={isPos}
                       remove={removeItem}
