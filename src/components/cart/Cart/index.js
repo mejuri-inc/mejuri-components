@@ -166,7 +166,10 @@ export class Cart extends PureComponent {
                         visible={couponCodeError}
                         dismiss={dismissCouponCodeError}
                       />
-                      <CartCoupon setCouponCode={setCouponCode} />
+                      {
+                        order['allowCoupons?'] &&
+                        <CartCoupon setCouponCode={setCouponCode} />
+                      }
                       <Button
                         onClick={(...args) => {
                           trackCartGoToCheckout(order.number)
