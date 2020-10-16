@@ -52,6 +52,7 @@ export class MainSearch extends PureComponent {
     this.setSearch = this.setSearch.bind(this)
     this.input = createRef()
     this.scroll = createRef()
+    this.loadMoreTag = createRef()
 
     this.service = null
   }
@@ -178,11 +179,11 @@ export class MainSearch extends PureComponent {
     // show a grid of products that match that name
     if (results.length) {
       return (
-        <ProductGrid products={results} innerRef={this.scroll}>
+        <ProductGrid products={results} innerRef={this.loadMoreTag}>
           {results.length < count && (
             <IsOnScreen
               onVisible={() => this.addPage()}
-              root={this.scroll.current}
+              root={this.loadMoreTag.current}
               offset={400}
             >
               <LoadMore isFetching={isFetchingPage} />
@@ -242,7 +243,7 @@ export class MainSearch extends PureComponent {
                 <FormattedMessage id='header.search.hint' />
               </Hint>
             </Header>
-            <Scrollable>
+            <Scrollable ref={this.scroll}>
               <LoadingSpinner isFetching={isFetching} />
 
               {searchString.length >= START_SEARCH_THRESHOLD &&
@@ -257,7 +258,11 @@ export class MainSearch extends PureComponent {
           </Content>
         </Wrapper>
         {isOpened && (
-          <Overlay onClickHandler={() => this.close()} opacity={0} />
+          <Overlay
+            onClickHandler={() => this.close()}
+            opacity={0}
+            innerRef={this.scroll}
+          />
         )}
       </Position>
     )
