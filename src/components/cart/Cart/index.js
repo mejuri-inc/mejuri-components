@@ -164,6 +164,7 @@ export class Cart extends PureComponent {
                       estimatedTotal={estimatedTotal}
                       estimates={estimates}
                       adjustments={adjustments}
+                      highlight={!!order.isBlackfriday}
                     />
                     <BlockWrapper>
                       <CouponErrorAdvice
