@@ -18,14 +18,17 @@ export const List = styled.ul`
 `
 
 export const Row = styled.li`
-  width: 100%;
+  color: ${(p) =>
+    p.highlight ? p.theme.colors.cartHighlight : p.theme.colors.black};
   display: flex;
   font-size: 14px;
-  font-weight: ${fontWeight.light};
+  justify-content: space-between;
+  font-weight: ${(p) =>
+    p.highlight ? p.theme.fontWeight.light : p.theme.fontWeight.bold};
   letter-spacing: 1px;
   line-height: 1.5;
-  justify-content: space-between;
   margin-bottom: 0.35rem;
+  width: 100%;
 `
 Row.displayName = 'CartSummaryRow'
 
