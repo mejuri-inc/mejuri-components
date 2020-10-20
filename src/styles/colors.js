@@ -27,5 +27,6 @@ export default {
   brown: '#a52a2a',
   whiteSmoke: '#f1f0f0',
   grey: '#807c7c',
-  tableGray: '#f9f9f9'
+  tableGray: '#f9f9f9',
+  cartHighlight: '#8d3f2d'
 }
