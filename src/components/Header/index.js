@@ -15,7 +15,8 @@ const Header = ({
   children,
   pos,
   trackOpenCart,
-  trackSearchOpen
+  trackSearchOpen,
+  onClickTracking
 }) => (
   <Sticky>
     <Wrapper>
@@ -29,6 +30,7 @@ const Header = ({
         pos={pos}
         trackOpenCart={trackOpenCart}
         trackSearchOpen={trackSearchOpen}
+        onClickTracking={onClickTracking}
       />
       <HeaderMobile
         cartItemsCount={cartItemsCount}

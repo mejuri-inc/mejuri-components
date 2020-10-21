@@ -28,7 +28,7 @@ function ColumnContent({ config, onClickTracking, pos }) {
         href={menuItem.url}
         onClick={() => {
           onClickTracking({
-            target: menuItem.fields.text.toLowerCase().split(' ').join('_')
+            target: menuItem.text.toLowerCase().split(' ').join('_')
           })
         }}
         data-h='header-left-navigation-menu-btn'
