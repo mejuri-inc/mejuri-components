@@ -43,7 +43,7 @@ Wrapper.displayName = 'WrapperUserMenu'
 
 export const LabelChevron = styled.span`
   letter-spacing: 1px;
-  max-width: 80px;
+  max-width: 57px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
