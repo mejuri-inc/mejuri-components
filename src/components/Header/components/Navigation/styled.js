@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-basis: 33.3%;
 
   @media (min-width: 1200px) {
-    flex-basis: 22%;
+    flex-basis: 30%;
   }
 `
 Wrapper.displayName = 'WrapperNavigation'
