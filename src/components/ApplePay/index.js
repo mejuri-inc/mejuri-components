@@ -31,7 +31,7 @@ const payment = (orderToken, csrfToken) =>
       .then(() => {
         callback()
         window.location.href =
-          '/shop/orders/' + orderNumber + '?token=' + orderToken
+          '/thankyou?order=' + orderNumber + '&t=' + orderToken
       })
       .catch((e) => onError(e))
   }
