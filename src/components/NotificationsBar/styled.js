@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   padding: 12px;
   padding-right: 40px;
   text-align: center;
-  font-weight: 300;
+  font-weight: ${(p) => p.theme.fontWeight.regular};
 
   & > u {
     text-decoration-color: inherit;

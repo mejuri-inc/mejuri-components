@@ -6,7 +6,7 @@ export const Message = styled.div`
   bottom: 15px;
   color: ${colors.white};
   font-size: 15px;
-  font-weight: 300px;
+  font-weight: 300;
   opacity: ${(p) => (p.visible ? 1 : 0)};
   padding: 1rem;
   position: absolute;
