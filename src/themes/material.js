@@ -16,7 +16,7 @@ export default createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: ['Brandon Grotesque', 'sans-serif'].join(',')
+    fontFamily: ['brandon-grotesque', 'sans-serif'].join(',')
   },
   overrides: {
     MuiButton: {

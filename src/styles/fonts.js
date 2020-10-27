@@ -1,4 +1,4 @@
-// These are the 3 different variants of the Brandon Grotesque Family defined on the styleguide
+// These are the 3 different variants of the brandon-grotesque Family defined on the styleguide
 
 import { css } from 'styled-components'
 import brandonGrotesqueLight from './fonts/BrandonGrotesque-Light.woff'
@@ -10,7 +10,7 @@ import brandonGrotesqueMedium2 from './fonts/BrandonGrotesque-Medium.woff2'
 
 export default css`
   @font-face {
-    font-family: 'Brandon Grotesque';
+    font-family: 'brandon-grotesque';
     src: url(${brandonGrotesqueLight2}) format('woff2'),
       url(${brandonGrotesqueLight}) format('woff');
     font-weight: 300;
@@ -18,7 +18,7 @@ export default css`
   }
 
   @font-face {
-    font-family: 'Brandon Grotesque';
+    font-family: 'brandon-grotesque';
     src: url(${brandonGrotesqueRegular2}) format('woff2'),
       url(${brandonGrotesqueRegular}) format('woff');
     font-weight: 500;
@@ -26,7 +26,7 @@ export default css`
   }
 
   @font-face {
-    font-family: 'Brandon Grotesque';
+    font-family: 'brandon-grotesque';
     src: url(${brandonGrotesqueMedium2}) format('woff2'),
       url(${brandonGrotesqueMedium}) format('woff');
     font-weight: 700;
