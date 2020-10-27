@@ -26,6 +26,7 @@ export const Wrapper = styled.div`
 
   & > a {
     text-decoration: none;
+    text-underline-position: under;
     color: inherit;
   }
 `
