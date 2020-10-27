@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Title = styled.h2`
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.86px;
   line-height: 18px;
   margin: 0 0 12px;
@@ -48,7 +48,7 @@ export const Name = styled.a`
   display: block;
   color: ${(p) => p.theme.colors.black};
   min-height: 22px;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
   line-height: 22px;
   margin-top: 10px;

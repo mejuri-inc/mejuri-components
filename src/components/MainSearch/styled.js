@@ -84,7 +84,7 @@ export const Hint = styled.div`
 
 export const NumberOfResults = styled.div`
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.86px;
   line-height: 18px;
   margin: 30px auto;

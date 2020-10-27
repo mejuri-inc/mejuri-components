@@ -6,6 +6,7 @@ export const UnderlinedButtonLink = styled(ButtonLink)`
   padding: 15px 0 0 0;
   text-decoration: none;
   border-bottom: 0.2px solid ${colors.black};
+  font-weight: ${(p) => p.theme.fontWeight.regular};
   &:hover {
     border-bottom: 0.2px solid ${colors.darkGray1};
   }

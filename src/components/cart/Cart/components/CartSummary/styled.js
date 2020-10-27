@@ -34,7 +34,7 @@ Wrapper.displayName = 'CartSummaryWrapper'
 export const Total = styled.li`
   display: flex;
   font-size: 16px;
-  font-weight: ${fontWeight.regular};
+  font-weight: 400;
   letter-spacing: 0.03rem;
   line-height: 1.5;
   justify-content: space-between;

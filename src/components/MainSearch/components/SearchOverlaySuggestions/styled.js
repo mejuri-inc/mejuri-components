@@ -18,9 +18,10 @@ export const Wrapper = styled.ul`
 Wrapper.displayName = 'SuggestionsWrapper'
 
 export const Suggestion = styled.li`
-  font-size: 15px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 300;
   height: 32px;
+  margin-bottom: 0;
 
   & > button {
     background: transparent;
@@ -28,6 +29,10 @@ export const Suggestion = styled.li`
     cursor: pointer;
     font-weight: inherit;
     padding: 0%;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `
 Suggestion.displayName = 'SuggestionsItem'

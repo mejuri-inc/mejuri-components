@@ -74,7 +74,7 @@ export const AddButton = styled.button`
   justify-content: center;
   height: 35px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: ${(p) => p.theme.fontWeight.regular};
   text-transform: uppercase;
   transition: all 0.25s ease;
   margin-top: 16px;
@@ -90,7 +90,7 @@ export const Link = styled.a`
   position: relative;
   color: black;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: ${(p) => p.theme.fontWeight.regular};
   text-decoration: none;
   transition: all 0.25s ease;
   &::after {

@@ -20,7 +20,7 @@ Wrapper.displayName = 'OnboardingWrapper'
 
 export const Title = styled.div`
   font-size: 24px;
-  font-weight: 600;
+  font-weight: ${(p) => p.theme.fontWeight.regular};
   line-height: 24px;
   padding: 6px 0;
 `
