@@ -11,7 +11,7 @@ export const ButtonLink = styled.button`
   outline: none;
   cursor: pointer;
   transition: all 0.1s ease;
-  font-weight: ${fontWeight.medium};
+  font-weight: ${fontWeight.regular};
 
   &:hover {
     color: ${colors.darkGray1};

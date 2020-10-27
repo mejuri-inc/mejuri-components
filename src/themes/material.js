@@ -23,7 +23,7 @@ export default createMuiTheme({
       root: {
         borderRadius: '0',
         letterSpacing: '1px',
-        fontWeight: fontWeight.medium,
+        fontWeight: fontWeight.regular,
         padding: '16px',
         lineHeight: '1.4',
         width: '100%',
