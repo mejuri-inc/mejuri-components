@@ -1,6 +1,10 @@
 /* global analytics */
 /* global Sailthru */
-import { mapLineItems, mapLineItem } from './mappings'
+import {
+  mapLineItems,
+  mapLineItem,
+  parseLineItemToSailthruSchema
+} from './mappings'
 import { lists } from './sailthru'
 
 function getAnalytics() {
@@ -57,13 +61,13 @@ const tracking = {
       email: user.email
     }),
 
-  // Register form subscription.
-  subscribeToLists: (user) =>
+  // Register form.
+  signUp: (user, subscribe = false) =>
     sailthruInScope() &&
     Sailthru.integration('userSignUp', {
       email: user && user.email,
       name: user && user.name,
-      lists,
+      lists: subscribe ? lists : {},
       vars: {
         sign_up_date: new Date(Date.now()).toISOString().split('T')[0],
         first_name: user && user.name && user.name.split(' ')[0]
@@ -88,23 +92,53 @@ const tracking = {
       products: mapLineItems(order.lineItems),
       category: 'Cart'
     }),
-  cartAddProduct: (order, context) => {
-    order &&
-      getAnalytics().track('Product Added', mapLineItem(context.lineItem), {
-        cart_id: order.number,
-        quantity: context.quantity,
-        category: 'Cart'
-      })
-  },
-  cartDecrementProduct(order, context) {
+
+  cartAddProduct: (order, context, user) => {
     if (!order) return
-    const props = Object.assign({}, mapLineItem(context.lineItem), {
-      cart_id: order.number,
-      quantity: context.quantity,
-      category: 'Cart'
+    // Segment.
+    getAnalytics().track('Product Added', {
+      ...mapLineItem(context.lineItem),
+      quantity: context.quantity
     })
-    analytics.track('Product Removed', props)
+
+    // Sailthru.
+    const itemsInCart = order.lineItems.map((i) =>
+      parseLineItemToSailthruSchema(i, context)
+    )
+    const values = {
+      email: user?.email || null,
+      items: itemsInCart.filter((i) => i.qty > 0)
+    }
+    user &&
+      order &&
+      sailthruInScope() &&
+      Sailthru.integration('addToCart', values)
   },
+
+  cartDecrementProduct(order, context, user) {
+    if (!order) return
+
+    // Segment.
+    getAnalytics().track('Product Removed', {
+      ...mapLineItem(context.lineItem),
+      quantity: context.quantity
+    })
+
+    // Sailthru
+    const itemsInCart = order.lineItems.map((i) =>
+      parseLineItemToSailthruSchema(i, context)
+    )
+
+    const values = {
+      email: user?.email || null,
+      items: itemsInCart.filter((i) => i.qty > 0)
+    }
+    user &&
+      order &&
+      sailthruInScope() &&
+      Sailthru.integration('addToCart', values)
+  },
+
   cartGoToCheckout(orderNumber) {
     if (!orderNumber) return
     analytics.track('Cart Redirected to Checkout', {
@@ -124,6 +158,7 @@ const tracking = {
       }
     })
   },
+
   applePayClick(orderNumber) {
     analytics.track('Apple Pay Clicked', {
       category: 'Apple Pay',
@@ -131,6 +166,7 @@ const tracking = {
       label: 'Order: ' + orderNumber
     })
   },
+
   applePayPaymentError(orderNumber, context) {
     analytics.track('Apple Pay Error', {
       category: 'Apple Pay',
@@ -138,6 +174,7 @@ const tracking = {
       label: 'Order: ' + orderNumber + ' , error: ' + context.error
     })
   },
+
   applePayTaxesError(orderNumber, context) {
     analytics.track('Apple Pay Error', {
       category: 'Apple Pay',

@@ -209,10 +209,8 @@ export class Onboarding extends Component {
         csrf
       )
       if (response.ok) {
-        tracking.onSignUp && tracking.onSignUp()
-        newsletter &&
-          tracking.subscribeNewsletter &&
-          tracking.subscribeNewsletter({ email, name })
+        tracking?.onSignUp?.()
+        tracking?.signUp?.({ email, name }, newsletter)
         this.userChanged()
       } else {
         this.setApiErrors(response.errors)
@@ -408,7 +406,7 @@ Onboarding.propTypes = {
   tracking: PropTypes.shape({
     onSignIn: PropTypes.func,
     onSignUp: PropTypes.func,
-    subscribeNewsletter: PropTypes.func
+    signUp: PropTypes.func
   })
 }
 

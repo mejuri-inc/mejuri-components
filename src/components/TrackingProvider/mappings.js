@@ -37,3 +37,28 @@ export function mapLineItem(lineItem) {
     image_url: imageUrl
   }
 }
+
+export function parseLineItemToSailthruSchema(lineItem, context) {
+  const urlPrefix = `${window.location.origin}/shop/products/`
+  const defaultImage = {
+    attachment_url: '/assets/placeholders/product_image.png',
+    attachment_large_url: '/assets/placeholders/product_image.png'
+  }
+
+  const images = lineItem.variant.images[0] || defaultImage
+  return {
+    url: `${urlPrefix}${lineItem.variant.slug}`,
+    title: lineItem.variant.name,
+    sku: lineItem.variant.sku,
+    price: parseInt(lineItem.price * 100), // in cents
+    qty:
+      lineItem.id === context?.lineItem?.id
+        ? context.quantity
+        : lineItem.quantity,
+    vars: { display_price: lineItem.displayAmount },
+    images: {
+      full: { url: images.attachmentLargeUrl },
+      thumb: { url: images.attachmentUrl }
+    }
+  }
+}
