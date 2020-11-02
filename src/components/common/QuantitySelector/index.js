@@ -16,8 +16,10 @@ export const QuantitySelector = ({
     <Wrapper>
       <Btn
         onClick={() => {
-          updateQuantity(itemId, decreaseValue)
-          trackDecrease(1)
+          if (decreaseValue) {
+            updateQuantity(itemId, decreaseValue)
+            trackDecrease(decreaseValue)
+          }
         }}
         data-h='cart-decrease-line-item-btn'
       >
@@ -27,7 +29,7 @@ export const QuantitySelector = ({
       <Btn
         onClick={() => {
           updateQuantity(itemId, value + 1)
-          trackIncrease(1)
+          trackIncrease(value + 1)
         }}
         disabled={value + 1 > stock && !backOrderable}
         data-h='cart-increase-line-item-btn'

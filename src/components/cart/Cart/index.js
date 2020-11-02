@@ -35,9 +35,9 @@ export class Cart extends PureComponent {
     if (typeof window !== 'undefined') {
       try {
         if (this.props.isOpened) {
-          window.zE && window.zE.hide()
+          window?.zE?.hide?.()
         } else {
-          window.zE && window.zE.show()
+          window?.zE?.show?.()
         }
       } catch (e) {
         console.error(e)
@@ -154,15 +154,9 @@ export class Cart extends PureComponent {
                       updateQuantity={updateItemQuantity}
                       setWalkout={setWalkout}
                       currency={currency}
-                      trackIncreaseProduct={(context) =>
-                        trackIncreaseProduct(order, context)
-                      }
-                      trackDecreaseProduct={(context) =>
-                        trackDecreaseProduct(order, context)
-                      }
-                      trackRemoveItem={(context) =>
-                        trackRemoveItem(order, context)
-                      }
+                      trackIncreaseProduct={trackIncreaseProduct}
+                      trackDecreaseProduct={trackDecreaseProduct}
+                      trackRemoveItem={trackRemoveItem}
                     />
                   ) : (
                     <EmptyCart>

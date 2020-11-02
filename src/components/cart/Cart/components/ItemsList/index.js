@@ -54,7 +54,7 @@ export const ItemsList = ({
               <RemoveButton
                 onClick={() => {
                   remove(i.id)
-                  trackRemoveItem({ lineItem: i, quantity: i.quantity })
+                  trackRemoveItem({ lineItem: i, quantity: 0 })
                 }}
                 data-h='cart-remove-line-item-btn'
               >
