@@ -28,6 +28,11 @@ function CurrencySelector({
     }
   }
 
+  const handleOnChange = (e) => {
+    setIsOpen(false)
+    setCurrency(e.target.value)
+  }
+
   const selectRef = useRef(null)
 
   return (
@@ -38,7 +43,7 @@ function CurrencySelector({
           <Selector
             ref={selectRef}
             value={orderCurrency}
-            onChange={(e) => setCurrency(e.target.value)}
+            onChange={(e) => handleOnChange(e)}
             onClick={() => !isOpen && setIsOpen(true)}
             onMouseLeave={() => isOpen && setIsOpen(false)}
             disabled={isPos}
