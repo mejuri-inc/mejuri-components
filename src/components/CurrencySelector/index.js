@@ -33,6 +33,11 @@ function CurrencySelector({
     setCurrency(e.target.value)
   }
 
+  const temporaryOpen = () => {
+    !isOpen && setIsOpen(true)
+    setTimeout(() => setIsOpen(false), 1000)
+  }
+
   const selectRef = useRef(null)
 
   return (
@@ -44,8 +49,7 @@ function CurrencySelector({
             ref={selectRef}
             value={orderCurrency}
             onChange={(e) => handleOnChange(e)}
-            onClick={() => !isOpen && setIsOpen(true)}
-            onMouseLeave={() => isOpen && setIsOpen(false)}
+            onClick={() => temporaryOpen()}
             disabled={isPos}
             data-h='currency-selector'
           >
