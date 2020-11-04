@@ -46,21 +46,23 @@ export class Cart extends PureComponent {
   }
 
   getbundleQuantity() {
-    let items = this.props.lineItems
+    const items = this.props.lineItems
     if (!items || !items.length) return 0
     return items.filter((i) => i.isbundle).reduce((a, b) => a + b.quantity, 0)
   }
 
   getHeaderMessage() {
-    if(this.props.order?.isBlackfriday) {
+    if (this.props.order?.isBlackfriday) {
       const itemsWithBundle = this.getbundleQuantity()
-      return `cartProgressMessages.${itemsWithBundle >= 3 ? '3' : itemsWithBundle }`
-    } 
+      return `cartProgressMessages.${
+        itemsWithBundle >= 3 ? '3' : itemsWithBundle
+      }`
+    }
     if (!!this.props.disabledFreeShipping || !!this.props.freeShipping) {
       return 'cart.header.freeShippingReached'
-    } 
+    }
 
-    return 'cart.header.advice' 
+    return 'cart.header.advice'
   }
 
   render() {
