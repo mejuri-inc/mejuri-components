@@ -31,6 +31,8 @@ export const SpecialMessage = styled.span`
   font-style:italic;
   font-weight:400;
   font-size: 12px;
+  margin-top: 7px;
+  display: inline-block;
 `
 
 export const Options = styled.p`
