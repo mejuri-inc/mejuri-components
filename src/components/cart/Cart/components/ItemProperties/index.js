@@ -42,13 +42,11 @@ export const ItemProperties = ({
         <a href={`/shop/products/${slug}`}>{item.accurateName}</a>
       </Name>
       <Options>{getItemDetails(ringSize, displayEngravings, material)}</Options>
-      {
-        !!specialMessage && (
-          <SpecialMessage>
-            <FormattedMessage id={specialMessage} />
-          </SpecialMessage>
-        )
-      }
+      {!!specialMessage && (
+        <SpecialMessage>
+          <FormattedMessage id={specialMessage} />
+        </SpecialMessage>
+      )}
       {sample ? (
         <PriceBox>
           <span />
