@@ -16,7 +16,8 @@ export const ItemsList = ({
   setWalkout,
   trackIncreaseProduct,
   trackDecreaseProduct,
-  trackRemoveItem
+  trackRemoveItem,
+  isBlackfriday
 }) => {
   if (!items || !items.length) return null
   return (
@@ -38,6 +39,9 @@ export const ItemsList = ({
               )}
               <ItemProperties
                 item={i}
+                specialMessage={
+                  isBlackfriday && !i.isbundle && 'excludedFromBlackFriday'
+                }
                 currency={currency}
                 updateQuantity={updateQuantity}
                 trackIncrease={(q) =>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Name, Options, PriceBox, Wrapper } from './styled'
+import { Name, Options, PriceBox, Wrapper, SpecialMessage } from './styled'
 import QuantitySelector from 'components/common/QuantitySelector'
 import { toCurrency } from 'helpers/currency'
 import { FormattedMessage } from 'react-intl'
@@ -19,6 +19,7 @@ export const getItemDetails = (ringSize, engravings, material) => {
 
 export const ItemProperties = ({
   item,
+  specialMessage,
   currency,
   updateQuantity,
   trackDecrease,
@@ -32,6 +33,7 @@ export const ItemProperties = ({
     variantStock,
     displayEngravings
   } = item
+
   const formatedPrice = toCurrency(price * quantity, currency)
   const ringSize = optionsText && optionsText.replace('Ring ', '')
   return (
@@ -40,6 +42,11 @@ export const ItemProperties = ({
         <a href={`/shop/products/${slug}`}>{item.accurateName}</a>
       </Name>
       <Options>{getItemDetails(ringSize, displayEngravings, material)}</Options>
+      {!!specialMessage && (
+        <SpecialMessage>
+          <FormattedMessage id={specialMessage} />
+        </SpecialMessage>
+      )}
       {sample ? (
         <PriceBox>
           <span />
