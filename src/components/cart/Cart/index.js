@@ -54,11 +54,15 @@ export class Cart extends PureComponent {
   getHeaderMessage() {
     if (this.props.order?.isBlackfriday) {
       const itemsWithBundle = this.getbundleQuantity()
-      return `cartProgressMessages.${
+      return `cart.progressMessage${
         itemsWithBundle >= 3 ? '3' : itemsWithBundle
       }`
     }
-    if (!!this.props.disabledFreeShipping || !!this.props.freeShipping) {
+
+    if (
+      this.props.shippingStatus.disabledFreeShipping ||
+      this.props.shippingStatus.freeShipping
+    ) {
       return 'cart.header.freeShippingReached'
     }
 
