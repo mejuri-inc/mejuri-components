@@ -48,11 +48,11 @@ export class Cart extends PureComponent {
   getbundleQuantity() {
     let items = this.props.lineItems
     if (!items || !items.length) return 0
-    return items.filter(i => i.isbundle).reduce((a, b) => a + b.quantity, 0)
+    return items.filter((i) => i.isbundle).reduce((a, b) => a + b.quantity, 0)
   }
 
   getHeaderMessage() {
-    if(!!this.props.order?.isBlackfriday) {
+    if(this.props.order?.isBlackfriday) {
       const itemsWithBundle = this.getbundleQuantity()
       return `cartProgressMessages.${itemsWithBundle >= 3 ? '3' : itemsWithBundle }`
     } 

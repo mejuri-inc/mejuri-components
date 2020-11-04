@@ -22,9 +22,9 @@ export const Back = styled.button`
 Back.displayName = 'CartHeaderBack'
 
 export const Body = styled.p`
-  font-size: ${p => !!p.isBundle ? '16px' : '14px'};
+  font-size: ${(p) => p.isBundle ? '16px' : '14px'};
   line-height: 14px;
   margin: 0;
-  font-weight: ${p => !!p.isBundle ? '500' : '400'};
+  font-weight: ${(p) => p.isBundle ? '500' : '400'};
 `
 Body.displayName = 'CartHeaderBody'

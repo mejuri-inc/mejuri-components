@@ -22,7 +22,7 @@ export class CartHeader extends PureComponent {
         >
           <BackArrow />
         </Back>
-        <Body isBundle={!!isBundle}>{children}</Body>
+        <Body isBundle={isBundle}>{children}</Body>
         <CartIcon
           itemsCount={itemsCount}
           onClick={cartToggle}
