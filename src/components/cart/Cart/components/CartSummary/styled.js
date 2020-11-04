@@ -23,7 +23,7 @@ export const Row = styled.li`
   font-size: 14px;
   justify-content: space-between;
   font-weight: ${(p) =>
-    p.highlight ? p.theme.fontWeight.light : p.theme.fontWeight.bold};
+    p.highlight ? p.theme.fontWeight.regular : p.theme.fontWeight.light};
   letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 0.35rem;
