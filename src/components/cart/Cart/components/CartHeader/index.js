@@ -11,7 +11,7 @@ export class CartHeader extends PureComponent {
   }
 
   render() {
-    const { children, lineItems, cartToggle, isOpened } = this.props
+    const { children, lineItems, cartToggle, isOpened, isBundle } = this.props
     const itemsCount = lineItems.reduce((acc, item) => acc + item.quantity, 0)
     return (
       <Wrapper>
@@ -22,7 +22,7 @@ export class CartHeader extends PureComponent {
         >
           <BackArrow />
         </Back>
-        <Body>{children}</Body>
+        <Body isBundle={!!isBundle}>{children}</Body>
         <CartIcon
           itemsCount={itemsCount}
           onClick={cartToggle}
