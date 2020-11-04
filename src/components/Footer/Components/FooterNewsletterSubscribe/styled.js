@@ -20,7 +20,7 @@ Wrapper.displayName = 'FooterNewsletterSubscribeWrapper'
 
 export const Title = styled.div`
   font-size: 14px;
-  font-weight: ${fontWeight.medium};
+  font-weight: ${fontWeight.regular};
   text-transform: uppercase;
   letter-spacing: 1.5px;
 `
@@ -29,7 +29,7 @@ Title.displayName = 'FooterNewsletterSubscribeTitle'
 export const WelcomeMessage = styled.div`
   ${fadeIn}
   font-size: 25px;
-  font-weight: ${fontWeight.medium};
+  font-weight: ${fontWeight.regular};
   font-weight: 300;
 `
 WelcomeMessage.displayName = 'FooterNewsletterSubscribeWelcomeMessage'

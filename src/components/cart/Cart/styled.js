@@ -62,4 +62,5 @@ export const BfLine = styled.hr`
   border: 0;
   border-top: 1px solid ${(p) => p.theme.colors.black};
   width: 100%;
+  margin: 0;
 `

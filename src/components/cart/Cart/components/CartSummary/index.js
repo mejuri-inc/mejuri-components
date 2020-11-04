@@ -11,7 +11,8 @@ export const CartSummary = ({
   currency,
   estimatedTotal,
   estimates,
-  adjustments
+  adjustments,
+  highlight
 }) => {
   const subTotalMessage = subtotal ? (
     <span>{toCurrencyWithCode(subtotal, currency)}</span>
@@ -25,7 +26,11 @@ export const CartSummary = ({
         <FormattedMessage id='cart.balance.subtotal' />
         {subTotalMessage}
       </Row>
-      <Adjustments currency={currency} adjustments={adjustments} />
+      <Adjustments
+        currency={currency}
+        adjustments={adjustments}
+        highlight={highlight}
+      />
       <Estimates currency={currency} estimates={estimates} />
       <Total>
         <FormattedMessage id='cart.balance.total' />
@@ -40,6 +45,12 @@ CartSummary.propTypes = {
   estimatedTotal: PropTypes.string,
   subtotal: PropTypes.string,
   estimates: PropTypes.array,
-  adjustments: PropTypes.array
+  adjustments: PropTypes.array,
+  highlight: PropTypes.bool
 }
+
+CartSummary.defaultProps = {
+  highlight: false
+}
+
 export default CartSummary

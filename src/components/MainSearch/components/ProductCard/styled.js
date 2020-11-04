@@ -24,7 +24,7 @@ export const Name = styled.div`
   color: ${colors.black};
   display: block;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 22px;
   margin: 10px 0;
   min-height: 22px;

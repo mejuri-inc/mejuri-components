@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import LogoSvg from 'resources/icons/Logo'
 
 export const MejuriLogo = styled(LogoSvg)`
+  width: auto;
   height: 100%;
   &:hover {
     fill: inherit;
@@ -12,11 +13,6 @@ export const Logo = styled.a`
   height: ${({ shrinked }) => (shrinked ? '45px' : '58px')};
   text-transform: uppercase;
   text-align: center;
-  flex-basis: 56%;
-
-  @media (max-width: 1200px) {
-    flex-basis: 33.3%;
-  }
 `
 
 export const Wrapper = styled.section`
@@ -60,7 +56,7 @@ export const Menu = styled.nav`
   flex-basis: 33.3%;
 
   @media (min-width: 1200px) {
-    flex-basis: 22%;
+    flex-basis: 30%;
   }
 
   svg {

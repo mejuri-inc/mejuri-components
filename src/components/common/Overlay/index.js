@@ -24,11 +24,10 @@ export default function Overlay({
   const ownRef = useRef(null)
 
   useEffect(() => {
-    disableBodyScroll((innerRef && innerRef.current) || ownRef.current)
-    return function cleanBodyScroll() {
-      enableBodyScroll((innerRef && innerRef.current) || ownRef.current)
-    }
-  })
+    const r = innerRef?.current || ownRef.current
+    r && disableBodyScroll(r)
+    return () => r && enableBodyScroll(r)
+  }, [innerRef, ownRef])
 
   return (
     <Layer

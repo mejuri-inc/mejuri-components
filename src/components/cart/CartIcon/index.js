@@ -7,7 +7,7 @@ function CartIcon({ itemsCount, onClick }) {
   return (
     <Wrapper onClick={onClick}>
       <BagIcon />
-      <Badge>{itemsCount}</Badge>
+      {itemsCount > 0 && <Badge>{itemsCount}</Badge>}
     </Wrapper>
   )
 }

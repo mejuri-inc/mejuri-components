@@ -16,14 +16,14 @@ export default createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: ['Brandon Grotesque', 'sans-serif'].join(',')
+    fontFamily: ['brandon-grotesque', 'sans-serif'].join(',')
   },
   overrides: {
     MuiButton: {
       root: {
         borderRadius: '0',
         letterSpacing: '1px',
-        fontWeight: fontWeight.medium,
+        fontWeight: fontWeight.regular,
         padding: '16px',
         lineHeight: '1.4',
         width: '100%',

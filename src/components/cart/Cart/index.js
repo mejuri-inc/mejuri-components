@@ -46,6 +46,30 @@ export class Cart extends PureComponent {
     return null
   }
 
+  getbundleQuantity() {
+    const items = this.props.lineItems
+    if (!items || !items.length) return 0
+    return items.filter((i) => i.isbundle).reduce((a, b) => a + b.quantity, 0)
+  }
+
+  getHeaderMessage() {
+    if (this.props.order?.isBlackfriday) {
+      const itemsWithBundle = this.getbundleQuantity()
+      return `cart.progressMessage${
+        itemsWithBundle >= 3 ? '3' : itemsWithBundle
+      }`
+    }
+
+    if (
+      this.props.shippingStatus.disabledFreeShipping ||
+      this.props.shippingStatus.freeShipping
+    ) {
+      return 'cart.header.freeShippingReached'
+    }
+
+    return 'cart.header.advice'
+  }
+
   render() {
     if (!this.props.orderExists) return null
 
@@ -102,14 +126,11 @@ export class Cart extends PureComponent {
                   cartToggle={cartToggle}
                   lineItems={lineItems}
                   isOpened={isOpened}
+                  isBundle={!!order.isBlackfriday}
                 >
                   {!!lineItems.length && (
                     <FormattedMessage
-                      id={
-                        disabledFreeShipping || freeShipping
-                          ? 'cart.header.freeShippingReached'
-                          : 'cart.header.advice'
-                      }
+                      id={this.getHeaderMessage()}
                       values={{ label: toCurrency(total - progress, currency) }}
                     />
                   )}
@@ -165,6 +186,7 @@ export class Cart extends PureComponent {
                       estimatedTotal={estimatedTotal}
                       estimates={estimates}
                       adjustments={adjustments}
+                      highlight={!!order.isBlackfriday}
                     />
                     <BlockWrapper>
                       <CouponErrorAdvice
