@@ -24,6 +24,15 @@ export const Name = styled.h4`
 `
 Name.displayName = 'ItemPropertiesName'
 
+export const SpecialMessage = styled.span`
+  color: #8d3f2d;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 7px;
+  display: inline-block;
+`
+
 export const Options = styled.p`
   font-size: 14px;
   line-height: 20px;
