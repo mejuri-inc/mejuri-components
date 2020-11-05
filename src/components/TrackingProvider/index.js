@@ -149,7 +149,7 @@ const tracking = {
 
   // ApplePay.
   applePayEnabled(orderNumber) {
-    analytics.track('Apple Pay Enabled', {
+    getAnalytics().track('Apple Pay Enabled', {
       category: 'Apple Pay',
       action: 'Enabled',
       label: 'Order: ' + orderNumber,
@@ -160,7 +160,7 @@ const tracking = {
   },
 
   applePayClick(orderNumber) {
-    analytics.track('Apple Pay Clicked', {
+    getAnalytics().track('Apple Pay Clicked', {
       category: 'Apple Pay',
       action: 'Click',
       label: 'Order: ' + orderNumber
@@ -168,7 +168,7 @@ const tracking = {
   },
 
   applePayPaymentError(orderNumber, context) {
-    analytics.track('Apple Pay Error', {
+    getAnalytics().track('Apple Pay Error', {
       category: 'Apple Pay',
       action: 'Payment Error',
       label: 'Order: ' + orderNumber + ' , error: ' + context.error
@@ -176,7 +176,7 @@ const tracking = {
   },
 
   applePayTaxesError(orderNumber, context) {
-    analytics.track('Apple Pay Error', {
+    getAnalytics().track('Apple Pay Error', {
       category: 'Apple Pay',
       action: 'Calculate Taxes Error',
       label: 'Order: ' + orderNumber + ' , error: ' + context.error
