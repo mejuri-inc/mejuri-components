@@ -23,8 +23,9 @@ Back.displayName = 'CartHeaderBack'
 
 export const Body = styled.p`
   font-size: ${(p) => (p.isBundle ? '16px' : '14px')};
-  line-height: 14px;
+  line-height: ${(p) => (p.isBundle ? '20px' : '14px')};
   margin: 0;
+  text-align: center;
   font-weight: ${(p) => (p.isBundle ? '500' : '400')};
 `
 Body.displayName = 'CartHeaderBody'
