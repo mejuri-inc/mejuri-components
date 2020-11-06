@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { Btn, Quantity, Wrapper } from './styled'
+import debounce from 'lodash.debounce'
+
+const requestDelay = 1000
 
 export const QuantitySelector = ({
   backOrderable,
@@ -11,21 +14,36 @@ export const QuantitySelector = ({
   trackIncrease,
   trackDecrease
 }) => {
-  const decreaseValue = value <= stock || backOrderable ? value - 1 : stock
+  const [quantity, setQuantity] = useState(value)
+
+  const debouncedAdd = useCallback(
+    debounce(function (newQty) {
+      console.log('bam!')
+      updateQuantity(itemId, newQty)
+      trackDecrease(newQty)
+      setQuantity(newQty)
+    }, requestDelay),
+    []
+  )
+
+  function handleDecrease() {
+    const decreased = quantity <= stock || backOrderable ? quantity - 1 : stock
+    console.log({ decreased })
+    if (decreased > 0) {
+      debouncedAdd(decreased)
+      setQuantity(decreased)
+    }
+  }
+
+  console.log({ value })
+  console.log({ quantity })
+
   return (
     <Wrapper>
-      <Btn
-        onClick={() => {
-          if (decreaseValue) {
-            updateQuantity(itemId, decreaseValue)
-            trackDecrease(decreaseValue)
-          }
-        }}
-        data-h='cart-decrease-line-item-btn'
-      >
+      <Btn onClick={handleDecrease} data-h='cart-decrease-line-item-btn'>
         -
       </Btn>
-      <Quantity>{value}</Quantity>
+      <Quantity>{quantity}</Quantity>
       <Btn
         onClick={() => {
           updateQuantity(itemId, value + 1)
