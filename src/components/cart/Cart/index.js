@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, FormattedHTMLMessage } from 'react-intl'
 import Button from 'components/common/Button'
 import { MuiThemeProvider } from '@material-ui/core'
 import MejuriTheme from 'themes/material'
@@ -128,10 +128,14 @@ export class Cart extends PureComponent {
                   isOpened={isOpened}
                   isBundle={!!order.isBlackfriday}
                 >
+                  {!lineItems.length && !!order.isBlackfriday && (
+                    <FormattedHTMLMessage
+                      id='cart.bundleEmpty'
+                    />
+                  )}
                   {!!lineItems.length && (
-                    <FormattedMessage
+                    <FormattedHTMLMessage
                       id={this.getHeaderMessage()}
-                      values={{ label: toCurrency(total - progress, currency) }}
                     />
                   )}
                 </CartHeader>
