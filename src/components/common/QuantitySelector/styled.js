@@ -18,6 +18,10 @@ export const Btn = styled.button`
   font-size: 20px;
   font-weight: ${fontWeight.regular};
 
+  &:focus {
+    outline: none;
+  }
+
   &:disabled {
     color: ${colors.darkGray2};
   }

@@ -22,8 +22,7 @@ export const ItemProperties = ({
   specialMessage,
   currency,
   updateQuantity,
-  trackDecrease,
-  trackIncrease
+  track
 }) => {
   const {
     variant: { backorderable, slug, material, optionsText, sample },
@@ -60,8 +59,7 @@ export const ItemProperties = ({
             stock={variantStock}
             backOrderable={backorderable}
             updateQuantity={updateQuantity}
-            trackIncrease={trackIncrease}
-            trackDecrease={trackDecrease}
+            track={track}
           />
           <span>{formatedPrice}</span>
         </PriceBox>

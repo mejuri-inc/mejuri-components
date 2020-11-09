@@ -11,32 +11,30 @@ export const QuantitySelector = ({
   itemId,
   updateQuantity,
   stock,
-  trackIncrease,
-  trackDecrease
+  track
 }) => {
   const [quantity, setQuantity] = useState(value)
 
-  const debouncedAdd = useCallback(
-    debounce(function (newQty) {
-      console.log('bam!')
+  const debouncedUpdate = useCallback(
+    debounce((newQty, cb) => {
       updateQuantity(itemId, newQty)
-      trackDecrease(newQty)
       setQuantity(newQty)
+      cb?.()
     }, requestDelay),
     []
   )
 
   function handleDecrease() {
-    const decreased = quantity <= stock || backOrderable ? quantity - 1 : stock
-    console.log({ decreased })
-    if (decreased > 0) {
-      debouncedAdd(decreased)
-      setQuantity(decreased)
-    }
+    const decreased = quantity - 1 > 0 ? quantity - 1 : quantity
+    debouncedUpdate(decreased, () => track?.(decreased))
+    setQuantity(decreased)
   }
 
-  console.log({ value })
-  console.log({ quantity })
+  function handleIncrease() {
+    const increased = quantity <= stock || backOrderable ? quantity + 1 : stock
+    debouncedUpdate(increased, () => track?.(increased))
+    setQuantity(increased)
+  }
 
   return (
     <Wrapper>
@@ -45,10 +43,7 @@ export const QuantitySelector = ({
       </Btn>
       <Quantity>{quantity}</Quantity>
       <Btn
-        onClick={() => {
-          updateQuantity(itemId, value + 1)
-          trackIncrease(value + 1)
-        }}
+        onClick={handleIncrease}
         disabled={value + 1 > stock && !backOrderable}
         data-h='cart-increase-line-item-btn'
       >
