@@ -128,21 +128,6 @@ export class ClientStateProvider extends React.Component {
     }
   }
 
-  setOrder(order) {
-    order &&
-      this.setState(
-        {
-          order,
-          cartItemsCount: calculateCartItemsCount(get(order, 'lineItems')),
-          estimates: calculateEstimates(order),
-          adjustments: calculateAdjustments(order)
-        },
-        () => {
-          isCartEmpty(this.state) && this.loadSuggestions()
-        }
-      )
-  }
-
   async getOrder() {
     let orderResponse = null
     try {
@@ -164,7 +149,20 @@ export class ClientStateProvider extends React.Component {
       }
     }
 
-    this.setOrder(orderResponse)
+    orderResponse &&
+      this.setState(
+        {
+          order: orderResponse,
+          cartItemsCount: calculateCartItemsCount(
+            get(orderResponse, 'lineItems')
+          ),
+          estimates: calculateEstimates(orderResponse),
+          adjustments: calculateAdjustments(orderResponse)
+        },
+        () => {
+          isCartEmpty(this.state) && this.loadSuggestions()
+        }
+      )
   }
 
   async setCurrency(currency, cb) {
@@ -280,14 +278,14 @@ export class ClientStateProvider extends React.Component {
     try {
       this.setState({ isLoading: true })
 
-      const order = await api.cart.addItem(
+      await api.cart.addItem(
         this.state,
         this.state.order.number,
         itemId,
         this.props.apiHost
       )
 
-      this.setOrder(order)
+      await this.getOrder()
     } catch (e) {
       console.error('Error adding item', e)
     } finally {
