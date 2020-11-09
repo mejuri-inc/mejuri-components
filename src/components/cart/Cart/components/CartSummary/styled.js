@@ -17,8 +17,7 @@ export const List = styled.ul`
 `
 
 export const Row = styled.li`
-  color: ${(p) =>
-    p.highlight ? p.theme.colors.cartHighlight : p.theme.colors.black};
+  color: ${(p) => p.theme.colors.black};
   display: flex;
   font-size: 14px;
   justify-content: space-between;
