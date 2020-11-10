@@ -23,6 +23,7 @@ import CouponErrorAdvice from 'components/cart/Cart/components/CouponErrorAdvice
 import CartCoupon from 'components/cart/Cart/components/CartCoupon'
 import ApplePay from 'components/ApplePay'
 import Backdrop from 'components/cart/Cart/components/Backdrop'
+import { toCurrency } from 'helpers/currency'
 
 export class Cart extends PureComponent {
   handleBackdropClick = () => {
@@ -131,7 +132,10 @@ export class Cart extends PureComponent {
                     <FormattedHTMLMessage id='cart.bundleEmpty' />
                   )}
                   {!!lineItems.length && (
-                    <FormattedHTMLMessage id={this.getHeaderMessage()} />
+                    <FormattedHTMLMessage 
+                      id={this.getHeaderMessage()}
+                      values={{ label: toCurrency(total - progress, currency) }}
+                    />
                   )}
                 </CartHeader>
                 {!order.isBlackfriday && (
