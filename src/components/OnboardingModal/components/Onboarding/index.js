@@ -185,7 +185,8 @@ export class Onboarding extends Component {
         csrf
       )
       this.userChanged()
-      tracking.onSignIn && tracking.onSignIn()
+      tracking?.onSignUp?.()
+      tracking?.signUp?.({ email, name })
     } catch (e) {
       this.setApiErrors(e)
     }
