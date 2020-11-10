@@ -27,8 +27,8 @@ Name.displayName = 'ItemPropertiesName'
 export const SpecialMessage = styled.span`
   color: #8d3f2d;
   font-style: italic;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: ${fontWeight.regular};
+  font-size: 14px;
   margin-top: 7px;
   display: inline-block;
 `
