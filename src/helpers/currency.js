@@ -4,7 +4,9 @@ export const currencies = {
   USD: '$',
   CAD: 'C$',
   AUD: 'AU$',
-  GBP: '£'
+  GBP: '£',
+  EUR: '€',
+  JPY: '¥'
 }
 
 export const toCurrency = (amount, currency = 'USD', whenZero) => {
