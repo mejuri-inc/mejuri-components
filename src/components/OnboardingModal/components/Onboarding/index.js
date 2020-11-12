@@ -184,13 +184,13 @@ export class Onboarding extends Component {
         token,
         csrf
       )
-      this.userChanged()
+
       tracking?.onSignUp?.()
-      tracking?.signUp?.({ email, name })
+      tracking?.signUp?.({ email, name }, false, this.userChanged)
     } catch (e) {
       this.setApiErrors(e)
+      this.resetCaptcha()
     }
-    this.resetCaptcha()
   }
 
   register = async () => {
@@ -209,17 +209,18 @@ export class Onboarding extends Component {
         mejuriApiHost,
         csrf
       )
+
       if (response.ok) {
         tracking?.onSignUp?.()
-        tracking?.signUp?.({ email, name }, newsletter)
-        this.userChanged()
+        tracking?.signUp?.({ email, name }, newsletter, this.userChanged)
       } else {
         this.setApiErrors(response.errors)
+        this.resetCaptcha()
       }
     } catch (e) {
       this.setApiErrors(e)
+      this.resetCaptcha()
     }
-    this.resetCaptcha()
   }
 
   resetPassword = async () => {
@@ -246,9 +247,7 @@ export class Onboarding extends Component {
     userSubmitForm(`${mejuriApiHost}/users/auth/facebook`, data)
   }
 
-  userChanged = () => {
-    window.location.reload()
-  }
+  userChanged = () => window.location.reload()
 
   validateStep = (step) => {
     const { form } = this.state

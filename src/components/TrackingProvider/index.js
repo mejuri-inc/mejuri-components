@@ -62,18 +62,22 @@ const tracking = {
     }),
 
   // Register form.
-  signUp: (user, subscribe = false) =>
-    sailthruInScope() &&
-    Sailthru.integration('userSignUp', {
+  signUp: (user, subscribe = false, cb = () => {}) => {
+    const payload = {
       email: user && user.email,
-      name: user && user.name,
-      lists: subscribe ? lists : {},
       vars: {
         sign_up_date: new Date(Date.now()).toISOString().split('T')[0],
         first_name: user && user.name && user.name.split(' ')[0]
       },
-      source: 'web'
-    }),
+      source: 'web',
+      onSuccess: () => cb(),
+      onError: () => cb()
+    }
+
+    subscribe && (payload.lists = lists)
+
+    sailthruInScope() ? Sailthru.integration('userSignUp', payload) : cb()
+  },
 
   // Footer Newsleter.
   subscribeNewsletter: (context) => {
