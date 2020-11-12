@@ -5,6 +5,8 @@ import AUFlag from 'resources/icons/AUFlag'
 import GBFlag from 'resources/icons/GBFlag'
 import CAFlag from 'resources/icons/CAFlag'
 import USFlag from 'resources/icons/USFlag'
+import EUFlag from 'resources/icons/EUFlag'
+import JPFlag from 'resources/icons/JPFlag'
 import ChevronIcon from 'resources/icons/Chevron'
 
 function CurrencySelector({
@@ -23,6 +25,10 @@ function CurrencySelector({
         return <GBFlag />
       case 'CAD':
         return <CAFlag />
+      case 'EUR':
+        return <EUFlag />
+      case 'JPY':
+        return <JPFlag />
       default:
         return <USFlag />
     }

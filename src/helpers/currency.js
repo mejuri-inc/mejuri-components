@@ -4,7 +4,9 @@ export const currencies = {
   USD: '$',
   CAD: 'C$',
   AUD: 'AU$',
-  GBP: '£'
+  GBP: '£',
+  EUR: '€',
+  JPY: '¥'
 }
 
 const isInt = (n) => n % 1 === 0
