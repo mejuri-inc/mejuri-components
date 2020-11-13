@@ -212,7 +212,7 @@ export class Onboarding extends Component {
 
       if (response.ok) {
         tracking?.onSignUp?.()
-        tracking?.signUp?.({ email, name }, newsletter, this.userChanged)
+        (tracking?.signUp?.({ email, name }, newsletter, this.userChanged)) || this.userChanged()
       } else {
         this.setApiErrors(response.errors)
         this.resetCaptcha()
