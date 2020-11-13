@@ -185,8 +185,9 @@ export class Onboarding extends Component {
         csrf
       )
 
-      tracking?.onSignUp?.()
-      (tracking?.signUp?.({ email, name }, false, this.userChanged)) || this.userChanged()
+      tracking?.onSignUp?.()(
+        tracking?.signUp?.({ email, name }, false, this.userChanged)
+      ) || this.userChanged()
     } catch (e) {
       this.setApiErrors(e)
       this.resetCaptcha()
@@ -211,8 +212,9 @@ export class Onboarding extends Component {
       )
 
       if (response.ok) {
-        tracking?.onSignUp?.()
-        (tracking?.signUp?.({ email, name }, newsletter, this.userChanged)) || this.userChanged()
+        tracking?.onSignUp?.()(
+          tracking?.signUp?.({ email, name }, newsletter, this.userChanged)
+        ) || this.userChanged()
       } else {
         this.setApiErrors(response.errors)
         this.resetCaptcha()

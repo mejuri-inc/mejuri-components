@@ -132,7 +132,7 @@ export class Cart extends PureComponent {
                     <FormattedHTMLMessage id='cart.bundleEmpty' />
                   )}
                   {!!lineItems.length && (
-                    <FormattedHTMLMessage 
+                    <FormattedHTMLMessage
                       id={this.getHeaderMessage()}
                       values={{ label: toCurrency(total - progress, currency) }}
                     />

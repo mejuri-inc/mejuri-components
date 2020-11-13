@@ -25,6 +25,7 @@ import {
 // REACT COMMON COMPONENTS
 import Spinner from './components/common/Spinner'
 import ButtonLink from './components/common/ButtonLink'
+import Popup from './components/common/Popup'
 
 // SERVICES
 import { ContentfulAPI } from './services/ContentfulApi'
@@ -63,5 +64,6 @@ export {
   ClientStateProvider,
   ClientStateContext,
   TrackingProvider,
-  UserIdentifier
+  UserIdentifier,
+  Popup
 }
