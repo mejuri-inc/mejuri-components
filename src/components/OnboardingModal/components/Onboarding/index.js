@@ -186,7 +186,7 @@ export class Onboarding extends Component {
       )
 
       tracking?.onSignUp?.()
-      tracking?.signUp?.({ email, name }, false, this.userChanged)
+      (tracking?.signUp?.({ email, name }, false, this.userChanged)) || this.userChanged()
     } catch (e) {
       this.setApiErrors(e)
       this.resetCaptcha()
