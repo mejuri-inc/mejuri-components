@@ -43,7 +43,7 @@ export const updateItem = (
 }
 
 export const addItem = (state, orderNumber, itemId, apiHost) =>
-  fetchApi(state, `${apiHost}/shop/api/orders/${orderNumber}/line_items`, {
+  fetchApi(state, `${apiHost}/api/v2/orders/${orderNumber}/line_items`, {
     method: 'POST',
     data: {
       lineItem: {
