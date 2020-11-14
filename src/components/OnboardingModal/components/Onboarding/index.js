@@ -174,6 +174,8 @@ export class Onboarding extends Component {
   login = async (token) => {
     const { email, password } = this.state.form
     const { mejuriApiHost, csrf, tracking } = this.props
+    const { onSignUp, signUp } = tracking
+
     try {
       await login(
         {
@@ -185,8 +187,10 @@ export class Onboarding extends Component {
         csrf
       )
 
-      tracking?.onSignUp?.()
-      (tracking?.signUp?.({ email, name }, false, this.userChanged)) || this.userChanged()
+      onSignUp?.()
+      signUp
+        ? signUp({ email, name }, false, this.userChanged)
+        : this.userChanged()
     } catch (e) {
       this.setApiErrors(e)
       this.resetCaptcha()
@@ -196,6 +200,7 @@ export class Onboarding extends Component {
   register = async () => {
     const { email, password, name, newsletter } = this.state.form
     const { mejuriApiHost, csrf, tracking } = this.props
+    const { onSignUp, signUp } = tracking
 
     try {
       const response = await register(
@@ -211,8 +216,10 @@ export class Onboarding extends Component {
       )
 
       if (response.ok) {
-        tracking?.onSignUp?.()
-        (tracking?.signUp?.({ email, name }, newsletter, this.userChanged)) || this.userChanged()
+        onSignUp?.()
+        signUp
+          ? signUp({ email, name }, newsletter, this.userChanged)
+          : this.userChanged()
       } else {
         this.setApiErrors(response.errors)
         this.resetCaptcha()
