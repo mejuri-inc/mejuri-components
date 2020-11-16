@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Btn, Quantity, Wrapper } from './styled'
 import debounce from 'lodash.debounce'
@@ -23,6 +23,10 @@ export const QuantitySelector = ({
     }, requestDelay),
     []
   )
+
+  useEffect(() => {
+    setQuantity(value)
+  }, [value])
 
   function handleDecrease() {
     const decreased = quantity - 1 > 0 ? quantity - 1 : quantity
