@@ -35,7 +35,7 @@ export const QuantitySelector = ({
   }
 
   function handleIncrease() {
-    const increased = quantity <= stock || backOrderable ? quantity + 1 : stock
+    const increased = quantity < stock || backOrderable ? quantity + 1 : stock
     debouncedUpdate(increased, () => track?.(increased))
     setQuantity(increased)
   }
