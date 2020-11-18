@@ -145,7 +145,7 @@ const tracking = {
 
   cartGoToCheckout(orderNumber) {
     if (!orderNumber) return
-    analytics.track('Cart Redirected to Checkout', {
+    getAnalytics().track('Cart Redirected to Checkout', {
       order_number: orderNumber,
       category: 'Cart'
     })
