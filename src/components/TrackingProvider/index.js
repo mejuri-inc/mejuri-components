@@ -163,7 +163,7 @@ const tracking = {
     })
   },
 
-  applePayClick(orderNumber) {
+  applePayClicked(orderNumber) {
     getAnalytics().track('Apple Pay Clicked', {
       category: 'Apple Pay',
       action: 'Click',
@@ -196,8 +196,9 @@ function selectTrackingByName(name, ...args) {
       'Trying to track an unnexistent event in TrackingProvider',
       name
     )
+  } else {
+    tracking[name](...args)
   }
-  tracking[name](...args)
 }
 
 function TrackingProvider({ children }) {
