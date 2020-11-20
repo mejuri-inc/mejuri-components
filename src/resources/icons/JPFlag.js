@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CAFlag = () => (
+const JPFlag = () => (
   <svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="0.25" y="0.25" width="27.5" height="19.5" rx="1.75" fill="white" stroke="#DADADA" strokeWidth="0.5"/>
     <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="28" height="20">
@@ -18,4 +18,4 @@ const CAFlag = () => (
   </svg>
 )
 
-export default CAFlag
+export default JPFlag
