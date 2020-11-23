@@ -12,6 +12,8 @@ export const CartSummary = ({
   estimatedTotal,
   estimates,
   adjustments,
+  taxes,
+  taxesIncludedInPrice,
   highlight
 }) => {
   const subTotalMessage = subtotal ? (
@@ -19,13 +21,20 @@ export const CartSummary = ({
   ) : (
     <FormattedMessage id='displayFreeAmount' />
   )
-
   return (
     <Wrapper>
       <Row>
-        <FormattedMessage id='cart.balance.subtotal' />
+        <FormattedMessage 
+          id='cart.balance.subtotal' 
+          values={{ taxesIncludedInPrice: taxesIncludedInPrice }}/>
         {subTotalMessage}
       </Row>
+      {taxes && (
+        <Row>
+        <FormattedMessage id='cart.balance.taxes' />
+          {taxes}
+        </Row>
+      )} 
       <Adjustments
         currency={currency}
         adjustments={adjustments}

@@ -91,6 +91,8 @@ export class Cart extends PureComponent {
       subtotal,
       estimates,
       adjustments,
+      taxes,
+      taxesIncludedInPrice,
       setCouponCode,
       currency,
       dismissCouponCodeError,
@@ -183,6 +185,8 @@ export class Cart extends PureComponent {
                       estimatedTotal={estimatedTotal}
                       estimates={estimates}
                       adjustments={adjustments}
+                      taxes={taxes}
+                      taxesIncludedInPrice={taxesIncludedInPrice}
                       highlight={!!order.isBlackfriday}
                     />
                     <BlockWrapper>
@@ -253,6 +257,7 @@ Cart.propTypes = {
   estimatedTotal: PropTypes.string,
   subtotal: PropTypes.string,
   adjustments: PropTypes.array,
+  taxes: PropTypes.string,
   estimates: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string,

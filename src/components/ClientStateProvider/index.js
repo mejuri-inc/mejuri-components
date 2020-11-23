@@ -54,6 +54,25 @@ function calculateAdjustments(order) {
   return [...adjustments, ...lineItemAdjustments]
 }
 
+function getAditionalTaxes(order) {
+  const tax = get(order, 'additionalTaxTotal', null)
+  if (tax > 0) {
+    return get(order, 'displayAdditionalTaxTotal', null)
+  }
+  
+  return null;
+}
+
+function getTaxesIncludedInPrice(order) {
+  const tax = get(order, 'includedTaxTotal', null)
+  if (tax > 0) {
+    return get(order, 'includedTaxMessage', null)
+  }
+  
+  return '';
+}
+
+
 export class ClientStateProvider extends React.Component {
   constructor(props) {
     super(props)
@@ -135,7 +154,9 @@ export class ClientStateProvider extends React.Component {
           order,
           cartItemsCount: calculateCartItemsCount(get(order, 'lineItems')),
           estimates: calculateEstimates(order),
-          adjustments: calculateAdjustments(order)
+          adjustments: calculateAdjustments(order),
+          taxes: getAditionalTaxes(order),
+          taxesIncludedInPrice: getTaxesIncludedInPrice(order)
         },
         () => {
           isCartEmpty(this.state) && this.loadSuggestions()
