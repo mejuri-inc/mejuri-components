@@ -59,8 +59,8 @@ function getAditionalTaxes(order) {
   if (tax > 0) {
     return get(order, 'displayAdditionalTaxTotal', null)
   }
-  
-  return null;
+
+  return null
 }
 
 function getTaxesIncludedInPrice(order) {
@@ -68,10 +68,9 @@ function getTaxesIncludedInPrice(order) {
   if (tax > 0) {
     return get(order, 'includedTaxMessage', null)
   }
-  
-  return '';
-}
 
+  return ''
+}
 
 export class ClientStateProvider extends React.Component {
   constructor(props) {

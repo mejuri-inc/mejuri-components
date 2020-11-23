@@ -24,17 +24,18 @@ export const CartSummary = ({
   return (
     <Wrapper>
       <Row>
-        <FormattedMessage 
-          id='cart.balance.subtotal' 
-          values={{ taxesIncludedInPrice: taxesIncludedInPrice }}/>
+        <FormattedMessage
+          id='cart.balance.subtotal'
+          values={{ taxesIncludedInPrice: taxesIncludedInPrice }}
+        />
         {subTotalMessage}
       </Row>
       {taxes && (
         <Row>
-        <FormattedMessage id='cart.balance.taxes' />
+          <FormattedMessage id='cart.balance.taxes' />
           {taxes}
         </Row>
-      )} 
+      )}
       <Adjustments
         currency={currency}
         adjustments={adjustments}
