@@ -58,7 +58,7 @@ export class ClientStateProvider extends React.Component {
   constructor(props) {
     super(props)
 
-    this.setPickup = this.setPickup.bind(this)
+    this.setWalkout = this.setWalkout.bind(this)
     this.removeItem = this.removeItem.bind(this)
     this.setCurrency = this.setCurrency.bind(this)
     this.setCouponCode = this.setCouponCode.bind(this)
@@ -76,7 +76,7 @@ export class ClientStateProvider extends React.Component {
         toggle: () => this.setState({ cartOpened: !this.state.cartOpened }),
         removeItem: this.removeItem,
         updateItemQuantity: this.updateItemQuantity,
-        setPickup: this.setPickup,
+        setWalkout: this.setWalkout,
         dismissCouponError: () => this.setState({ couponError: false }),
         setCouponCode: this.setCouponCode,
         addSuggestionItem: this.addSuggestionItem,
@@ -235,7 +235,7 @@ export class ClientStateProvider extends React.Component {
     }
   }
 
-  async setPickup(itemId, quantity, pickUp) {
+  async setWalkout(itemId, quantity, walkout) {
     try {
       this.setState({ isLoading: true })
 
@@ -245,7 +245,7 @@ export class ClientStateProvider extends React.Component {
         itemId,
         this.props.apiHost,
         quantity,
-        pickUp
+        walkout
       )
 
       await this.getOrder()
