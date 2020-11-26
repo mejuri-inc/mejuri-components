@@ -28,7 +28,7 @@ export const updateItem = (
   const lineItem = {
     quantity
   }
-  if (walkout) lineItem.walkout = walkout
+  if (walkout != null) lineItem.walkout = walkout
 
   return fetchApi(
     state,
