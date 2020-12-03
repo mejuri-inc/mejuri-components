@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import { Row, Total, Wrapper } from './styled'
 import Estimates from './components/Estimates'
 import Adjustments from './components/Adjustments'
@@ -17,13 +17,13 @@ export const CartSummary = ({
   const subTotalMessage = subtotal ? (
     <span>{toCurrencyWithCode(subtotal, currency)}</span>
   ) : (
-    <FormattedMessage id='displayFreeAmount' />
+    <FormattedMessageWithLoader id='displayFreeAmount' />
   )
 
   return (
     <Wrapper>
       <Row>
-        <FormattedMessage id='cart.balance.subtotal' />
+        <FormattedMessageWithLoader id='cart.balance.subtotal' />
         {subTotalMessage}
       </Row>
       <Adjustments
@@ -33,7 +33,7 @@ export const CartSummary = ({
       />
       <Estimates currency={currency} estimates={estimates} />
       <Total>
-        <FormattedMessage id='cart.balance.total' />
+        <FormattedMessageWithLoader id='cart.balance.total' />
         <span>{estimatedTotal}</span>
       </Total>
     </Wrapper>

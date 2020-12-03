@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import { Wrapper, Buyer, POSName } from './styled'
 
 const PosNotificationBar = ({ pos, user, apiHost }) => {
@@ -17,21 +17,21 @@ const PosNotificationBar = ({ pos, user, apiHost }) => {
       <Buyer>
         {user ? (
           <>
-            <FormattedMessage
+            <FormattedMessageWithLoader
               id='notifications.pos.buyerMessage'
               values={{ userName: user.name || user.email }}
             />
             <span>
               {' '}
-              <FormattedMessage id='notifications.pos.notYou?' />{' '}
+              <FormattedMessageWithLoader id='notifications.pos.notYou?' />{' '}
             </span>
             <a href={`${apiHost}/logout`}>
-              <FormattedMessage id='notifications.pos.logoutText' />
+              <FormattedMessageWithLoader id='notifications.pos.logoutText' />
             </a>
             .
           </>
         ) : (
-          <FormattedMessage id='notifications.pos.guestBuyerMessage' />
+          <FormattedMessageWithLoader id='notifications.pos.guestBuyerMessage' />
         )}
       </Buyer>
     </Wrapper>

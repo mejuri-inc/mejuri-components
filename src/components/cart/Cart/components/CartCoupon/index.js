@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import { UnderlinedButtonLink, Wrapper } from './styled'
 import PromotionalCodeControl from '../PromotionalCodeControl'
 import PropTypes from 'prop-types'
@@ -28,7 +28,7 @@ export class CartCoupon extends React.PureComponent {
               this.setState({ collapsed: false })
             }}
           >
-            <FormattedMessage id='cart.couponCode.legend' />
+            <FormattedMessageWithLoader id='cart.couponCode.legend' />
           </UnderlinedButtonLink>
         ) : (
           <PromotionalCodeControl setCouponCode={setCouponCode} />

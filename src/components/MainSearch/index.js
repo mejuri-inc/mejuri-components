@@ -21,7 +21,7 @@ import ProductGrid from './components/ProductGrid'
 import CloseIcon from 'resources/icons/CloseIcon'
 import Overlay from 'components/common/Overlay'
 import RecommendedProducts from './components/RecommendedProducts'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import AlgoliaService from './service'
 
 const TYPING_DELAY = 1000
@@ -198,7 +198,7 @@ export class MainSearch extends PureComponent {
     return (
       <>
         <NoResults>
-          <FormattedMessage id='header.search.noResults' />
+          <FormattedMessageWithLoader id='header.search.noResults' />
         </NoResults>
         {!!recommendedProducts && (
           <RecommendedProducts
@@ -224,7 +224,7 @@ export class MainSearch extends PureComponent {
           <Content>
             <Header>
               <SearchBox>
-                <FormattedMessage id='header.search.placeholder'>
+                <FormattedMessageWithLoader id='header.search.placeholder'>
                   {(placeholderMsj) => (
                     <input
                       placeholder={placeholderMsj}
@@ -233,14 +233,14 @@ export class MainSearch extends PureComponent {
                       ref={this.input}
                     />
                   )}
-                </FormattedMessage>
+                </FormattedMessageWithLoader>
                 <Close onClick={() => this.close()}>
                   {' '}
                   <CloseIcon />
                 </Close>
               </SearchBox>
               <Hint>
-                <FormattedMessage id='header.search.hint' />
+                <FormattedMessageWithLoader id='header.search.hint' />
               </Hint>
             </Header>
             <Scrollable ref={this.scroll}>
@@ -249,7 +249,8 @@ export class MainSearch extends PureComponent {
               {searchString.length >= START_SEARCH_THRESHOLD &&
                 !!results.length && (
                   <NumberOfResults>
-                    {count} <FormattedMessage id='header.search.results' />
+                    {count}
+                    <FormattedMessageWithLoader id='header.search.results' />
                   </NumberOfResults>
                 )}
 

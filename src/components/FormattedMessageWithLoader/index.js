@@ -20,7 +20,12 @@ const Loader = styled.div`
   animation-name: ${placeHolderShimmer};
   animation-timing-function: linear;
   background: darkgray;
-  background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(
+    to right,
+    transparent 10%,
+    #dddddd 18%,
+    transparent 33%
+  );
   background-size: 800px 104px;
 `
 
