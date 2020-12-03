@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage, FormattedHTMLMessage } from 'react-intl'
+import { FormattedHTMLMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import Button from 'components/common/Button'
 import { MuiThemeProvider } from '@material-ui/core'
 import MejuriTheme from 'themes/material'
@@ -163,7 +164,7 @@ export class Cart extends PureComponent {
                     />
                   ) : (
                     <EmptyCart>
-                      <FormattedMessage id='cart.empty' />
+                      <FormattedMessageWithLoader id='cart.empty' />
                     </EmptyCart>
                   )}
                   {!!lineItems.length && (
@@ -200,7 +201,7 @@ export class Cart extends PureComponent {
                         }}
                         data-h='cart-go-to-checkout-btn'
                       >
-                        <FormattedMessage id='cart.actions.continue' />
+                        <FormattedMessageWithLoader id='cart.actions.continue' />
                       </Button>
                       <ApplePay
                         order={order}

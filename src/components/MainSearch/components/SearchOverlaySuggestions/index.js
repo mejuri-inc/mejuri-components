@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import { Suggestion, Wrapper } from './styled'
 
 export const SearchOverlaySuggestions = ({ search, suggestions }) => {
   return (
     <Wrapper>
       <Suggestion>
-        <FormattedMessage id='header.search.suggestedProductsTitle' />
+        <FormattedMessageWithLoader id='header.search.suggestedProductsTitle' />
       </Suggestion>
 
       {suggestions.map((s) => (

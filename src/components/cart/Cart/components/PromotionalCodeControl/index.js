@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ApplyButton, Input, Wrapper } from './styled'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { injectIntl, intlShape } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 
 export class PromotionalCodeControl extends React.PureComponent {
   constructor(props) {
@@ -42,7 +43,7 @@ export class PromotionalCodeControl extends React.PureComponent {
           data-h='cart-coupon-input'
         />
         <ApplyButton onClick={this.handleApply} data-h='cart-coupon-btn'>
-          <FormattedMessage id='cart.couponCode.apply' />
+          <FormattedMessageWithLoader id='cart.couponCode.apply' />
         </ApplyButton>
       </Wrapper>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import { List, Row } from '../../styled'
 import { toCurrencyWithCode } from 'helpers/currency'
 
@@ -16,7 +16,9 @@ export const Adjustments = ({ adjustments, currency, highlight }) => {
           <Row key={adjustment.label} highlight={highlight}>
             <span>{adjustment.label}</span>
             <span>
-              {formattedPrice || <FormattedMessage id='displayFreeAmount' />}
+              {formattedPrice || (
+                <FormattedMessageWithLoader id='displayFreeAmount' />
+              )}
             </span>
           </Row>
         )

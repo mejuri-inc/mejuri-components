@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import { Wrapper, Selector, Error, Message, Arrow, Container } from './styled'
 import PropTypes from 'prop-types'
-import { FormattedMessage, injectIntl } from 'react-intl'
+import { injectIntl } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import ChevronIcon from 'resources/icons/Chevron'
 
 const ERROR_TIMER = 2000
@@ -43,13 +44,13 @@ class Input extends PureComponent {
     } = this.props
 
     if (value.length === 0) {
-      const error = <FormattedMessage id={emptyValueErrorId} />
+      const error = <FormattedMessageWithLoader id={emptyValueErrorId} />
       this.showError(error)
       return
     }
 
     if (!validateValue(value)) {
-      const error = <FormattedMessage id={validationErrorId} />
+      const error = <FormattedMessageWithLoader id={validationErrorId} />
       this.showError(error)
       return
     }

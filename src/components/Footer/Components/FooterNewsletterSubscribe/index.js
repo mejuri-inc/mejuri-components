@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper, Title, Subtitle, WelcomeMessage } from './styled'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import Input from 'components/Input'
 import { ValidationHelper } from 'helpers/validation'
 
@@ -20,10 +20,10 @@ const FooterNewsletterSubscribe = ({ track }) => {
       {!isSubmitted && (
         <div>
           <Title>
-            <FormattedMessage id='footer.newsletterSubscribe.title' />
+            <FormattedMessageWithLoader id='footer.newsletterSubscribe.title' />
           </Title>
           <Subtitle>
-            <FormattedMessage id='footer.newsletterSubscribe.subtitle' />
+            <FormattedMessageWithLoader id='footer.newsletterSubscribe.subtitle' />
           </Subtitle>
           <Input
             submit={handleSubmit}
@@ -37,7 +37,7 @@ const FooterNewsletterSubscribe = ({ track }) => {
       )}
       {isSubmitted && (
         <WelcomeMessage>
-          <FormattedMessage id='footer.newsletterSubscribe.welcome' />
+          <FormattedMessageWithLoader id='footer.newsletterSubscribe.welcome' />
         </WelcomeMessage>
       )}
     </Wrapper>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import UserMenu from '../UserMenu'
 import { Wrapper, SignUpLink } from './styled'
 
@@ -12,7 +12,7 @@ function UserSection({ isGuest, onLogin, nameOrEmail, pos }) {
           <SignUpLink>{pos.name}</SignUpLink>
         ) : (
           <SignUpLink onClick={() => onLogin()} data-h='header-signup-btn'>
-            <FormattedMessage id='common.signin' />
+            <FormattedMessageWithLoader id='common.signin' />
           </SignUpLink>
         )
       ) : (

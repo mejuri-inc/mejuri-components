@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import { Wrapper, Panel, LabelChevron, Option } from './styled'
 import ChevronIcon from 'resources/icons/Chevron'
 
@@ -19,7 +19,7 @@ const UserMenu = ({ nameOrEmail, options }) => {
         {options.map((o) => (
           <Option key={o.title}>
             <a href={o.url} data-h='header-user-menu-btn'>
-              <FormattedMessage id={o.title} />
+              <FormattedMessageWithLoader id={o.title} />
             </a>
           </Option>
         ))}

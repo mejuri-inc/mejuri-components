@@ -1,11 +1,11 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import { Title, List, Product, Image, Name, Details } from './styled'
 
 const RecommendedProducts = ({ products, apiHost }) => (
   <>
     <Title>
-      <FormattedMessage id='header.search.recommendedProductsTitle' />
+      <FormattedMessageWithLoader id='header.search.recommendedProductsTitle' />
     </Title>
     <List>
       {products.map((item) => {

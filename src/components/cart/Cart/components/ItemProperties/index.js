@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Name, Options, PriceBox, Wrapper, SpecialMessage } from './styled'
 import QuantitySelector from 'components/common/QuantitySelector'
 import { toCurrency } from 'helpers/currency'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 
 export const getItemDetails = (ringSize, engravings, material) => {
   if (!ringSize && !engravings && !material) return null
@@ -44,13 +44,13 @@ export const ItemProperties = ({
       <Options>{getItemDetails(ringSize, displayEngravings, material)}</Options>
       {!!specialMessage && (
         <SpecialMessage>
-          <FormattedMessage id={specialMessage} />
+          <FormattedMessageWithLoader id={specialMessage} />
         </SpecialMessage>
       )}
       {sample ? (
         <PriceBox>
           <span />
-          <FormattedMessage id='displayFreeAmount' />
+          <FormattedMessageWithLoader id='displayFreeAmount' />
         </PriceBox>
       ) : (
         <PriceBox>

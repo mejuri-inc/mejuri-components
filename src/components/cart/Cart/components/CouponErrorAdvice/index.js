@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Message, Wrapper } from './styled'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import TimedMessage from 'components/common/TimedMessage'
 
 export const CouponErrorAdvice = ({ dismiss, visible }) => (
   <TimedMessage delay={5} dismiss={dismiss} visible={visible}>
     <Wrapper>
       <Message visible={visible} onClick={() => dismiss()}>
-        <FormattedMessage id='cart.couponCode.doesNotExist' />
+        <FormattedMessageWithLoader id='cart.couponCode.doesNotExist' />
       </Message>
     </Wrapper>
   </TimedMessage>

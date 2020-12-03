@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Spinner from 'components/common/Spinner'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 
 import {
   AddButton,
@@ -36,7 +36,7 @@ export class Suggestions extends React.PureComponent {
               <Columns>
                 <Texts>
                   <Link href={i.path}>{i.displayName}</Link>
-                  <FormattedMessage
+                  <FormattedMessageWithLoader
                     id='cart.suggestions.price'
                     values={{ price: i.price }}
                   />
@@ -47,7 +47,7 @@ export class Suggestions extends React.PureComponent {
                   disabled={i.isFetching}
                   data-h='cart-add-suggestion-icon'
                 >
-                  <FormattedMessage id='cart.suggestions.add' />
+                  <FormattedMessageWithLoader id='cart.suggestions.add' />
                 </AddButton>
               </Columns>
             </Item>

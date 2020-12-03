@@ -1,11 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  FormattedMessage,
-  FormattedHTMLMessage,
-  intlShape,
-  injectIntl
-} from 'react-intl'
+import { FormattedHTMLMessage, intlShape, injectIntl } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import Input from './components/Input'
 import ContinueButton from './components/Button'
 import Errors from './components/Errors'
@@ -90,14 +86,14 @@ const OnboardingView = ({
           {!!action && (
             <Actions>
               <ContinueButton disabled={isFetching} type='submit'>
-                <FormattedMessage id={action} />
+                <FormattedMessageWithLoader id={action} />
               </ContinueButton>
             </Actions>
           )}
         </form>
         {!!footerLink && (
           <FooterLink href='#forgot-password' onClick={footerLink.onClick}>
-            <FormattedMessage id={footerLink.label} />
+            <FormattedMessageWithLoader id={footerLink.label} />
           </FooterLink>
         )}
         {!!facebookLogin && (
@@ -105,7 +101,7 @@ const OnboardingView = ({
             <Icon w='24px'>
               <Facebook />
             </Icon>
-            <FormattedMessage id={facebookLogin.label} />
+            <FormattedMessageWithLoader id={facebookLogin.label} />
           </FacebookLogin>
         )}
       </Wrapper>

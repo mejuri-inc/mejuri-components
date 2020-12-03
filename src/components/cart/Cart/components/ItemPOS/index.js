@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Col, Wrapper } from './styled'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import Checkbox from 'components/common/Checkbox'
 
 export const ItemPOS = ({
@@ -25,11 +25,11 @@ export const ItemPOS = ({
     </Col>
     <Col>
       <div>
-        <FormattedMessage id='cart.items.availability' />
+        <FormattedMessageWithLoader id='cart.items.availability' />
         {available ? (
-          <FormattedMessage id='cart.items.inStore' />
+          <FormattedMessageWithLoader id='cart.items.inStore' />
         ) : (
-          <FormattedMessage id='cart.items.online' />
+          <FormattedMessageWithLoader id='cart.items.online' />
         )}
       </div>
     </Col>

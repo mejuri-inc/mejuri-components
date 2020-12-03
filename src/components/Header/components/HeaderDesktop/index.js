@@ -17,7 +17,7 @@ import CartIcon from 'components/cart/CartIcon'
 import MagniGlass from 'resources/icons/MagniGlass'
 
 import UserSection from '../UserSection'
-import { FormattedMessage } from 'react-intl'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 import ScrollBreakpoint from 'components/ScrollBreakpoint'
 
 function HeaderDesktop({
@@ -69,7 +69,7 @@ function HeaderDesktop({
                 data-h='header-search-btn'
               >
                 <MagniGlass />
-                <FormattedMessage id='header.search' />
+                <FormattedMessageWithLoader id='header.search' />
               </Button>
               {rightMenu.length > 0 &&
                 rightMenu.map((item) => (
