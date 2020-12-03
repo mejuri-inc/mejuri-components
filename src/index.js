@@ -17,6 +17,7 @@ import CurrencySelector from './components/CurrencySelector'
 import OnboardingModal from './components/OnboardingModal'
 import PosNotificationBar from './components/PosNotificationBar'
 import DiscountNotificationBar from './components/DiscountNotificationBar'
+import FormattedMessageWithLoader from './components/FormattedMessageWithLoader'
 import {
   ClientStateProvider,
   ClientStateContext
@@ -61,6 +62,7 @@ export {
   ButtonLink,
   PosNotificationBar,
   DiscountNotificationBar,
+  FormattedMessageWithLoader,
   ClientStateProvider,
   ClientStateContext,
   TrackingProvider,
