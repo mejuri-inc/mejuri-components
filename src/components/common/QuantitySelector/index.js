@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Btn, Quantity, Wrapper } from './styled'
 import debounce from 'lodash.debounce'
 
-const requestDelay = 1000
+const requestDelay = 500
 
 export const QuantitySelector = ({
   backOrderable,
