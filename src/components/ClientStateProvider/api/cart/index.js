@@ -21,14 +21,14 @@ export const updateItem = (
   itemId,
   apiHost,
   quantity = 1,
-  pickUp = null
+  walkout = null
 ) => {
   if (quantity === 0) return removeItem(state, number, itemId)
 
   const lineItem = {
     quantity
   }
-  if (pickUp) lineItem.pickUp = pickUp
+  if (walkout != null) lineItem.walkout = walkout
 
   return fetchApi(
     state,

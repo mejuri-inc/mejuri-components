@@ -13,4 +13,12 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 9px 30px;
+
+  label {
+    max-width: inherit;
+
+    span {
+      font-size: 15px;
+    }
+  }
 `
