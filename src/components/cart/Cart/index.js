@@ -36,8 +36,10 @@ export class Cart extends PureComponent {
     if (typeof window !== 'undefined') {
       try {
         if (this.props.isOpened) {
+          // eslint-disable-next-line no-unused-expressions
           window?.zE?.hide?.()
         } else {
+          // eslint-disable-next-line no-unused-expressions
           window?.zE?.show?.()
         }
       } catch (e) {
