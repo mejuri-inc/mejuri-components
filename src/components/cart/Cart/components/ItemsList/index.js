@@ -14,8 +14,7 @@ export const ItemsList = ({
   isPos,
   updateQuantity,
   setWalkout,
-  trackIncreaseProduct,
-  trackDecreaseProduct,
+  track,
   trackRemoveItem,
   isBlackfriday
 }) => {
@@ -26,6 +25,7 @@ export const ItemsList = ({
         const imageUrl = get(i, 'variant.images[0].attachmentUrl')
         const alt = get(i, 'variant.images[0].alt')
         const href = get(i, 'variant.slug')
+
         return (
           <ListElement key={i.id}>
             <ElementWrapper>
@@ -44,12 +44,9 @@ export const ItemsList = ({
                 }
                 currency={currency}
                 updateQuantity={updateQuantity}
-                trackIncrease={(q) =>
-                  trackIncreaseProduct({ lineItem: i, quantity: q })
-                }
-                trackDecrease={(q) =>
-                  trackDecreaseProduct({ lineItem: i, quantity: q })
-                }
+                track={(q) => {
+                  return track({ lineItem: i, quantity: q })
+                }}
               />
               <RemoveButton
                 onClick={() => {

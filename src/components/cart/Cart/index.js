@@ -102,7 +102,6 @@ export class Cart extends PureComponent {
       suggestions,
       trackEvent,
       trackIncreaseProduct,
-      trackDecreaseProduct,
       trackRemoveItem,
       trackCartGoToCheckout,
       host,
@@ -160,8 +159,7 @@ export class Cart extends PureComponent {
                       updateQuantity={updateItemQuantity}
                       setWalkout={setWalkout}
                       currency={currency}
-                      trackIncreaseProduct={trackIncreaseProduct}
-                      trackDecreaseProduct={trackDecreaseProduct}
+                      track={trackIncreaseProduct}
                       trackRemoveItem={trackRemoveItem}
                     />
                   ) : (

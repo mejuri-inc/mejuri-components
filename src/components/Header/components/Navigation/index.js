@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import {
   Wrapper,
@@ -14,7 +14,7 @@ function SmartLayerBackground(props) {
   const r = useRef()
   const [left, setLeft] = useState(0)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const rect = r?.current?.getBoundingClientRect()
     rect && setLeft(rect.left)
   }, [r])
