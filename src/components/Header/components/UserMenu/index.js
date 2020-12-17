@@ -43,7 +43,6 @@ UserMenu.defaultProps = {
     { url: '/profile', title: 'header.userMenu.myProfile' },
     { url: '/profile/history', title: 'header.userMenu.myOrders' },
     { url: '/profile/wish-list', title: 'header.userMenu.myWishList' },
-    { url: '/profile/return', title: 'header.userMenu.returns' },
     { url: '/signout', title: 'header.userMenu.signOut' }
   ]
 }

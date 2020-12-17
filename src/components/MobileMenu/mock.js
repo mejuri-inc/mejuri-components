@@ -14,10 +14,6 @@ export default {
         url: '/profile/history'
       },
       {
-        label: 'Returns',
-        url: '/profile/return'
-      },
-      {
         label: 'Wishlist',
         url: '/profile/wish-list'
       },
