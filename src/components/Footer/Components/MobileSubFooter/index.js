@@ -12,13 +12,13 @@ function MobileSubFooter({ socialLinks, currencySelector, config }) {
   })
   return (
     <Wrapper>
-      <Row>
+      <Row cols={'1fr 1fr'}>
         {currencySelector && currencySelector}
         <SocialLinksContainer>
           <SocialLinks socialLinks={socialLinks} />
         </SocialLinksContainer>
       </Row>
-      <Row>
+      <Row cols={'1fr'}>
         <LegalLinks legalLinks={legalLinks} />
       </Row>
     </Wrapper>

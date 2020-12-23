@@ -4,9 +4,7 @@ import colors from 'styles/colors'
 const md = '768px'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 40px 8.33vw;
+  padding: 40px 8.33vw 70px;
   background-color: ${colors.lightGray3};
 
   @media only screen and (min-width: ${md}) {
@@ -16,8 +14,11 @@ export const Wrapper = styled.div`
 Wrapper.displayName = 'MobileWrapperFooter'
 
 export const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: ${p => p.cols};
+  grid-template-rows: 1fr;
+  gap: 0px 5px;
+  grid-gap: 0px 5px;
 
   &:last-child {
     margin-top: 30px;
