@@ -7,7 +7,7 @@ import get from 'lodash.get'
 
 function MobileSubFooter({ socialLinks, currencySelector, config }) {
   const legalLinks = config.children.find(function (x) {
-    const isLegal = get(x, 'fields.extraFields.legal', false)
+    const isLegal = get(x, 'extraFields.legal', false)
     return isLegal
   })
   return (
