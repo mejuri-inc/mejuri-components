@@ -4,7 +4,7 @@ import colors from 'styles/colors'
 const md = '768px'
 
 export const Wrapper = styled.div`
-  padding: 40px 8.33vw 70px;
+  padding: 40px 8.33vw;
   background-color: ${colors.lightGray3};
 
   @media only screen and (min-width: ${md}) {
