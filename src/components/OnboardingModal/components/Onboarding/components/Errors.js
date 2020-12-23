@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
+import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import colors from 'styles/colors'
 
@@ -26,11 +26,9 @@ const Errors = ({ list }) => {
       {errors.map((error, key) => (
         <Error key={key}>
           {error === true ? (
-            <FormattedMessageWithLoader id='error.generic' />
+            <FormattedMessage id='error.generic' />
           ) : (
-            error && (
-              <FormattedMessageWithLoader id={error} defaultMessage={error} />
-            )
+            error && <FormattedMessage id={error} defaultMessage={error} />
           )}
         </Error>
       ))}
