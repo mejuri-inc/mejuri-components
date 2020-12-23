@@ -156,7 +156,7 @@ export class Onboarding extends Component {
     const response = await checkEmail(email, mejuriApiHost, token)
 
     try {
-      if (response.ok) {
+      if (response?.ok) {
         if (response.exists) {
           this.setStep('login')
         } else {
@@ -192,7 +192,7 @@ export class Onboarding extends Component {
       this.resetCaptcha()
     }
 
-    if (response.ok) {
+    if (response?.ok) {
       signUp ? signUp({ email }, false, this.userChanged) : this.userChanged()
     }
   }
@@ -225,7 +225,7 @@ export class Onboarding extends Component {
       this.resetCaptcha()
     }
 
-    if (response.ok) {
+    if (response?.ok) {
       signUp
         ? signUp({ email, name }, newsletter, this.userChanged)
         : this.userChanged()
