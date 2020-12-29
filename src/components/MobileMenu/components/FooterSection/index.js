@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Footer,
+import { 
+  Footer,
   FooterItem,
   FooterLink,
   BottomWrapper,
-  ButtonLink } from './styled'
+  ButtonLink
+} from './styled'
 import { loggedInFilter, posFilter } from '../../filters'
 import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 
