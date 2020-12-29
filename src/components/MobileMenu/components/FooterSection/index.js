@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Footer, FooterItem, FooterLink, BottomWrapper, ButtonLink } from './styled'
+import { Footer,
+  FooterItem,
+  FooterLink,
+  BottomWrapper,
+  ButtonLink } from './styled'
 import { loggedInFilter, posFilter } from '../../filters'
 import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 
@@ -38,17 +42,16 @@ function FooterSection({
         <FooterItem>
           <BottomWrapper>
             {currencySelector && currencySelector}
-            {accessibility && 
+            {accessibility && (
               <ButtonLink
                 onClick={() => { enableUsableNetAssistive && enableUsableNetAssistive()} }
                 data-h='accessibility-btn'
               >
                 <FormattedMessageWithLoader id='mobileMenu.accessibility' />
               </ButtonLink>
-            }
+            )}
           </BottomWrapper>
         </FooterItem>
-
     </Footer>
   )
 }
