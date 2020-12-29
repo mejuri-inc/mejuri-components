@@ -96,7 +96,8 @@ export class MobileMenu extends React.Component {
       isOpen,
       currencySelector,
       pos,
-      isLoggedIn
+      isLoggedIn,
+      accessibility
     } = this.props
     const { subPageOpen } = this.state
     if (!menuOptions) return null
@@ -150,6 +151,7 @@ export class MobileMenu extends React.Component {
                   options={get(bottom, 'children')}
                   currencySelector={currencySelector}
                   pos={!!pos}
+                  accessibility={!!accessibility}
                   isLoggedIn={isLoggedIn}
                   openOnboarding={this.handleSignInClick}
                 />
@@ -193,10 +195,12 @@ MobileMenu.propTypes = {
   currencySelector: PropTypes.element,
   trackOpenCart: PropTypes.func,
   trackSearchOpen: PropTypes.func,
-  pos: PropTypes.object
+  pos: PropTypes.object,
+  accessibility: PropTypes.bool
 }
 
 MobileMenu.defaultProps = {
+  accessibility: false,
   trackOpenCart: () =>
     console.log('trackOpenCart callback function missing in <HeaderDesktop />'),
   trackSearchOpen: () =>
