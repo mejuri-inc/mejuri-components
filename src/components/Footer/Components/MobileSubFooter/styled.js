@@ -15,7 +15,7 @@ Wrapper.displayName = 'MobileWrapperFooter'
 
 export const Row = styled.div`
   display: grid;
-  grid-template-columns: ${p => p.cols};
+  grid-template-columns: ${(p) => p.cols};
   grid-template-rows: 1fr;
   gap: 0px 5px;
   grid-gap: 0px 5px;
