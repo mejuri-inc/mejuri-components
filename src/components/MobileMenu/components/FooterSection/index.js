@@ -40,7 +40,7 @@ function FooterSection({
             {currencySelector && currencySelector}
             {accessibility && 
               <ButtonLink
-                onClick={() => {enableUsableNetAssistive && enableUsableNetAssistive()}}
+                onClick={() => { enableUsableNetAssistive && enableUsableNetAssistive()} }
                 data-h='accessibility-btn'
               >
                 <FormattedMessageWithLoader id='mobileMenu.accessibility' />
