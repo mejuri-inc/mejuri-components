@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { 
+import {
   Footer,
   FooterItem,
   FooterLink,
@@ -41,19 +41,22 @@ function FooterSection({
             </FooterLink>
           </FooterItem>
         ))}
-        <FooterItem>
-          <BottomWrapper>
-            {currencySelector && currencySelector}
-            {accessibility && (
-              <ButtonLink
-                onClick={() => { enableUsableNetAssistive && enableUsableNetAssistive()} }
-                data-h='accessibility-btn'
-              >
-                <FormattedMessageWithLoader id='mobileMenu.accessibility' />
-              </ButtonLink>
-            )}
-          </BottomWrapper>
-        </FooterItem>
+      <FooterItem>
+        <BottomWrapper>
+          {currencySelector && currencySelector}
+          {accessibility && (
+            <ButtonLink
+              onClick={() => {
+                // eslint-disable-next-line no-undef
+                enableUsableNetAssistive && enableUsableNetAssistive()
+              }}
+              data-h='accessibility-btn'
+            >
+              <FormattedMessageWithLoader id='mobileMenu.accessibility' />
+            </ButtonLink>
+          )}
+        </BottomWrapper>
+      </FooterItem>
     </Footer>
   )
 }
