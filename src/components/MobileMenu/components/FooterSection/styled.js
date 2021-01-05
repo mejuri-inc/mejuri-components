@@ -35,6 +35,8 @@ export const BottomWrapper = styled.div`
 export const ButtonLink = styled.a`
   display: block;
   font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
   text-transform: none;
   text-decoration: underline;
   margin-left: auto;
