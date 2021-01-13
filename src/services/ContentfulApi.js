@@ -502,4 +502,33 @@ export class ContentfulAPI {
       console.error('Could not get translations', e)
     }
   }
+
+  async getCommonPageData(localeCode) {
+    function parseCommonData(data) {
+      const contentfulIdentifiers = [
+        { name: 'text', value: 'global-footer', newKey: 'footer' }
+      ]
+
+      return contentfulIdentifiers.reduce((resultObject, current) => {
+        const entry = data.content.find(
+          (elem) => elem[current.name] === current.value
+        )
+        return { ...resultObject, [current.newKey]: entry }
+      }, {})
+    }
+
+    try {
+      const client = this.getClient()
+      const response = await client.getEntries({
+        content_type: 'bulkPublish',
+        'fields.slug': 'common-page-data',
+        locale: localeCode || this.localeCode,
+        include: 4
+      })
+      const formatted = this.formatResponse(response)
+      return formatted?.[0] && parseCommonData(formatted[0])
+    } catch (e) {
+      console.error('Could not get common page data', e)
+    }
+  }
 }
