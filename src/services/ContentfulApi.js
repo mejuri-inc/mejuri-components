@@ -506,7 +506,22 @@ export class ContentfulAPI {
   async getCommonPageData(localeCode) {
     function parseCommonData(data) {
       const contentfulIdentifiers = [
-        { name: 'text', value: 'global-footer', newKey: 'footer' }
+        { name: 'slug', value: 'global-footer', newKey: 'footer' },
+        { name: 'slug', value: 'global-mobile-menu', newKey: 'mobileMenu' },
+        { name: 'slug', value: 'global-header-menu', newKey: 'header' },
+        { name: 'slug', value: 'translations', newKey: 'messages' },
+        { name: 'name', value: 'notification-bars', newKey: 'notifications' },
+        { name: 'name', value: 'accessibility', newKey: 'accessibility' },
+        {
+          name: 'identifier',
+          value: 'menu-search-you-might-also-like',
+          newKey: 'mightAlsoLike'
+        },
+        {
+          name: 'identifier',
+          value: 'menu-top-search-suggestions',
+          newKey: 'topSearch'
+        }
       ]
 
       return contentfulIdentifiers.reduce((resultObject, current) => {
