@@ -70,20 +70,6 @@ export class MobileMenu extends React.Component {
     this.toggleMenuState()
   }
 
-  handleBagClick = () => {
-    const { toggleCart, trackOpenCart } = this.props
-    toggleCart(true)
-    trackOpenCart()
-    setTimeout(() => this.toggleMenuState(), 300)
-  }
-
-  handleSearchClick = () => {
-    const { toggleSearch, trackSearchOpen } = this.props
-    toggleSearch()
-    trackSearchOpen()
-    this.toggleMenuState()
-  }
-
   openSubPage = (id) => {
     this.setState({ subPageIndex: id, subPageOpen: true })
   }
@@ -91,8 +77,6 @@ export class MobileMenu extends React.Component {
   render() {
     const {
       menuOptions,
-      itemQuantity,
-      searchEnabled,
       isOpen,
       currencySelector,
       pos,
@@ -121,10 +105,7 @@ export class MobileMenu extends React.Component {
           <MobileMenuHeader
             toggleNavigation={this.toggleMenuState}
             isGoBackEnabled={this.state.subPageOpen}
-            itemQuantity={itemQuantity}
-            bagClick={this.handleBagClick}
-            glassClick={this.handleSearchClick}
-            searchEnabled={searchEnabled}
+            accessibility={!!accessibility}
           />
           <Pages
             isOpen={subPageOpen}
@@ -141,7 +122,6 @@ export class MobileMenu extends React.Component {
                     label={o.text}
                     isOpen={this.state.openDrawer === o._id}
                     options={o.children}
-                    glassClick={this.handleSearchClick}
                     pos={!!pos}
                     isLoggedIn={isLoggedIn}
                   />
@@ -151,7 +131,6 @@ export class MobileMenu extends React.Component {
                   options={get(bottom, 'children')}
                   currencySelector={currencySelector}
                   pos={!!pos}
-                  accessibility={!!accessibility}
                   isLoggedIn={isLoggedIn}
                   openOnboarding={this.handleSignInClick}
                 />
@@ -183,28 +162,18 @@ MobileMenu.propTypes = {
     account: PropTypes.object,
     stylingHelp: PropTypes.object
   }),
-  itemQuantity: PropTypes.number,
-  searchEnabled: PropTypes.bool,
   isLoggedIn: PropTypes.bool,
   isPos: PropTypes.bool,
   isOpen: PropTypes.bool,
   toggleMenu: PropTypes.func,
-  toggleCart: PropTypes.func,
-  toggleSearch: PropTypes.func,
   openOnboarding: PropTypes.func,
   currencySelector: PropTypes.element,
-  trackOpenCart: PropTypes.func,
-  trackSearchOpen: PropTypes.func,
   pos: PropTypes.object,
   accessibility: PropTypes.bool
 }
 
 MobileMenu.defaultProps = {
-  accessibility: false,
-  trackOpenCart: () =>
-    console.log('trackOpenCart callback function missing in <HeaderDesktop />'),
-  trackSearchOpen: () =>
-    console.log('trackSearchOpen prop missing in <MainSearch />')
+  accessibility: false
 }
 
 export default MobileMenu

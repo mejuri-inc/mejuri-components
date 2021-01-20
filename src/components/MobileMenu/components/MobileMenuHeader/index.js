@@ -1,21 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CartIcon from 'components/cart/CartIcon'
-import MagniGlass from 'resources/icons/MagniGlass'
 import Arrow from 'resources/icons/ArrowLongLeft'
 import Close from 'resources/icons/CloseIcon'
-
-import { Header, GoBack, ArrowIcon, SearchIcon } from './styled'
+import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
+import { Header, GoBack, ArrowIcon, ButtonLink } from './styled'
 
 export const MobileMenuHeader = ({
   toggleNavigation,
   isGoBackEnabled,
-  itemQuantity,
-  bagClick,
-  glassClick
+  accessibility
 }) => {
   return (
     <Header>
+      {accessibility && (
+        <ButtonLink
+          href='javascript:enableUsableNetAssistive()'
+          data-h='accessibility-btn'
+        >
+          <FormattedMessageWithLoader id='mobileMenu.accessibility' />
+        </ButtonLink>
+      )}
       <GoBack onClick={toggleNavigation} data-h='mobile-menu-toggle-btn'>
         {isGoBackEnabled ? (
           <ArrowIcon>
@@ -25,14 +29,6 @@ export const MobileMenuHeader = ({
           <Close />
         )}
       </GoBack>
-      <SearchIcon onClick={glassClick} data-h='mobile-menu-search-btn'>
-        <MagniGlass />
-      </SearchIcon>
-      <CartIcon
-        onClick={() => bagClick()}
-        itemsCount={itemQuantity}
-        data-h='mobile-menu-cart-btn'
-      />
     </Header>
   )
 }
@@ -40,9 +36,7 @@ export const MobileMenuHeader = ({
 MobileMenuHeader.propTypes = {
   toggleNavigation: PropTypes.func,
   isGoBackEnabled: PropTypes.bool,
-  itemQuantity: PropTypes.number,
-  bagClick: PropTypes.func,
-  glassClick: PropTypes.func
+  accessibility: PropTypes.bool
 }
 
 export default MobileMenuHeader

@@ -1,14 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  Footer,
-  FooterItem,
-  FooterLink,
-  BottomWrapper,
-  ButtonLink
-} from './styled'
+import { Footer, FooterItem, FooterLink, BottomWrapper } from './styled'
 import { loggedInFilter, posFilter } from '../../filters'
-import FormattedMessageWithLoader from 'components/FormattedMessageWithLoader'
 
 function FooterSection({
   options,
@@ -16,8 +9,7 @@ function FooterSection({
   pos,
   currencySelector,
   isLoggedIn,
-  openOnboarding,
-  accessibility
+  openOnboarding
 }) {
   function onClickFunction(o) {
     if (o.children) return () => openSubPage(o._id)
@@ -42,20 +34,7 @@ function FooterSection({
           </FooterItem>
         ))}
       <FooterItem>
-        <BottomWrapper>
-          {currencySelector && currencySelector}
-          {accessibility && (
-            <ButtonLink
-              onClick={() => {
-                // eslint-disable-next-line no-undef
-                enableUsableNetAssistive && enableUsableNetAssistive()
-              }}
-              data-h='accessibility-btn'
-            >
-              <FormattedMessageWithLoader id='mobileMenu.accessibility' />
-            </ButtonLink>
-          )}
-        </BottomWrapper>
+        <BottomWrapper>{currencySelector && currencySelector}</BottomWrapper>
       </FooterItem>
     </Footer>
   )

@@ -31,19 +31,3 @@ export const FooterLink = styled.a`
 export const BottomWrapper = styled.div`
   display: flex;
 `
-
-export const ButtonLink = styled.a`
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-  text-decoration: underline;
-  margin-left: auto;
-  border: none;
-  color: ${(p) => p.theme.colors.black};
-  &:focus,
-  &:hover {
-    color: ${(p) => p.theme.colors.grey};
-  }
-`
