@@ -149,7 +149,7 @@ export class Cart extends PureComponent {
                     }
                   />
                 )}
-                {isPos && order.number && (
+                {isPos && order.number && !!lineItems.length && (
                   <CartOrderNumberTag orderNumber={order.number} />
                 )}
                 {order.isBlackfriday && <BfLine />}
