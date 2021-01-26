@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartOrderNumberTag Renders with the order number provided 1`] = `
+<div>
+  <div
+    class="sc-bdnylx iIEgSZ"
+  >
+    <a
+      href="/shop/admin/orders/M62723604QU/edit"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <div
+        class="sc-gtssRu fnkEfa"
+      >
+        M62723604QU
+      </div>
+    </a>
+  </div>
+</div>
+`;
