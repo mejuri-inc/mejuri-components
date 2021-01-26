@@ -6,15 +6,17 @@ exports[`CartOrderNumberTag Renders with the order number provided 1`] = `
     class="sc-bdnylx iIEgSZ"
   >
     <a
-      href="/shop/admin/orders/M62723604QU/edit"
+      href="/shop/admin/orders/order-number/edit"
       rel="noreferrer"
       target="_blank"
     >
-      <div
+      <p
         class="sc-gtssRu fnkEfa"
+        data-h="order-number"
+        data-testid="order-number"
       >
-        M62723604QU
-      </div>
+        order-number
+      </p>
     </a>
   </div>
 </div>

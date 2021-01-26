@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 import colors from 'styles/colors'
 
-export const CartOrderNumberWrapper = styled.div`
+export const Wrapper = styled.div`
   text-align: center;
   margin-top: 5px;
 `
 
-export const OrderNumberParagraph = styled.div`
+export const OrderNumber = styled.p.attrs({
+  'data-h': 'order-number',
+  'data-testid': 'order-number'
+})`
   display: inline-block;
   margin: 0;
   padding: 5px;
