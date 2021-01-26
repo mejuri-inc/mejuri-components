@@ -149,7 +149,9 @@ export class Cart extends PureComponent {
                     }
                   />
                 )}
-                {isPos && <CartOrderNumberTag orderNumber={order.number} />}
+                {isPos && order.number && (
+                  <CartOrderNumberTag orderNumber={order.number} />
+                )}
                 {order.isBlackfriday && <BfLine />}
                 <Scrollable>
                   {lineItems.length ? (
