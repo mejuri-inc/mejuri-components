@@ -16,6 +16,7 @@ import {
 } from './styled'
 import SectionLoader from 'components/common/SectionLoader'
 import CartHeader from 'components/cart/Cart/components/CartHeader'
+import CartOrderNumberTag from 'components/cart/Cart/components/CartOrderNumberTag'
 import ProgressBar from 'components/cart/Cart/components/ProgressBar'
 import ItemsList from 'components/cart/Cart/components/ItemsList'
 import Suggestions from 'components/cart/Cart/components/Suggestions'
@@ -148,6 +149,7 @@ export class Cart extends PureComponent {
                     }
                   />
                 )}
+                {isPos && <CartOrderNumberTag orderNumber={order.number} />}
                 {order.isBlackfriday && <BfLine />}
                 <Scrollable>
                   {lineItems.length ? (
