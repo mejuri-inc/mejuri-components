@@ -5,7 +5,7 @@ import CartOrderNumberTag from './index'
 describe('CartOrderNumberTag', () => {
   it('Renders with the order number provided', () => {
     const { container } = render(
-      <CartOrderNumberTag orderNumber={'M62723604QU'} />
+      <CartOrderNumberTag orderNumber='M62723604QU' />
     )
 
     expect(container).toMatchSnapshot()
