@@ -24,6 +24,11 @@ function sailthruInScope() {
   return typeof window !== 'undefined' && window.Sailthru
 }
 
+
+function flowInScope() {
+  return typeof window !== 'undefined' && window.flow?.beacon?
+}
+
 const tracking = {
   // Header.
   headerClick: (context) =>
@@ -99,9 +104,11 @@ const tracking = {
 
   cartAddProduct: (order, context, user) => {
     if (!order) return
+
+    let mappedLineItem = mapLineItem(context.lineItem)
     // Segment.
     getAnalytics().track('Product Added', {
-      ...mapLineItem(context.lineItem),
+      ...mappedLineItem,
       quantity: context.quantity
     })
 
@@ -114,17 +121,35 @@ const tracking = {
       items: itemsInCart.filter((i) => i.qty > 0)
     }
     user &&
-      order &&
       sailthruInScope() &&
       Sailthru.integration('addToCart', values)
+
+    // flow
+    if (flowInScope()) {
+      if (context.quantity > 0) {
+        flow.beacon.processEvent('cart_add', {
+          item_number: mappedLineItem.sku,
+          quantity: mappedLineItem.quantity,
+          price: {
+            amount: mappedLineItem.price,
+            currency: order.currency
+          }
+        })
+      } else {
+        // QuantitySelector use increase track for both cases, increasing and decreasing
+        flow.beacon.processEvent('cart_remove', { item_number: mappedLineItem.sku }}
+      }
+    }    
   },
 
   cartDecrementProduct(order, context, user) {
     if (!order) return
 
+    let mappedLineItem = mapLineItem(context.lineItem)
+
     // Segment.
     getAnalytics().track('Product Removed', {
-      ...mapLineItem(context.lineItem),
+      ...mappedLineItem,
       quantity: context.quantity
     })
 
@@ -138,9 +163,15 @@ const tracking = {
       items: itemsInCart.filter((i) => i.qty > 0)
     }
     user &&
-      order &&
       sailthruInScope() &&
       Sailthru.integration('addToCart', values)
+
+    flowInScope() &&
+      mappedLineItem.quantity == 0 &&
+      flow.beacon.processEvent('cart_remove', {
+        item_number: mappedLineItem.sku
+      })
+    }
   },
 
   cartGoToCheckout(orderNumber) {
