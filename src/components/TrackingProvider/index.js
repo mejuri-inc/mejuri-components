@@ -24,7 +24,6 @@ function sailthruInScope() {
   return typeof window !== 'undefined' && window.Sailthru
 }
 
-
 function flowInScope() {
   return typeof window !== 'undefined' && window.flow
 }
@@ -105,7 +104,7 @@ const tracking = {
   cartAddProduct: (order, context, user) => {
     if (!order) return
 
-    let mappedLineItem = mapLineItem(context.lineItem)
+    const mappedLineItem = mapLineItem(context.lineItem)
     // Segment.
     getAnalytics().track('Product Added', {
       ...mappedLineItem,
@@ -120,13 +119,12 @@ const tracking = {
       email: user?.email || null,
       items: itemsInCart.filter((i) => i.qty > 0)
     }
-    user &&
-      sailthruInScope() &&
-      Sailthru.integration('addToCart', values)
+    user && sailthruInScope() && Sailthru.integration('addToCart', values)
 
     // flow
     if (flowInScope()) {
       if (context.quantity > 0) {
+        // eslint-disable-next-line no-undef
         flow.beacon.processEvent('cart_add', {
           item_number: mappedLineItem.sku,
           quantity: mappedLineItem.quantity,
@@ -137,15 +135,18 @@ const tracking = {
         })
       } else {
         // QuantitySelector use increase track for both cases, increasing and decreasing
-        flow.beacon.processEvent('cart_remove', { item_number: mappedLineItem.sku })
+        // eslint-disable-next-line no-undef
+        flow.beacon.processEvent('cart_remove', {
+          item_number: mappedLineItem.sku
+        })
       }
-    }    
+    }
   },
 
   cartDecrementProduct(order, context, user) {
     if (!order) return
 
-    let mappedLineItem = mapLineItem(context.lineItem)
+    const mappedLineItem = mapLineItem(context.lineItem)
 
     // Segment.
     getAnalytics().track('Product Removed', {
@@ -162,12 +163,12 @@ const tracking = {
       email: user?.email || null,
       items: itemsInCart.filter((i) => i.qty > 0)
     }
-    user &&
-      sailthruInScope() &&
-      Sailthru.integration('addToCart', values)
+
+    user && sailthruInScope() && Sailthru.integration('addToCart', values)
 
     flowInScope() &&
-      mappedLineItem.quantity == 0 &&
+      mappedLineItem.quantity === 0 &&
+      // eslint-disable-next-line no-undef
       flow.beacon.processEvent('cart_remove', {
         item_number: mappedLineItem.sku
       })
