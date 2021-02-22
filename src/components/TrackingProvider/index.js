@@ -171,7 +171,6 @@ const tracking = {
       flow.beacon.processEvent('cart_remove', {
         item_number: mappedLineItem.sku
       })
-    }
   },
 
   cartGoToCheckout(orderNumber) {
