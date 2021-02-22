@@ -26,7 +26,7 @@ function sailthruInScope() {
 
 
 function flowInScope() {
-  return typeof window !== 'undefined' && window.flow?.beacon?
+  return typeof window !== 'undefined' && window.flow
 }
 
 const tracking = {
@@ -137,7 +137,7 @@ const tracking = {
         })
       } else {
         // QuantitySelector use increase track for both cases, increasing and decreasing
-        flow.beacon.processEvent('cart_remove', { item_number: mappedLineItem.sku }}
+        flow.beacon.processEvent('cart_remove', { item_number: mappedLineItem.sku })
       }
     }    
   },
