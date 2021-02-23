@@ -122,7 +122,12 @@ const tracking = {
     user && sailthruInScope() && Sailthru.integration('addToCart', values)
 
     console.log('flowInScope', flowInScope())
-    console.log('cartDecrementProduct', context.quantity, mappedLineItem.sku, mappedLineItem.quantity)
+    console.log(
+      'cartDecrementProduct',
+      context.quantity,
+      mappedLineItem.sku,
+      mappedLineItem.quantity
+    )
     // flow
     if (flowInScope()) {
       if (context.quantity > 0) {
