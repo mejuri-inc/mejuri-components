@@ -121,6 +121,8 @@ const tracking = {
     }
     user && sailthruInScope() && Sailthru.integration('addToCart', values)
 
+    console.log('flowInScope', flowInScope())
+    console.log('cartDecrementProduct', context.quantity, mappedLineItem.sku, mappedLineItem.quantity)
     // flow
     if (flowInScope()) {
       if (context.quantity > 0) {
@@ -166,6 +168,8 @@ const tracking = {
 
     user && sailthruInScope() && Sailthru.integration('addToCart', values)
 
+    console.log('flowInScope', flowInScope())
+    console.log('cartDecrementProduct', mappedLineItem.quantity)
     flowInScope() &&
       mappedLineItem.quantity === 0 &&
       // eslint-disable-next-line no-undef

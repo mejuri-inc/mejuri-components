@@ -123,6 +123,8 @@ export class ClientStateProvider extends React.Component {
         },
         () => this.getOrder()
       )
+
+      return sessionResponse.current
     } catch (e) {
       console.error('Error getting session', e)
     }
